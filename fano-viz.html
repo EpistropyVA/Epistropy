@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fano平面 · 协边可视化</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0f; color: #e0e0e0; font-family: 'Segoe UI', system-ui, sans-serif; overflow-x: hidden; }
+
+  nav { display: flex; gap: 0; background: #14141f; border-bottom: 1px solid #2a2a3a; position: sticky; top: 0; z-index: 10; }
+  nav button { flex: 1; padding: 14px 20px; background: none; border: none; color: #888; font-size: 15px; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
+  nav button:hover { color: #ccc; background: #1a1a2a; }
+  nav button.active { color: #e0e0e0; border-bottom-color: #6688cc; background: #1a1a2a; }
+
+  .panel { display: none; padding: 40px; max-width: 1200px; margin: 0 auto; }
+  .panel.active { display: block; }
+  .panel h2 { font-size: 22px; margin-bottom: 8px; color: #8899cc; font-weight: 500; }
+  .panel .subtitle { color: #666; margin-bottom: 30px; font-size: 14px; }
+
+  .viz-container { display: flex; justify-content: center; align-items: center; min-height: 500px; }
+  .legend { margin-top: 20px; padding: 16px 20px; background: #12121a; border: 1px solid #2a2a3a; border-radius: 8px; font-size: 13px; line-height: 1.8; }
+  .legend code { background: #1a1a2a; padding: 2px 6px; border-radius: 3px; font-family: 'Consolas', monospace; }
+  .red { color: #e85050; }
+  .blue { color: #5088e8; }
+  .gray { color: #666; }
+  .green { color: #50c878; }
+  .yellow { color: #e8c850; }
+
+  /* Panel 3: lattice */
+  .lattice-row { display: flex; justify-content: center; gap: 60px; align-items: center; flex-wrap: wrap; }
+  .lattice-col { text-align: center; }
+  .lattice-col h3 { font-size: 16px; color: #8899cc; margin-bottom: 12px; font-weight: 400; }
+  .iso-symbol { font-size: 48px; color: #6688cc; line-height: 1; padding: 0 30px; align-self: center; }
+  .controls { text-align: center; margin-top: 20px; }
+  .controls button { padding: 8px 20px; background: #2a2a4a; border: 1px solid #4a4a6a; color: #ccc; border-radius: 4px; cursor: pointer; font-size: 13px; margin: 0 4px; }
+  .controls button:hover { background: #3a3a5a; }
+  .frame-label { text-align: center; margin-top: 10px; color: #888; font-size: 14px; }
+
+  /* Panel 4: fiber bundle */
+  .fiber-note { max-width: 700px; margin: 20px auto 0; }
+
+  /* Panel 5: dressing */
+  .dress-stages { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 20px; }
+  .dress-stage { text-align: center; padding: 16px; background: #12121a; border: 1px solid #2a2a3a; border-radius: 8px; width: 180px; }
+  .dress-stage h4 { color: #8899cc; font-size: 14px; margin-bottom: 8px; font-weight: 400; }
+  .dress-stage p { font-size: 12px; color: #888; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<nav>
+  <button class="active" onclick="show(0)">① Fano 2D</button>
+  <button onclick="show(1)">② 立方体 Fano</button>
+  <button onclick="show(2)">③ 纤维丛侧视图</button>
+  <button onclick="show(3)">④ 格点刷新</button>
+  <button onclick="show(4)">⑤ 穿衣链</button>
+  <button onclick="show(5)">⑥ ∞|NULL</button>
+  <button onclick="show(6)">⑦ 协边塔</button>
+</nav>
+
+<!-- Panel 0: Standard Fano Plane -->
+<div class="panel active" id="p0">
+  <h2>Fano平面 · PG(2, F₂)</h2>
+  <p class="subtitle">7个点 = F₂³ 非零向量 · 7条线 = 满足 a⊕b⊕c=0 的三元组</p>
+  <div class="viz-container">
+    <svg id="fano2d" width="600" height="520" viewBox="-300 -280 600 520"></svg>
+  </div>
+  <div class="legend">
+    <span class="red">● 外三角顶点</span> = 标准基 {e₁(100), e₂(010), e₄(001)}<br>
+    <span class="blue">● 边中点</span> = 两基之和 {e₃(110), e₅(101), e₆(011)}<br>
+    <span class="yellow">● 中心</span> = e₇(111) = 三基全加<br>
+    <b>7条线</b>: 3外边 + 3中线 + 1内接圆 · 每条线上3点满足 <code>a ⊕ b ⊕ c = 0</code>
+  </div>
+</div>
+
+<!-- Panel 1: Cube Fano -->
+<div class="panel" id="p1">
+  <h2>立方体上的 Fano · 内接正四面体</h2>
+  <p class="subtitle">拖拽旋转 · 7个非零顶点 = Fano平面 · 红色 = 正四面体 T_odd · 蓝色 = 对偶三角形</p>
+  <div class="viz-container">
+    <svg id="cube3d" width="600" height="500" viewBox="-300 -250 600 500" style="cursor:grab;"></svg>
+  </div>
+  <div class="legend">
+    <span class="red">★ T_odd</span> = {(100),(010),(001),(111)} — 正四面体，4点，奇宇称，全等边 √2<br>
+    <span class="blue">○ 对偶三角</span> = {(110),(101),(011)} — 等边三角形，3点，偶宇称(非零)<br>
+    <span class="gray">× 原点</span> = (000)，被排除<br>
+    每条 <span class="red">红边</span> = 立方体面对角线 · 所有6条等长 → 正四面体<br>
+    <b>两种 4+3 分法</b>: 宇称分(几何) ≠ L∞分(代数) — 独立的两层信息
+  </div>
+</div>
+
+<!-- Panel 2: Fiber Bundle -->
+<div class="panel" id="p2">
+  <h2>纤维丛侧视图 · 0D→1D→2D→3D</h2>
+  <p class="subtitle">只有 e₇ 的1D态射贯通到3D · 其余6条止于2D规则层</p>
+  <div class="viz-container">
+    <svg id="fiber" width="900" height="500" viewBox="0 0 900 500"></svg>
+  </div>
+  <div class="legend fiber-note">
+    <b>实线</b> = e₇ 通道：0D代数 → 1D态射 → 穿透Fano面 → 到达SC晶格点（物理通信线路）<br>
+    <b>虚线</b> = e₁-e₆：从0D出发，止于2D Fano面（规则/规范结构，不传信号）<br>
+    <span class="green">●</span> SC晶格点 = e₇ 的3D实体化 · Z=6 近邻 · ν=1 单通道约束<br>
+    <b>Fano = 路由表</b>（定义谁能和谁配对） · <b>SC = 网线</b>（实际传输信号）
+  </div>
+</div>
+
+<!-- Panel 3: Lattice Refresh -->
+<div class="panel" id="p3">
+  <h2>格点刷新 · 显卡类比</h2>
+  <p class="subtitle">像素不动数据刷新 ≅ 格点不动激发跳跃</p>
+  <div class="lattice-row">
+    <div class="lattice-col">
+      <h3>GPU 显示屏</h3>
+      <svg id="gpu" width="320" height="260" viewBox="0 0 320 260"></svg>
+    </div>
+    <div class="iso-symbol">≅</div>
+    <div class="lattice-col">
+      <h3>SC 晶格</h3>
+      <svg id="lattice" width="320" height="260" viewBox="0 0 320 260"></svg>
+    </div>
+  </div>
+  <div class="controls">
+    <button onclick="latticeAnim('prev')">◀ 上一帧</button>
+    <button onclick="latticeAnim('play')">▶ 播放</button>
+    <button onclick="latticeAnim('next')">下一帧 ▶</button>
+  </div>
+  <div class="frame-label" id="frameLabel">t = 0</div>
+  <div class="legend" style="max-width:700px;margin:20px auto 0;">
+    <span class="red">★</span> = 激发态（粒子）· 格点/像素本身不动<br>
+    <b>圆成实</b> = 格点 + 代数态 · <b>遍计所执</b> = "粒子在跑" · <b>依他起</b> = 刷新规则（协边链）
+  </div>
+</div>
+
+<!-- Panel 5: Dressing Chain -->
+<div class="panel" id="p4">
+  <h2>穿衣链 · 从裸点到粒子</h2>
+  <p class="subtitle">0D代数模式逐步获得维度结构 → 物理粒子</p>
+  <div class="viz-container">
+    <svg id="dressing" width="800" height="400" viewBox="0 0 800 400"></svg>
+  </div>
+  <div class="dress-stages">
+    <div class="dress-stage">
+      <h4>0D · 裸点</h4>
+      <p>纯代数模式<br>Fano上的一个eᵢ<br>无方向·无位置·无量子数</p>
+    </div>
+    <div class="dress-stage">
+      <h4>1D · 穿序</h4>
+      <p>获得传播方向<br>时间箭头·因果序<br>态射 = 有向边</p>
+    </div>
+    <div class="dress-stage">
+      <h4>2D · 穿规范</h4>
+      <p>获得量子数<br>U(1)·SU(2)·SU(3)<br>cocycle符号分配</p>
+    </div>
+    <div class="dress-stage">
+      <h4>3D · 穿位置</h4>
+      <p>获得空间坐标<br>SC格点上的激发<br>完整粒子</p>
+    </div>
+  </div>
+  <div class="legend" style="max-width:700px;margin:20px auto 0;">
+    穿完全部 = <b>实粒子</b> · 穿到一半能量不够 = <b>虚粒子</b>（Schwinger）· 衣服穿不住 → 湮灭回基态
+  </div>
+</div>
+
+<!-- Panel 5: Enso Symbol -->
+<div class="panel" id="p5">
+  <h2>∞|NULL · 碰撞源符号</h2>
+  <p class="subtitle">一笔画 · 笔顺 = 因果序 · 反向@</p>
+  <div class="viz-container">
+    <svg id="enso" width="600" height="460" viewBox="0 0 600 460"></svg>
+  </div>
+  <div class="legend">
+    <span class="yellow">●</span> <b>奇点</b>（起笔 = 存在·自指·区分的同一反复）→ <b>∞</b>（自指遍历·交叉 = 碰撞产生非功信息）→ <b>外螺旋</b>（回不去·被迫向外）→ <b>不闭合弧</b>（NULL = 真边界不可表示）<br>
+    三个不可约部件：∞双瓣+交叉（自指） · 交叉→外螺旋（不可逆增量 ln2×步长） · 不闭合弧（NULL边界）<br>
+    去掉任一 → 信息丢失。符号 = 自身的最小表示。
+  </div>
+</div>
+
+<!-- Panel 6: Cobordism Tower -->
+<div class="panel" id="p6">
+  <h2>协边塔 · 0D→3D 变形</h2>
+  <p class="subtitle">协边不是堆叠 · 是下层被上层的拓扑缺口拉变形</p>
+  <div class="viz-container" style="align-items:start;">
+    <svg id="tower" width="600" height="780" viewBox="0 0 600 780"></svg>
+  </div>
+  <div class="legend">
+    <b>读法（自下而上）</b>：<span class="yellow">∞|NULL</span>（0D碰撞源）→ 1D态射 → 弯曲 → <span class="blue">circle S¹闭合</span>（1D↔2D界面）→ Fano 2-复形（被21条敞开边向上撕扯）→ <span class="yellow">e₇</span>（2D↔3D界面锚点）→ <span class="green">两个Fano立方体 1+1 对接</span>（3D SC平铺）<br>
+    χ = -7 · b₁ = 8 · Z = 6 · FILLING = 4/3
+  </div>
+</div>
+
+<script>
+// ============ TAB NAVIGATION ============
+function show(i) {
+  document.querySelectorAll('.panel').forEach((p,j) => p.classList.toggle('active', i===j));
+  document.querySelectorAll('nav button').forEach((b,j) => b.classList.toggle('active', i===j));
+}
+
+// ============ HELPERS ============
+function svgEl(tag, attrs) {
+  const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  for (const [k,v] of Object.entries(attrs)) el.setAttribute(k, v);
+  return el;
+}
+
+// ============ PANEL 0: FANO 2D ============
+(function() {
+  const svg = document.getElementById('fano2d');
+  const R = 200;
+  // Triangle vertices (top, bottom-left, bottom-right)
+  // e1(100)=top, e4(001)=bottom-left, e2(010)=bottom-right
+  const pts = {
+    e1: [0, -R],           // 100 top
+    e4: [-R*Math.sin(Math.PI/3), R*Math.cos(Math.PI/3)],  // 001 bottom-left
+    e2: [R*Math.sin(Math.PI/3), R*Math.cos(Math.PI/3)],   // 010 bottom-right
+  };
+  // Midpoints
+  pts.e5 = [(pts.e1[0]+pts.e4[0])/2, (pts.e1[1]+pts.e4[1])/2]; // 101
+  pts.e3 = [(pts.e1[0]+pts.e2[0])/2, (pts.e1[1]+pts.e2[1])/2]; // 110
+  pts.e6 = [(pts.e4[0]+pts.e2[0])/2, (pts.e4[1]+pts.e2[1])/2]; // 011
+  pts.e7 = [0, (pts.e1[1]+pts.e4[1]+pts.e2[1])/3];             // 111 center
+
+  const lines = [
+    // Outer edges
+    ['e1','e5','e4'], ['e1','e3','e2'], ['e4','e6','e2'],
+    // Medians
+    ['e1','e7','e6'], ['e4','e7','e3'], ['e2','e7','e5'],
+    // Inscribed circle
+    ['e3','e5','e6']
+  ];
+
+  // Draw lines
+  lines.forEach((line, idx) => {
+    const [a,b,c] = line;
+    if (idx < 6) {
+      // Straight lines
+      svg.appendChild(svgEl('line', {
+        x1: pts[a][0], y1: pts[a][1], x2: pts[c][0], y2: pts[c][1],
+        stroke: '#334', 'stroke-width': 1.5
+      }));
+    }
+  });
+  // Inscribed circle (through midpoints)
+  const cr = Math.sqrt((pts.e3[0]-pts.e7[0])**2 + (pts.e3[1]-pts.e7[1])**2);
+  svg.appendChild(svgEl('circle', {
+    cx: pts.e7[0], cy: pts.e7[1], r: cr,
+    fill: 'none', stroke: '#334', 'stroke-width': 1.5
+  }));
+
+  // Draw points
+  const colors = { e1:'#e85050', e2:'#e85050', e4:'#e85050', e3:'#5088e8', e5:'#5088e8', e6:'#5088e8', e7:'#e8c850' };
+  const labels = { e1:'e₁ (100)', e2:'e₂ (010)', e3:'e₃ (110)', e4:'e₄ (001)', e5:'e₅ (101)', e6:'e₆ (011)', e7:'e₇ (111)' };
+  const offsets = { e1:[0,-18], e2:[18,18], e4:[-18,18], e3:[20,-8], e5:[-24,-8], e6:[0,22], e7:[18,4] };
+
+  for (const [name, pos] of Object.entries(pts)) {
+    svg.appendChild(svgEl('circle', { cx:pos[0], cy:pos[1], r:8, fill:colors[name], opacity:0.9 }));
+    svg.appendChild(svgEl('circle', { cx:pos[0], cy:pos[1], r:8, fill:'none', stroke:colors[name], 'stroke-width':2 }));
+    const t = svgEl('text', { x:pos[0]+offsets[name][0], y:pos[1]+offsets[name][1], fill:'#ccc', 'font-size':'12', 'text-anchor':'middle', 'font-family':'Consolas,monospace' });
+    t.textContent = labels[name];
+    svg.appendChild(t);
+  }
+
+  // Line labels
+  const lineLabels = [
+    { pos: [-130, -90], text: 'L2: {e₁,e₅,e₄}' },
+    { pos: [130, -90], text: 'L1: {e₁,e₃,e₂}' },
+    { pos: [0, 130], text: 'L3: {e₄,e₆,e₂}' },
+  ];
+  lineLabels.forEach(l => {
+    const t = svgEl('text', { x:l.pos[0], y:l.pos[1], fill:'#555', 'font-size':'11', 'text-anchor':'middle', 'font-family':'Consolas,monospace' });
+    t.textContent = l.text;
+    svg.appendChild(t);
+  });
+})();
+
+// ============ PANEL 1: CUBE 3D ============
+(function() {
+  const svg = document.getElementById('cube3d');
+  let rx = 0.5, ry = -0.7;
+  const S = 140;
+
+  const vertices = [
+    {id:'000', p:[0,0,0], label:'(000)', type:'origin'},
+    {id:'100', p:[1,0,0], label:'e₁', type:'tetra'},
+    {id:'010', p:[0,1,0], label:'e₂', type:'tetra'},
+    {id:'001', p:[0,0,1], label:'e₄', type:'tetra'},
+    {id:'110', p:[1,1,0], label:'e₃', type:'dual'},
+    {id:'101', p:[1,0,1], label:'e₅', type:'dual'},
+    {id:'011', p:[0,1,1], label:'e₆', type:'dual'},
+    {id:'111', p:[1,1,1], label:'e₇', type:'tetra'},
+  ];
+
+  const cubeEdges = [
+    ['000','100'],['000','010'],['000','001'],
+    ['100','110'],['100','101'],['010','110'],
+    ['010','011'],['001','101'],['001','011'],
+    ['110','111'],['101','111'],['011','111']
+  ];
+
+  const tetraEdges = [
+    ['100','010'],['100','001'],['100','111'],
+    ['010','001'],['010','111'],['001','111']
+  ];
+
+  const dualEdges = [
+    ['110','101'],['110','011'],['101','011']
+  ];
+
+  function project(p) {
+    let [x,y,z] = [p[0]-0.5, p[1]-0.5, p[2]-0.5];
+    // Rotate Y
+    let x1 = x*Math.cos(ry) + z*Math.sin(ry);
+    let z1 = -x*Math.sin(ry) + z*Math.cos(ry);
+    // Rotate X
+    let y1 = y*Math.cos(rx) - z1*Math.sin(rx);
+    let z2 = y*Math.sin(rx) + z1*Math.cos(rx);
+    return [x1*S, -y1*S, z2];
+  }
+
+  function render() {
+    svg.innerHTML = '';
+    const projected = vertices.map(v => ({...v, proj: project(v.p)}));
+
+    // Sort by depth for correct layering
+    const getV = id => projected.find(v => v.id === id);
+
+    // Cube edges
+    cubeEdges.forEach(([a,b]) => {
+      const va = getV(a), vb = getV(b);
+      svg.appendChild(svgEl('line', {
+        x1:va.proj[0], y1:va.proj[1], x2:vb.proj[0], y2:vb.proj[1],
+        stroke:'#2a2a3a', 'stroke-width':1
+      }));
+    });
+
+    // Tetrahedron edges
+    tetraEdges.forEach(([a,b]) => {
+      const va = getV(a), vb = getV(b);
+      svg.appendChild(svgEl('line', {
+        x1:va.proj[0], y1:va.proj[1], x2:vb.proj[0], y2:vb.proj[1],
+        stroke:'#e85050', 'stroke-width':2.5, opacity:0.7
+      }));
+    });
+
+    // Dual triangle edges
+    dualEdges.forEach(([a,b]) => {
+      const va = getV(a), vb = getV(b);
+      svg.appendChild(svgEl('line', {
+        x1:va.proj[0], y1:va.proj[1], x2:vb.proj[0], y2:vb.proj[1],
+        stroke:'#5088e8', 'stroke-width':2, 'stroke-dasharray':'6,4', opacity:0.7
+      }));
+    });
+
+    // Vertices (sorted by depth, far first)
+    projected.sort((a,b) => a.proj[2] - b.proj[2]);
+    projected.forEach(v => {
+      const [px, py] = v.proj;
+      const r = v.type === 'origin' ? 5 : 8;
+      const fill = v.type === 'origin' ? 'none' : v.type === 'tetra' ? '#e85050' : '#5088e8';
+      const stroke = v.type === 'origin' ? '#666' : fill;
+      svg.appendChild(svgEl('circle', { cx:px, cy:py, r, fill, stroke, 'stroke-width': v.type==='origin'?1.5:2, opacity:0.9 }));
+      const t = svgEl('text', { x:px, y:py-14, fill: v.type==='origin'?'#555':'#ccc', 'font-size':'12', 'text-anchor':'middle', 'font-family':'Consolas,monospace' });
+      t.textContent = v.label;
+      svg.appendChild(t);
+      if (v.id !== '000') {
+        const coord = svgEl('text', { x:px, y:py+20, fill:'#555', 'font-size':'10', 'text-anchor':'middle', 'font-family':'Consolas,monospace' });
+        coord.textContent = '('+v.p.join(',')+')';
+        svg.appendChild(coord);
+      }
+    });
+  }
+
+  render();
+
+  // Drag to rotate
+  let dragging = false, lastX, lastY;
+  svg.addEventListener('mousedown', e => { dragging = true; lastX = e.clientX; lastY = e.clientY; svg.style.cursor='grabbing'; });
+  window.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    ry += (e.clientX - lastX) * 0.01;
+    rx += (e.clientY - lastY) * 0.01;
+    lastX = e.clientX; lastY = e.clientY;
+    render();
+  });
+  window.addEventListener('mouseup', () => { dragging = false; svg.style.cursor='grab'; });
+})();
+
+// ============ PANEL 2: FIBER BUNDLE ============
+(function() {
+  const svg = document.getElementById('fiber');
+  const W = 900, H = 500;
+  const zones = [80, 280, 540, 780]; // x positions of zone boundaries
+  const zoneLabels = ['0D', '1D', '2D', '3D'];
+  const zoneMids = [40, 180, 410, 660];
+
+  // Zone backgrounds
+  [0,1,2,3].forEach(i => {
+    const x = i === 0 ? 0 : zones[i-1];
+    const w = (i === 3 ? W : zones[i]) - x;
+    svg.appendChild(svgEl('rect', { x, y:0, width:w, height:H, fill: i%2===0?'#0e0e16':'#10101a' }));
+  });
+
+  // Zone labels
+  zoneLabels.forEach((l,i) => {
+    const t = svgEl('text', { x:zoneMids[i], y:28, fill:'#556', 'font-size':'16', 'text-anchor':'middle', 'font-weight':'bold', 'font-family':'Consolas,monospace' });
+    t.textContent = l;
+    svg.appendChild(t);
+  });
+
+  // Zone separator lines
+  zones.forEach(x => {
+    svg.appendChild(svgEl('line', { x1:x, y1:0, x2:x, y2:H, stroke:'#1a1a2a', 'stroke-width':1 }));
+  });
+
+  // Fano diagram in 2D zone (centered at 410, 250)
+  const fcx = 420, fcy = 250, fr = 80;
+  const fanopts = {
+    e1: [fcx, fcy-fr],
+    e4: [fcx - fr*Math.sin(Math.PI/3), fcy + fr*Math.cos(Math.PI/3)],
+    e2: [fcx + fr*Math.sin(Math.PI/3), fcy + fr*Math.cos(Math.PI/3)],
+  };
+  fanopts.e5 = [(fanopts.e1[0]+fanopts.e4[0])/2, (fanopts.e1[1]+fanopts.e4[1])/2];
+  fanopts.e3 = [(fanopts.e1[0]+fanopts.e2[0])/2, (fanopts.e1[1]+fanopts.e2[1])/2];
+  fanopts.e6 = [(fanopts.e4[0]+fanopts.e2[0])/2, (fanopts.e4[1]+fanopts.e2[1])/2];
+  fanopts.e7 = [fcx, (fanopts.e1[1]+fanopts.e4[1]+fanopts.e2[1])/3];
+
+  // Fano edges — ALL DASHED (2D = virtual/intrinsic, no 1D line passes through)
+  const flines = [['e1','e4'],['e1','e2'],['e4','e2'],['e1','e6'],['e4','e3'],['e2','e5']];
+  flines.forEach(([a,b]) => {
+    svg.appendChild(svgEl('line', { x1:fanopts[a][0], y1:fanopts[a][1], x2:fanopts[b][0], y2:fanopts[b][1], stroke:'#3a3a5a', 'stroke-width':1, 'stroke-dasharray':'4,3' }));
+  });
+  const cir = Math.sqrt((fanopts.e3[0]-fanopts.e7[0])**2 + (fanopts.e3[1]-fanopts.e7[1])**2);
+  svg.appendChild(svgEl('circle', { cx:fanopts.e7[0], cy:fanopts.e7[1], r:cir, fill:'none', stroke:'#3a3a5a', 'stroke-width':1, 'stroke-dasharray':'4,3' }));
+
+  // SC lattice node in 3D zone
+  const scx = 740, scy = 250;
+
+  // The e7 real line (thick, solid — 1D gravity line, unbroken through all dimensions)
+  svg.appendChild(svgEl('line', { x1:30, y1:fanopts.e7[1], x2:fanopts.e7[0], y2:fanopts.e7[1], stroke:'#50c878', 'stroke-width':2.5 }));
+  // e₇ continues through Fano into 3D — connects to cube origin
+  const cubeOriginX = scx - 55/2 - 55*0.4/2, cubeOriginY = scy + 55/2;
+  svg.appendChild(svgEl('line', { x1:fanopts.e7[0], y1:fanopts.e7[1], x2:cubeOriginX, y2:cubeOriginY, stroke:'#50c878', 'stroke-width':2.5 }));
+  // Arrow at cube origin
+  const arrowSize = 8;
+  svg.appendChild(svgEl('polygon', { points:`${cubeOriginX},${cubeOriginY} ${cubeOriginX-arrowSize},${cubeOriginY-arrowSize/2} ${cubeOriginX-arrowSize},${cubeOriginY+arrowSize/2}`, fill:'#50c878' }));
+
+  // Other 6 lines (SOLID — 1D connectivity unbroken, stop at Fano)
+  const otherPts = ['e1','e2','e3','e4','e5','e6'];
+  const lineColors = { e1:'#e85050', e2:'#e85050', e4:'#e85050', e3:'#5088e8', e5:'#5088e8', e6:'#5088e8' };
+  otherPts.forEach(name => {
+    const [fx, fy] = fanopts[name];
+    svg.appendChild(svgEl('line', { x1:30, y1:fy, x2:fx, y2:fy, stroke:lineColors[name], 'stroke-width':1.2, opacity:0.6 }));
+    // Small terminal bar
+    svg.appendChild(svgEl('line', { x1:fx-3, y1:fy-5, x2:fx-3, y2:fy+5, stroke:lineColors[name], 'stroke-width':1.5, opacity:0.6 }));
+  });
+
+  // Fano points
+  const fcolors = { e1:'#e85050', e2:'#e85050', e3:'#5088e8', e4:'#e85050', e5:'#5088e8', e6:'#5088e8', e7:'#e8c850' };
+  for (const [name, pos] of Object.entries(fanopts)) {
+    svg.appendChild(svgEl('circle', { cx:pos[0], cy:pos[1], r:6, fill:fcolors[name] }));
+    const off = name==='e7' ? [14, 4] : name==='e1' ? [0,-10] : name==='e2' ? [12,14] : name==='e4' ? [-12,14] : name==='e3' ? [12,-6] : name==='e5' ? [-14,-6] : [0,16];
+    const t = svgEl('text', { x:pos[0]+off[0], y:pos[1]+off[1], fill:'#999', 'font-size':'11', 'text-anchor':'middle', 'font-family':'Consolas,monospace' });
+    t.textContent = name.replace('e','e₁e₂e₃e₄e₅e₆e₇'.split(/e/).filter(Boolean)['e1e2e3e4e5e6e7'.split('e').filter(Boolean).indexOf(name.slice(1))] ? name : name);
+    t.textContent = name[0] + '₁₂₃₄₅₆₇'[parseInt(name[1])];
+    svg.appendChild(t);
+  }
+
+  // 3D: Fano cube with e₇' as origin (000)
+  const cubeS = 55, cdx = cubeS*0.4, cdy = cubeS*0.25;
+  const cubeOx = scx - cubeS/2 - cdx/2, cubeOy = scy + cubeS/2;
+  const cubeV = [
+    [cubeOx, cubeOy],                       // 000 = e₇' origin
+    [cubeOx+cubeS, cubeOy],                 // 100 = e₁
+    [cubeOx+cubeS, cubeOy-cubeS],           // 110 = e₃
+    [cubeOx, cubeOy-cubeS],                 // 010 = e₂
+    [cubeOx+cdx, cubeOy-cdy],               // 001 = e₄
+    [cubeOx+cubeS+cdx, cubeOy-cdy],         // 101 = e₅
+    [cubeOx+cubeS+cdx, cubeOy-cubeS-cdy],   // 111 = e₇
+    [cubeOx+cdx, cubeOy-cubeS-cdy]          // 011 = e₆
+  ];
+  // cube edges (faint scaffold)
+  [[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[1,5],[2,6],[3,7]].forEach(([a,b]) => {
+    svg.appendChild(svgEl('line', { x1:cubeV[a][0], y1:cubeV[a][1], x2:cubeV[b][0], y2:cubeV[b][1], stroke:'#2a3a2a', 'stroke-width':1, opacity:0.5 }));
+  });
+  // e₇'(000) → T_odd {e₁(100), e₂(010), e₄(001)} — RED, the real connections
+  [1,3,4].forEach(i => {
+    svg.appendChild(svgEl('line', { x1:cubeV[0][0], y1:cubeV[0][1], x2:cubeV[i][0], y2:cubeV[i][1], stroke:'#e85050', 'stroke-width':2.5, opacity:0.8 }));
+  });
+  // e₇(111) → T_even {e₃(110), e₅(101), e₆(011)} — BLUE, star connections
+  [2,5,7].forEach(i => {
+    svg.appendChild(svgEl('line', { x1:cubeV[6][0], y1:cubeV[6][1], x2:cubeV[i][0], y2:cubeV[i][1], stroke:'#5088e8', 'stroke-width':2, opacity:0.7 }));
+  });
+  // body diagonal: e₇'(000) → e₇(111) with ARROW
+  svg.appendChild(svgEl('line', { x1:cubeV[0][0], y1:cubeV[0][1], x2:cubeV[6][0], y2:cubeV[6][1], stroke:'#e8c850', 'stroke-width':2.5, opacity:0.9 }));
+  // arrow at e₇(111) end
+  const diagDx = cubeV[6][0]-cubeV[0][0], diagDy = cubeV[6][1]-cubeV[0][1];
+  const diagLen = Math.sqrt(diagDx*diagDx+diagDy*diagDy);
+  const ux = diagDx/diagLen, uy = diagDy/diagLen;
+  const ax = cubeV[6][0], ay = cubeV[6][1];
+  const aPerp = 5;
+  svg.appendChild(svgEl('polygon', { points:
+    `${ax},${ay} ${(ax-ux*10+uy*aPerp).toFixed(1)},${(ay-uy*10-ux*aPerp).toFixed(1)} ${(ax-ux*10-uy*aPerp).toFixed(1)},${(ay-uy*10+ux*aPerp).toFixed(1)}`,
+    fill:'#e8c850' }));
+
+  // Vertex labels + dots
+  const cubeLabels = ["e₇'","e₁","e₃","e₂","e₄","e₅","e₇","e₆"];
+  const cubeColors = ['#e8c850','#e85050','#5088e8','#e85050','#e85050','#5088e8','#e8c850','#5088e8'];
+  const cubeLabelOff = [[0,16],[-12,14],[12,-8],[-12,-8],[12,14],[16,4],[14,-10],[-16,-4]];
+  for (let i = 0; i < 8; i++) {
+    const r = (i===0||i===6) ? 7 : 4;
+    svg.appendChild(svgEl('circle', { cx:cubeV[i][0], cy:cubeV[i][1], r, fill:cubeColors[i], opacity: i===0?0.9:0.8 }));
+    const t = svgEl('text', { x:cubeV[i][0]+cubeLabelOff[i][0], y:cubeV[i][1]+cubeLabelOff[i][1], fill:cubeColors[i], 'font-size':'10', 'text-anchor':'middle', 'font-family':'Consolas,monospace' });
+    t.textContent = cubeLabels[i]; svg.appendChild(t);
+  }
+  const zl = svgEl('text', { x:scx, y:scy-cubeS-20, fill:'#50c878', 'font-size':'11', 'text-anchor':'middle', 'font-family':'Consolas,monospace' });
+  zl.textContent = 'Fano cube F₂³';
+  svg.appendChild(zl);
+
+  // 0D symbol
+  const sym = svgEl('text', { x:40, y:scy+4, fill:'#556', 'font-size':'20', 'text-anchor':'middle' });
+  sym.textContent = '∞|NULL';
+  svg.appendChild(sym);
+
+  // Labels
+  const realLabel = svgEl('text', { x:200, y:fanopts.e7[1]-14, fill:'#50c878', 'font-size':'11', 'text-anchor':'middle' });
+  realLabel.textContent = '实线: e₇ 贯通通道';
+  svg.appendChild(realLabel);
+
+  const virtualLabel = svgEl('text', { x:200, y:fanopts.e1[1]-14, fill:'#666', 'font-size':'11', 'text-anchor':'middle' });
+  virtualLabel.textContent = '虚线: 止于2D';
+  svg.appendChild(virtualLabel);
+})();
+
+// ============ PANEL 3: LATTICE REFRESH ============
+let currentFrame = 0;
+const totalFrames = 8;
+const pathGPU = [[1,2],[2,2],[3,2],[4,2],[4,3],[3,3],[2,3],[1,3]];
+const pathLat = [[1,2],[2,2],[3,2],[4,2],[4,3],[3,3],[2,3],[1,3]];
+let animInterval = null;
+
+function drawLattice() {
+  const gpuSvg = document.getElementById('gpu');
+  const latSvg = document.getElementById('lattice');
+  gpuSvg.innerHTML = '';
+  latSvg.innerHTML = '';
+
+  const cols = 6, rows = 5, cellW = 44, cellH = 44, ox = 20, oy = 20;
+
+  // GPU: pixel grid
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const isActive = pathGPU[currentFrame][0] === c && pathGPU[currentFrame][1] === r;
+      gpuSvg.appendChild(svgEl('rect', {
+        x: ox + c*cellW, y: oy + r*cellH, width: cellW-2, height: cellH-2,
+        fill: isActive ? '#e85050' : '#1a1a2a', stroke: '#2a2a3a', 'stroke-width': 1, rx: 2
+      }));
+    }
+  }
+  // Trail (fading)
+  for (let i = 1; i <= 2; i++) {
+    const fi = (currentFrame - i + totalFrames) % totalFrames;
+    const [tc,tr] = pathGPU[fi];
+    const opacity = 0.3 - i*0.1;
+    if (opacity > 0) {
+      gpuSvg.appendChild(svgEl('rect', {
+        x: ox + tc*cellW, y: oy + tr*cellH, width: cellW-2, height: cellH-2,
+        fill: '#e85050', opacity, rx: 2
+      }));
+    }
+  }
+
+  // Lattice: node grid
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      // Horizontal edges
+      if (c < cols-1) {
+        latSvg.appendChild(svgEl('line', {
+          x1: ox+c*cellW+cellW/2, y1: oy+r*cellH+cellH/2,
+          x2: ox+(c+1)*cellW+cellW/2, y2: oy+r*cellH+cellH/2,
+          stroke: '#2a2a3a', 'stroke-width': 1
+        }));
+      }
+      // Vertical edges
+      if (r < rows-1) {
+        latSvg.appendChild(svgEl('line', {
+          x1: ox+c*cellW+cellW/2, y1: oy+r*cellH+cellH/2,
+          x2: ox+c*cellW+cellW/2, y2: oy+(r+1)*cellH+cellH/2,
+          stroke: '#2a2a3a', 'stroke-width': 1
+        }));
+      }
+    }
+  }
+  // Nodes
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const isActive = pathLat[currentFrame][0] === c && pathLat[currentFrame][1] === r;
+      latSvg.appendChild(svgEl('circle', {
+        cx: ox+c*cellW+cellW/2, cy: oy+r*cellH+cellH/2,
+        r: isActive ? 10 : 4,
+        fill: isActive ? '#e85050' : '#3a3a4a'
+      }));
+      if (isActive) {
+        const star = svgEl('text', {
+          x: ox+c*cellW+cellW/2, y: oy+r*cellH+cellH/2+5,
+          fill: '#fff', 'font-size': '14', 'text-anchor': 'middle'
+        });
+        star.textContent = '★';
+        latSvg.appendChild(star);
+      }
+    }
+  }
+  // Trail
+  for (let i = 1; i <= 2; i++) {
+    const fi = (currentFrame - i + totalFrames) % totalFrames;
+    const [tc,tr] = pathLat[fi];
+    const opacity = 0.4 - i*0.15;
+    if (opacity > 0) {
+      latSvg.appendChild(svgEl('circle', {
+        cx: ox+tc*cellW+cellW/2, cy: oy+tr*cellH+cellH/2,
+        r: 8, fill: '#e85050', opacity
+      }));
+    }
+  }
+
+  document.getElementById('frameLabel').textContent = `t = ${currentFrame}`;
+}
+
+function latticeAnim(action) {
+  if (action === 'next') {
+    currentFrame = (currentFrame + 1) % totalFrames;
+    drawLattice();
+  } else if (action === 'prev') {
+    currentFrame = (currentFrame - 1 + totalFrames) % totalFrames;
+    drawLattice();
+  } else if (action === 'play') {
+    if (animInterval) { clearInterval(animInterval); animInterval = null; return; }
+    animInterval = setInterval(() => {
+      currentFrame = (currentFrame + 1) % totalFrames;
+      drawLattice();
+    }, 600);
+  }
+}
+
+drawLattice();
+
+// ============ PANEL 4: DRESSING CHAIN ============
+(function() {
+  const svg = document.getElementById('dressing');
+  const stages = [
+    { x: 100, label: '0D', color: '#e8c850', desc: '裸点' },
+    { x: 300, label: '1D', color: '#e88050', desc: '+序' },
+    { x: 500, label: '2D', color: '#5088e8', desc: '+规范' },
+    { x: 700, label: '3D', color: '#50c878', desc: '+位置' },
+  ];
+  const cy = 180;
+
+  // Connecting arrows
+  for (let i = 0; i < 3; i++) {
+    const x1 = stages[i].x + 40, x2 = stages[i+1].x - 40;
+    svg.appendChild(svgEl('line', { x1, y1:cy, x2, y2:cy, stroke:'#334', 'stroke-width':2 }));
+    svg.appendChild(svgEl('polygon', { points:`${x2},${cy} ${x2-8},${cy-5} ${x2-8},${cy+5}`, fill:'#334' }));
+    // Label
+    const t = svgEl('text', { x:(x1+x2)/2, y:cy-12, fill:'#556', 'font-size':'11', 'text-anchor':'middle' });
+    t.textContent = ['穿序','穿规范','穿位置'][i];
+    svg.appendChild(t);
+  }
+
+  // Stage circles with growing rings
+  stages.forEach((s, i) => {
+    // Outer rings (more rings = more dressed)
+    for (let r = i; r >= 0; r--) {
+      svg.appendChild(svgEl('circle', {
+        cx:s.x, cy, r: 20 + r*12,
+        fill:'none', stroke:stages[r].color, 'stroke-width':2, opacity: 0.4 + 0.2*(i-r)
+      }));
+    }
+    // Core
+    svg.appendChild(svgEl('circle', { cx:s.x, cy, r:8, fill:s.color }));
+    // Labels
+    const lt = svgEl('text', { x:s.x, y:cy-50-i*12, fill:s.color, 'font-size':'14', 'text-anchor':'middle', 'font-weight':'bold' });
+    lt.textContent = s.label;
+    svg.appendChild(lt);
+    const dt = svgEl('text', { x:s.x, y:cy+60+i*12, fill:'#888', 'font-size':'12', 'text-anchor':'middle' });
+    dt.textContent = s.desc;
+    svg.appendChild(dt);
+  });
+
+  // Virtual particle bracket
+  svg.appendChild(svgEl('line', { x1:200, y1:320, x2:500, y2:320, stroke:'#e85050', 'stroke-width':1, 'stroke-dasharray':'4,4' }));
+  const vt = svgEl('text', { x:350, y:340, fill:'#e85050', 'font-size':'12', 'text-anchor':'middle' });
+  vt.textContent = '← 穿到这里就脱 = 虚粒子 →';
+  svg.appendChild(vt);
+
+  svg.appendChild(svgEl('line', { x1:200, y1:360, x2:700, y2:360, stroke:'#50c878', 'stroke-width':1 }));
+  const rt = svgEl('text', { x:450, y:380, fill:'#50c878', 'font-size':'12', 'text-anchor':'middle' });
+  rt.textContent = '← 全穿完 = 实粒子 →';
+  svg.appendChild(rt);
+})();
+
+// ============ PANEL 5: ENSO SYMBOL ============
+(function() {
+  const svg = document.getElementById('enso');
+  const cx = 300, cy = 230, R = 140;
+
+  // ♾️ at center — replaces hand-drawn lemniscate
+  const inf = svgEl('text', {
+    x: cx, y: cy + 28, fill: '#c8c8d8', 'font-size': '80',
+    'text-anchor': 'middle', 'font-family': 'system-ui, sans-serif'
+  });
+  inf.textContent = '♾️';
+  svg.appendChild(inf);
+
+  // Singularity point (起笔 = origin of the stroke)
+  svg.appendChild(svgEl('circle', { cx: cx, cy: cy, r: 5, fill: '#e8c850' }));
+
+  // Outward spiral from ♾️ right edge — breaks near the end (NULL boundary)
+  const startAngle = -Math.PI / 4;
+  const spiralPts = [];
+  for (let i = 0; i <= 400; i++) {
+    const f = i / 400;
+    const r = 70 + (R - 70) * Math.pow(f, 0.7);
+    const angle = startAngle + f * 1.6 * Math.PI;
+    spiralPts.push([cx + r * Math.cos(angle), cy + r * Math.sin(angle)]);
+  }
+  // Draw spiral in two segments with a gap (打断边框 = border break)
+  const breakAt = Math.floor(spiralPts.length * 0.72);
+  const seg1 = spiralPts.slice(0, breakAt);
+  const seg2 = spiralPts.slice(breakAt + 15);
+  [seg1, seg2].forEach((seg, si) => {
+    const d = 'M' + seg.map(p => p[0].toFixed(1)+','+p[1].toFixed(1)).join('L');
+    svg.appendChild(svgEl('path', {
+      d, fill: 'none', stroke: si === 0 ? '#c8c8d8' : '#888',
+      'stroke-width': si === 0 ? '2.5' : '1.8', 'stroke-linecap': 'round'
+    }));
+  });
+
+  // NULL mark at spiral end (unclosed)
+  const last = spiralPts[spiralPts.length - 1];
+  svg.appendChild(svgEl('line', {
+    x1: last[0], y1: last[1], x2: last[0] + 8, y2: last[1] - 12,
+    stroke: '#666', 'stroke-width': 2, 'stroke-linecap': 'round'
+  }));
+
+  // Break gap marker (⚡ or just visual gap is enough)
+  const gapPt = spiralPts[breakAt];
+  const gapLabel = svgEl('text', { x: gapPt[0]+12, y: gapPt[1]-6, fill: '#e85050', 'font-size': '11', 'font-family': 'Consolas,monospace' });
+  gapLabel.textContent = '断'; svg.appendChild(gapLabel);
+
+  // Annotations
+  const ann = svgEl('text', {
+    x: cx, y: cy - 100, fill: '#8899cc', 'font-size': '11',
+    'text-anchor': 'middle', 'font-family': 'Consolas,monospace'
+  });
+  ann.textContent = '奇点 → ♾️(自指遍历) → 外螺旋(非功信息) → 断 → 不闭合(NULL)';
+  svg.appendChild(ann);
+
+  [
+    { x: cx + 10, y: cy - 55, text: '♾️ 自指', color: '#8899cc' },
+    { x: last[0], y: last[1] - 16, text: '⌇ NULL', color: '#666' }
+  ].forEach(m => {
+    const t = svgEl('text', { x: m.x, y: m.y, fill: m.color, 'font-size': '12', 'font-family': 'Consolas,monospace' });
+    t.textContent = m.text; svg.appendChild(t);
+  });
+})();
+
+// ============ PANEL 6: COBORDISM TOWER ============
+(function() {
+  const svg = document.getElementById('tower');
+  const W = 600, H = 780, cx = W / 2;
+
+  // Zone backgrounds
+  [[0, 160], [160, 420], [420, 620], [620, H]].forEach((z, i) => {
+    svg.appendChild(svgEl('rect', { x: 0, y: z[0], width: W, height: z[1] - z[0], fill: i % 2 ? '#0e0e16' : '#10101a' }));
+  });
+
+  // Interface dashes
+  [160, 420].forEach(y => {
+    svg.appendChild(svgEl('line', { x1: 60, y1: y, x2: W - 60, y2: y, stroke: '#2a2a3a', 'stroke-width': 1, 'stroke-dasharray': '8,6' }));
+  });
+
+  // Zone labels
+  [['3D', 80], ['2D', 290], ['1D', 520], ['0D', 700]].forEach(([t, y]) => {
+    const el = svgEl('text', { x: 48, y, fill: '#1e2e3e', 'font-size': '24', 'font-weight': 'bold', 'font-family': 'Consolas,monospace' });
+    el.textContent = t; svg.appendChild(el);
+  });
+
+  // ---- 0D: small enso ----
+  const e0y = 700, eA = 14, eR = 28, ep = [];
+  for (let i = 0; i <= 60; i++) {
+    const t = Math.PI / 2 + (i / 60) * 2 * Math.PI;
+    ep.push([cx + eA * Math.cos(t), e0y + eA * Math.sin(2 * t) / 2]);
+  }
+  for (let i = 1; i <= 60; i++) {
+    const f = i / 60, r = eR * (1 - Math.pow(1 - f, 2));
+    const ang = 5 * Math.PI / 4 + f * 340 * Math.PI / 180;
+    ep.push([cx + r * Math.cos(ang), e0y + r * Math.sin(ang)]);
+  }
+  svg.appendChild(svgEl('path', {
+    d: 'M' + ep.map(p => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join('L'),
+    fill: 'none', stroke: '#555', 'stroke-width': '1.5', 'stroke-linecap': 'round'
+  }));
+  svg.appendChild(svgEl('circle', { cx: ep[0][0], cy: ep[0][1], r: 2, fill: '#e8c850' }));
+  const e0l = svgEl('text', { x: cx + eR + 15, y: e0y + 4, fill: '#556', 'font-size': '13', 'font-family': 'Consolas,monospace' });
+  e0l.textContent = '∞|NULL'; svg.appendChild(e0l);
+
+  // ---- 1D: vertical lines converging upward (ALL SOLID — connectivity unbroken) ----
+  const lineConf = [
+    { xo:-60, color:'#e85050', w:1 },   // e₁
+    { xo:-30, color:'#5088e8', w:1 },   // e₃
+    { xo:0,   color:'#50c878', w:2.2 }, // e₇ (penetrates to 3D)
+    { xo:30,  color:'#5088e8', w:1 },   // e₅
+    { xo:60,  color:'#e85050', w:1 },   // e₄
+  ];
+  lineConf.forEach(({xo, color, w}) => {
+    const pts = [];
+    for (let i = 0; i <= 30; i++) {
+      const t = i / 30;
+      pts.push([cx + xo * (1 - Math.pow(t, 3) * 0.7), 610 - t * 180]);
+    }
+    svg.appendChild(svgEl('path', {
+      d: 'M' + pts.map(p => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join('L'),
+      fill: 'none', stroke: color, 'stroke-width': w, opacity: xo === 0 ? 1 : 0.5
+    }));
+  });
+  svg.appendChild(svgEl('polygon', { points: cx + ',435 ' + (cx - 4) + ',447 ' + (cx + 4) + ',447', fill: '#555' }));
+
+  // ---- 1D↔2D: circles ----
+  const ccY = 420, cR = 30;
+  svg.appendChild(svgEl('circle', { cx, cy: ccY, r: cR, fill: 'none', stroke: '#5088e8', 'stroke-width': 1.5, opacity: 0.3 }));
+  const pR = 18;
+  svg.appendChild(svgEl('circle', { cx, cy: ccY, r: pR, fill: 'none', stroke: '#5088e8', 'stroke-width': 2 }));
+  const cl = svgEl('text', { x: cx + cR + 12, y: ccY - 6, fill: '#5088e8', 'font-size': '11', 'font-family': 'Consolas,monospace' });
+  cl.textContent = 'S¹ · 2π'; svg.appendChild(cl);
+  const cl2 = svgEl('text', { x: cx + cR + 12, y: ccY + 10, fill: '#445', 'font-size': '10', 'font-family': 'Consolas,monospace' });
+  cl2.textContent = '投影圆(T_even)'; svg.appendChild(cl2);
+
+  // ---- e₇: below interface at SC origin ----
+  const e7pos = [cx, 455];
+  svg.appendChild(svgEl('circle', { cx: e7pos[0], cy: e7pos[1], r: 7, fill: '#e8c850' }));
+  let lb = svgEl('text', { x: e7pos[0] + 15, y: e7pos[1] + 5, fill: '#e8c850', 'font-size': '12', 'font-family': 'Consolas,monospace' });
+  lb.textContent = 'e₇'; svg.appendChild(lb);
+  lb = svgEl('text', { x: e7pos[0] + 15, y: e7pos[1] + 19, fill: '#556', 'font-size': '10', 'font-family': 'Consolas,monospace' });
+  lb.textContent = 'SC origin'; svg.appendChild(lb);
+
+  // ---- 2D: Fano as pseudo-tetrahedron ----
+  const tp = {
+    e1: [cx - 110, 358], e2: [cx + 110, 358], e4: [cx, 260]
+  };
+  tp.e3 = [(tp.e1[0] + tp.e2[0]) / 2, (tp.e1[1] + tp.e2[1]) / 2];
+  tp.e5 = [(tp.e1[0] + tp.e4[0]) / 2, (tp.e1[1] + tp.e4[1]) / 2];
+  tp.e6 = [(tp.e2[0] + tp.e4[0]) / 2, (tp.e2[1] + tp.e4[1]) / 2];
+  const apex = [cx, 178];
+
+  // (1,1,1) normal axis: e₇ → e₇'
+  svg.appendChild(svgEl('line', {
+    x1: cx, y1: e7pos[1], x2: cx, y2: apex[1],
+    stroke: '#e8c850', 'stroke-width': 1, 'stroke-dasharray': '6,4', opacity: 0.4
+  }));
+
+  // Base edges — CURVED (K>0) DASHED (虚线 = intrinsic/内蕴)
+  const bow = 18;
+  function bEdge(p1, p2, dx, dy) {
+    const mx = (p1[0] + p2[0]) / 2 + dx, my = (p1[1] + p2[1]) / 2 + dy;
+    return `M${p1[0]},${p1[1]} Q${mx},${my} ${p2[0]},${p2[1]}`;
+  }
+  // L₁: e₁→e₂ (bottom, bow down)
+  svg.appendChild(svgEl('path', { d: bEdge(tp.e1, tp.e2, 0, bow), fill: 'none', stroke: '#3a3a5a', 'stroke-width': 1.5, 'stroke-dasharray': '5,4' }));
+  // L₂: e₁→e₄ (left, bow left-up)
+  svg.appendChild(svgEl('path', { d: bEdge(tp.e1, tp.e4, -bow * 0.8, -bow * 0.3), fill: 'none', stroke: '#3a3a5a', 'stroke-width': 1.5, 'stroke-dasharray': '5,4' }));
+  // L₃: e₂→e₄ (right, bow right-up)
+  svg.appendChild(svgEl('path', { d: bEdge(tp.e2, tp.e4, bow * 0.8, -bow * 0.3), fill: 'none', stroke: '#3a3a5a', 'stroke-width': 1.5, 'stroke-dasharray': '5,4' }));
+
+  // L₇: circle (midpoints) — dashed blue
+  svg.appendChild(svgEl('path', {
+    d: `M${tp.e3[0]},${tp.e3[1]} L${tp.e5[0]},${tp.e5[1]} L${tp.e6[0]},${tp.e6[1]} Z`,
+    fill: 'none', stroke: '#5088e8', 'stroke-width': 1.5, 'stroke-dasharray': '4,3'
+  }));
+
+  // Lateral lines removed — no other 1D lines pass through 2D to apex
+  // Only the e₇ gravity line (drawn below) penetrates to 3D
+
+  // Star lines: e₇ → T_even (DASHED — 2D intrinsic structure, no 1D line passes through)
+  [tp.e3, tp.e5, tp.e6].forEach(p => {
+    svg.appendChild(svgEl('line', { x1: e7pos[0], y1: e7pos[1], x2: p[0], y2: p[1], stroke: '#e8c850', 'stroke-width': 1.5, 'stroke-dasharray': '5,3', opacity: 0.5 }));
+  });
+
+  // Trans dashed segments: base vertex → opposite midpoint (L₄-L₆ internal portions)
+  [[tp.e1, tp.e6], [tp.e2, tp.e5], [tp.e4, tp.e3]].forEach(([a, b]) => {
+    svg.appendChild(svgEl('line', { x1: a[0], y1: a[1], x2: b[0], y2: b[1], stroke: '#3a3a5a', 'stroke-width': 1, 'stroke-dasharray': '3,3', opacity: 0.4 }));
+  });
+
+  // Vertices: T_odd=red, T_even=blue
+  const vc = { e1: '#e85050', e2: '#e85050', e4: '#e85050', e3: '#5088e8', e5: '#5088e8', e6: '#5088e8' };
+  const vo = { e1: [-16, 6], e2: [16, 6], e4: [0, -14], e3: [0, 16], e5: [-16, -4], e6: [16, -4] };
+  const vn = { e1: 'e₁', e2: 'e₂', e4: 'e₄', e3: 'e₃', e5: 'e₅', e6: 'e₆' };
+  for (const [n, p] of Object.entries(tp)) {
+    svg.appendChild(svgEl('circle', { cx: p[0], cy: p[1], r: 5, fill: vc[n] }));
+    const t = svgEl('text', { x: p[0] + vo[n][0], y: p[1] + vo[n][1], fill: vc[n], 'font-size': '11', 'text-anchor': 'middle', 'font-family': 'Consolas,monospace' });
+    t.textContent = vn[n]; svg.appendChild(t);
+  }
+
+  // e₇' at apex
+  svg.appendChild(svgEl('circle', { cx: apex[0], cy: apex[1], r: 5, fill: '#e8c850', opacity: 0.6 }));
+  lb = svgEl('text', { x: apex[0] + 16, y: apex[1] + 4, fill: '#e8c850', 'font-size': '11', 'font-family': 'Consolas,monospace', opacity: 0.7 });
+  lb.textContent = "e₇'"; svg.appendChild(lb);
+
+  // e₇' → 3D: SOLID line connecting apex to cube bottom (e₇' enters 3D)
+  svg.appendChild(svgEl('line', { x1: cx, y1: apex[1], x2: cx, y2: 155, stroke: '#50c878', 'stroke-width': 2, opacity: 0.9 }));
+  svg.appendChild(svgEl('polygon', { points: cx+',155 '+(cx-4)+',165 '+(cx+4)+',165', fill: '#50c878' }));
+
+  // Annotations
+  const ann = [['K > 0 · 凸面', '#556', 308], ['cos(d₀√K) = −⅓', '#e8c850', 324], ['d₀ = 2π/3 · α = 120°', '#556', 340], ['χ = −7 · b₁ = 8', '#e85050', 362], ['∂K ≠ 0 · 21边敞开', '#555', 378]];
+  ann.forEach(([t, c, y]) => {
+    const el = svgEl('text', { x: cx + 130, y, fill: c, 'font-size': '11', 'font-family': 'Consolas,monospace' });
+    el.textContent = t; svg.appendChild(el);
+  });
+
+  // ---- 3D: two cubes linked ----
+  function drawCube(ox, oy, s) {
+    const dx = s * 0.4, dy = s * 0.25;
+    const v = [
+      [ox, oy], [ox + s, oy], [ox + s, oy - s], [ox, oy - s],
+      [ox + dx, oy - dy], [ox + s + dx, oy - dy], [ox + s + dx, oy - s - dy], [ox + dx, oy - s - dy]
+    ];
+    [[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]].forEach(([a, b]) => {
+      svg.appendChild(svgEl('line', {
+        x1: v[a][0], y1: v[a][1], x2: v[b][0], y2: v[b][1],
+        stroke: '#3a5a3a', 'stroke-width': 1.5
+      }));
+    });
+  }
+  // Cubes positioned so bottom edge near apex (y=178), cube fills y=100-155
+  drawCube(cx - 95, 155, 50);
+  drawCube(cx + 25, 155, 50);
+  // e₇↔e₇' link between two cubes (shared origin)
+  svg.appendChild(svgEl('line', { x1: cx - 25, y1: 120, x2: cx + 25, y2: 120, stroke: '#e8c850', 'stroke-width': 2.5 }));
+  svg.appendChild(svgEl('circle', { cx: cx - 25, cy: 120, r: 5, fill: '#e8c850' }));
+  svg.appendChild(svgEl('circle', { cx: cx + 25, cy: 120, r: 5, fill: '#e8c850' }));
+  // Green line from apex to cube junction
+  svg.appendChild(svgEl('line', { x1: cx, y1: 155, x2: cx, y2: 160, stroke: '#50c878', 'stroke-width': 2, opacity: 0.6 }));
+  // Cube labels
+  [['F_A', cx - 70, 140], ['F_B', cx + 50, 140]].forEach(([t, x, y]) => {
+    const el = svgEl('text', { x, y, fill: '#50c878', 'font-size': '12', 'text-anchor': 'middle', 'font-family': 'Consolas,monospace' });
+    el.textContent = t; svg.appendChild(el);
+  });
+  const lk = svgEl('text', { x: cx, y: 92, fill: '#e8c850', 'font-size': '11', 'text-anchor': 'middle', 'font-family': 'Consolas,monospace' });
+  lk.textContent = "e₇↔e₇' · 1+1协边"; svg.appendChild(lk);
+  // SC extension lines
+  [[-1, 0], [1, 0]].forEach(([adx]) => {
+    svg.appendChild(svgEl('line', {
+      x1: cx + adx * 115, y1: 130, x2: cx + adx * 150, y2: 130,
+      stroke: '#2a4a3a', 'stroke-width': 1, 'stroke-dasharray': '4,4'
+    }));
+  });
+  const scl = svgEl('text', { x: cx + 165, y: 134, fill: '#2a6a4a', 'font-size': '11', 'font-family': 'Consolas,monospace' });
+  scl.textContent = '→ ℤ³ Z=6'; svg.appendChild(scl);
+
+  // Side arrows (construction ↑ left, ∂ ↓ right)
+  svg.appendChild(svgEl('line', { x1: 22, y1: H - 30, x2: 22, y2: 30, stroke: '#1e2e3e', 'stroke-width': 1 }));
+  svg.appendChild(svgEl('polygon', { points: '22,30 18,44 26,44', fill: '#1e2e3e' }));
+  svg.appendChild(svgEl('line', { x1: W - 22, y1: 30, x2: W - 22, y2: H - 30, stroke: '#1e2e3e', 'stroke-width': 1 }));
+  svg.appendChild(svgEl('polygon', { points: (W - 22) + ',' + (H - 30) + ' ' + (W - 26) + ',' + (H - 44) + ' ' + (W - 18) + ',' + (H - 44), fill: '#1e2e3e' }));
+
+  // Data overlay
+  [['χ = -7', '#e85050'], ['b₁ = 8', '#e85050'], ['Z = 6', '#50c878'], ['4/3', '#e8c850'], ['cos = −⅓', '#e8c850']].forEach(([t, c], i) => {
+    const el = svgEl('text', { x: W - 70, y: 28 + i * 18, fill: c, 'font-size': '13', 'font-family': 'Consolas,monospace', 'text-anchor': 'end' });
+    el.textContent = t; svg.appendChild(el);
+  });
+})();
+</script>
+</body>
+</html>
