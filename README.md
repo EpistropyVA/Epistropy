@@ -1,6 +1,7 @@
 # Epistropy
 ---
 license: CC-BY-NC-SA-4.0
+---
 domain:
   - science
   - theory
@@ -13,14 +14,6 @@ tags:
   - 物理学
   - 拓扑学
   - 信息论
-language:
-  - zh
-  - en
-task_categories:
-  - text-generation
-  - knowledge-representation
-tasks:
-  - text-generation
 ---
 
 # Epistropy · 识增论
