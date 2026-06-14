@@ -1,0 +1,158 @@
+==============================================================================
+BCC 3x3x3 lattice (PERIODIC BC / 3-torus) -> 4-simplex face-adjacency spectrum
+==============================================================================
+
+[Step 1] Build BCC lattice with periodic boundary conditions (mod-3 corners)
+  Body-center atoms: 27 (expect 27)
+  Mod-3 wrapping active: 91 corner-coordinate wraps detected across all cubes
+  Sample: bc=(2.5, 2.5, 2.5) corners = ((2, 2, 2), (2, 2, 0), (2, 0, 2), (2, 0, 0), (0, 2, 2), (0, 2, 0), (0, 0, 2), (0, 0, 0))
+    (expect some coords to be 0, wrapping from 3)
+
+[Step 2] Enumerate 4-simplices with periodic vertex identification
+  4-simplices: 54 (expect 54)
+  Simplex sizes: min=5, max=5, all==5? True
+
+[Step 3] Extract triangular faces (deduplicate under periodic BC)
+  Total face instances (54 simplices x 10): 540
+  Unique faces after mod-3 deduplication:   540
+  No shared faces (unexpected under periodic BC if predictions hold).
+  n_total_instances = 540 (always 54*10=540)
+  n_unique faces    = 540 (<= 540 due to mod-3 identification)
+
+[Step 4] Build 540x540 adjacency matrix on unique faces
+  Matrix shape: (540, 540)
+  Symmetric: True
+  Trace: 0.0 (expect 0)
+  Nonzero entries: 6156 (adjacent pairs: 3078)
+
+[Step 5] Diagonalize 540x540 adjacency matrix (numpy.linalg.eigh)
+
+  Full eigenvalue table (grouped within tol=1e-6):
+      eigenvalue | degeneracy | cumulative
+  ---------------+------------+-----------
+       -3.000000 |        162 |        162
+       -1.828427 |         27 |        189
+       -1.791288 |         28 |        217
+       -1.776589 |          6 |        223
+       -1.742109 |         12 |        235
+       -1.618034 |         28 |        263
+       -1.512976 |          8 |        271
+       -1.279452 |          6 |        277
+       -1.174309 |         12 |        289
+       -1.125873 |          8 |        297
+       -1.000000 |         35 |        332
+        0.618034 |         28 |        360
+        0.671493 |         12 |        372
+        1.426648 |          6 |        378
+        1.459363 |          6 |        384
+        1.708497 |          1 |        385
+        1.711652 |         12 |        397
+        1.807704 |          8 |        405
+        2.197906 |          8 |        413
+        2.314509 |         12 |        425
+        2.531628 |          6 |        431
+        2.791288 |         28 |        459
+        3.000000 |          1 |        460
+        3.828427 |         27 |        487
+        4.820089 |          6 |        493
+        6.315070 |          8 |        501
+        7.462657 |         12 |        513
+        7.756107 |         12 |        525
+        9.818313 |          6 |        531
+       10.318169 |          8 |        539
+       12.291503 |          1 |        540
+
+  degeneracy sum = 540 (expect 540): OK
+
+[Open-BC spectrum comparison]
+  Checking prediction P3: does the EXACT eigenvalue lambda=-2.0 (deg 56 in
+  open BC) disappear from the periodic spectrum?
+  Criterion: no grouped eigenvalue within tol=1e-4 of -2.0.
+  Eigenvalues in the window (-2.5, -1.5) of the periodic spectrum:
+    lambda=-1.828427  deg=27
+    lambda=-1.791288  deg=28
+    lambda=-1.776589  deg=6
+    lambda=-1.742109  deg=12
+    lambda=-1.618034  deg=28
+    lambda=-1.512976  deg=8
+  Exact lambda=-2.0 is NOT present (closest entries shown above, all shifted away).
+
+[Step 6] Body-center graph analysis under periodic BC
+  Face patch sizes per BC (should all be <= 20; may be < 20 if faces wrap to other BCs):
+  Size distribution: {20: 27}
+
+  P1 check: All 27 BCs have degree 6 in the periodic BC graph (torus):
+  Degrees: [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6]
+  All degree 6? True
+
+[Step 7] Local 20x20 diagonal block analysis
+  For each BC, extract the sub-block of A indexed by the BC's face patch.
+  Under full translation symmetry (periodic BC), all 27 blocks should be identical.
+  Primary assignment sizes: min=20, max=20, sum=540 (expect 540)
+  All primary patches have exactly 20 faces? True
+  Block shapes: all (20, 20)? True
+
+  P2 check: max entry-wise difference across all 27 local blocks = 0.000e+00
+  All 27 local 20x20 blocks identical? True
+
+[Step 8] Kronecker decomposition test
+  A_Kronecker = I_27 @ L_local + L_x @ M_x + L_y @ M_y + L_z @ M_z
+  L_local: 20x20 common local block
+  L_x/y/z: 27x27 circulant adjacency on the periodic 3x3x3 grid (per axis)
+  M_x/y/z: 20x20 coupling matrices (averaged over all 27 BC positions)
+  Kronecker residual ||A - A_Kron|| / ||A|| = 6.186e-01
+
+  Checking if coupling matrices are position-independent across all 27 BC pairs:
+  M_x: max deviation from mean = 8.333e-01, all uniform? False
+  M_y: max deviation from mean = 9.444e-01, all uniform? False
+  M_z: max deviation from mean = 9.444e-01, all uniform? False
+
+[Step 9] Eigenspace projection analysis (per BC)
+  With full translation symmetry, all 27 BCs should have equal projections.
+
+      eigenvalue |   deg | BC proj range (min, max) | all equal?
+  ---------------+-------+----------------------------+----------
+       -3.000000 |   162 | (6.000000, 6.000000)       | True
+       -1.828427 |    27 | (1.000000, 1.000000)       | True
+       -1.791288 |    28 | (1.037037, 1.037037)       | True
+       -1.776589 |     6 | (0.222222, 0.222222)       | True
+       -1.742109 |    12 | (0.444444, 0.444444)       | True
+       -1.618034 |    28 | (1.037037, 1.037037)       | True
+       -1.512976 |     8 | (0.296296, 0.296296)       | True
+       -1.279452 |     6 | (0.222222, 0.222222)       | True
+       -1.174309 |    12 | (0.444444, 0.444444)       | True
+       -1.125873 |     8 | (0.296296, 0.296296)       | True
+       -1.000000 |    35 | (1.296296, 1.296296)       | True
+        0.618034 |    28 | (1.037037, 1.037037)       | True
+        0.671493 |    12 | (0.444444, 0.444444)       | True
+        1.426648 |     6 | (0.222222, 0.222222)       | True
+        1.459363 |     6 | (0.222222, 0.222222)       | True
+        1.708497 |     1 | (0.037037, 0.037037)       | True
+        1.711652 |    12 | (0.444444, 0.444444)       | True
+        1.807704 |     8 | (0.296296, 0.296296)       | True
+        2.197906 |     8 | (0.296296, 0.296296)       | True
+        2.314509 |    12 | (0.444444, 0.444444)       | True
+        2.531628 |     6 | (0.222222, 0.222222)       | True
+        2.791288 |    28 | (1.037037, 1.037037)       | True
+        3.000000 |     1 | (0.037037, 0.037037)       | True
+        3.828427 |    27 | (1.000000, 1.000000)       | True
+        4.820089 |     6 | (0.222222, 0.222222)       | True
+        6.315070 |     8 | (0.296296, 0.296296)       | True
+        7.462657 |    12 | (0.444444, 0.444444)       | True
+        7.756107 |    12 | (0.444444, 0.444444)       | True
+        9.818313 |     6 | (0.222222, 0.222222)       | True
+       10.318169 |     8 | (0.296296, 0.296296)       | True
+       12.291503 |     1 | (0.037037, 0.037037)       | True
+
+  P5 check: All per-BC eigenspace projections uniform? True
+
+==============================================================================
+[PREDICTIONS SUMMARY]
+==============================================================================
+  P1: All 27 BCs have degree 6 in the periodic BC graph: CONFIRMED  (degrees={6})
+  P2: All 27 local 20x20 diagonal blocks are identical: CONFIRMED  (max diff = 0.000e+00)
+  P3: lambda=-2 (deg 56 in open BC) disappears from spectrum: CONFIRMED  (exact -2.0 in periodic spectrum? False)
+  P4: Kronecker residual < 1e-10: REFUTED  (actual residual = 6.186e-01)
+  P5: All per-BC eigenspace projections are equal: CONFIRMED
+
+=== DONE ===

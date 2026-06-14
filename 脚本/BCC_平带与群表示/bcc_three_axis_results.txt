@@ -1,0 +1,243 @@
+==============================================================================
+BCC 540x540 Three-Axis Kronecker Decomposition
+A = I_27(x)L_local + L_x(x)M_x + L_y(x)M_y + L_z(x)M_z
+==============================================================================
+
+[Step 1] Building BCC lattice and adjacency matrix ...
+  A shape: (540, 540)  nnz: 5184
+  Patch sizes: min=20, max=20, all==20? True
+  A_block shape: (540, 540) (reordered, same spectrum as A)
+
+  L_local eigenvalues (sorted): -2.0000 -2.0000 -2.0000 -2.0000 -2.0000 -2.0000 -2.0000 -2.0000 -2.0000 -2.0000 1.0000 1.0000 1.0000 1.0000 1.0000 1.0000 1.0000 1.0000 6.0000 6.0000
+
+  BC grid indices (first 5): [(0, 0, 0), (0, 0, 1), (0, 0, 2), (0, 1, 0), (0, 1, 1)]
+
+==============================================================================
+[Step 2] Build axis adjacency matrices L_x, L_y, L_z
+  L_x[a,b]=1 iff BCs differ by 1 in x only; similarly for y,z
+==============================================================================
+
+  ||L_x + L_y + L_z - L_grid||_F = 0.000000e+00
+  L_x + L_y + L_z == L_grid? True
+
+  Non-zero entries: L_x=36, L_y=36, L_z=36
+  Eigenvalues of L_x: -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142
+  Eigenvalues of L_y: -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142
+  Eigenvalues of L_z: -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142
+
+  ||spec(L_x) - spec(L_y)||_2 = 0.000000e+00
+  ||spec(L_x) - spec(L_z)||_2 = 0.000000e+00
+  L_x, L_y, L_z are isospectal? True
+
+==============================================================================
+[Step 3] Extract M_x, M_y, M_z (inter-BC coupling patterns per axis)
+==============================================================================
+
+  L_x: 36 adjacent BC pairs
+  Max element-wise difference across all 36 blocks: 1.000000e+00
+  All blocks identical? False
+
+  Investigating block variation by pair type ...
+  9 distinct pair types (by fixed coords):
+    type (0, 0): 4 blocks, max diff = 1.000000e+00
+    type (0, 1): 4 blocks, max diff = 1.000000e+00
+    type (0, 2): 4 blocks, max diff = 1.000000e+00
+    type (1, 0): 4 blocks, max diff = 1.000000e+00
+    type (1, 1): 4 blocks, max diff = 1.000000e+00
+    type (1, 2): 4 blocks, max diff = 1.000000e+00
+    type (2, 0): 4 blocks, max diff = 1.000000e+00
+    type (2, 1): 4 blocks, max diff = 1.000000e+00
+    type (2, 2): 4 blocks, max diff = 1.000000e+00
+  Eigenvalues of M_x (mean, sorted): -1.5000 -1.5000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 1.5000 1.5000
+  ||M_x||_F = 3.000000e+00
+
+  L_y: 36 adjacent BC pairs
+  Max element-wise difference across all 36 blocks: 1.000000e+00
+  All blocks identical? False
+
+  Investigating block variation by pair type ...
+  9 distinct pair types (by fixed coords):
+    type (0, 0): 4 blocks, max diff = 1.000000e+00
+    type (0, 1): 4 blocks, max diff = 1.000000e+00
+    type (0, 2): 4 blocks, max diff = 1.000000e+00
+    type (1, 0): 4 blocks, max diff = 1.000000e+00
+    type (1, 1): 4 blocks, max diff = 1.000000e+00
+    type (1, 2): 4 blocks, max diff = 1.000000e+00
+    type (2, 0): 4 blocks, max diff = 1.000000e+00
+    type (2, 1): 4 blocks, max diff = 1.000000e+00
+    type (2, 2): 4 blocks, max diff = 1.000000e+00
+  Eigenvalues of M_y (mean, sorted): -1.5000 -1.5000 -0.0000 -0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 1.5000 1.5000
+  ||M_y||_F = 3.000000e+00
+
+  L_z: 36 adjacent BC pairs
+  Max element-wise difference across all 36 blocks: 1.000000e+00
+  All blocks identical? False
+
+  Investigating block variation by pair type ...
+  9 distinct pair types (by fixed coords):
+    type (0, 0): 4 blocks, max diff = 1.000000e+00
+    type (0, 1): 4 blocks, max diff = 1.000000e+00
+    type (0, 2): 4 blocks, max diff = 1.000000e+00
+    type (1, 0): 4 blocks, max diff = 1.000000e+00
+    type (1, 1): 4 blocks, max diff = 1.000000e+00
+    type (1, 2): 4 blocks, max diff = 1.000000e+00
+    type (2, 0): 4 blocks, max diff = 1.000000e+00
+    type (2, 1): 4 blocks, max diff = 1.000000e+00
+    type (2, 2): 4 blocks, max diff = 1.000000e+00
+  Eigenvalues of M_z (mean, sorted): -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 1.5000 1.5000 1.5000 1.5000
+  ||M_z||_F = 3.000000e+00
+
+  Eigenvalue comparison of M_x, M_y, M_z:
+  ||spec(M_x) - spec(M_y)||_2 = 1.292638e-15
+  ||spec(M_x) - spec(M_z)||_2 = 3.000000e+00
+  M_x, M_y, M_z isospectral? False
+
+==============================================================================
+[Step 4] Verify three-axis Kronecker sum
+  A_kron3 = I_27(x)L_local + L_x(x)M_x + L_y(x)M_y + L_z(x)M_z
+==============================================================================
+
+  ||A_block - A_kron3||_F          = 3.117691e+01
+  ||A_block - A_kron3||_F / ||A||_F = 4.330127e-01
+  Exact three-axis decomposition (rel < 1e-9)? False
+
+  Residual matrix R = A_block - A_kron3:
+  ||R||_F = 3.117691e+01
+  rank(R) approx (tol=1e-6) = 216
+  Top 10 singular values of R: 3.2404 3.2404 3.2404 3.2404 3.2404 3.2404 3.2404 3.2404 3.2404 3.2404
+  Nonzero entries (|r|>1e-9): 3888  sparsity: 0.9867
+
+  Non-trivial residual blocks (||R_block||>1e-9): 108 of 729
+  Max block ||R_block||_F: 3.000000e+00
+  Mean block ||R_block||_F (non-zero): 3.000000e+00
+  Diagonal residual blocks: 0, off-diagonal: 108
+
+  Off-diagonal residual blocks (a, b, norm):
+    ( 0, 1) dist=1 delta=(0,0,1) ||R||=3.0000e+00
+    ( 0, 3) dist=1 delta=(0,1,0) ||R||=3.0000e+00
+    ( 0, 9) dist=1 delta=(1,0,0) ||R||=3.0000e+00
+    ( 1, 0) dist=1 delta=(0,0,1) ||R||=3.0000e+00
+    ( 1, 2) dist=1 delta=(0,0,1) ||R||=3.0000e+00
+    ( 1, 4) dist=1 delta=(0,1,0) ||R||=3.0000e+00
+    ( 1,10) dist=1 delta=(1,0,0) ||R||=3.0000e+00
+    ( 2, 1) dist=1 delta=(0,0,1) ||R||=3.0000e+00
+    ( 2, 5) dist=1 delta=(0,1,0) ||R||=3.0000e+00
+    ( 2,11) dist=1 delta=(1,0,0) ||R||=3.0000e+00
+    ( 3, 0) dist=1 delta=(0,1,0) ||R||=3.0000e+00
+    ( 3, 4) dist=1 delta=(0,0,1) ||R||=3.0000e+00
+    ( 3, 6) dist=1 delta=(0,1,0) ||R||=3.0000e+00
+    ( 3,12) dist=1 delta=(1,0,0) ||R||=3.0000e+00
+    ( 4, 1) dist=1 delta=(0,1,0) ||R||=3.0000e+00
+    ( 4, 3) dist=1 delta=(0,0,1) ||R||=3.0000e+00
+    ( 4, 5) dist=1 delta=(0,0,1) ||R||=3.0000e+00
+    ( 4, 7) dist=1 delta=(0,1,0) ||R||=3.0000e+00
+    ( 4,13) dist=1 delta=(1,0,0) ||R||=3.0000e+00
+    ( 5, 2) dist=1 delta=(0,1,0) ||R||=3.0000e+00
+
+  Eigenvalue comparison: A_kron3 vs full A
+  Max eigenvalue deviation: 1.216991e+00
+  Eigenvalues match (max dev < 1e-4)? False
+
+  First 30 eigenvalue pairs (A vs A_kron3):
+   idx |      ev(A) |  ev(kron3) |       diff
+  -----+------------+------------+-----------
+     0 |    -3.0000 |    -2.7071 |   0.292893
+     1 |    -3.0000 |    -2.7071 |   0.292893
+     2 |    -3.0000 |    -2.7071 |   0.292893
+     3 |    -3.0000 |    -2.7071 |   0.292893
+     4 |    -3.0000 |    -2.7071 |   0.292893
+     5 |    -3.0000 |    -2.7071 |   0.292893
+     6 |    -3.0000 |    -2.7071 |   0.292893
+     7 |    -3.0000 |    -2.7071 |   0.292893
+     8 |    -3.0000 |    -2.7071 |   0.292893
+     9 |    -3.0000 |    -2.7071 |   0.292893
+    10 |    -3.0000 |    -2.7071 |   0.292893
+    11 |    -3.0000 |    -2.7071 |   0.292893
+    12 |    -3.0000 |    -2.7071 |   0.292893
+    13 |    -3.0000 |    -2.7071 |   0.292893
+    14 |    -3.0000 |    -2.7071 |   0.292893
+    15 |    -3.0000 |    -2.7071 |   0.292893
+    16 |    -3.0000 |    -2.6297 |   0.370295
+    17 |    -3.0000 |    -2.6297 |   0.370295
+    18 |    -3.0000 |    -2.6297 |   0.370295
+    19 |    -3.0000 |    -2.6297 |   0.370295
+    20 |    -3.0000 |    -2.6297 |   0.370295
+    21 |    -3.0000 |    -2.6297 |   0.370295
+    22 |    -3.0000 |    -2.6233 |   0.376682
+    23 |    -3.0000 |    -2.6233 |   0.376682
+    24 |    -3.0000 |    -2.6233 |   0.376682
+    25 |    -3.0000 |    -2.6233 |   0.376682
+    26 |    -3.0000 |    -2.6233 |   0.376682
+    27 |    -3.0000 |    -2.6233 |   0.376682
+    28 |    -3.0000 |    -2.6233 |   0.376682
+    29 |    -3.0000 |    -2.6233 |   0.376682
+
+==============================================================================
+[Step 5] Symmetry analysis of M_x, M_y, M_z
+==============================================================================
+
+  M_x eigenvalues: -1.5000 -1.5000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 1.5000 1.5000
+  M_y eigenvalues: -1.5000 -1.5000 -0.0000 -0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 1.5000 1.5000
+  M_z eigenvalues: -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 1.5000 1.5000 1.5000 1.5000
+  M_y ≈ P M_x P^T: ||err||_F = 2.828427e+00  (is permutation? False)
+  M_x and M_z: eigenvalues differ — not permutation-related
+  Permutation P (M_x->M_y): [ 3  9  0  2 13  5 16  1  8 17 14 10 11 12  4 15  7 18 19  6]
+
+==============================================================================
+[Step 6] Commutativity analysis and eigenvalue prediction
+==============================================================================
+
+  Commutator norms (Frobenius):
+  ||[L_local, M_x]||_F = 1.058301e+01
+  ||[L_local, M_y]||_F = 1.058301e+01
+  ||[L_local, M_z]||_F = 1.058301e+01
+  ||[M_x, M_y]||_F     = 2.236068e+00
+  ||[M_x, M_z]||_F     = 2.236068e+00
+  ||[M_y, M_z]||_F     = 2.236068e+00
+  ||[L_x, L_y]||_F     = 0.000000e+00
+  ||[L_x, L_z]||_F     = 0.000000e+00
+  ||[L_y, L_z]||_F     = 0.000000e+00
+
+  L_local commutes with M_x,M_y,M_z? False, False, False
+  M_x,M_y,M_z mutually commute? False
+  L_x,L_y,L_z mutually commute? True
+
+  All matrices commute (necessary for tensor-product diagonalization)? False
+
+  Mean M = (M_x+M_y+M_z)/3 eigenvalues: -0.5000 -0.5000 -0.5000 -0.5000 -0.0000 -0.0000 -0.0000 -0.0000 0.0000 0.0000 0.0000 0.0000 0.1667 0.1667 0.1667 0.1667 0.5000 0.5000 1.1667 1.1667
+
+  L_grid eigenvalues: -4.2426 -2.8284 -2.8284 -2.8284 -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -1.4142 -0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142 2.8284 2.8284 2.8284 4.2426
+
+  Simplified sum A ≈ I(x)L_local + L_grid(x)M_mean:
+  ||A_block - A_kron_simplified||_F / ||A||_F = 5.335937e-01
+
+  Analytical spectrum prediction (tensor product structure):
+  λ_A = λ_local(m) + λ_x(kx)·μ_x + λ_y(ky)·μ_y + λ_z(kz)·μ_z
+  (valid only if all matrices commute)
+
+  L_x unique eigenvalues (sorted): -1.4142 -0.0000 1.4142
+  M_x eigenvalues (sorted):        -1.5000 -1.5000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 1.5000 1.5000
+
+  L_x, L_y, L_z commute — shared eigenbasis exists
+  Off-diagonal ||L_y in L_x eigenbasis||_F = 6.000000e+00
+  Off-diagonal ||L_z in L_x eigenbasis||_F = 6.000000e+00
+
+  M_x, M_y, M_z do NOT commute — no shared eigenbasis
+
+==============================================================================
+[Summary]
+==============================================================================
+
+  Three-axis Kronecker sum relative residual: 4.330127e-01
+  Exact decomposition (rel < 1e-9)? False
+  Max eigenvalue deviation (A vs A_kron3): 1.216991e+00
+
+  L_local eigenvalues: -2.0000 -2.0000 -2.0000 -2.0000 -2.0000 -2.0000 -2.0000 -2.0000 -2.0000 -2.0000 1.0000 1.0000 1.0000 1.0000 1.0000 1.0000 1.0000 1.0000 6.0000 6.0000
+  M_x eigenvalues:     -1.5000 -1.5000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 1.5000 1.5000
+  M_y eigenvalues:     -1.5000 -1.5000 -0.0000 -0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 1.5000 1.5000
+  M_z eigenvalues:     -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 -0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 1.5000 1.5000 1.5000 1.5000
+
+  All matrices commute? False
+  M_x isospectral with M_y, M_z? False
+
+=== DONE ===

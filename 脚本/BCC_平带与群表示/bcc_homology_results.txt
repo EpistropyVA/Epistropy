@@ -1,0 +1,121 @@
+======================================================================
+BCC HOMOLOGY VERIFICATION
+======================================================================
+
+── OPEN BOUNDARY CONDITIONS ──────────────────────────────────────────
+Vertices (open):      91  (64 SC + 27 body-centers)
+4-simplices (open):   54
+Edges  (1-simplices): 432
+Faces  (2-simplices): 540
+Tets   (3-simplices): 270
+
+Face slots (54x10):   540
+VERIFIED: All 540 faces are DISTINCT (no sharing between 4-simplices)
+
+── Part 3: Boundary operator d2 ─────────────────────────────────────
+d2 shape: (432, 540)  (edges x faces)
+
+── Part 4: Verify A + 3I = d2^T d2 ──────────────────────────────────
+Building face-adjacency matrix A (may take a moment)...
+A shape: (540, 540), nnz: 5184
+Diagonal of d2^T d2: min=3.0, max=3.0  (expected: all 3)
+Off-diagonal values of d2^T d2: [-1.  0.  1.]  (expected: -1, 0, or +1)
+
+Check: diagonal all 3?                     [OK]
+Check: |off-diag d2^T d2| == A (unsigned)? max diff = 0.00e+00  [OK]
+Check: d2^T d2 = A_signed + 3I?            max diff = 0.00e+00  [OK]
+
+Note: A_signed[i,j] = +1 (compatible orientation) or -1 (incompatible).
+      The identity A + 3I = d2^T d2 holds with A = SIGNED adjacency.
+      Unsigned A uses |.| on off-diagonal: |d2^T d2 - 3I| = A_unsigned.
+
+── Part 5: ker(d2) and flat bands ───────────────────────────────────
+rank(d2)    = 316
+nullity(d2) = 540 - 316 = 224
+Expected nullity (open BC flat-band count): 108
+NOTE: dim(ker d2) = 224  (expected 108)  [CHECK]
+
+── Part 6: d3 and homology H2 ────────────────────────────────────────
+d3 shape: (540, 270)  (faces x tetrahedra)
+max|d2 o d3| = 0.00e+00  (expected 0)
+VERIFIED: d2 o d3 = 0  [OK]
+
+nullity(d2) = 224
+rank(d3)    = 216
+beta_2 = nullity(d2) - rank(d3) = 224 - 216 = 8
+
+216 of the 224 flat-band states are EXACT
+(= boundaries of 3-chains, in im(d3))
+Only 8 are truly topological (not boundaries)
+
+Euler characteristic check (open):
+  #V=91, #E=432, #F=540, #T=270, #S4=54
+  chi = V - E + F - T + S4 = 91 - 432 + 540 - 270 + 54 = -17
+
+── PERIODIC BOUNDARY CONDITIONS ──────────────────────────────────────
+Vertices (periodic):  54  (27 SC + 27 body-centers)
+4-simplices:          54
+Edges  (periodic):    378
+Faces  (periodic):    540
+Tets   (periodic):    270
+
+Building periodic face-adjacency matrix A_per...
+Diagonal all 3 (periodic)?                     [OK]
+|off-diag d2^T d2| == A_unsigned (periodic)?   max diff = 0.00e+00  [OK]
+
+rank(d2)    (periodic) = 295
+nullity(d2) (periodic) = 245
+Expected nullity (periodic flat-band count): 162
+NOTE: dim(ker d2) = 245  (expected 162)  [CHECK]
+max|d2 o d3| (periodic) = 0.00e+00
+VERIFIED: d2 o d3 = 0 (periodic)  [OK]
+
+nullity(d2) (periodic) = 245
+rank(d3)    (periodic) = 216
+beta_2 (periodic) = 245 - 216 = 29
+
+Euler characteristic (periodic):
+  chi = 54 - 378 + 540 - 270 + 54 = 0
+
+======================================================================
+SUMMARY
+======================================================================
+
+[Complex Census]
+  OPEN BC:
+    Vertices:     91
+    Edges:        432
+    Faces:        540
+    Tetrahedra:   270
+    4-simplices:  54
+  PERIODIC BC:
+    Vertices:     54
+    Edges:        378
+    Faces:        540
+    Tetrahedra:   270
+    4-simplices:  54
+
+[Verification]
+  |off-diag d2^T d2| == A (open):     max diff=0.00e+00  [OK]
+  |off-diag d2^T d2| == A (periodic): max diff=0.00e+00  [OK]
+  d2^T d2 = A_signed + 3I (open):    max diff=0.00e+00  [OK]
+  d2 o d3 = 0 (open):                max=0.00e+00  [OK]
+  d2 o d3 = 0 (periodic):            max=0.00e+00  [OK]
+
+[Homology (open BC)]
+  rank(d2)    = 316
+  nullity(d2) = 224   (flat-band count, expected 108)
+  rank(d3)    = 216
+  beta_2      = 8   (true topological dimension)
+
+[Homology (periodic BC)]
+  rank(d2)    = 295
+  nullity(d2) = 245   (flat-band count, expected 162)
+  rank(d3)    = 216
+  beta_2      = 29   (true topological dimension)
+
+[Interpretation]
+  Open:     216 flat bands are exact (boundaries), 8 are topological
+  Periodic: 216 flat bands are exact (boundaries), 29 are topological
+
+======================================================================

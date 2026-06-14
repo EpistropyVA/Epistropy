@@ -1,0 +1,195 @@
+==============================================================================
+BCC 3x3x3 flat-band (lambda=-3) Oh irrep decomposition
+==============================================================================
+
+[Step 1] Build lattice and faces (translation-equivariant basis)
+  Total unique faces: 540 (expect 540)
+  Reference BC(0,0,0) faces: 20 (expect 20)
+
+[Step 2] Build adjacency matrix and extract T(0,0,0) self-block
+  A shape: (540, 540), symmetric: True
+  T(0,0,0) shape: (20, 20)
+  T(0,0,0) symmetric: True
+  T(0,0,0) nonzero entries: 120
+
+[Step 3] Diagonalize T(0,0,0) and search for eigenvalue -3
+  T(0,0,0) eigenvalue spectrum:
+    lambda =  -2.000000  deg = 10
+    lambda =   1.000000  deg = 8
+    lambda =   6.000000  deg = 2
+
+  T(0,0,0) has eigenvalue -3? False
+
+  Building T(R) for all 27 displacement vectors R (centered convention)...
+  T(R) matrices built: 27 distinct R vectors (centered)
+  Non-zero T(R) at R: [(-1, 0, 0), (0, -1, 0), (0, 0, -1), (0, 0, 0), (0, 0, 1), (0, 1, 0), (1, 0, 0)]
+
+  T(0,0,0) does NOT have eigenvalue -3.
+  Building H(k=0) = sum_R T(R) and extracting its -3 eigenspace.
+  Physical note: The flat-band eigenvectors at different k are related
+  by the Bloch factor, so the k=0 sector gives the irrep content.
+  The Oh group is a symmetry of H(k=0) since it fixes k=0.
+  H(k=0) = sum_R T(R), shape (20, 20)
+  H(k=0) symmetric: True
+  H(k=0) eigenvalue spectrum:
+    lambda =  -3.000000  deg = 6 <--- TARGET
+    lambda =  -1.828427  deg = 3
+    lambda =  -1.000000  deg = 5
+    lambda =   1.708497  deg = 1
+    lambda =   3.000000  deg = 1
+    lambda =   3.828427  deg = 3
+    lambda =  12.291503  deg = 1
+  Multiplicity of -3 in H(k=0): 6
+  Verify H(k=0) V = -3 V: max err = 2.00e-15
+
+  Checking -3 eigenvalue exists at all 27 k-points:
+  All 27 k-points have -3 eigenvalue: True
+
+  Using 6D flat-band eigenspace from H(k=0)
+  V shape: (20, 6) (should be 20 x 6)
+  V^T V orthonormality error: 1.221e-15
+
+[Step 4] Verify Oh symmetry of H(k=0) restricted to flat-band space
+  (Checking P(g) commutes with H(k=0) restricted to V)
+  H(k=0) V = -3 V: max err = 2.00e-15  OK=True
+  (T(R)V != 0 in general for non-null flat bands -- this is expected)
+  (What matters: H(k=0) is Oh-invariant, and V spans its -3 eigenspace)
+
+[Step 5] Generate Oh group (48 elements) and classify
+  Generated 48 Oh elements
+  Oh element classification:
+    C2        :  6  OK
+    C2'       :  3  OK
+    C3        :  8  OK
+    C4        :  6  OK
+    E         :  1  OK
+    S4        :  6  OK
+    S6        :  8  OK
+    i         :  1  OK
+    sigma_d   :  3  OK
+    sigma_h   :  6  OK
+  Total: 48 (expect 48)
+  Classification correct? True
+
+[Step 6] Build Oh permutation matrices on 20-face basis and project to 6D
+  Testing Oh action on reference faces...
+  All 48 permutation matrices well-defined: True
+  Building 48 representation matrices R(g) = V^T P(g) V ...
+  Verifying group homomorphism R(g*h) = R(g)*R(h) ...
+  Max |R(g)*R(h) - R(g*h)|: 1.332e-15
+  Valid group representation: True
+  Max |R(g)^T R(g) - I|: 2.442e-15
+  All R(g) orthogonal: True
+
+[Step 7] Characters of the 6D representation by conjugacy class
+
+  Class      | Size | chi(P, 20D) | chi(R, 6D)
+  -----------+------+-------------+-----------
+  E          |    1 |     20.0000 |     6.0000
+  C3         |    8 |      2.0000 |    -0.0000
+  C2         |    6 |      0.0000 |    -2.0000
+  C4         |    6 |      0.0000 |     0.0000
+  C2'        |    3 |      4.0000 |     2.0000
+  i          |    1 |      0.0000 |    -6.0000
+  S6         |    8 |      0.0000 |     0.0000
+  sigma_h    |    6 |      8.0000 |     2.0000
+  S4         |    6 |      0.0000 |    -0.0000
+  sigma_d    |    3 |      0.0000 |    -2.0000
+
+[Step 8] Decompose 6D representation into Oh irreducible representations
+  Using n_mu = (1/48) sum_g chi_mu(g)* chi(g)
+        = (1/48) sum_cls |cls| * chi_mu(cls)* chi(cls)
+
+  Irrep  | dim | n_mu (raw)   | n_mu (rounded) | contribution
+  -------+-----+--------------+----------------+-------------
+  A1g    |   1 |     0.000000 |              0 |   0
+  A2g    |   1 |    -0.000000 |              0 |   0
+  Eg     |   2 |     0.000000 |              0 |   0
+  T1g    |   3 |     0.000000 |              0 |   0
+  T2g    |   3 |    -0.000000 |              0 |   0
+  A1u    |   1 |    -0.000000 |              0 |   0
+  A2u    |   1 |     1.000000 |              1 |   1 <--
+  Eu     |   2 |     1.000000 |              1 |   2 <--
+  T1u    |   3 |     1.000000 |              1 |   3 <--
+  T2u    |   3 |    -0.000000 |              0 |   0
+
+  Total dimension check: 6 (expect 6)
+  Decomposition: 6D = A2u + Eu + T1u
+
+[Step 9] Physical interpretation
+
+  Testing hypotheses:
+  H1: 2xT1u (two copies of vector rep, like +/-x,+/-y,+/-z faces)
+      T1u multiplicity = 1  -> NO
+  H2: T1g + T2g
+      T1g=0, T2g=0  -> NO
+  H3: Eg + T1u (2+3=5, dimension mismatch for 6D -> unlikely)
+      Eg=0, T1u=1  -> NO
+  H4: T1u + T2u
+      T1u=1, T2u=0  -> NO
+
+  Actual decomposition: A2u + Eu + T1u
+
+  Physical context:
+  The 6 flat-band modes at lambda=-3 span 3D face-orientation space.
+  T1u (dim 3) = vector representation (odd under inversion) ~ x,y,z polarizations.
+  T2u (dim 3) = pseudovector under inversion, transforms as xy,yz,xz.
+  T1g (dim 3) = axial vector (even under inversion).
+  T2g (dim 3) = even parity, transforms as xy,yz,xz.
+  2xT1u would mean the 6 modes are two copies of {+-x,+-y,+-z} face-pointing modes.
+
+[Step 10] Consistency checks
+  sum |cls|*chi^2 / 48 = 3.0000  (= sum n_mu^2 = 3)
+  -> Representation is reducible (expect sum > 1 for reducible)
+  All multiplicities are integers: True
+
+  Character verification: recompute chi from decomposition
+  chi(cls) = sum_irrep n_mu * chi_mu(cls)
+
+  Class      | Computed   | From P proj  | Match?
+  -----------+------------+--------------+-------
+  E          |     6.0000 |       6.0000 | True
+  C3         |     0.0000 |      -0.0000 | True
+  C2         |    -2.0000 |      -2.0000 | True
+  C4         |     0.0000 |       0.0000 | True
+  C2'        |     2.0000 |       2.0000 | True
+  i          |    -6.0000 |      -6.0000 | True
+  S6         |     0.0000 |       0.0000 | True
+  sigma_h    |     2.0000 |       2.0000 | True
+  S4         |     0.0000 |      -0.0000 | True
+  sigma_d    |    -2.0000 |      -2.0000 | True
+  Max character reconstruction error: 8.899e-16
+
+==============================================================================
+SUMMARY
+==============================================================================
+
+  Lattice: BCC 3x3x3 periodic (3-torus), 540 faces, 27 BCs x 20 faces
+  Flat bands: 6 bands all pinned at lambda=-3 for ALL 27 k-points
+  Flat-band eigenspace source: H(k=0) (20x6 matrix V)
+  Oh action: 48 elements acting on 20-face basis of reference BC(0,0,0)
+  Group homomorphism error: 1.332e-15
+  Orthogonality error:      2.442e-15
+
+  6D representation characters by class:
+    E         : 6.0000
+    C3        : -0.0000
+    C2        : -2.0000
+    C4        : 0.0000
+    C2'       : 2.0000
+    i         : -6.0000
+    S6        : 0.0000
+    sigma_h   : 2.0000
+    S4        : -0.0000
+    sigma_d   : -2.0000
+
+  Irrep decomposition:
+    1 x A2u (dim 1)
+    1 x Eu (dim 2)
+    1 x T1u (dim 3)
+
+  6D = A2u + Eu + T1u
+
+  Hypothesis 2xT1u (two copies of vector representation): NOT CONFIRMED
+
+=== DONE ===

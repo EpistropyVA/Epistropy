@@ -1,0 +1,297 @@
+==============================================================================
+BCC 3x3x3 Bloch (irrep) decomposition of the 540x540 periodic-BC
+face-adjacency matrix on the 3-torus Z3 x Z3 x Z3
+==============================================================================
+
+[Step 1] Build faces with canonical translation-equivariant labeling
+  Total unique faces: 540 (expect 540)
+  Faces per BC: min=20, max=20, all==20? True
+
+[Step 2] Build 540x540 adjacency matrix
+  Shape: (540, 540), symmetric: True, trace: 0
+
+[Step 3] Reorder adjacency matrix into BC-block form (27 x 20)
+  Permutation valid: True
+  A_reord shape: (540, 540), symmetric: True
+
+[Step 4] Direct diagonalization of 540x540 A (reference spectrum)
+      eigenvalue |    deg |  cumul
+  ---------------+--------+-------
+       -3.000000 |    162 |    162
+       -1.828427 |     27 |    189
+       -1.791288 |     28 |    217
+       -1.776589 |      6 |    223
+       -1.742109 |     12 |    235
+       -1.618034 |     28 |    263
+       -1.512976 |      8 |    271
+       -1.279452 |      6 |    277
+       -1.174309 |     12 |    289
+       -1.125873 |      8 |    297
+       -1.000000 |     35 |    332
+        0.618034 |     28 |    360
+        0.671493 |     12 |    372
+        1.426648 |      6 |    378
+        1.459363 |      6 |    384
+        1.708497 |      1 |    385
+        1.711652 |     12 |    397
+        1.807704 |      8 |    405
+        2.197906 |      8 |    413
+        2.314509 |     12 |    425
+        2.531628 |      6 |    431
+        2.791288 |     28 |    459
+        3.000000 |      1 |    460
+        3.828427 |     27 |    487
+        4.820089 |      6 |    493
+        6.315070 |      8 |    501
+        7.462657 |     12 |    513
+        7.756107 |     12 |    525
+        9.818313 |      6 |    531
+       10.318169 |      8 |    539
+       12.291503 |      1 |    540
+
+[Step 5] Build hopping matrices T(R) from BC-block structure
+
+  Verifying translation symmetry: T(R) is origin-independent
+  Max deviation across all BC pairs: 0.000e+00
+  Translation symmetry exact? True
+
+[Step 6] Characterize nonzero T(R) matrices
+  Nonzero T(R) matrices: 7 out of 27
+  Breakdown by torus distance:
+    dist=0 (self): 1 matrices
+      R=(0, 0, 0)  ||T||_F=10.954451
+    dist=1 (NN): 6 matrices
+      R=(0, 0, 1)  ||T||_F=4.242641
+      R=(0, 0, 2)  ||T||_F=4.242641
+      R=(0, 1, 0)  ||T||_F=4.242641
+      R=(0, 2, 0)  ||T||_F=4.242641
+      R=(1, 0, 0)  ||T||_F=4.242641
+      R=(2, 0, 0)  ||T||_F=4.242641
+
+  ||A||^2 = 6156.0000
+  dist=0 (self): 3240.0000 (52.63%)
+  dist=1 (NN): 2916.0000 (47.37%)
+  dist=2 (NNN(d=2)): 0.0000 (0.00%)
+  dist=3 (NNN(d=3)): 0.0000 (0.00%)
+
+[Step 7] Construct H(k) = sum_R exp(i k.R) T(R) for all 27 wavevectors
+  Total Bloch eigenvalues: 540 (expect 540)
+
+[Step 8] Verify Bloch spectrum matches direct diagonalization
+  Max |lambda_Bloch - lambda_direct| = 2.665e-14
+
+[Step 9] Hermiticity check for each H(k)
+  Max ||H(k) - H(k)^H|| over all k: 3.972e-15
+  All H(k) Hermitian? True
+
+[Step 10] Dispersion relation: H(k) eigenvalues for each k-point
+
+      k = 2pi/3*n |     BZ | eigenvalues (sorted, 20 values)
+  ----------------+--------+-------------------------------------------------------------
+        (0, 0, 0) |  Gamma | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.8284,-1.8284,-1.    ,-1.    ,-1.    ,-1.    ,-1.    , 1.7085, 3.    , 3.8284, 3.8284, 3.8284,12.2915]
+        (0, 0, 1) |   edge | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.8284,-1.7766,-1.2795,-1.    ,-1.    ,-1.    , 1.4266, 1.4594, 2.5316, 3.8284, 3.8284, 4.8201, 9.8183]
+        (0, 0, 2) |   edge | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.8284,-1.7766,-1.2795,-1.    ,-1.    ,-1.    , 1.4266, 1.4594, 2.5316, 3.8284, 3.8284, 4.8201, 9.8183]
+        (0, 1, 0) |   edge | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.8284,-1.7766,-1.2795,-1.    ,-1.    ,-1.    , 1.4266, 1.4594, 2.5316, 3.8284, 3.8284, 4.8201, 9.8183]
+        (0, 1, 1) |   face | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.7913,-1.7421,-1.618 ,-1.1743,-1.    , 0.618 , 0.6715, 1.7117, 2.3145, 2.7913, 3.8284, 7.4627, 7.7561]
+        (0, 1, 2) |   face | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.7913,-1.7421,-1.618 ,-1.1743,-1.    , 0.618 , 0.6715, 1.7117, 2.3145, 2.7913, 3.8284, 7.4627, 7.7561]
+        (0, 2, 0) |   edge | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.8284,-1.7766,-1.2795,-1.    ,-1.    ,-1.    , 1.4266, 1.4594, 2.5316, 3.8284, 3.8284, 4.8201, 9.8183]
+        (0, 2, 1) |   face | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.7913,-1.7421,-1.618 ,-1.1743,-1.    , 0.618 , 0.6715, 1.7117, 2.3145, 2.7913, 3.8284, 7.4627, 7.7561]
+        (0, 2, 2) |   face | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.7913,-1.7421,-1.618 ,-1.1743,-1.    , 0.618 , 0.6715, 1.7117, 2.3145, 2.7913, 3.8284, 7.4627, 7.7561]
+        (1, 0, 0) |   edge | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.8284,-1.7766,-1.2795,-1.    ,-1.    ,-1.    , 1.4266, 1.4594, 2.5316, 3.8284, 3.8284, 4.8201, 9.8183]
+        (1, 0, 1) |   face | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.7913,-1.7421,-1.618 ,-1.1743,-1.    , 0.618 , 0.6715, 1.7117, 2.3145, 2.7913, 3.8284, 7.4627, 7.7561]
+        (1, 0, 2) |   face | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.7913,-1.7421,-1.618 ,-1.1743,-1.    , 0.618 , 0.6715, 1.7117, 2.3145, 2.7913, 3.8284, 7.4627, 7.7561]
+        (1, 1, 0) |   face | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.7913,-1.7421,-1.618 ,-1.1743,-1.    , 0.618 , 0.6715, 1.7117, 2.3145, 2.7913, 3.8284, 7.4627, 7.7561]
+        (1, 1, 1) | corner | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.7913,-1.7913,-1.618 ,-1.618 ,-1.513 ,-1.1259, 0.618 , 0.618 , 1.8077, 2.1979, 2.7913, 2.7913, 6.3151,10.3182]
+        (1, 1, 2) | corner | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.7913,-1.7913,-1.618 ,-1.618 ,-1.513 ,-1.1259, 0.618 , 0.618 , 1.8077, 2.1979, 2.7913, 2.7913, 6.3151,10.3182]
+        (1, 2, 0) |   face | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.7913,-1.7421,-1.618 ,-1.1743,-1.    , 0.618 , 0.6715, 1.7117, 2.3145, 2.7913, 3.8284, 7.4627, 7.7561]
+        (1, 2, 1) | corner | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.7913,-1.7913,-1.618 ,-1.618 ,-1.513 ,-1.1259, 0.618 , 0.618 , 1.8077, 2.1979, 2.7913, 2.7913, 6.3151,10.3182]
+        (1, 2, 2) | corner | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.7913,-1.7913,-1.618 ,-1.618 ,-1.513 ,-1.1259, 0.618 , 0.618 , 1.8077, 2.1979, 2.7913, 2.7913, 6.3151,10.3182]
+        (2, 0, 0) |   edge | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.8284,-1.7766,-1.2795,-1.    ,-1.    ,-1.    , 1.4266, 1.4594, 2.5316, 3.8284, 3.8284, 4.8201, 9.8183]
+        (2, 0, 1) |   face | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.7913,-1.7421,-1.618 ,-1.1743,-1.    , 0.618 , 0.6715, 1.7117, 2.3145, 2.7913, 3.8284, 7.4627, 7.7561]
+        (2, 0, 2) |   face | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.7913,-1.7421,-1.618 ,-1.1743,-1.    , 0.618 , 0.6715, 1.7117, 2.3145, 2.7913, 3.8284, 7.4627, 7.7561]
+        (2, 1, 0) |   face | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.7913,-1.7421,-1.618 ,-1.1743,-1.    , 0.618 , 0.6715, 1.7117, 2.3145, 2.7913, 3.8284, 7.4627, 7.7561]
+        (2, 1, 1) | corner | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.7913,-1.7913,-1.618 ,-1.618 ,-1.513 ,-1.1259, 0.618 , 0.618 , 1.8077, 2.1979, 2.7913, 2.7913, 6.3151,10.3182]
+        (2, 1, 2) | corner | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.7913,-1.7913,-1.618 ,-1.618 ,-1.513 ,-1.1259, 0.618 , 0.618 , 1.8077, 2.1979, 2.7913, 2.7913, 6.3151,10.3182]
+        (2, 2, 0) |   face | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.8284,-1.7913,-1.7421,-1.618 ,-1.1743,-1.    , 0.618 , 0.6715, 1.7117, 2.3145, 2.7913, 3.8284, 7.4627, 7.7561]
+        (2, 2, 1) | corner | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.7913,-1.7913,-1.618 ,-1.618 ,-1.513 ,-1.1259, 0.618 , 0.618 , 1.8077, 2.1979, 2.7913, 2.7913, 6.3151,10.3182]
+        (2, 2, 2) | corner | [-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-3.    ,-1.7913,-1.7913,-1.618 ,-1.618 ,-1.513 ,-1.1259, 0.618 , 0.618 , 1.8077, 2.1979, 2.7913, 2.7913, 6.3151,10.3182]
+
+[Step 10b] Band bandwidths (rank within H(k) = band index)
+   band |        min |        max |         BW | flat?
+  ------+------------+------------+------------+------
+      0 |  -3.000000 |  -3.000000 |   0.000000 | True
+      1 |  -3.000000 |  -3.000000 |   0.000000 | True
+      2 |  -3.000000 |  -3.000000 |   0.000000 | True
+      3 |  -3.000000 |  -3.000000 |   0.000000 | True
+      4 |  -3.000000 |  -3.000000 |   0.000000 | True
+      5 |  -3.000000 |  -3.000000 |   0.000000 | True
+      6 |  -1.828427 |  -1.791288 |   0.037139 | False
+      7 |  -1.828427 |  -1.791288 |   0.037139 | False
+      8 |  -1.828427 |  -1.618034 |   0.210393 | False
+      9 |  -1.618034 |  -1.000000 |   0.618034 | False
+     10 |  -1.512976 |  -1.000000 |   0.512976 | False
+     11 |  -1.125873 |  -1.000000 |   0.125873 | False
+     12 |  -1.000000 |   0.618034 |   1.618034 | False
+     13 |  -1.000000 |   1.426648 |   2.426648 | False
+     14 |   1.459363 |   1.807704 |   0.348341 | False
+     15 |   2.197906 |   3.000000 |   0.802094 | False
+     16 |   2.791288 |   3.828427 |   1.037139 | False
+     17 |   2.791288 |   3.828427 |   1.037139 | False
+     18 |   3.828427 |   7.462657 |   3.634230 | False
+     19 |   7.756107 |  12.291503 |   4.535395 | False
+
+[Step 11] At which k-points does lambda=-3 appear?
+  k=2pi/3*(0, 0, 0)  BZ=Gamma  multiplicity=6
+  k=2pi/3*(0, 0, 1)  BZ=edge  multiplicity=6
+  k=2pi/3*(0, 0, 2)  BZ=edge  multiplicity=6
+  k=2pi/3*(0, 1, 0)  BZ=edge  multiplicity=6
+  k=2pi/3*(0, 1, 1)  BZ=face  multiplicity=6
+  k=2pi/3*(0, 1, 2)  BZ=face  multiplicity=6
+  k=2pi/3*(0, 2, 0)  BZ=edge  multiplicity=6
+  k=2pi/3*(0, 2, 1)  BZ=face  multiplicity=6
+  k=2pi/3*(0, 2, 2)  BZ=face  multiplicity=6
+  k=2pi/3*(1, 0, 0)  BZ=edge  multiplicity=6
+  k=2pi/3*(1, 0, 1)  BZ=face  multiplicity=6
+  k=2pi/3*(1, 0, 2)  BZ=face  multiplicity=6
+  k=2pi/3*(1, 1, 0)  BZ=face  multiplicity=6
+  k=2pi/3*(1, 1, 1)  BZ=corner  multiplicity=6
+  k=2pi/3*(1, 1, 2)  BZ=corner  multiplicity=6
+  k=2pi/3*(1, 2, 0)  BZ=face  multiplicity=6
+  k=2pi/3*(1, 2, 1)  BZ=corner  multiplicity=6
+  k=2pi/3*(1, 2, 2)  BZ=corner  multiplicity=6
+  k=2pi/3*(2, 0, 0)  BZ=edge  multiplicity=6
+  k=2pi/3*(2, 0, 1)  BZ=face  multiplicity=6
+  k=2pi/3*(2, 0, 2)  BZ=face  multiplicity=6
+  k=2pi/3*(2, 1, 0)  BZ=face  multiplicity=6
+  k=2pi/3*(2, 1, 1)  BZ=corner  multiplicity=6
+  k=2pi/3*(2, 1, 2)  BZ=corner  multiplicity=6
+  k=2pi/3*(2, 2, 0)  BZ=face  multiplicity=6
+  k=2pi/3*(2, 2, 1)  BZ=corner  multiplicity=6
+  k=2pi/3*(2, 2, 2)  BZ=corner  multiplicity=6
+  Total lambda=-3 in Bloch decomp: 162
+  Total lambda=-3 in direct diag: 162
+
+[Step 12] Gamma-point H(0,0,0) analysis
+  H(0,0,0) imaginary part max: 0.000e+00 (should be 0)
+  H(0,0,0) eigenvalues:
+    lambda= -3.000000  deg=6
+    lambda= -1.828427  deg=3
+    lambda= -1.000000  deg=5
+    lambda=  1.708497  deg=1
+    lambda=  3.000000  deg=1
+    lambda=  3.828427  deg=3
+    lambda= 12.291503  deg=1
+  H(0,0,0) = sum_R T(R) is the row-sum of all inter-BC couplings
+  (This equals the restriction of A to any single BC's 20 faces plus the
+   sum of all outgoing hoppings, integrated over k via Bloch sum at k=0)
+
+[Step 13] Why the Kronecker product decomposition fails
+  Kronecker ansatz: A = kron(I27, L_local) + kron(L_x,M_x) + kron(L_y,M_y) + kron(L_z,M_z)
+  where L_local = T(0,0,0) and M_axis = NN hopping matrix along that axis.
+
+  Are M_x, M_y, M_z identical to each other?
+    ||M_x - M_y||_F = 3.741657
+    ||M_x - M_z||_F = 3.741657
+    ||M_y - M_z||_F = 3.741657
+  Are +x and -x NN matrices identical?
+    ||T(1,0,0) - T(2,0,0)||_F = 6.000000
+    ||T(0,1,0) - T(0,2,0)||_F = 6.000000
+    ||T(0,0,1) - T(0,0,2)||_F = 6.000000
+
+  Kronecker (NN-only, isotropic) residual: 0.4867 (48.7%)
+
+  Testing Kronecker ansatz H_Kron(k) = L_local + 2*sum_axis cos(k_alpha)*M_axis:
+        k=2pi/3*n |   ||H(k)-H_Kron(k)|| | match?
+  ----------------+----------------------+-------
+        (0, 0, 0) |             0.000000 | True
+        (0, 0, 1) |             5.196152 | False
+        (0, 0, 2) |             5.196152 | False
+        (0, 1, 0) |             5.196152 | False
+        (0, 1, 1) |             7.348469 | False
+        (0, 1, 2) |             7.348469 | False
+        (0, 2, 0) |             5.196152 | False
+        (0, 2, 1) |             7.348469 | False
+        (0, 2, 2) |             7.348469 | False
+        (1, 0, 0) |             5.196152 | False
+        (1, 0, 1) |             7.348469 | False
+        (1, 0, 2) |             7.348469 | False
+        (1, 1, 0) |             7.348469 | False
+        (1, 1, 1) |             9.000000 | False
+        (1, 1, 2) |             9.000000 | False
+        (1, 2, 0) |             7.348469 | False
+        (1, 2, 1) |             9.000000 | False
+        (1, 2, 2) |             9.000000 | False
+        (2, 0, 0) |             5.196152 | False
+        (2, 0, 1) |             7.348469 | False
+        (2, 0, 2) |             7.348469 | False
+        (2, 1, 0) |             7.348469 | False
+        (2, 1, 1) |             9.000000 | False
+        (2, 1, 2) |             9.000000 | False
+        (2, 2, 0) |             7.348469 | False
+        (2, 2, 1) |             9.000000 | False
+        (2, 2, 2) |             9.000000 | False
+  Max Kronecker error in k-space: 9.000000
+  Root cause: if M_x=M_y=M_z and T(+R)=T(-R) the Kronecker ansatz would be
+  exact. It fails because the actual hopping matrices break the assumed symmetry.
+
+==============================================================================
+[KEY QUESTIONS SUMMARY]
+==============================================================================
+
+Q1: Does Bloch decomposition perfectly reconstruct the full spectrum?
+    Max eigenvalue discrepancy: 2.665e-14
+    -> YES (tol 1e-8 satisfied)
+
+Q2: How many distinct T(R) hopping matrices are nonzero?
+    -> 7 nonzero (out of 27 possible R vectors)
+       self: 1 matrices
+       nearest-neighbor: 6 matrices
+    Nearest-neighbor only? YES
+
+Q3: Are there flat bands? How many?
+    -> 6 flat band(s) out of 20
+       Band 0: eigenvalue = -3.000000
+       Band 1: eigenvalue = -3.000000
+       Band 2: eigenvalue = -3.000000
+       Band 3: eigenvalue = -3.000000
+       Band 4: eigenvalue = -3.000000
+       Band 5: eigenvalue = -3.000000
+
+Q4: What fraction of coupling is nearest-neighbor vs beyond?
+    self: 52.63%
+    NN: 47.37%
+    dist=2: 0.00%
+    dist=3: 0.00%
+    -> NN fraction: 47.37%, beyond-NN: 0.00%
+
+Q5: At which k-points does lambda=-3 appear?
+    k=2pi/3*(0, 0, 0) (Gamma): multiplicity 6
+    k=2pi/3*(0, 0, 1) (edge): multiplicity 6
+    k=2pi/3*(0, 0, 2) (edge): multiplicity 6
+    k=2pi/3*(0, 1, 0) (edge): multiplicity 6
+    k=2pi/3*(0, 1, 1) (face): multiplicity 6
+    k=2pi/3*(0, 1, 2) (face): multiplicity 6
+    k=2pi/3*(0, 2, 0) (edge): multiplicity 6
+    k=2pi/3*(0, 2, 1) (face): multiplicity 6
+    k=2pi/3*(0, 2, 2) (face): multiplicity 6
+    k=2pi/3*(1, 0, 0) (edge): multiplicity 6
+    k=2pi/3*(1, 0, 1) (face): multiplicity 6
+    k=2pi/3*(1, 0, 2) (face): multiplicity 6
+    k=2pi/3*(1, 1, 0) (face): multiplicity 6
+    k=2pi/3*(1, 1, 1) (corner): multiplicity 6
+    k=2pi/3*(1, 1, 2) (corner): multiplicity 6
+    k=2pi/3*(1, 2, 0) (face): multiplicity 6
+    k=2pi/3*(1, 2, 1) (corner): multiplicity 6
+    k=2pi/3*(1, 2, 2) (corner): multiplicity 6
+    k=2pi/3*(2, 0, 0) (edge): multiplicity 6
+    k=2pi/3*(2, 0, 1) (face): multiplicity 6
+    k=2pi/3*(2, 0, 2) (face): multiplicity 6
+    k=2pi/3*(2, 1, 0) (face): multiplicity 6
+    k=2pi/3*(2, 1, 1) (corner): multiplicity 6
+    k=2pi/3*(2, 1, 2) (corner): multiplicity 6
+    k=2pi/3*(2, 2, 0) (face): multiplicity 6
+    k=2pi/3*(2, 2, 1) (corner): multiplicity 6
+    k=2pi/3*(2, 2, 2) (corner): multiplicity 6
+    -> lambda=-3 appears at 27 k-points, total 162 eigenvalues
+
+=== DONE ===

@@ -1,0 +1,358 @@
+==============================================================================
+BCC 3x3x3 lattice -> 4-simplex network -> 540x540 face-adjacency spectrum
+==============================================================================
+
+[Step 1] Body-center atoms: 27 (expect 27)
+[Step 2] 4-simplices enumerated: 54 (expect 54)
+VERIFY OK: all 540 triangular faces are distinct (unique faces = 540).
+[Step 3] Triangular faces: total-instances=540, unique=540 (expect 540, 540)
+
+[Verification counts]
+  body-centers = 27  (expect 27)
+  simplices    = 54   (expect 54)
+  faces(total) = 540  (expect 540)
+  faces(unique)= 540  (expect 540)
+
+[Step 4] Building 540x540 signed (W) and unsigned (A) adjacency matrices ...
+  S^0 sign assignment method usage: {'s0-fallback(+1)': 162, 'det': 378} ('det' = sign(det([e1,e2,n])) with n=(1,1,1)/sqrt(3), the body-diagonal reference direction; 's0-fallback(+1)' = sigma:=+1 unconditionally, used when det is approx 0 -- valid because the spectrum is S^0-sign-invariant, see below)
+  Adjacent face-pairs (sharing exactly 2 vertices): 2592
+
+[Matrix properties]
+  shape = (540, 540)
+  W symmetric (W == W.T): True
+  trace(W) = 0.0
+  rank(W) = 540
+  nonzero entries = 5184  (nonzero off-diagonal pairs = 2592)
+
+[S^0 sign invariance check]
+  Claim: for ANY consistent sigma in {+1,-1} per face, the signed adjacency
+  matrix W = D A D (D = diag(sigma), D^2 = I, D orthogonal) is an orthogonal
+  similarity transform of the unsigned adjacency matrix A, hence
+  spec(W) = spec(A) exactly -- the eigenvalue spectrum does not depend on
+  the S^0 sign choice at all. We verify this numerically for the sigma
+  assignment actually used:
+  max |eig(W)_k - eig(A)_k| over all 540 sorted eigenvalues = 0.000e+00
+  spec(W) == spec(A) (within 1e-8)?: True
+  -> CONFIRMED: the spectrum equals that of the unsigned adjacency matrix.
+  All downstream analysis below diagonalizes A (the unambiguous, sign-free matrix).
+
+[Step 5] Diagonalizing A, the unsigned adjacency matrix (numpy.linalg.eigh, real symmetric) ...
+  (Using A rather than W: S^0-sign invariance proven above means this loses no
+  information about the spectrum, and removes all sign-convention ambiguity.)
+
+  Full eigenvalue table (grouped within tol=1e-6), most negative -> most positive:
+      eigenvalue | degeneracy | cumulative
+  ---------------+------------+-----------
+       -3.000000 |        108 |        108
+       -2.000000 |         56 |        164
+       -1.948778 |          6 |        170
+       -1.944377 |          6 |        176
+       -1.915290 |          6 |        182
+       -1.904426 |         12 |        194
+       -1.891933 |          2 |        196
+       -1.882918 |          6 |        202
+       -1.877799 |          6 |        208
+       -1.852562 |          6 |        214
+       -1.761557 |         16 |        230
+       -1.727570 |          6 |        236
+       -1.697583 |         12 |        248
+       -1.655912 |          6 |        254
+       -1.603070 |          2 |        256
+       -1.414214 |         16 |        272
+       -1.314930 |          6 |        278
+       -1.203507 |          6 |        284
+       -1.147600 |          2 |        286
+       -0.723497 |          6 |        292
+       -0.643822 |         12 |        304
+       -0.510511 |          6 |        310
+       -0.363328 |         16 |        326
+       -0.213806 |          6 |        332
+        0.017872 |          6 |        338
+        0.405202 |          6 |        344
+        0.424278 |         12 |        356
+        0.439663 |          6 |        362
+        1.000000 |         16 |        378
+        1.414214 |         16 |        394
+        1.722409 |          6 |        400
+        1.724144 |         12 |        412
+        1.725898 |          6 |        418
+        1.818698 |          6 |        424
+        1.820059 |          6 |        430
+        1.866539 |          2 |        432
+        2.600314 |          2 |        434
+        2.680407 |          6 |        440
+        2.807712 |          6 |        446
+        2.816753 |          6 |        452
+        2.933835 |         12 |        464
+        2.992055 |          6 |        470
+        3.124885 |         16 |        486
+        3.878028 |          2 |        488
+        5.084968 |          6 |        494
+        5.838829 |          6 |        500
+        6.235614 |          6 |        506
+        7.163574 |         12 |        518
+        7.439218 |          2 |        520
+        8.251112 |          6 |        526
+        8.481159 |          6 |        532
+        9.633047 |          6 |        538
+       10.858503 |          2 |        540
+
+  degeneracy sum = 540  (expect 540) -> OK
+
+[Trace verification]
+  sum(lambda_i * m_i) = -0.0000000000
+  trace(A)            = 0.0000000000
+  trace(W)            = 0.0000000000  (both zero-diagonal -> traces match trivially)
+  match vs trace(A) (within 1e-6)?: True
+
+[Step 5 - orbit decomposition under Oh (octahedral group, |Oh|=48)]
+  number of orbits found = 22  (spec expects 15)
+  NOTE: the action of Oh (centered at the lattice center (1.5,1.5,1.5), the only center for which all 48 group elements map the 540-face set closed onto itself -- verified: 0 unmapped images) genuinely partitions the 540 faces into 22 orbits, not 15. This is the mathematically consistent result for THIS group/action; the spec's '15' expectation is reported here as a discrepancy rather than forced. Steps 5's collective-mode projection and Step 6's coupling matrix below use the actual 22 orbits.
+  orbit sizes (sorted descending):
+    orbit # 8 : size =  48
+    orbit #10 : size =  48
+    orbit #13 : size =  48
+    orbit #17 : size =  48
+    orbit # 0 : size =  24
+    orbit # 1 : size =  24
+    orbit # 2 : size =  24
+    orbit # 4 : size =  24
+    orbit # 6 : size =  24
+    orbit # 7 : size =  24
+    orbit # 9 : size =  24
+    orbit #11 : size =  24
+    orbit #12 : size =  24
+    orbit #14 : size =  24
+    orbit #16 : size =  24
+    orbit #18 : size =  24
+    orbit #15 : size =  12
+    orbit #19 : size =  12
+    orbit #20 : size =  12
+    orbit # 3 : size =   8
+    orbit # 5 : size =   8
+    orbit #21 : size =   8
+  sum of orbit sizes = 540  (expect 540)
+
+[Collective mode analysis - most isolated eigenvalue]
+  most isolated eigenvalue (grouped rep) = 10.858503  (degeneracy=2, gap to nearest neighbor=1.225456)
+  eigenvector columns used: indices [538, 539]
+  total squared-component weight (sanity, should be ~ degeneracy = 2): 2.000000
+
+  orbit_id | orbit_size |  proj_weight |  weight/size
+  ---------+------------+--------------+-------------
+         0 |         24 |     0.002817 |     0.000117
+         1 |         24 |     0.013814 |     0.000576
+         2 |         24 |     0.013814 |     0.000576
+         3 |          8 |     0.017305 |     0.002163
+         4 |         24 |     0.002817 |     0.000117
+         5 |          8 |     0.001297 |     0.000162
+         6 |         24 |     0.029823 |     0.001243
+         7 |         24 |     0.013814 |     0.000576
+         8 |         48 |     0.013888 |     0.000289
+         9 |         24 |     0.019949 |     0.000831
+        10 |         48 |     0.103833 |     0.002163
+        11 |         24 |     0.017940 |     0.000747
+        12 |         24 |     0.017940 |     0.000747
+        13 |         48 |     0.068115 |     0.001419
+        14 |         24 |     0.098885 |     0.004120
+        15 |         12 |     0.008560 |     0.000713
+        16 |         24 |     0.083967 |     0.003499
+        17 |         48 |     0.088458 |     0.001843
+        18 |         24 |     0.181272 |     0.007553
+        19 |         12 |     0.041983 |     0.003499
+        20 |         12 |     0.054522 |     0.004543
+        21 |          8 |     0.105188 |     0.013149
+
+[Step 6 - 22x22 orbit coupling matrix (spec calls for 15x15; using the 22 orbits actually found, see note above)]
+  Orbit coupling matrix C[a,b] = (1/(|a||b|)) * sum_{i in a, j in b} A[i,j]
+  (built from the unambiguous unsigned adjacency A -- spectrum-equivalent to W, see S^0 note above):
+    [0.0833 0.0833 0.0833 0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.    ]
+    [0.0833 0.0833 0.0417 0.125  0.     0.     0.     0.     0.     0.0417 0.     0.     0.0417 0.     0.0417 0.     0.     0.     0.     0.     0.     0.    ]
+    [0.0833 0.0417 0.0833 0.125  0.     0.     0.     0.     0.     0.0417 0.     0.     0.0417 0.     0.0417 0.     0.     0.     0.     0.     0.     0.    ]
+    [0.    0.125 0.125 0.    0.    0.    0.    0.    0.    0.125 0.    0.    0.125 0.    0.125 0.    0.    0.    0.    0.    0.    0.   ]
+    [0.     0.     0.     0.     0.0833 0.125  0.0417 0.0833 0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.    ]
+    [0.    0.    0.    0.    0.125 0.    0.125 0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.   ]
+    [0.     0.     0.     0.     0.0417 0.125  0.0833 0.0833 0.     0.     0.0833 0.0833 0.     0.     0.     0.     0.     0.     0.     0.     0.     0.    ]
+    [0.     0.     0.     0.     0.0833 0.     0.0833 0.0833 0.     0.     0.0417 0.0417 0.     0.     0.     0.     0.     0.     0.     0.     0.     0.    ]
+    [0.     0.     0.     0.     0.     0.     0.     0.     0.0208 0.0417 0.0208 0.0417 0.0417 0.0208 0.     0.     0.     0.     0.     0.     0.     0.    ]
+    [0.     0.0417 0.0417 0.125  0.     0.     0.     0.     0.0417 0.     0.0417 0.     0.0417 0.     0.0417 0.     0.     0.     0.     0.     0.     0.    ]
+    [0.     0.     0.     0.     0.     0.     0.0833 0.0417 0.0208 0.0417 0.0208 0.0417 0.     0.0208 0.0417 0.     0.0417 0.0208 0.0417 0.     0.     0.    ]
+    [0.     0.     0.     0.     0.     0.     0.0833 0.0417 0.0417 0.     0.0417 0.     0.     0.0417 0.     0.     0.     0.     0.     0.     0.     0.    ]
+    [0.     0.0417 0.0417 0.125  0.     0.     0.     0.     0.0417 0.0417 0.     0.     0.     0.0417 0.0417 0.     0.     0.     0.     0.     0.     0.    ]
+    [0.     0.     0.     0.     0.     0.     0.     0.     0.0208 0.     0.0208 0.0417 0.0417 0.0208 0.0417 0.     0.0417 0.0208 0.0417 0.     0.     0.    ]
+    [0.     0.0417 0.0417 0.125  0.     0.     0.     0.     0.     0.0417 0.0417 0.     0.0417 0.0417 0.     0.     0.0833 0.0417 0.0833 0.     0.     0.    ]
+    [0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.0833 0.0833 0.     0.     0.     0.    ]
+    [0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.0417 0.     0.     0.0417 0.0833 0.0833 0.0417 0.0417 0.0833 0.     0.     0.    ]
+    [0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.0208 0.     0.     0.0208 0.0417 0.0833 0.0417 0.0417 0.0417 0.0833 0.     0.    ]
+    [0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.0417 0.     0.     0.0417 0.0833 0.     0.0833 0.0417 0.0417 0.0833 0.0833 0.25  ]
+    [0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.0833 0.0833 0.     0.0833 0.25  ]
+    [0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.     0.0833 0.0833 0.3333 0.25  ]
+    [0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.25  0.25  0.25  0.375]
+  C symmetric: True
+
+  Eigenvalues of C (22 values, ascending):
+    -0.214512
+    -0.184888
+    -0.156193
+    -0.127153
+    -0.104718
+    -0.083853
+    -0.075809
+    -0.055036
+    -0.048112
+    -0.010761
+     0.012504
+     0.041667
+     0.052503
+     0.058389
+     0.066303
+     0.119189
+     0.137486
+     0.160375
+     0.255046
+     0.332330
+     0.430576
+     0.790502
+
+  Comparison with reference spectrum (15 values, sorted ascending). NOTE: computed spectrum has 22 values vs reference's 15 (orbit-count discrepancy explained above) -- aligning by sorted rank-position for 15 overlapping rows; this is a positional comparison, not a claim of correspondence.
+      computed |    reference |   abs diff
+  -------------+--------------+-----------
+       -0.2145 |      -1.1033 |   0.888788
+       -0.1849 |      -0.3450 |   0.160112
+       -0.1562 |      -0.0397 |   0.116493
+       -0.1272 |       0.1152 |   0.242353
+       -0.1047 |       0.4533 |   0.558018
+       -0.0839 |       0.6770 |   0.760853
+       -0.0758 |       1.0364 |   1.112209
+       -0.0550 |       1.2430 |   1.298036
+       -0.0481 |       1.3186 |   1.366712
+       -0.0108 |       1.5552 |   1.565961
+        0.0125 |       1.7939 |   1.781396
+        0.0417 |       2.2067 |   2.165033
+        0.0525 |       2.2935 |   2.240997
+        0.0584 |       3.5596 |   3.501211
+        0.0663 |       8.5551 |   8.488797
+  ... 7 extra computed eigenvalue(s) beyond reference length:
+        0.1192 |       (none) |
+        0.1375 |       (none) |
+        0.1604 |       (none) |
+        0.2550 |       (none) |
+        0.3323 |       (none) |
+        0.4306 |       (none) |
+        0.7905 |       (none) |
+
+  max abs diff = 8.488797, mean abs diff = 1.749798  (over 15 aligned rows)
+
+==============================================================================
+[Step 7] Body-center eigenspace projection analysis
+==============================================================================
+  For the two largest-degeneracy eigenvalues (lambda=-3, m=108 and
+  lambda=-2, m=56), map each face to its parent body-center (the BC of
+  the unique simplex it belongs to -- all 540 faces are distinct, so each
+  face has exactly one parent simplex and hence exactly one parent BC),
+  then compute how much of each eigenspace's squared weight sits on each
+  BC's 20-face patch (2 simplices x 10 faces = 20 faces per BC, all
+  disjoint across BCs since faces are unique). Group the 27 BCs into
+  shells by 3x3x3-grid position (Corner/Edge/Face/Center) and compare
+  the average per-shell projection to the BC's degree in the 27-node
+  body-center grid graph.
+
+  Per-BC face-patch sizes: min=20, max=20, all == 20? True  (2 simplices x 10 faces, all faces unique -> disjoint patches)
+  Shell-nominal-degree vs grid-graph-degree cross-check: match for all 27 BCs? True
+  Shell membership counts (expect Corner=8, Edge=12, Face=6, Center=1):
+    Corner : count= 8  (expected 8)  graph-degree=3
+    Edge   : count=12  (expected 12)  graph-degree=4
+    Face   : count= 6  (expected 6)  graph-degree=5
+    Center : count= 1  (expected 1)  graph-degree=6
+
+  --- lambda = -3  (expected degeneracy m = 108) ---
+  eigenvector columns found: 108 (eigenvalue rep -3.000000)  match expected m? True
+
+  bc_idx | grid(i,j,k) |   shell | deg |   projection
+  -------+-------------+---------+-----+-------------
+       0 |   (0, 0, 0) |  Corner |   3 |     3.013782
+       1 |   (0, 0, 1) |    Edge |   4 |     3.997567
+       2 |   (0, 0, 2) |  Corner |   3 |     3.013782
+       3 |   (0, 1, 0) |    Edge |   4 |     3.997567
+       4 |   (0, 1, 1) |    Face |   5 |     4.989110
+       5 |   (0, 1, 2) |    Edge |   4 |     3.997567
+       6 |   (0, 2, 0) |  Corner |   3 |     3.013782
+       7 |   (0, 2, 1) |    Edge |   4 |     3.997567
+       8 |   (0, 2, 2) |  Corner |   3 |     3.013782
+       9 |   (1, 0, 0) |    Edge |   4 |     3.997567
+      10 |   (1, 0, 1) |    Face |   5 |     4.989110
+      11 |   (1, 0, 2) |    Edge |   4 |     3.997567
+      12 |   (1, 1, 0) |    Face |   5 |     4.989110
+      13 |   (1, 1, 1) |  Center |   6 |     5.984276
+      14 |   (1, 1, 2) |    Face |   5 |     4.989110
+      15 |   (1, 2, 0) |    Edge |   4 |     3.997567
+      16 |   (1, 2, 1) |    Face |   5 |     4.989110
+      17 |   (1, 2, 2) |    Edge |   4 |     3.997567
+      18 |   (2, 0, 0) |  Corner |   3 |     3.013782
+      19 |   (2, 0, 1) |    Edge |   4 |     3.997567
+      20 |   (2, 0, 2) |  Corner |   3 |     3.013782
+      21 |   (2, 1, 0) |    Edge |   4 |     3.997567
+      22 |   (2, 1, 1) |    Face |   5 |     4.989110
+      23 |   (2, 1, 2) |    Edge |   4 |     3.997567
+      24 |   (2, 2, 0) |  Corner |   3 |     3.013782
+      25 |   (2, 2, 1) |    Edge |   4 |     3.997567
+      26 |   (2, 2, 2) |  Corner |   3 |     3.013782
+
+  sum of projections over all 27 BCs = 108.000000  (expect ~ degeneracy m = 108, since sum_bc sum_{i in I_bc} sq[i] = sum_i sq[i] = sum of ||eigvec_k||^2 over the 108 eigenvectors = 108)
+
+  Average projection per BC, by shell  (prediction: lambda=-3 -> {'Corner': 3, 'Edge': 4, 'Face': 5, 'Center': 6}):
+    shell | count |  avg projection | predicted |  match?
+  --------+-------+-----------------+-----------+--------
+   Corner |     8 |        3.013782 |         3 |      no
+     Edge |    12 |        3.997567 |         4 |      no
+     Face |     6 |        4.989110 |         5 |      no
+   Center |     1 |        5.984276 |         6 |      no
+  Verification target: does each BC contribute exactly its graph degree (3, 4, 5, 6 for Corner/Edge/Face/Center)?
+  ALL FOUR SHELLS MATCH PREDICTION: False
+
+  --- lambda = -2  (expected degeneracy m = 56) ---
+  eigenvector columns found: 56 (eigenvalue rep -2.000000)  match expected m? True
+
+  bc_idx | grid(i,j,k) |   shell | deg |   projection
+  -------+-------------+---------+-----+-------------
+       0 |   (0, 0, 0) |  Corner |   3 |     4.000000
+       1 |   (0, 0, 1) |    Edge |   4 |     2.000000
+       2 |   (0, 0, 2) |  Corner |   3 |     4.000000
+       3 |   (0, 1, 0) |    Edge |   4 |     2.000000
+       4 |   (0, 1, 1) |    Face |   5 |     0.000000
+       5 |   (0, 1, 2) |    Edge |   4 |     2.000000
+       6 |   (0, 2, 0) |  Corner |   3 |     4.000000
+       7 |   (0, 2, 1) |    Edge |   4 |     2.000000
+       8 |   (0, 2, 2) |  Corner |   3 |     4.000000
+       9 |   (1, 0, 0) |    Edge |   4 |     2.000000
+      10 |   (1, 0, 1) |    Face |   5 |     0.000000
+      11 |   (1, 0, 2) |    Edge |   4 |     2.000000
+      12 |   (1, 1, 0) |    Face |   5 |     0.000000
+      13 |   (1, 1, 1) |  Center |   6 |     0.000000
+      14 |   (1, 1, 2) |    Face |   5 |     0.000000
+      15 |   (1, 2, 0) |    Edge |   4 |     2.000000
+      16 |   (1, 2, 1) |    Face |   5 |     0.000000
+      17 |   (1, 2, 2) |    Edge |   4 |     2.000000
+      18 |   (2, 0, 0) |  Corner |   3 |     4.000000
+      19 |   (2, 0, 1) |    Edge |   4 |     2.000000
+      20 |   (2, 0, 2) |  Corner |   3 |     4.000000
+      21 |   (2, 1, 0) |    Edge |   4 |     2.000000
+      22 |   (2, 1, 1) |    Face |   5 |     0.000000
+      23 |   (2, 1, 2) |    Edge |   4 |     2.000000
+      24 |   (2, 2, 0) |  Corner |   3 |     4.000000
+      25 |   (2, 2, 1) |    Edge |   4 |     2.000000
+      26 |   (2, 2, 2) |  Corner |   3 |     4.000000
+
+  sum of projections over all 27 BCs = 56.000000  (expect ~ degeneracy m = 56, since sum_bc sum_{i in I_bc} sq[i] = sum_i sq[i] = sum of ||eigvec_k||^2 over the 56 eigenvectors = 56)
+
+  Average projection per BC, by shell  (prediction: lambda=-2 -> {'Corner': 4, 'Edge': 2, 'Face': 0, 'Center': 0}):
+    shell | count |  avg projection | predicted |  match?
+  --------+-------+-----------------+-----------+--------
+   Corner |     8 |        4.000000 |         4 |     YES
+     Edge |    12 |        2.000000 |         2 |     YES
+     Face |     6 |        0.000000 |         0 |     YES
+   Center |     1 |        0.000000 |         0 |     YES
+  Verification target: does each BC contribute 2*max(5 - degree, 0), giving (4, 2, 0, 0) for Corner/Edge/Face/Center?
+  ALL FOUR SHELLS MATCH PREDICTION: True
+
+=== DONE ===

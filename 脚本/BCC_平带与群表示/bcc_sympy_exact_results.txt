@@ -1,0 +1,192 @@
+======================================================================
+BCC 3x3x3 -- Exact Rational Corner Deviation
+Spectral projector method, numpy float64
+======================================================================
+
+[1] Building BCC lattice L=3...
+  VERIFY OK: all 540 faces distinct (unique=540)
+  Body centers: 27
+  Simplices:    54
+  Faces total:  540
+
+[2] Building integer adjacency matrix (540x540)...
+  Adjacent pairs: 2592
+  A dtype: int32, symmetric: True
+
+[3] Computing eigenvalues (numpy float64)...
+
+  Eigenvalue table:
+      eigenvalue | rounded |    deg | within 1e-4?
+  ---------------+---------+--------+-------------
+       -3.000000 |      -3 |    108 |          YES
+       -2.000000 |      -2 |     56 |          YES
+       -1.948778 |      -2 |      6 |           NO
+       -1.944377 |      -2 |      6 |           NO
+       -1.915290 |      -2 |      6 |           NO
+       -1.904426 |      -2 |     12 |           NO
+       -1.891933 |      -2 |      2 |           NO
+       -1.882918 |      -2 |      6 |           NO
+       -1.877799 |      -2 |      6 |           NO
+       -1.852562 |      -2 |      6 |           NO
+       -1.761557 |      -2 |     16 |           NO
+       -1.727570 |      -2 |      6 |           NO
+       -1.697583 |      -2 |     12 |           NO
+       -1.655912 |      -2 |      6 |           NO
+       -1.603070 |      -2 |      2 |           NO
+       -1.414214 |      -1 |     16 |           NO
+       -1.314930 |      -1 |      6 |           NO
+       -1.203507 |      -1 |      6 |           NO
+       -1.147600 |      -1 |      2 |           NO
+       -0.723497 |      -1 |      6 |           NO
+       -0.643822 |      -1 |     12 |           NO
+       -0.510511 |      -1 |      6 |           NO
+       -0.363328 |       0 |     16 |           NO
+       -0.213806 |       0 |      6 |           NO
+        0.017872 |       0 |      6 |           NO
+        0.405202 |       0 |      6 |           NO
+        0.424278 |       0 |     12 |           NO
+        0.439663 |       0 |      6 |           NO
+        1.000000 |       1 |     16 |          YES
+        1.414214 |       1 |     16 |           NO
+        1.722409 |       2 |      6 |           NO
+        1.724144 |       2 |     12 |           NO
+        1.725898 |       2 |      6 |           NO
+        1.818698 |       2 |      6 |           NO
+        1.820059 |       2 |      6 |           NO
+        1.866539 |       2 |      2 |           NO
+        2.600314 |       3 |      2 |           NO
+        2.680407 |       3 |      6 |           NO
+        2.807712 |       3 |      6 |           NO
+        2.816753 |       3 |      6 |           NO
+        2.933835 |       3 |     12 |           NO
+        2.992055 |       3 |      6 |           NO
+        3.124885 |       3 |     16 |           NO
+        3.878028 |       4 |      2 |           NO
+        5.084968 |       5 |      6 |           NO
+        5.838829 |       6 |      6 |           NO
+        6.235614 |       6 |      6 |           NO
+        7.163574 |       7 |     12 |           NO
+        7.439218 |       7 |      2 |           NO
+        8.251112 |       8 |      6 |           NO
+        8.481159 |       8 |      6 |           NO
+        9.633047 |      10 |      6 |           NO
+       10.858503 |      11 |      2 |           NO
+
+  Distinct integer eigenvalues: [-3, -2, 1]
+  Total eigenvalues: 540 (expect 540)
+
+  NOTE: Eigenvalues are NOT all integers (continuous spectrum).
+  Using eigenvector projection method for lambda=-3 subspace.
+
+[4] Computing full eigenvectors and building P_{-3} projector...
+  lambda=-3 eigenvectors: 108
+  P shape: (540, 540)
+
+[5] Verifying projector property P^2 = P ...
+  max|P^2 - P| = 6.6613e-16  (OK)
+  trace(P) = 108.000000  (expect 108)
+  |trace(P) - 108| = 0.0000e+00
+
+[6] Classifying faces by BC type...
+  Corner BCs (n_interior=0): 8
+  Corner BCs grid positions: [(0, 0, 0), (0, 0, 2), (0, 2, 0), (0, 2, 2), (2, 0, 0), (2, 0, 2), (2, 2, 0), (2, 2, 2)]
+
+[7] Computing P_{-3} diagonal projections per BC...
+
+  Corner BC projections (graph degree = 3):
+  bc_idx |          grid |           proj | graph_deg |      deviation
+  -------+---------------+----------------+-----------+---------------
+       0 |     (0, 0, 0) |   3.0137824488 |         3 |  +0.0137824488
+       2 |     (0, 0, 2) |   3.0137824488 |         3 |  +0.0137824488
+       6 |     (0, 2, 0) |   3.0137824488 |         3 |  +0.0137824488
+       8 |     (0, 2, 2) |   3.0137824488 |         3 |  +0.0137824488
+      18 |     (2, 0, 0) |   3.0137824488 |         3 |  +0.0137824488
+      20 |     (2, 0, 2) |   3.0137824488 |         3 |  +0.0137824488
+      24 |     (2, 2, 0) |   3.0137824488 |         3 |  +0.0137824488
+      26 |     (2, 2, 2) |   3.0137824488 |         3 |  +0.0137824488
+
+[8] Corner deviation summary...
+  All equal?  True
+  Mean signed deviation: 0.013782448754
+  Std  signed deviation: 3.6822e-16
+
+  Corner deviation delta        = 0.013782448754
+  Corner deviation |delta|      = 0.013782448754
+
+[9] Rational identification...
+  limit_denominator(   100): 1/73 = 0.013698630137  (error = 8.3819e-05)
+  limit_denominator(  1000): 9/653 = 0.013782542113  (error = 9.3360e-08)
+  limit_denominator( 10000): 133/9650 = 0.013782383420  (error = 6.5334e-08)
+  limit_denominator(100000): 678/49193 = 0.013782448722  (error = 3.1375e-11)
+
+  Checking delta * N for small N (integer proximity):
+  delta *     6 = 0.0826946925  (nearest int = 0, err = 8.2695e-02)
+  delta *     8 = 0.1102595900  (nearest int = 0, err = 1.1026e-01)
+  delta *    12 = 0.1653893850  (nearest int = 0, err = 1.6539e-01)
+  delta *    18 = 0.2480840776  (nearest int = 0, err = 2.4808e-01)
+  delta *    24 = 0.3307787701  (nearest int = 0, err = 3.3078e-01)
+  delta *    36 = 0.4961681551  (nearest int = 0, err = 4.9617e-01)
+  delta *    48 = 0.6615575402  (nearest int = 1, err = 3.3844e-01)
+  delta *    60 = 0.8269469252  (nearest int = 1, err = 1.7305e-01)
+  delta *    72 = 0.9923363103  (nearest int = 1, err = 7.6637e-03)
+  delta *    80 = 1.1025959003  (nearest int = 1, err = 1.0260e-01)
+  delta *    90 = 1.2404203878  (nearest int = 1, err = 2.4042e-01)
+  delta *   100 = 1.3782448754  (nearest int = 1, err = 3.7824e-01)
+  delta *   120 = 1.6538938505  (nearest int = 2, err = 3.4611e-01)
+  delta *   144 = 1.9846726205  (nearest int = 2, err = 1.5327e-02)
+  delta *   180 = 2.4808407757  (nearest int = 2, err = 4.8084e-01)
+  delta *   216 = 2.9770089308  (nearest int = 3, err = 2.2991e-02)
+  delta *   240 = 3.3077877009  (nearest int = 3, err = 3.0779e-01)
+  delta *   360 = 4.9616815514  (nearest int = 5, err = 3.8318e-02)
+  delta *   432 = 5.9540178616  (nearest int = 6, err = 4.5982e-02)
+  delta *   540 = 7.4425223270  (nearest int = 7, err = 4.4252e-01)
+  delta *   720 = 9.9233631027  (nearest int = 10, err = 7.6637e-02)
+  delta *  1080 = 14.8850446541  (nearest int = 15, err = 1.1496e-01)
+  delta *  1440 = 19.8467262054  (nearest int = 20, err = 1.5327e-01)
+  delta *  2160 = 29.7700893081  (nearest int = 30, err = 2.2991e-01)
+
+  Best rational (denom <= 10000): 133/9650
+    Numerator  p = 133
+    Denominator q = 9650
+    float(p/q)  = 0.013782383420
+    error       = 6.5334e-08
+    q mod 72    = 2
+    q mod 24    = 2
+    q mod 360   = 290
+
+  Specific fraction checks:
+  1/72 = 0.013888888889  (err = 1.0644e-04)
+  1/60 = 0.016666666667  (err = 2.8842e-03)
+  1/80 = 0.012500000000  (err = 1.2824e-03)
+  1/90 = 0.011111111111  (err = 2.6713e-03)
+  1/100 = 0.010000000000  (err = 3.7824e-03)
+  1/108 = 0.009259259259  (err = 4.5232e-03)
+  1/120 = 0.008333333333  (err = 5.4491e-03)
+  1/144 = 0.006944444444  (err = 6.8380e-03)
+  1/180 = 0.005555555556  (err = 8.2269e-03)
+  1/216 = 0.004629629630  (err = 9.1528e-03)
+  5/360 = 0.013888888889  (err = 1.0644e-04)
+  7/540 = 0.012962962963  (err = 8.1949e-04)
+  1/540 = 0.001851851852  (err = 1.1931e-02)
+  1/720 = 0.001388888889  (err = 1.2394e-02)
+
+[10] Per-shell projection summary (lambda=-3)...
+  n_int |   shell | count |       avg_proj | graph_deg |        avg_dev |        std_dev
+  ------+---------+-------+----------------+-----------+----------------+---------------
+      0 |  Corner |     8 |   3.0137824488 |         3 |  +0.0137824488 |     3.6822e-16
+      1 |    Edge |    12 |   3.9975667672 |         4 |  -0.0024332328 |     7.0217e-16
+      2 |    Face |     6 |   4.9891104551 |         5 |  -0.0108895449 |     6.7836e-16
+      3 |  Center |     1 |   5.9842764733 |         6 |  -0.0157235267 |     0.0000e+00
+
+======================================================================
+FINAL VERDICT
+======================================================================
+  Corner deviation (mean) : 0.013782448754
+  Corner deviation |delta|: 0.013782448754
+  Best rational (<=10000) : 133/9650
+  Is 1/72 exact (1e-10)?  : False
+  Is 1/72 close (1e-4)?   : False
+  delta * 72              : 0.992336310270
+  delta * 720             : 9.923363102703
+  Projector error P^2-P   : 6.6613e-16
+  Trace error             : 0.0000e+00

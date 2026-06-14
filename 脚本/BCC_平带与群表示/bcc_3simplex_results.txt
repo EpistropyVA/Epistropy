@@ -1,0 +1,314 @@
+BCC 3-SIMPLEX ANALOG: testing Adams dimension hypothesis at d=3
+Adams dimensions: d=1,3,7 (division algebras R,C,H,O)
+Hypothesis: at Adams dimensions, Corner BC deviation vanishes
+
+==============================================================================
+BCC 3x3x3 lattice -> 3-simplex network -> edge-adjacency spectrum (OPEN BC)
+==============================================================================
+
+[Step 1] Body-center atoms: 27 (expect 27)
+[Step 2] 3-simplices enumerated: 216 (expect 216)
+         27 BCs x 2 tets x C(4,3)=4 tri-faces = 216
+
+[Step 3] Edge instances: 1296 (expect 1296 = 216 x 6)
+         Unique edges:    432
+         Edges shared by multiple simplices: 432
+           {(0.0, 0.0, 0.0), (0.0, 1.0, 1.0)} -> simplices [0, 1]
+           {(0.5, 0.5, 0.5), (0.0, 0.0, 0.0)} -> simplices [0, 1, 2]
+           {(0.0, 0.0, 0.0), (1.0, 0.0, 1.0)} -> simplices [0, 2]
+           {(0.5, 0.5, 0.5), (0.0, 1.0, 1.0)} -> simplices [0, 1, 3]
+           {(1.0, 0.0, 1.0), (0.0, 1.0, 1.0)} -> simplices [0, 3, 8, 11]
+
+[Step 4] Building 1296x1296 edge-adjacency matrix ...
+         Two edges adjacent iff they share exactly 1 vertex
+         Shape: (1296, 1296)
+         Adjacent edge-pairs: 44172
+         A symmetric: True
+         trace(A): 0.0
+
+[Step 5] Diagonalizing A (1296x1296) with numpy.linalg.eigh ...
+
+  Full eigenvalue table (grouped within tol=1e-6):
+      eigenvalue | degeneracy | cumulative
+  ---------------+------------+-----------
+       -8.000000 |         52 |         52
+       -7.665645 |          3 |         55
+       -7.657456 |          3 |         58
+       -7.627581 |          1 |         59
+       -7.595917 |          1 |         60
+       -7.427892 |          2 |         62
+       -7.427597 |          3 |         65
+       -7.415655 |          3 |         68
+       -7.403514 |          3 |         71
+       -7.391412 |          5 |         76
+       -7.178362 |          3 |         79
+       -7.163760 |          2 |         81
+       -7.163516 |          3 |         84
+       -7.115787 |          3 |         87
+       -7.094301 |          3 |         90
+       -7.093534 |          2 |         92
+       -6.859231 |          1 |         93
+       -6.803987 |          1 |         94
+       -6.762861 |          3 |         97
+       -6.665981 |          3 |        100
+       -6.593634 |          3 |        103
+       -6.508881 |          1 |        104
+       -6.360095 |          3 |        107
+       -6.000000 |        126 |        233
+       -5.822156 |          1 |        234
+       -5.674586 |          3 |        237
+       -5.600911 |          3 |        240
+       -5.560287 |          1 |        241
+       -5.405166 |          1 |        242
+       -5.396415 |          3 |        245
+       -5.386560 |          3 |        248
+       -5.384970 |          1 |        249
+       -5.142305 |          2 |        251
+       -5.114634 |          3 |        254
+       -5.098837 |          3 |        257
+       -5.085741 |          3 |        260
+       -5.027221 |          2 |        262
+       -5.007796 |          3 |        265
+       -4.771284 |          3 |        268
+       -4.747386 |          2 |        270
+       -4.730584 |          3 |        273
+       -4.707498 |          2 |        275
+       -4.529629 |          1 |        276
+       -4.494100 |          1 |        277
+       -4.488473 |          3 |        280
+       -4.484369 |          3 |        283
+       -4.168381 |          3 |        286
+       -4.168059 |          3 |        289
+       -4.000000 |         52 |        341
+       -0.000000 |        864 |       1205
+        3.443409 |          1 |       1206
+        3.463501 |          3 |       1209
+        3.516622 |          3 |       1212
+        3.603185 |          1 |       1213
+        8.553966 |          3 |       1216
+        8.554596 |          2 |       1218
+        8.845510 |          3 |       1221
+        9.272074 |          3 |       1224
+       10.024939 |          3 |       1227
+       10.118350 |          2 |       1229
+       10.303998 |          1 |       1230
+       10.415175 |          3 |       1233
+       10.564890 |          3 |       1236
+       10.841767 |          1 |       1237
+       13.295548 |          1 |       1238
+       14.033120 |          3 |       1241
+       14.279737 |          2 |       1243
+       16.622949 |          3 |       1246
+       16.770241 |          3 |       1249
+       17.116517 |          1 |       1250
+       18.191570 |          1 |       1251
+       18.314815 |          3 |       1254
+       19.259612 |          2 |       1256
+       20.864636 |          3 |       1259
+       20.965198 |          3 |       1262
+       21.211046 |          1 |       1263
+       21.450158 |          1 |       1264
+       24.010610 |          3 |       1267
+       26.493330 |          3 |       1270
+       26.768540 |          3 |       1273
+       26.896108 |          3 |       1276
+       28.208021 |          2 |       1278
+       32.280693 |          2 |       1280
+       37.413936 |          1 |       1281
+       38.762155 |          1 |       1282
+       39.365519 |          3 |       1285
+       40.023583 |          3 |       1288
+       64.429073 |          3 |       1291
+       66.858048 |          3 |       1294
+       82.070761 |          1 |       1295
+       86.887856 |          1 |       1296
+
+  degeneracy sum = 1296  (expect 1296) -> OK
+
+  Integer (or near-integer) eigenvalues:
+    lambda = -8.0  (deg = 52)
+    lambda = -6.0  (deg = 126)
+    lambda = -4.0  (deg = 52)
+    lambda = -0.0  (deg = 864)
+
+[Step 6] Largest degeneracy eigenvalue analysis
+  Largest degeneracy: 864
+  lambda = -0.000000  (deg = 864)
+
+  Selecting eigenvalue for BC projection analysis:
+  (In d=4, lambda=-3 with m=108 was used. We select the most-negative
+  eigenvalue with the largest degeneracy.)
+
+  All groups sorted by degeneracy (descending):
+    lambda= -0.000000  deg=864
+    lambda= -6.000000  deg=126
+    lambda= -8.000000  deg=52
+    lambda= -4.000000  deg=52
+    lambda= -7.391412  deg=5
+    lambda= -7.665645  deg=3
+    lambda= -7.657456  deg=3
+    lambda= -7.427597  deg=3
+    lambda= -7.415655  deg=3
+    lambda= -7.403514  deg=3
+
+[Step 7] Body-center eigenspace projection analysis
+  Per-BC edge-patch: each BC owns 2 tets x 4 tri-faces x 6 edges = 48 edges
+  But edges may be shared between simplices! Checking...
+  Per-BC edge-patch sizes: min=48, max=48
+  Unique patch sizes: {48}
+  Note: if edges are shared between simplices, some BCs may have overlapping
+  edge-patches in the owner-simplex mapping (each edge counted once per owner simplex)
+  Shell-nominal-degree vs grid-graph-degree cross-check: match for all 27 BCs? True
+  Shell membership (expect Corner=8, Edge=12, Face=6, Center=1):
+    Corner : count= 8, graph-degree=3
+    Edge   : count=12, graph-degree=4
+    Face   : count= 6, graph-degree=5
+    Center : count= 1, graph-degree=6
+
+  Eigenspace projection for top groups by degeneracy:
+
+  lambda=-0.0000  (deg=864):
+    Corner  (graph-deg=3): avg_proj=31.000000  deviation=+28.000000
+    Edge    (graph-deg=4): avg_proj=32.000000  deviation=+28.000000
+    Face    (graph-deg=5): avg_proj=33.000000  deviation=+28.000000
+    Center  (graph-deg=6): avg_proj=34.000000  deviation=+28.000000
+
+  lambda=-6.0000  (deg=126):
+    Corner  (graph-deg=3): avg_proj=3.778092  deviation=+0.778092
+    Edge    (graph-deg=4): avg_proj=4.767871  deviation=+0.767871
+    Face    (graph-deg=5): avg_proj=5.442891  deviation=+0.442891
+    Center  (graph-deg=6): avg_proj=5.903464  deviation=-0.096536
+
+  lambda=-8.0000  (deg=52):
+    Corner  (graph-deg=3): avg_proj=0.792473  deviation=-2.207527
+    Edge    (graph-deg=4): avg_proj=1.789247  deviation=-2.210753
+    Face    (graph-deg=5): avg_proj=3.276703  deviation=-1.723297
+    Center  (graph-deg=6): avg_proj=4.529032  deviation=-1.470968
+
+  lambda=-4.0000  (deg=52):
+    Corner  (graph-deg=3): avg_proj=2.662723  deviation=-0.337277
+    Edge    (graph-deg=4): avg_proj=2.082292  deviation=-1.917708
+    Face    (graph-deg=5): avg_proj=0.951786  deviation=-4.048214
+    Center  (graph-deg=6): avg_proj=0.000000  deviation=-6.000000
+
+  lambda=-7.3914  (deg=5):
+    Corner  (graph-deg=3): avg_proj=0.317270  deviation=-2.682730
+    Edge    (graph-deg=4): avg_proj=0.205123  deviation=-3.794877
+    Face    (graph-deg=5): avg_proj=0.000061  deviation=-4.999939
+    Center  (graph-deg=6): avg_proj=0.000000  deviation=-6.000000
+
+  lambda=-7.6656  (deg=3):
+    Corner  (graph-deg=3): avg_proj=0.116451  deviation=-2.883549
+    Edge    (graph-deg=4): avg_proj=0.109754  deviation=-3.890246
+    Face    (graph-deg=5): avg_proj=0.094687  deviation=-4.905313
+    Center  (graph-deg=6): avg_proj=0.183220  deviation=-5.816780
+
+  lambda=-7.6575  (deg=3):
+    Corner  (graph-deg=3): avg_proj=0.114216  deviation=-2.885784
+    Edge    (graph-deg=4): avg_proj=0.109646  deviation=-3.890354
+    Face    (graph-deg=5): avg_proj=0.097694  deviation=-4.902306
+    Center  (graph-deg=6): avg_proj=0.184345  deviation=-5.815655
+
+  lambda=-7.4276  (deg=3):
+    Corner  (graph-deg=3): avg_proj=0.184091  deviation=-2.815909
+    Edge    (graph-deg=4): avg_proj=0.126508  deviation=-3.873492
+    Face    (graph-deg=5): avg_proj=0.001529  deviation=-4.998471
+    Center  (graph-deg=6): avg_proj=0.000000  deviation=-6.000000
+
+==============================================================================
+KEY COMPARISON: d=3 (3-simplex) vs d=4 (4-simplex)
+==============================================================================
+  d=4 result: lambda=-3 eigenspace -> Corner deviation = +0.0138
+  (deviation = avg_projection - graph_degree for Corner shell BCs)
+
+  d=3 results (all groups, Corner deviation):
+    lambda=-8.0000: Corner deviation = -2.20752688
+    lambda=-7.6656: Corner deviation = -2.88354948
+    lambda=-7.6575: Corner deviation = -2.88578368
+    lambda=-7.4276: Corner deviation = -2.81590923
+    lambda=-7.3914: Corner deviation = -2.68273043
+    lambda=-6.0000: Corner deviation = +0.77809186
+    lambda=-4.0000: Corner deviation = -0.33727679
+    lambda=-0.0000: Corner deviation = +28.00000000
+
+==============================================================================
+BCC 3x3x3 lattice -> 3-simplex network -> edge-adjacency spectrum (PERIODIC BC)
+==============================================================================
+
+[P-Step 2] 3-simplices (periodic): 216 (expect 216)
+[P-Step 3] Edge instances: 1296 (= 216 x 6)
+           Unique edges:   378
+           Edges shared by >1 simplex: 378
+
+[P-Step 4] Building 1296x1296 edge-adjacency matrix ...
+           Adjacent edge-pairs: 73224
+
+[P-Step 5] Diagonalizing (1296x1296) ...
+
+  Full eigenvalue table (periodic BC):
+      eigenvalue | degeneracy | cumulative
+  ---------------+------------+-----------
+       -8.000000 |        135 |        135
+       -6.786533 |         12 |        147
+       -6.574970 |          8 |        155
+       -6.560669 |          6 |        161
+       -6.000000 |        163 |        324
+       -0.000000 |        918 |       1242
+       11.774066 |          1 |       1243
+       14.928621 |          6 |       1249
+       16.946365 |         12 |       1261
+       17.837890 |          8 |       1269
+       53.840168 |         12 |       1281
+       67.632048 |          6 |       1287
+       76.737080 |          8 |       1295
+      118.225934 |          1 |       1296
+
+  degeneracy sum = 1296  (expect 1296)
+
+  Integer eigenvalues (periodic BC):
+    lambda = -8.0  (deg = 135)
+    lambda = -6.0  (deg = 163)
+    lambda = -0.0  (deg = 918)
+
+  Largest degeneracy (periodic): 918
+  Flat band count (periodic): bands with deg > 129:
+    lambda=-0.0000  deg=918
+    lambda=-6.0000  deg=163
+    lambda=-8.0000  deg=135
+    lambda=-6.7865  deg=12
+    lambda=16.9464  deg=12
+
+  Per-BC edge-patch sizes (periodic): min=48, max=48
+
+  Largest-deg eigenspace (lambda=-0.0000, deg=918) per-BC projections:
+  min=34.000000, max=34.000000, std=0.000000
+  All per-BC projections equal? True  (expected True for periodic BC with translation symmetry)
+
+==============================================================================
+FINAL SUMMARY
+==============================================================================
+
+d=4 (4-simplex) reference:
+  - 54 simplices, 540 triangular faces
+  - lambda=-3 eigenspace (deg=108): Corner deviation = +0.0138
+  - 'deviation' = avg_projection_onto_BC_patch - BC_graph_degree
+
+d=3 (3-simplex) this run:
+  - 216 simplices, 1296 edges (= 216 x 6)
+  - Eigenvalue spectrum: 91 distinct groups
+  - Degeneracy spectrum (top 5):
+      lambda=-0.0000  deg=864
+      lambda=-6.0000  deg=126
+      lambda=-8.0000  deg=52
+      lambda=-4.0000  deg=52
+      lambda=-7.3914  deg=5
+
+See above for full per-shell deviation table.
+
+Adams hypothesis verdict for d=3:
+  If Corner deviation is ~0 at d=3 but ~0.0138 at d=4:
+  -> Supports hypothesis (d=3 is Adams dimension, d=4 is not)
+  If both nonzero: -> Refuted or not applicable at d=3
+  If both ~0: -> Uninformative (need more dimensions)
+
+=== DONE ===
