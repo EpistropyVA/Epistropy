@@ -1,0 +1,23 @@
+================================================================================
+  Oh IRREP TENSOR PRODUCT VERIFICATION: Eu = A2u ⊗ Eg
+================================================================================
+  Oh Group Order: 48
+
+   conjugacy class-by-class character values:
+  Class        Size |  A2u     Eg | A2u ⊗ Eg | Eu (Target) | Match?
+--------------------------------------------------------------------------------
+  E               1 |   +1     +2 |       +2 |          +2 | PASS
+  8C3             8 |   +1     -1 |       -1 |          -1 | PASS
+  6C2             6 |   -1     +0 |       +0 |          +0 | PASS
+  6C4             6 |   -1     +0 |       +0 |          +0 | PASS
+  3C2_prime       3 |   +1     +2 |       +2 |          +2 | PASS
+  i               1 |   -1     +2 |       -2 |          -2 | PASS
+  8S6             8 |   -1     -1 |       +1 |          +1 | PASS
+  6sigma_d        6 |   +1     +0 |       +0 |          +0 | PASS
+  6S4             6 |   +1     +0 |       +0 |          +0 | PASS
+  3sigma_h        3 |   -1     +2 |       -2 |          -2 | PASS
+--------------------------------------------------------------------------------
+  Projection <A2u ⊗ Eg, Eu>: 1.0000 (expected 1.0000 for isomorphism)
+
+  Isomorphism Eu = A2u ⊗ Eg confirmed? True
+  Overall Verdict: PASS

@@ -1,0 +1,259 @@
+================================================================================
+  L=4 GAUSSIAN RATIONAL FIELD Q(i) EXACT ALGEBRAIC BRIDGE ANALYSIS
+================================================================================
+  k-points: 64 | O_h orbits: 10
+
+  Orbit 1: rep=(0, 0, 0) | size=1 | p=0
+    Charpoly in 0.02s, factored in 0.09s
+    Class 1: deg=1 mult=5
+      f(x)   = x + 1
+      f(-3)  = -2
+      Norm   = 4 = 2^2 (primes: [2])
+      bridge = N/A (Gamma)
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=3
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      Norm   = 64 = 2^6 (primes: [2])
+      bridge = N/A (Gamma)
+    Class 4: deg=1 mult=1
+      f(x)   = x - 3
+      f(-3)  = -6
+      Norm   = 36 = 2^2·3^2 (primes: [2, 3])
+      bridge = N/A (Gamma)
+    Class 5: deg=2 mult=1
+      f(x)   = x**2 - 14*x + 21
+      f(-3)  = 72
+      Norm   = 5184 = 2^6·3^4 (primes: [2, 3])
+      bridge = N/A (Gamma)
+
+  Orbit 2: rep=(0, 0, 1) | size=6 | p=5
+    Charpoly in 0.03s, factored in 0.10s
+    Class 1: deg=1 mult=3
+      f(x)   = x + 1
+      f(-3)  = -2
+      Norm   = 4 = 2^2 (primes: [2])
+      bridge = no
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=2
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      Norm   = 64 = 2^6 (primes: [2])
+      bridge = no
+    Class 4: deg=1 mult=1
+      f(x)   = x - 1
+      f(-3)  = -4
+      Norm   = 16 = 2^4 (primes: [2])
+      bridge = no
+    Class 5: deg=3 mult=1
+      f(x)   = x**3 - 5*x**2 - x + 13
+      f(-3)  = -56
+      Norm   = 3136 = 2^6·7^2 (primes: [2, 7])
+      bridge = no
+    Class 6: deg=3 mult=1
+      f(x)   = x**3 - 11*x**2 - x + 35
+      f(-3)  = -88
+      Norm   = 7744 = 2^6·11^2 (primes: [2, 11])
+      bridge = no
+
+  Orbit 3: rep=(0, 0, 2) | size=3 | p=2
+    Charpoly in 0.01s, factored in 0.09s
+    Class 1: deg=1 mult=4
+      f(x)   = x + 1
+      f(-3)  = -2
+      Norm   = 4 = 2^2 (primes: [2])
+      bridge = YES
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=3
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      Norm   = 64 = 2^6 (primes: [2])
+      bridge = YES
+    Class 4: deg=1 mult=1
+      f(x)   = x - 1
+      f(-3)  = -4
+      Norm   = 16 = 2^4 (primes: [2])
+      bridge = YES
+    Class 5: deg=1 mult=1
+      f(x)   = x - 5
+      f(-3)  = -8
+      Norm   = 64 = 2^6 (primes: [2])
+      bridge = YES
+    Class 6: deg=2 mult=1
+      f(x)   = x**2 - 10*x + 13
+      f(-3)  = 52
+      Norm   = 2704 = 2^4·13^2 (primes: [2, 13])
+      bridge = YES
+
+  Orbit 4: rep=(0, 1, 1) | size=12 | p=11
+    Charpoly in 0.03s, factored in 0.11s
+    Class 1: deg=2 mult=2
+      f(x)   = x**2 - 3
+      f(-3)  = 6
+      Norm   = 36 = 2^2·3^2 (primes: [2, 3])
+      bridge = no
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=1 mult=1
+      f(x)   = x + 1
+      f(-3)  = -2
+      Norm   = 4 = 2^2 (primes: [2])
+      bridge = no
+    Class 4: deg=2 mult=1
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      Norm   = 64 = 2^6 (primes: [2])
+      bridge = no
+    Class 5: deg=3 mult=1
+      f(x)   = x**3 - 7*x**2 + x + 17
+      f(-3)  = -76
+      Norm   = 5776 = 2^4·19^2 (primes: [2, 19])
+      bridge = no
+    Class 6: deg=4 mult=1
+      f(x)   = x**4 - 10*x**3 + 2*x**2 + 30*x - 7
+      f(-3)  = 272
+      Norm   = 73984 = 2^8·17^2 (primes: [2, 17])
+      bridge = no
+
+  Orbit 5: rep=(0, 1, 2) | size=12 | p=11
+    Charpoly in 0.03s, factored in 0.09s
+    Class 1: deg=1 mult=2
+      f(x)   = x + 1
+      f(-3)  = -2
+      Norm   = 4 = 2^2 (primes: [2])
+      bridge = no
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=2
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      Norm   = 64 = 2^6 (primes: [2])
+      bridge = no
+    Class 4: deg=4 mult=2
+      f(x)   = x**4 - 8*x**3 + 2*x**2 + 24*x - 11
+      f(-3)  = 232
+      Norm   = 53824 = 2^6·29^2 (primes: [2, 29])
+      bridge = no
+
+  Orbit 6: rep=(0, 2, 2) | size=3 | p=2
+    Charpoly in 0.00s, factored in 0.09s
+    Class 1: deg=1 mult=4
+      f(x)   = x + 1
+      f(-3)  = -2
+      Norm   = 4 = 2^2 (primes: [2])
+      bridge = YES
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=3
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      Norm   = 64 = 2^6 (primes: [2])
+      bridge = YES
+    Class 4: deg=1 mult=1
+      f(x)   = x - 1
+      f(-3)  = -4
+      Norm   = 16 = 2^4 (primes: [2])
+      bridge = YES
+    Class 5: deg=1 mult=1
+      f(x)   = x - 5
+      f(-3)  = -8
+      Norm   = 64 = 2^6 (primes: [2])
+      bridge = YES
+    Class 6: deg=2 mult=1
+      f(x)   = x**2 - 10*x + 13
+      f(-3)  = 52
+      Norm   = 2704 = 2^4·13^2 (primes: [2, 13])
+      bridge = YES
+
+  Orbit 7: rep=(1, 1, 1) | size=8 | p=7
+    Charpoly in 0.03s, factored in 0.08s
+    Class 1: deg=2 mult=4
+      f(x)   = x**2 - 3
+      f(-3)  = 6
+      Norm   = 36 = 2^2·3^2 (primes: [2, 3])
+      bridge = no
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=3 mult=2
+      f(x)   = x**3 - 9*x**2 + 3*x + 21
+      f(-3)  = -96
+      Norm   = 9216 = 2^10·3^2 (primes: [2, 3])
+      bridge = no
+
+  Orbit 8: rep=(1, 1, 2) | size=12 | p=11
+    Charpoly in 0.03s, factored in 0.11s
+    Class 1: deg=2 mult=2
+      f(x)   = x**2 - 3
+      f(-3)  = 6
+      Norm   = 36 = 2^2·3^2 (primes: [2, 3])
+      bridge = no
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=1 mult=1
+      f(x)   = x + 1
+      f(-3)  = -2
+      Norm   = 4 = 2^2 (primes: [2])
+      bridge = no
+    Class 4: deg=2 mult=1
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      Norm   = 64 = 2^6 (primes: [2])
+      bridge = no
+    Class 5: deg=3 mult=1
+      f(x)   = x**3 - 7*x**2 + x + 17
+      f(-3)  = -76
+      Norm   = 5776 = 2^4·19^2 (primes: [2, 19])
+      bridge = no
+    Class 6: deg=4 mult=1
+      f(x)   = x**4 - 10*x**3 + 2*x**2 + 30*x - 7
+      f(-3)  = 272
+      Norm   = 73984 = 2^8·17^2 (primes: [2, 17])
+      bridge = no
+
+  Orbit 9: rep=(1, 2, 2) | size=6 | p=5
+    Charpoly in 0.03s, factored in 0.10s
+    Class 1: deg=1 mult=3
+      f(x)   = x + 1
+      f(-3)  = -2
+      Norm   = 4 = 2^2 (primes: [2])
+      bridge = no
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=2
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      Norm   = 64 = 2^6 (primes: [2])
+      bridge = no
+    Class 4: deg=1 mult=1
+      f(x)   = x - 1
+      f(-3)  = -4
+      Norm   = 16 = 2^4 (primes: [2])
+      bridge = no
+    Class 5: deg=3 mult=1
+      f(x)   = x**3 - 5*x**2 - x + 13
+      f(-3)  = -56
+      Norm   = 3136 = 2^6·7^2 (primes: [2, 7])
+      bridge = no
+    Class 6: deg=3 mult=1
+      f(x)   = x**3 - 11*x**2 - x + 35
+      f(-3)  = -88
+      Norm   = 7744 = 2^6·11^2 (primes: [2, 11])
+      bridge = no
+
+  Orbit 10: rep=(2, 2, 2) | size=1 | p=0
+    Charpoly in 0.00s, factored in 0.09s
+    Class 1: deg=1 mult=5
+      f(x)   = x + 1
+      f(-3)  = -2
+      Norm   = 4 = 2^2 (primes: [2])
+      bridge = N/A (Gamma)
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=3
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      Norm   = 64 = 2^6 (primes: [2])
+      bridge = N/A (Gamma)
+    Class 4: deg=1 mult=1
+      f(x)   = x - 3
+      f(-3)  = -6
+      Norm   = 36 = 2^2·3^2 (primes: [2, 3])
+      bridge = N/A (Gamma)
+    Class 5: deg=2 mult=1
+      f(x)   = x**2 - 14*x + 21
+      f(-3)  = 72
+      Norm   = 5184 = 2^6·3^4 (primes: [2, 3])
+      bridge = N/A (Gamma)

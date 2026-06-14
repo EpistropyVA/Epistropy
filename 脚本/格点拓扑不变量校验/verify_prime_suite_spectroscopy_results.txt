@@ -1,0 +1,269 @@
+=== Prime Suite Spectroscopy of H(k), 3x3x3 periodic BCC ===
+
+Lattice: 27 cells, 540 faces total (expected 540)
+Faces per cell (ref): 20 (expected 20)
+Transfer blocks T(R): 27 distinct R vectors
+R vectors: [(-1, -1, -1), (-1, -1, 0), (-1, -1, 1), (-1, 0, -1), (-1, 0, 0), (-1, 0, 1), (-1, 1, -1), (-1, 1, 0), (-1, 1, 1), (0, -1, -1), (0, -1, 0), (0, -1, 1), (0, 0, -1), (0, 0, 0), (0, 0, 1), (0, 1, -1), (0, 1, 0), (0, 1, 1), (1, -1, -1), (1, -1, 0), (1, -1, 1), (1, 0, -1), (1, 0, 0), (1, 0, 1), (1, 1, -1), (1, 1, 0), (1, 1, 1)]
+
+k=Gamma: H Hermitian error=0.00e+00
+
+======================================================================
+ORBIT: Gamma
+All 20 eigenvalues: [np.float64(-3.0000000000000036), np.float64(-3.0000000000000018), np.float64(-3.0000000000000004), np.float64(-3.0000000000000004), np.float64(-3.0000000000000004), np.float64(-2.9999999999999996), np.float64(-1.8284271247461903), np.float64(-1.8284271247461896), np.float64(-1.8284271247461894), np.float64(-1.0000000000000007), np.float64(-1.0000000000000004), np.float64(-0.9999999999999999), np.float64(-0.9999999999999994), np.float64(-0.9999999999999981), np.float64(1.7084973778708181), np.float64(2.9999999999999982), np.float64(3.828427124746189), np.float64(3.8284271247461903), np.float64(3.828427124746191), np.float64(12.29150262212918)]
+Flat band (-3) count: 6  (expected 6)
+Remaining 14 eigenvalues: [np.float64(-1.8284271247461903), np.float64(-1.8284271247461896), np.float64(-1.8284271247461894), np.float64(-1.0000000000000007), np.float64(-1.0000000000000004), np.float64(-0.9999999999999999), np.float64(-0.9999999999999994), np.float64(-0.9999999999999981), np.float64(1.7084973778708181), np.float64(2.9999999999999982), np.float64(3.828427124746189), np.float64(3.8284271247461903), np.float64(3.828427124746191), np.float64(12.29150262212918)]
+
+Degenerate groups (6 distinct values):
+  λ ≈ -1.828427124746190  (mult 3)
+  λ = -1  (mult 5)
+  λ ≈ 1.708497377870818  (mult 1)
+  λ = 3  (mult 1)
+  λ ≈ 3.828427124746190  (mult 3)
+  λ ≈ 12.291502622129180  (mult 1)
+
+Rational eigenvalues (2):
+  λ=-1  mult=5  gap=(λ+3)=2  gap_factored=2
+  λ=3  mult=1  gap=(λ+3)=6  gap_factored=2·3
+
+Quadratic suites (2):
+  {-1.8284271247, 3.8284271247}
+    min poly: x^2 - (2)x + (-7)  →  Q(√2)
+    sum=2  product=-7  disc=32  D(squarefree)=2
+    gap norm (no mult) = (a+3)(b+3) = 8 = 2^3
+    mult_a=3  mult_b=3
+    gap product WITH mult = 1446641679488113120663/2825472779727804361 = 7^3·23^3·199^3·353^3/29^6·41^6
+  {1.7084973779, 12.2915026221}
+    min poly: x^2 - (14)x + (21)  →  Q(√7)
+    sum=14  product=21  disc=112  D(squarefree)=7
+    gap norm (no mult) = (a+3)(b+3) = 72 = 2^3·3^2
+    mult_a=1  mult_b=1
+    gap product WITH mult = 227356491/3157729 = 3·29·937·2789/1777^2
+
+Sanity check — full gap product (WITH mult) over 14 non-flat:
+  Computed: 7077888 = 2^18·3^3
+  Expected: 7077888 = 2^18·3^3
+  MATCH: True
+======================================================================
+k=axis: H Hermitian error=0.00e+00
+
+======================================================================
+ORBIT: axis
+All 20 eigenvalues: [np.float64(-3.0000000000000018), np.float64(-3.0000000000000013), np.float64(-3.0000000000000013), np.float64(-3.0), np.float64(-3.0), np.float64(-2.9999999999999982), np.float64(-1.8284271247461938), np.float64(-1.8284271247461903), np.float64(-1.7765889657685652), np.float64(-1.2794523157686069), np.float64(-1.0000000000000018), np.float64(-1.0000000000000018), np.float64(-1.0000000000000004), np.float64(1.4266477518139051), np.float64(1.4593629413938192), np.float64(2.5316284706356305), np.float64(3.8284271247461894), np.float64(3.828427124746195), np.float64(4.8200893743747875), np.float64(9.818312743319026)]
+Flat band (-3) count: 6  (expected 6)
+Remaining 14 eigenvalues: [np.float64(-1.8284271247461938), np.float64(-1.8284271247461903), np.float64(-1.7765889657685652), np.float64(-1.2794523157686069), np.float64(-1.0000000000000018), np.float64(-1.0000000000000018), np.float64(-1.0000000000000004), np.float64(1.4266477518139051), np.float64(1.4593629413938192), np.float64(2.5316284706356305), np.float64(3.8284271247461894), np.float64(3.828427124746195), np.float64(4.8200893743747875), np.float64(9.818312743319026)]
+
+Degenerate groups (10 distinct values):
+  λ ≈ -1.828427124746192  (mult 2)
+  λ ≈ -1.776588965768565  (mult 1)
+  λ ≈ -1.279452315768607  (mult 1)
+  λ = -1  (mult 3)
+  λ ≈ 1.426647751813905  (mult 1)
+  λ ≈ 1.459362941393819  (mult 1)
+  λ ≈ 2.531628470635630  (mult 1)
+  λ ≈ 3.828427124746193  (mult 2)
+  λ ≈ 4.820089374374787  (mult 1)
+  λ ≈ 9.818312743319026  (mult 1)
+
+Rational eigenvalues (1):
+  λ=-1  mult=3  gap=(λ+3)=2  gap_factored=2
+
+Quadratic suites (1):
+  {-1.8284271247, 3.8284271247}
+    min poly: x^2 - (2)x + (-7)  →  Q(√2)
+    sum=2  product=-7  disc=32  D(squarefree)=2
+    gap norm (no mult) = (a+3)(b+3) = 8 = 2^3
+    mult_a=2  mult_b=2
+    gap product WITH mult = 127910829594289/1998607065841 = 7^2·23^2·199^2·353^2/29^4·41^4
+
+Unpaired irrational values (may be higher-degree suites):
+  -1.776588965768565
+  -1.279452315768607
+  1.426647751813905
+  1.459362941393819
+  2.531628470635630
+  4.820089374374787
+  9.818312743319026
+  Cubic suite: -1.2794523158, 1.4593629414, 4.8200893744
+    sum=5 sum-pairs=-1 product=-9
+
+Sanity check — full gap product (WITH mult) over 14 non-flat:
+  Degree-4 suite: {-1.77658897, 1.42664775, 2.53162847, 9.81831274}
+    sym polys (e1..e3): [Fraction(12, 1), Fraction(18, 1), Fraction(-40, 1)]...
+    gap norm (no mult) = 384 = 2^7·3
+    mult=1 -> contribution = 384
+  Degree-3 suite: {-1.27945232, 1.45936294, 4.82008937}
+    sym polys (e1..e3): [Fraction(5, 1), Fraction(-1, 1), Fraction(-9, 1)]...
+    gap norm (no mult) = 60 = 2^2·3·5
+    mult=1 -> contribution = 60
+  Computed: 11796480 = 2^18·3^2·5
+  Expected: 11796480 = 2^18·3^2·5
+  MATCH: True
+======================================================================
+k=face-diagonal: H Hermitian error=0.00e+00
+
+======================================================================
+ORBIT: face-diagonal
+All 20 eigenvalues: [np.float64(-3.0000000000000013), np.float64(-3.0), np.float64(-3.0), np.float64(-2.9999999999999996), np.float64(-2.9999999999999987), np.float64(-2.9999999999999982), np.float64(-1.828427124746193), np.float64(-1.7912878474779204), np.float64(-1.7421090757636684), np.float64(-1.6180339887498951), np.float64(-1.1743087977202762), np.float64(-1.0000000000000029), np.float64(0.6180339887498953), np.float64(0.6714926258282453), np.float64(1.7116520175680516), np.float64(2.3145090978044056), np.float64(2.79128784747792), np.float64(3.828427124746187), np.float64(7.462656780152229), np.float64(7.756107352131017)]
+Flat band (-3) count: 6  (expected 6)
+Remaining 14 eigenvalues: [np.float64(-1.828427124746193), np.float64(-1.7912878474779204), np.float64(-1.7421090757636684), np.float64(-1.6180339887498951), np.float64(-1.1743087977202762), np.float64(-1.0000000000000029), np.float64(0.6180339887498953), np.float64(0.6714926258282453), np.float64(1.7116520175680516), np.float64(2.3145090978044056), np.float64(2.79128784747792), np.float64(3.828427124746187), np.float64(7.462656780152229), np.float64(7.756107352131017)]
+
+Degenerate groups (14 distinct values):
+  λ ≈ -1.828427124746193  (mult 1)
+  λ ≈ -1.791287847477920  (mult 1)
+  λ ≈ -1.742109075763668  (mult 1)
+  λ ≈ -1.618033988749895  (mult 1)
+  λ ≈ -1.174308797720276  (mult 1)
+  λ = -1  (mult 1)
+  λ ≈ 0.618033988749895  (mult 1)
+  λ ≈ 0.671492625828245  (mult 1)
+  λ ≈ 1.711652017568052  (mult 1)
+  λ ≈ 2.314509097804406  (mult 1)
+  λ ≈ 2.791287847477920  (mult 1)
+  λ ≈ 3.828427124746187  (mult 1)
+  λ ≈ 7.462656780152229  (mult 1)
+  λ ≈ 7.756107352131017  (mult 1)
+
+Rational eigenvalues (1):
+  λ=-1  mult=1  gap=(λ+3)=2  gap_factored=2
+
+Quadratic suites (3):
+  {-1.8284271247, 3.8284271247}
+    min poly: x^2 - (2)x + (-7)  →  Q(√2)
+    sum=2  product=-7  disc=32  D(squarefree)=2
+    gap norm (no mult) = (a+3)(b+3) = 8 = 2^3
+    mult_a=1  mult_b=1
+    gap product WITH mult = 11309767/1413721 = 7·23·199·353/29^2·41^2
+  {-1.7912878475, 2.7912878475}
+    min poly: x^2 - (1)x + (-5)  →  Q(√21)
+    sum=1  product=-5  disc=21  D(squarefree)=21
+    gap norm (no mult) = (a+3)(b+3) = 7 = 7
+    mult_a=1  mult_b=1
+    gap product WITH mult = 16558113/2365444 = 3·11·13^2·2969/2^2·769^2
+  {-1.6180339887, 0.6180339887}
+    min poly: x^2 - (-1)x + (-1)  →  Q(√5)
+    sum=-1  product=-1  disc=5  D(squarefree)=5
+    gap norm (no mult) = (a+3)(b+3) = 5 = 5
+    mult_a=1  mult_b=1
+    gap product WITH mult = 12752046/2550409 = 2·3^3·107·2207/1597^2
+
+Unpaired irrational values (may be higher-degree suites):
+  -1.742109075763668
+  -1.174308797720276
+  0.671492625828245
+  1.711652017568052
+  2.314509097804406
+  7.462656780152229
+  7.756107352131017
+  Cubic suite: -1.1743087977, 1.7116520176, 7.4626567802
+    sum=8 sum-pairs=2 product=-15
+
+Sanity check — full gap product (WITH mult) over 14 non-flat:
+  Degree-4 suite: {-1.74210908, 0.67149263, 2.31450910, 7.75610735}
+    sym polys (e1..e3): [Fraction(9, 1), Fraction(6, 1), Fraction(-31, 1)]...
+    gap norm (no mult) = 264 = 2^3·3·11
+    mult=1 -> contribution = 264
+  Degree-3 suite: {-1.17430880, 1.71165202, 7.46265678}
+    sym polys (e1..e3): [Fraction(8, 1), Fraction(2, 1), Fraction(-15, 1)]...
+    gap norm (no mult) = 90 = 2·3^2·5
+    mult=1 -> contribution = 90
+  Computed: 13305600 = 2^8·3^3·5^2·7·11
+  Expected: 13305600 = 2^8·3^3·5^2·7·11
+  MATCH: True
+======================================================================
+k=body-diagonal: H Hermitian error=0.00e+00
+
+======================================================================
+ORBIT: body-diagonal
+All 20 eigenvalues: [np.float64(-3.0000000000000018), np.float64(-3.000000000000001), np.float64(-3.0000000000000004), np.float64(-3.0), np.float64(-2.9999999999999987), np.float64(-2.999999999999996), np.float64(-1.7912878474779201), np.float64(-1.7912878474779192), np.float64(-1.6180339887498951), np.float64(-1.6180339887498938), np.float64(-1.5129760511041315), np.float64(-1.125872985012954), np.float64(0.6180339887498943), np.float64(0.618033988749896), np.float64(1.807703702324222), np.float64(2.1979056437357456), np.float64(2.7912878474779195), np.float64(2.791287847477921), np.float64(6.31507040736838), np.float64(10.318169282688729)]
+Flat band (-3) count: 6  (expected 6)
+Remaining 14 eigenvalues: [np.float64(-1.7912878474779201), np.float64(-1.7912878474779192), np.float64(-1.6180339887498951), np.float64(-1.6180339887498938), np.float64(-1.5129760511041315), np.float64(-1.125872985012954), np.float64(0.6180339887498943), np.float64(0.618033988749896), np.float64(1.807703702324222), np.float64(2.1979056437357456), np.float64(2.7912878474779195), np.float64(2.791287847477921), np.float64(6.31507040736838), np.float64(10.318169282688729)]
+
+Degenerate groups (10 distinct values):
+  λ ≈ -1.791287847477920  (mult 2)
+  λ ≈ -1.618033988749894  (mult 2)
+  λ ≈ -1.512976051104131  (mult 1)
+  λ ≈ -1.125872985012954  (mult 1)
+  λ ≈ 0.618033988749895  (mult 2)
+  λ ≈ 1.807703702324222  (mult 1)
+  λ ≈ 2.197905643735746  (mult 1)
+  λ ≈ 2.791287847477920  (mult 2)
+  λ ≈ 6.315070407368380  (mult 1)
+  λ ≈ 10.318169282688729  (mult 1)
+
+Rational eigenvalues (0):
+
+Quadratic suites (2):
+  {-1.7912878475, 2.7912878475}
+    min poly: x^2 - (1)x + (-5)  →  Q(√21)
+    sum=1  product=-5  disc=21  D(squarefree)=21
+    gap norm (no mult) = (a+3)(b+3) = 7 = 7
+    mult_a=2  mult_b=2
+    gap product WITH mult = 274171106120769/5595325317136 = 3^2·11^2·13^4·2969^2/2^4·769^4
+  {-1.6180339887, 0.6180339887}
+    min poly: x^2 - (-1)x + (-1)  →  Q(√5)
+    sum=-1  product=-1  disc=5  D(squarefree)=5
+    gap norm (no mult) = (a+3)(b+3) = 5 = 5
+    mult_a=2  mult_b=2
+    gap product WITH mult = 162614677186116/6504586067281 = 2^2·3^6·107^2·2207^2/1597^4
+
+Unpaired irrational values (may be higher-degree suites):
+  -1.512976051104131
+  -1.125872985012954
+  1.807703702324222
+  2.197905643735746
+  6.315070407368380
+  10.318169282688729
+  Cubic suite: -1.5129760511, 2.1979056437, 6.3150704074
+    sum=7 sum-pairs=1 product=-21
+  Cubic suite: -1.1258729850, 1.8077037023, 10.3181692827
+    sum=11 sum-pairs=5 product=-21
+
+Sanity check — full gap product (WITH mult) over 14 non-flat:
+  Degree-3 suite: {-1.51297605, 2.19790564, 6.31507041}
+    sym polys (e1..e3): [Fraction(7, 1), Fraction(1, 1), Fraction(-21, 1)]...
+    gap norm (no mult) = 72 = 2^3·3^2
+    mult=1 -> contribution = 72
+  Degree-3 suite: {-1.12587299, 1.80770370, 10.31816928}
+    sym polys (e1..e3): [Fraction(11, 1), Fraction(5, 1), Fraction(-21, 1)]...
+    gap norm (no mult) = 120 = 2^3·3·5
+    mult=1 -> contribution = 120
+  Computed: 10584000 = 2^6·3^3·5^3·7^2
+  Expected: 10584000 = 2^6·3^3·5^3·7^2
+  MATCH: True
+======================================================================
+
+======================================================================
+WANTED-LIST ANSWERS
+======================================================================
+
+Q1: Prime 5 from λ=2 in axis orbit?
+  NO: λ=2 not found in axis orbit. Rational eigenvalues: [('-1', 3)]
+  Searching for suite with 5 in gap factorization across all orbits...
+  → orbit=face-diagonal: quad suite Q(√5), gap norm=5 (contains factor 5)
+  → orbit=body-diagonal: quad suite Q(√5), gap norm=5 (contains factor 5)
+
+Q2: Prime 7 from Q(√2) suite (gaps 3±√2)?
+  orbit=Gamma: Q(√2) suite, eigenvalues≈-1.828427,3.828427, gap norm=8=2^3
+  orbit=axis: Q(√2) suite, eigenvalues≈-1.828427,3.828427, gap norm=8=2^3
+  orbit=face-diagonal: Q(√2) suite, eigenvalues≈-1.828427,3.828427, gap norm=8=2^3
+  Q(sqrt2) gap norm = 8 = 2^3 -- prime 7 does NOT arise from Q(sqrt2) suites.
+  Q(√21) suite (gap norm=7) appears in: ['face-diagonal', 'body-diagonal']
+
+Q3: Prime 11 in face-diagonal orbit?
+  Rational eigenvalues in face-diagonal:
+    λ=-1 mult=1 gap=2 
+  Quad suites in face-diagonal:
+    Q(√2) suite: λ≈-1.82842712,3.82842712  gap norm=8=2^3 
+    Q(√21) suite: λ≈-1.79128785,2.79128785  gap norm=7=7 
+    Q(√5) suite: λ≈-1.61803399,0.61803399  gap norm=5=5 
+  Searching for 11 in cubic suite gap norms (face-diagonal):
+    Cubic triple ≈-1.174309,1.711652,7.462657: gap norm=90=2·3^2·5 
+  Full gap product contains 11: True
+
+Q4: Q(√6) suites anywhere?
+  No Q(√6) suites found in any orbit.
+
+Q5: Primes emitted NOT in {2,3,5,7,11}:
+  None found — all primes in {2,3,5,7,11}
+
+=== END ===

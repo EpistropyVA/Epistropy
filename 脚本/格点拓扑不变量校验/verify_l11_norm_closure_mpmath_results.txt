@@ -1,0 +1,137 @@
+================================================================================
+  MPMATH HIGH-PRECISION GALOIS NORM RECONSTRUCTION: L=3, 5, 11 ANALYSIS
+================================================================================
+
+[BENCHMARK] Verifying L=3 (Fano Orbit Bridge)...
+  Orbit 2: rep=(0, 0, 1) | size=6 | p=5 | Norm=2^18·3^2·5 | bridge=YES
+  Orbit 3: rep=(0, 1, 1) | size=12 | p=11 | Norm=2^8·3^3·5^2·7·11 | bridge=YES
+  Orbit 4: rep=(1, 1, 1) | size=8 | p=7 | Norm=2^6·3^3·5^3·7^2 | bridge=YES
+
+[BENCHMARK] Verifying L=5 (phi-residual Bridge)...
+  Orbit 2: rep=(0, 0, 1) | size=6 | p=5 | Norm=2^32·11·19·131 | bridge=no
+  Orbit 3: rep=(0, 0, 2) | size=6 | p=5 | Norm=2^32·11·19·131 | bridge=no
+  Orbit 4: rep=(0, 1, 1) | size=12 | p=11 | Norm=2^16·11·19·29·41·59·151 | bridge=YES
+  Orbit 5: rep=(0, 1, 2) | size=24 | p=23 | Norm=2^16·3^4·73^2·79^2 | bridge=no
+  Orbit 6: rep=(0, 2, 2) | size=12 | p=11 | Norm=2^16·11·19·29·41·59·151 | bridge=YES
+  Orbit 7: rep=(1, 1, 1) | size=8 | p=7 | Norm=2^12·3^4·11·19·29^2·41^2 | bridge=no
+  Orbit 8: rep=(1, 1, 2) | size=24 | p=23 | Norm=2^12·29·41·59·101·5059 | bridge=no
+  Orbit 9: rep=(1, 2, 2) | size=24 | p=23 | Norm=2^12·29·41·59·101·5059 | bridge=no
+  Orbit 10: rep=(2, 2, 2) | size=8 | p=7 | Norm=2^12·3^4·11·19·29^2·41^2 | bridge=no
+
+[TEST] Verifying L=11 (Riemann-Fano Boundary test)...
+  L=11 Lattice built in 3.37s. Total orbits: 56
+  Orbit  2: rep=(0, 0, 1) | size= 6 | p= 5 | bridge=no (time: 0.4919s)
+    Norm = 2^80·23^2·43·571·7393
+  Orbit  3: rep=(0, 0, 2) | size= 6 | p= 5 | bridge=no (time: 0.5045s)
+    Norm = 2^80·23^2·43·571·7393
+  Orbit  4: rep=(0, 0, 3) | size= 6 | p= 5 | bridge=no (time: 0.4847s)
+    Norm = 2^80·23^2·43·571·7393
+  Orbit  5: rep=(0, 0, 4) | size= 6 | p= 5 | bridge=no (time: 0.4887s)
+    Norm = 2^80·23^2·43·571·7393
+  Orbit  6: rep=(0, 0, 5) | size= 6 | p= 5 | bridge=no (time: 0.4842s)
+    Norm = 2^80·23^2·43·571·7393
+  Orbit  7: rep=(0, 1, 1) | size=12 | p=11 | bridge=no (time: 0.5200s)
+    Norm = 2^40·23·43·89·353·397·5741·11483·206249
+  Orbit  8: rep=(0, 1, 2) | size=24 | p=23 | bridge=no (time: 0.5231s)
+    Norm = 2^40·43·4159·[unfactored>1000000]
+  Orbit  9: rep=(0, 1, 3) | size=24 | p=23 | bridge=no (time: 0.5232s)
+    Norm = 2^40·307·[unfactored>1000000]
+  Orbit 10: rep=(0, 1, 4) | size=24 | p=23 | bridge=no (time: 0.5273s)
+    Norm = 2^40·307·[unfactored>1000000]
+  Orbit 11: rep=(0, 1, 5) | size=24 | p=23 | bridge=no (time: 0.5178s)
+    Norm = 2^40·43·4159·[unfactored>1000000]
+  Orbit 12: rep=(0, 2, 2) | size=12 | p=11 | bridge=no (time: 0.5210s)
+    Norm = 2^40·23·43·89·353·397·5741·11483·206249
+  Orbit 13: rep=(0, 2, 3) | size=24 | p=23 | bridge=no (time: 0.5237s)
+    Norm = 2^40·307·[unfactored>1000000]
+  Orbit 14: rep=(0, 2, 4) | size=24 | p=23 | bridge=no (time: 0.5194s)
+    Norm = 2^40·43·4159·[unfactored>1000000]
+  Orbit 15: rep=(0, 2, 5) | size=24 | p=23 | bridge=no (time: 0.5319s)
+    Norm = 2^40·307·[unfactored>1000000]
+  Orbit 16: rep=(0, 3, 3) | size=12 | p=11 | bridge=no (time: 0.5243s)
+    Norm = 2^40·23·43·89·353·397·5741·11483·206249
+  Orbit 17: rep=(0, 3, 4) | size=24 | p=23 | bridge=no (time: 0.5249s)
+    Norm = 2^40·43·4159·[unfactored>1000000]
+  Orbit 18: rep=(0, 3, 5) | size=24 | p=23 | bridge=no (time: 0.5196s)
+    Norm = 2^40·43·4159·[unfactored>1000000]
+  Orbit 19: rep=(0, 4, 4) | size=12 | p=11 | bridge=no (time: 0.5210s)
+    Norm = 2^40·23·43·89·353·397·5741·11483·206249
+  Orbit 20: rep=(0, 4, 5) | size=24 | p=23 | bridge=no (time: 0.5207s)
+    Norm = 2^40·307·[unfactored>1000000]
+  Orbit 21: rep=(0, 5, 5) | size=12 | p=11 | bridge=no (time: 0.5226s)
+    Norm = 2^40·23·43·89·353·397·5741·11483·206249
+  Orbit 22: rep=(1, 1, 1) | size= 8 | p= 7 | bridge=no (time: 0.5239s)
+    Norm = 2^30·3^10·23^3·43·353^2·571·5741^2
+  Orbit 23: rep=(1, 1, 2) | size=24 | p=23 | bridge=YES (time: 0.5220s)
+    Norm = 2^30·23^2·353·439·1607·5741·184031·1283701
+  Orbit 24: rep=(1, 1, 3) | size=24 | p=23 | bridge=YES (time: 0.5166s)
+    Norm = 2^30·23·67·131·353·1297·5741·24793·13424797
+  Orbit 25: rep=(1, 1, 4) | size=24 | p=23 | bridge=YES (time: 0.5200s)
+    Norm = 2^30·23·43·353·419·5741·[unfactored>1000000]
+  Orbit 26: rep=(1, 1, 5) | size=24 | p=23 | bridge=YES (time: 0.5140s)
+    Norm = 2^30·23·89·353·4621·5303·5741·40063·43889
+  Orbit 27: rep=(1, 2, 2) | size=24 | p=23 | bridge=YES (time: 0.5228s)
+    Norm = 2^30·23·89·353·4621·5303·5741·40063·43889
+  Orbit 28: rep=(1, 2, 3) | size=48 | p=47 | bridge=no (time: 0.5228s)
+    Norm = 2^30·131·967·2179·41777·[unfactored>1000000]
+  Orbit 29: rep=(1, 2, 4) | size=48 | p=47 | bridge=no (time: 0.5293s)
+    Norm = 2^30·197·397·2969·[unfactored>1000000]
+  Orbit 30: rep=(1, 2, 5) | size=48 | p=47 | bridge=no (time: 0.5274s)
+    Norm = 2^30·197·397·2969·[unfactored>1000000]
+  Orbit 31: rep=(1, 3, 3) | size=24 | p=23 | bridge=YES (time: 0.5203s)
+    Norm = 2^30·23·43·353·419·5741·[unfactored>1000000]
+  Orbit 32: rep=(1, 3, 4) | size=48 | p=47 | bridge=no (time: 0.5240s)
+    Norm = 2^30·131·967·2179·41777·[unfactored>1000000]
+  Orbit 33: rep=(1, 3, 5) | size=48 | p=47 | bridge=no (time: 0.5257s)
+    Norm = 2^30·197·397·2969·[unfactored>1000000]
+  Orbit 34: rep=(1, 4, 4) | size=24 | p=23 | bridge=YES (time: 0.5239s)
+    Norm = 2^30·23·67·131·353·1297·5741·24793·13424797
+  Orbit 35: rep=(1, 4, 5) | size=48 | p=47 | bridge=no (time: 0.5263s)
+    Norm = 2^30·131·967·2179·41777·[unfactored>1000000]
+  Orbit 36: rep=(1, 5, 5) | size=24 | p=23 | bridge=YES (time: 0.5287s)
+    Norm = 2^30·23^2·353·439·1607·5741·184031·1283701
+  Orbit 37: rep=(2, 2, 2) | size= 8 | p= 7 | bridge=no (time: 0.5060s)
+    Norm = 2^30·3^10·23^3·43·353^2·571·5741^2
+  Orbit 38: rep=(2, 2, 3) | size=24 | p=23 | bridge=YES (time: 0.5190s)
+    Norm = 2^30·23·43·353·419·5741·[unfactored>1000000]
+  Orbit 39: rep=(2, 2, 4) | size=24 | p=23 | bridge=YES (time: 0.5275s)
+    Norm = 2^30·23^2·353·439·1607·5741·184031·1283701
+  Orbit 40: rep=(2, 2, 5) | size=24 | p=23 | bridge=YES (time: 0.5194s)
+    Norm = 2^30·23·67·131·353·1297·5741·24793·13424797
+  Orbit 41: rep=(2, 3, 3) | size=24 | p=23 | bridge=YES (time: 0.5218s)
+    Norm = 2^30·23·67·131·353·1297·5741·24793·13424797
+  Orbit 42: rep=(2, 3, 4) | size=48 | p=47 | bridge=no (time: 0.5252s)
+    Norm = 2^30·197·397·2969·[unfactored>1000000]
+  Orbit 43: rep=(2, 3, 5) | size=48 | p=47 | bridge=no (time: 0.5265s)
+    Norm = 2^30·131·967·2179·41777·[unfactored>1000000]
+  Orbit 44: rep=(2, 4, 4) | size=24 | p=23 | bridge=YES (time: 0.5338s)
+    Norm = 2^30·23·89·353·4621·5303·5741·40063·43889
+  Orbit 45: rep=(2, 4, 5) | size=48 | p=47 | bridge=no (time: 0.5294s)
+    Norm = 2^30·131·967·2179·41777·[unfactored>1000000]
+  Orbit 46: rep=(2, 5, 5) | size=24 | p=23 | bridge=YES (time: 0.5271s)
+    Norm = 2^30·23·43·353·419·5741·[unfactored>1000000]
+  Orbit 47: rep=(3, 3, 3) | size= 8 | p= 7 | bridge=no (time: 0.5095s)
+    Norm = 2^30·3^10·23^3·43·353^2·571·5741^2
+  Orbit 48: rep=(3, 3, 4) | size=24 | p=23 | bridge=YES (time: 0.5165s)
+    Norm = 2^30·23·89·353·4621·5303·5741·40063·43889
+  Orbit 49: rep=(3, 3, 5) | size=24 | p=23 | bridge=YES (time: 0.5193s)
+    Norm = 2^30·23^2·353·439·1607·5741·184031·1283701
+  Orbit 50: rep=(3, 4, 4) | size=24 | p=23 | bridge=YES (time: 0.5286s)
+    Norm = 2^30·23^2·353·439·1607·5741·184031·1283701
+  Orbit 51: rep=(3, 4, 5) | size=48 | p=47 | bridge=no (time: 0.5332s)
+    Norm = 2^30·197·397·2969·[unfactored>1000000]
+  Orbit 52: rep=(3, 5, 5) | size=24 | p=23 | bridge=YES (time: 0.5225s)
+    Norm = 2^30·23·89·353·4621·5303·5741·40063·43889
+  Orbit 53: rep=(4, 4, 4) | size= 8 | p= 7 | bridge=no (time: 0.5139s)
+    Norm = 2^30·3^10·23^3·43·353^2·571·5741^2
+  Orbit 54: rep=(4, 4, 5) | size=24 | p=23 | bridge=YES (time: 0.5160s)
+    Norm = 2^30·23·43·353·419·5741·[unfactored>1000000]
+  Orbit 55: rep=(4, 5, 5) | size=24 | p=23 | bridge=YES (time: 0.5251s)
+    Norm = 2^30·23·67·131·353·1297·5741·24793·13424797
+  Orbit 56: rep=(5, 5, 5) | size= 8 | p= 7 | bridge=no (time: 0.5083s)
+    Norm = 2^30·3^10·23^3·43·353^2·571·5741^2
+
+================================================================================
+  L=11 Closure Test complete. Total native bridges found: 20
+  Is L=11 a closed outer boundary? False
+================================================================================

@@ -1,0 +1,859 @@
+================================================================================
+  EXACT ALGEBRAIC BRIDGE AND FIBONACCI COMPILER ANALYSIS: L=2, 3, 4, 5
+================================================================================
+
+==============================================================
+  L = 2 Exact Analysis
+==============================================================
+  k-points: 8 | O_h orbits: 4
+
+  Orbit 1: rep=(0, 0, 0) | size=1 | p=0
+    Charpoly in 0.02s, factored in 0.00s
+    Class 1: deg=1 mult=7
+      f(x)   = x
+      f(-3)  = -3
+      f(-3)  = -3 = -3 (primes: [3])
+      bridge = N/A (Gamma)
+      Fibonacci relation: F(4)
+    Class 2: deg=1 mult=6
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = N/A (Gamma)
+      Fibonacci relation: F(3)
+    Class 3: deg=1 mult=2
+      f(x)   = x - 5
+      f(-3)  = -8
+      f(-3)  = -8 = -2^3 (primes: [2])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4 [FLAT BAND]: deg=1 mult=2 f(x)=x + 3
+    Class 5: deg=1 mult=1
+      f(x)   = x - 3
+      f(-3)  = -6
+      f(-3)  = -6 = -2·3 (primes: [2, 3])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 6: deg=2 mult=1
+      f(x)   = x**2 - 35*x - 120
+      f(-3)  = -6
+      f(-3)  = -6 = -2·3 (primes: [2, 3])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+
+  Orbit 2: rep=(0, 0, 1) | size=3 | p=2
+    Charpoly in 0.00s, factored in 0.00s
+    Class 1: deg=1 mult=7
+      f(x)   = x
+      f(-3)  = -3
+      f(-3)  = -3 = -3 (primes: [3])
+      bridge = no
+      Fibonacci relation: F(4)
+    Class 2: deg=1 mult=5
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = YES
+      Fibonacci relation: F(3)
+    Class 3: deg=1 mult=2
+      f(x)   = x - 3
+      f(-3)  = -6
+      f(-3)  = -6 = -2·3 (primes: [2, 3])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 4 [FLAT BAND]: deg=1 mult=4 f(x)=x + 3
+    Class 5: deg=2 mult=1 [FIBONACCI QUADRATIC x^2+x+-184]
+      f(x)   = x**2 + x - 184
+      f(-3)  = -178
+      f(-3)  = -178 = -2·89 (primes: [2, 89])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, divisible by F(11)=89
+
+  Orbit 3: rep=(0, 1, 1) | size=3 | p=2
+    Charpoly in 0.00s, factored in 0.00s
+    Class 1: deg=1 mult=7
+      f(x)   = x
+      f(-3)  = -3
+      f(-3)  = -3 = -3 (primes: [3])
+      bridge = no
+      Fibonacci relation: F(4)
+    Class 2: deg=1 mult=5
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = YES
+      Fibonacci relation: F(3)
+    Class 3: deg=1 mult=2
+      f(x)   = x - 3
+      f(-3)  = -6
+      f(-3)  = -6 = -2·3 (primes: [2, 3])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 4 [FLAT BAND]: deg=1 mult=4 f(x)=x + 3
+    Class 5: deg=2 mult=1 [FIBONACCI QUADRATIC x^2+x+-184]
+      f(x)   = x**2 + x - 184
+      f(-3)  = -178
+      f(-3)  = -178 = -2·89 (primes: [2, 89])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, divisible by F(11)=89
+
+  Orbit 4: rep=(1, 1, 1) | size=1 | p=0
+    Charpoly in 0.00s, factored in 0.00s
+    Class 1: deg=1 mult=7
+      f(x)   = x
+      f(-3)  = -3
+      f(-3)  = -3 = -3 (primes: [3])
+      bridge = N/A (Gamma)
+      Fibonacci relation: F(4)
+    Class 2: deg=1 mult=6
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = N/A (Gamma)
+      Fibonacci relation: F(3)
+    Class 3: deg=1 mult=2
+      f(x)   = x - 5
+      f(-3)  = -8
+      f(-3)  = -8 = -2^3 (primes: [2])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4 [FLAT BAND]: deg=1 mult=2 f(x)=x + 3
+    Class 5: deg=1 mult=1
+      f(x)   = x - 3
+      f(-3)  = -6
+      f(-3)  = -6 = -2·3 (primes: [2, 3])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 6: deg=2 mult=1
+      f(x)   = x**2 - 35*x - 120
+      f(-3)  = -6
+      f(-3)  = -6 = -2·3 (primes: [2, 3])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+
+==============================================================
+  L = 3 Exact Analysis
+==============================================================
+  k-points: 27 | O_h orbits: 4
+
+  Orbit 1: rep=(0, 0, 0) | size=1 | p=0
+    Charpoly in 0.01s, factored in 0.00s
+    Class 1: deg=1 mult=5
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = N/A (Gamma)
+      Fibonacci relation: F(3)
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=3
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=1 mult=1
+      f(x)   = x - 3
+      f(-3)  = -6
+      f(-3)  = -6 = -2·3 (primes: [2, 3])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 5: deg=2 mult=1
+      f(x)   = x**2 - 14*x + 21
+      f(-3)  = 72
+      f(-3)  = 72 = 2^3·3^2 (primes: [2, 3])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+
+  Orbit 2: rep=(0, 0, 1) | size=6 | p=5
+    Charpoly in 0.14s, factored in 0.00s
+    Class 1: deg=1 mult=3
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=2
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=3 mult=1
+      f(x)   = x**3 - 5*x**2 - x + 9
+      f(-3)  = -60
+      f(-3)  = -60 = -2^2·3·5 (primes: [2, 3, 5])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(5)=5
+    Class 5: deg=4 mult=1
+      f(x)   = x**4 - 12*x**3 + 18*x**2 + 40*x - 63
+      f(-3)  = 384
+      f(-3)  = 384 = 2^7·3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+
+  Orbit 3: rep=(0, 1, 1) | size=12 | p=11
+    Charpoly in 0.16s, factored in 0.01s
+    Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 2: deg=1 mult=1
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 3: deg=2 mult=1 [FIBONACCI QUADRATIC x^2+x+-1]
+      f(x)   = x**2 + x - 1
+      f(-3)  = 5
+      f(-3)  = 5 = 5 (primes: [5])
+      bridge = no
+      Fibonacci relation: F(5)
+    Class 4: deg=2 mult=1
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 5: deg=2 mult=1
+      f(x)   = x**2 - x - 5
+      f(-3)  = 7
+      f(-3)  = 7 = 7 (primes: [7])
+      bridge = no
+    Class 6: deg=3 mult=1
+      f(x)   = x**3 - 8*x**2 + 2*x + 15
+      f(-3)  = -90
+      f(-3)  = -90 = -2·3^2·5 (primes: [2, 3, 5])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(5)=5
+    Class 7: deg=4 mult=1
+      f(x)   = x**4 - 9*x**3 + 6*x**2 + 31*x - 21
+      f(-3)  = 264
+      f(-3)  = 264 = 2^3·3·11 (primes: [2, 3, 11])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+
+  Orbit 4: rep=(1, 1, 1) | size=8 | p=7
+    Charpoly in 0.18s, factored in 0.00s
+    Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 2: deg=2 mult=2 [FIBONACCI QUADRATIC x^2+x+-1]
+      f(x)   = x**2 + x - 1
+      f(-3)  = 5
+      f(-3)  = 5 = 5 (primes: [5])
+      bridge = no
+      Fibonacci relation: F(5)
+    Class 3: deg=2 mult=2
+      f(x)   = x**2 - x - 5
+      f(-3)  = 7
+      f(-3)  = 7 = 7 (primes: [7])
+      bridge = YES
+    Class 4: deg=3 mult=1
+      f(x)   = x**3 - 7*x**2 + x + 21
+      f(-3)  = -72
+      f(-3)  = -72 = -2^3·3^2 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+    Class 5: deg=3 mult=1
+      f(x)   = x**3 - 11*x**2 + 5*x + 21
+      f(-3)  = -120
+      f(-3)  = -120 = -2^3·3·5 (primes: [2, 3, 5])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(5)=5, divisible by F(6)=8
+
+==============================================================
+  L = 4 Exact Analysis
+==============================================================
+  k-points: 64 | O_h orbits: 10
+
+  Orbit 1: rep=(0, 0, 0) | size=1 | p=0
+    Charpoly in 0.01s, factored in 0.00s
+    Class 1: deg=1 mult=5
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = N/A (Gamma)
+      Fibonacci relation: F(3)
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=3
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=1 mult=1
+      f(x)   = x - 3
+      f(-3)  = -6
+      f(-3)  = -6 = -2·3 (primes: [2, 3])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 5: deg=2 mult=1
+      f(x)   = x**2 - 14*x + 21
+      f(-3)  = 72
+      f(-3)  = 72 = 2^3·3^2 (primes: [2, 3])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+
+  Orbit 2: rep=(0, 0, 1) | size=6 | p=5
+    Charpoly in 0.03s, factored in 0.00s
+    Class 1: deg=1 mult=3
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=2
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=1 mult=1
+      f(x)   = x - 1
+      f(-3)  = -4
+      f(-3)  = -4 = -2^2 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2
+    Class 5: deg=3 mult=1
+      f(x)   = x**3 - 5*x**2 - x + 13
+      f(-3)  = -56
+      f(-3)  = -56 = -2^3·7 (primes: [2, 7])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+    Class 6: deg=3 mult=1
+      f(x)   = x**3 - 11*x**2 - x + 35
+      f(-3)  = -88
+      f(-3)  = -88 = -2^3·11 (primes: [2, 11])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+
+  Orbit 3: rep=(0, 0, 2) | size=3 | p=2
+    Charpoly in 0.01s, factored in 0.00s
+    Class 1: deg=1 mult=4
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = YES
+      Fibonacci relation: F(3)
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=3
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=1 mult=1
+      f(x)   = x - 1
+      f(-3)  = -4
+      f(-3)  = -4 = -2^2 (primes: [2])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2
+    Class 5: deg=1 mult=1
+      f(x)   = x - 5
+      f(-3)  = -8
+      f(-3)  = -8 = -2^3 (primes: [2])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 6: deg=2 mult=1
+      f(x)   = x**2 - 10*x + 13
+      f(-3)  = 52
+      f(-3)  = 52 = 2^2·13 (primes: [2, 13])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, divisible by F(7)=13
+
+  Orbit 4: rep=(0, 1, 1) | size=12 | p=11
+    Charpoly in 0.03s, factored in 0.00s
+    Class 1: deg=2 mult=2
+      f(x)   = x**2 - 3
+      f(-3)  = 6
+      f(-3)  = 6 = 2·3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=1 mult=1
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 4: deg=2 mult=1
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 5: deg=3 mult=1
+      f(x)   = x**3 - 7*x**2 + x + 17
+      f(-3)  = -76
+      f(-3)  = -76 = -2^2·19 (primes: [2, 19])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2
+    Class 6: deg=4 mult=1
+      f(x)   = x**4 - 10*x**3 + 2*x**2 + 30*x - 7
+      f(-3)  = 272
+      f(-3)  = 272 = 2^4·17 (primes: [2, 17])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8, divisible by F(9)=34
+
+  Orbit 5: rep=(0, 1, 2) | size=12 | p=11
+    Charpoly in 0.03s, factored in 0.00s
+    Class 1: deg=1 mult=2
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=2
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=4 mult=2
+      f(x)   = x**4 - 8*x**3 + 2*x**2 + 24*x - 11
+      f(-3)  = 232
+      f(-3)  = 232 = 2^3·29 (primes: [2, 29])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+
+  Orbit 6: rep=(0, 2, 2) | size=3 | p=2
+    Charpoly in 0.00s, factored in 0.00s
+    Class 1: deg=1 mult=4
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = YES
+      Fibonacci relation: F(3)
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=3
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=1 mult=1
+      f(x)   = x - 1
+      f(-3)  = -4
+      f(-3)  = -4 = -2^2 (primes: [2])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2
+    Class 5: deg=1 mult=1
+      f(x)   = x - 5
+      f(-3)  = -8
+      f(-3)  = -8 = -2^3 (primes: [2])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 6: deg=2 mult=1
+      f(x)   = x**2 - 10*x + 13
+      f(-3)  = 52
+      f(-3)  = 52 = 2^2·13 (primes: [2, 13])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, divisible by F(7)=13
+
+  Orbit 7: rep=(1, 1, 1) | size=8 | p=7
+    Charpoly in 0.03s, factored in 0.00s
+    Class 1: deg=2 mult=4
+      f(x)   = x**2 - 3
+      f(-3)  = 6
+      f(-3)  = 6 = 2·3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=3 mult=2
+      f(x)   = x**3 - 9*x**2 + 3*x + 21
+      f(-3)  = -96
+      f(-3)  = -96 = -2^5·3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+
+  Orbit 8: rep=(1, 1, 2) | size=12 | p=11
+    Charpoly in 0.03s, factored in 0.00s
+    Class 1: deg=2 mult=2
+      f(x)   = x**2 - 3
+      f(-3)  = 6
+      f(-3)  = 6 = 2·3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=1 mult=1
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 4: deg=2 mult=1
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 5: deg=3 mult=1
+      f(x)   = x**3 - 7*x**2 + x + 17
+      f(-3)  = -76
+      f(-3)  = -76 = -2^2·19 (primes: [2, 19])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2
+    Class 6: deg=4 mult=1
+      f(x)   = x**4 - 10*x**3 + 2*x**2 + 30*x - 7
+      f(-3)  = 272
+      f(-3)  = 272 = 2^4·17 (primes: [2, 17])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8, divisible by F(9)=34
+
+  Orbit 9: rep=(1, 2, 2) | size=6 | p=5
+    Charpoly in 0.03s, factored in 0.00s
+    Class 1: deg=1 mult=3
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=2
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=1 mult=1
+      f(x)   = x - 1
+      f(-3)  = -4
+      f(-3)  = -4 = -2^2 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2
+    Class 5: deg=3 mult=1
+      f(x)   = x**3 - 5*x**2 - x + 13
+      f(-3)  = -56
+      f(-3)  = -56 = -2^3·7 (primes: [2, 7])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+    Class 6: deg=3 mult=1
+      f(x)   = x**3 - 11*x**2 - x + 35
+      f(-3)  = -88
+      f(-3)  = -88 = -2^3·11 (primes: [2, 11])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+
+  Orbit 10: rep=(2, 2, 2) | size=1 | p=0
+    Charpoly in 0.00s, factored in 0.00s
+    Class 1: deg=1 mult=5
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = N/A (Gamma)
+      Fibonacci relation: F(3)
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=3
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=1 mult=1
+      f(x)   = x - 3
+      f(-3)  = -6
+      f(-3)  = -6 = -2·3 (primes: [2, 3])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 5: deg=2 mult=1
+      f(x)   = x**2 - 14*x + 21
+      f(-3)  = 72
+      f(-3)  = 72 = 2^3·3^2 (primes: [2, 3])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+
+==============================================================
+  L = 5 Exact Analysis
+==============================================================
+  k-points: 125 | O_h orbits: 10
+
+  Orbit 1: rep=(0, 0, 0) | size=1 | p=0
+    Charpoly in 0.01s, factored in 0.09s
+    Class 1: deg=1 mult=5
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = N/A (Gamma)
+      Fibonacci relation: F(3)
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=3
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=1 mult=1
+      f(x)   = x - 3
+      f(-3)  = -6
+      f(-3)  = -6 = -2·3 (primes: [2, 3])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 5: deg=2 mult=1
+      f(x)   = x**2 - 14*x + 21
+      f(-3)  = 72
+      f(-3)  = 72 = 2^3·3^2 (primes: [2, 3])
+      bridge = N/A (Gamma)
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+
+  Orbit 2: rep=(0, 0, 1) | size=6 | p=5
+    Charpoly in 0.23s, factored in 0.28s
+    Class 1: deg=1 mult=3
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=2
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=3 mult=1
+      f(x)   = x**3 - 5*x**2 - x + 2*sqrt(5) + 11
+      f(-3)  = -58 + 2*sqrt(5)
+      Norm   = 3344 = 2^4·11·19 (primes: [2, 11, 19])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+    Class 5: deg=4 mult=1
+      f(x)   = x**4 - 12*x**3 - 4*sqrt(5)*x**2 + 14*x**2 - 2*sqrt(5)*x + 38*x - 49 + 14*sqrt(5)
+      f(-3)  = 368 - 16*sqrt(5)
+      Norm   = 134144 = 2^10·131 (primes: [2, 131])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+
+  Orbit 3: rep=(0, 0, 2) | size=6 | p=5
+    Charpoly in 0.22s, factored in 0.29s
+    Class 1: deg=1 mult=3
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 3: deg=2 mult=2
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=3 mult=1
+      f(x)   = x**3 - 5*x**2 - x - 2*sqrt(5) + 11
+      f(-3)  = -58 - 2*sqrt(5)
+      Norm   = 3344 = 2^4·11·19 (primes: [2, 11, 19])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+    Class 5: deg=4 mult=1
+      f(x)   = x**4 - 12*x**3 + 4*sqrt(5)*x**2 + 14*x**2 + 2*sqrt(5)*x + 38*x - 49 - 14*sqrt(5)
+      f(-3)  = 16*sqrt(5) + 368
+      Norm   = 134144 = 2^10·131 (primes: [2, 131])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+
+  Orbit 4: rep=(0, 1, 1) | size=12 | p=11
+    Charpoly in 0.35s, factored in 0.30s
+    Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 2: deg=1 mult=1
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 3: deg=2 mult=1
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=2 mult=1
+      f(x)   = x**2 - x/2 + sqrt(5)*x/2 - 4 + sqrt(5)
+      f(-3)  = 13/2 - sqrt(5)/2
+      Norm   = 41 = 41 (primes: [41])
+      bridge = no
+    Class 5: deg=2 mult=1
+      f(x)   = x**2 - sqrt(5)*x/2 + x/2 - sqrt(5) - 2
+      f(-3)  = sqrt(5)/2 + 11/2
+      Norm   = 29 = 29 (primes: [29])
+      bridge = no
+    Class 6: deg=3 mult=1
+      f(x)   = x**3 - 15*x**2/2 + sqrt(5)*x**2/2 - sqrt(5)*x/2 + 3*x/2 + sqrt(5) + 16
+      f(-3)  = -83 + 7*sqrt(5)
+      Norm   = 6644 = 2^2·11·151 (primes: [2, 11, 151])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2
+    Class 7: deg=4 mult=1
+      f(x)   = x**4 - 19*x**3/2 - sqrt(5)*x**3/2 - 2*sqrt(5)*x**2 + 4*x**2 - sqrt(5)*x/2 + 61*x/2 - 14 + 7*sqrt(5)
+      f(-3)  = 4*sqrt(5) + 268
+      Norm   = 71744 = 2^6·19·59 (primes: [2, 19, 59])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+
+  Orbit 5: rep=(0, 1, 2) | size=24 | p=23
+    Charpoly in 0.33s, factored in 0.12s
+    Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 2: deg=1 mult=1
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 3: deg=2 mult=1
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=5 mult=1
+      f(x)   = x**5 - 7*x**4 - 3*x**3 + 33*x**2 + 5*x - 27
+      f(-3)  = -474
+      f(-3)  = -474 = -2·3·79 (primes: [2, 3, 79])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 5: deg=6 mult=1
+      f(x)   = x**6 - 10*x**5 + 6*x**4 + 74*x**3 - 34*x**2 - 130*x + 21
+      f(-3)  = 1752
+      f(-3)  = 1752 = 2^3·3·73 (primes: [2, 3, 73])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+
+  Orbit 6: rep=(0, 2, 2) | size=12 | p=11
+    Charpoly in 0.34s, factored in 0.31s
+    Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 2: deg=1 mult=1
+      f(x)   = x + 1
+      f(-3)  = -2
+      f(-3)  = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 3: deg=2 mult=1
+      f(x)   = x**2 - 2*x - 7
+      f(-3)  = 8
+      f(-3)  = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=2 mult=1
+      f(x)   = x**2 - sqrt(5)*x/2 - x/2 - 4 - sqrt(5)
+      f(-3)  = sqrt(5)/2 + 13/2
+      Norm   = 41 = 41 (primes: [41])
+      bridge = no
+    Class 5: deg=2 mult=1
+      f(x)   = x**2 + x/2 + sqrt(5)*x/2 - 2 + sqrt(5)
+      f(-3)  = 11/2 - sqrt(5)/2
+      Norm   = 29 = 29 (primes: [29])
+      bridge = no
+    Class 6: deg=3 mult=1
+      f(x)   = x**3 - 15*x**2/2 - sqrt(5)*x**2/2 + sqrt(5)*x/2 + 3*x/2 - sqrt(5) + 16
+      f(-3)  = -83 - 7*sqrt(5)
+      Norm   = 6644 = 2^2·11·151 (primes: [2, 11, 151])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2
+    Class 7: deg=4 mult=1
+      f(x)   = x**4 - 19*x**3/2 + sqrt(5)*x**3/2 + 4*x**2 + 2*sqrt(5)*x**2 + sqrt(5)*x/2 + 61*x/2 - 7*sqrt(5) - 14
+      f(-3)  = 268 - 4*sqrt(5)
+      Norm   = 71744 = 2^6·19·59 (primes: [2, 19, 59])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+
+  Orbit 7: rep=(1, 1, 1) | size=8 | p=7
+    Charpoly in 0.42s, factored in 0.30s
+    Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 2: deg=2 mult=2
+      f(x)   = x**2 - x/2 + sqrt(5)*x/2 - 4 + sqrt(5)
+      f(-3)  = 13/2 - sqrt(5)/2
+      Norm   = 41 = 41 (primes: [41])
+      bridge = no
+    Class 3: deg=2 mult=2
+      f(x)   = x**2 - sqrt(5)*x/2 + x/2 - sqrt(5) - 2
+      f(-3)  = sqrt(5)/2 + 11/2
+      Norm   = 29 = 29 (primes: [29])
+      bridge = no
+    Class 4: deg=3 mult=1
+      f(x)   = x**3 - 8*x**2 - sqrt(5)*x**2 + 2*x + sqrt(5)*x + 21
+      f(-3)  = -84 - 12*sqrt(5)
+      Norm   = 6336 = 2^6·3^2·11 (primes: [2, 3, 11])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8, divisible by F(12)=144
+    Class 5: deg=3 mult=1
+      f(x)   = x**3 - 10*x**2 + sqrt(5)*x**2 - sqrt(5)*x + 4*x + 21
+      f(-3)  = -108 + 12*sqrt(5)
+      Norm   = 10944 = 2^6·3^2·19 (primes: [2, 3, 19])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8, divisible by F(12)=144
+
+  Orbit 8: rep=(1, 1, 2) | size=24 | p=23
+    Charpoly in 0.40s, factored in 0.31s
+    Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 2: deg=2 mult=1
+      f(x)   = x**2 - x/2 + sqrt(5)*x/2 - 4 + sqrt(5)
+      f(-3)  = 13/2 - sqrt(5)/2
+      Norm   = 41 = 41 (primes: [41])
+      bridge = no
+    Class 3: deg=2 mult=1
+      f(x)   = x**2 - sqrt(5)*x/2 + x/2 - sqrt(5) - 2
+      f(-3)  = sqrt(5)/2 + 11/2
+      Norm   = 29 = 29 (primes: [29])
+      bridge = no
+    Class 4: deg=5 mult=1
+      f(x)   = x**5 - 17*x**4/2 - sqrt(5)*x**4/2 + 3*sqrt(5)*x**3/2 + 9*x**3/2 + 7*sqrt(5)*x**2/2 + 109*x**2/2 - 47*x/2 - 11*sqrt(5)*x/2 - 84 - 7*sqrt(5)
+      f(-3)  = -576 - 40*sqrt(5)
+      Norm   = 323776 = 2^6·5059 (primes: [2, 5059])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+    Class 5: deg=5 mult=1
+      f(x)   = x**5 - 19*x**4/2 + sqrt(5)*x**4/2 - 3*sqrt(5)*x**3/2 - x**3/2 - 7*sqrt(5)*x**2/2 + 91*x**2/2 - 5*x/2 + 11*sqrt(5)*x/2 - 42 + 7*sqrt(5)
+      f(-3)  = -624 + 40*sqrt(5)
+      Norm   = 381376 = 2^6·59·101 (primes: [2, 59, 101])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+
+  Orbit 9: rep=(1, 2, 2) | size=24 | p=23
+    Charpoly in 0.40s, factored in 0.32s
+    Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 2: deg=2 mult=1
+      f(x)   = x**2 - sqrt(5)*x/2 - x/2 - 4 - sqrt(5)
+      f(-3)  = sqrt(5)/2 + 13/2
+      Norm   = 41 = 41 (primes: [41])
+      bridge = no
+    Class 3: deg=2 mult=1
+      f(x)   = x**2 + x/2 + sqrt(5)*x/2 - 2 + sqrt(5)
+      f(-3)  = 11/2 - sqrt(5)/2
+      Norm   = 29 = 29 (primes: [29])
+      bridge = no
+    Class 4: deg=5 mult=1
+      f(x)   = x**5 - 17*x**4/2 + sqrt(5)*x**4/2 - 3*sqrt(5)*x**3/2 + 9*x**3/2 - 7*sqrt(5)*x**2/2 + 109*x**2/2 - 47*x/2 + 11*sqrt(5)*x/2 - 84 + 7*sqrt(5)
+      f(-3)  = -576 + 40*sqrt(5)
+      Norm   = 323776 = 2^6·5059 (primes: [2, 5059])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+    Class 5: deg=5 mult=1
+      f(x)   = x**5 - 19*x**4/2 - sqrt(5)*x**4/2 - x**3/2 + 3*sqrt(5)*x**3/2 + 7*sqrt(5)*x**2/2 + 91*x**2/2 - 11*sqrt(5)*x/2 - 5*x/2 - 42 - 7*sqrt(5)
+      f(-3)  = -624 - 40*sqrt(5)
+      Norm   = 381376 = 2^6·59·101 (primes: [2, 59, 101])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+
+  Orbit 10: rep=(2, 2, 2) | size=8 | p=7
+    Charpoly in 0.36s, factored in 0.35s
+    Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
+    Class 2: deg=2 mult=2
+      f(x)   = x**2 - sqrt(5)*x/2 - x/2 - 4 - sqrt(5)
+      f(-3)  = sqrt(5)/2 + 13/2
+      Norm   = 41 = 41 (primes: [41])
+      bridge = no
+    Class 3: deg=2 mult=2
+      f(x)   = x**2 + x/2 + sqrt(5)*x/2 - 2 + sqrt(5)
+      f(-3)  = 11/2 - sqrt(5)/2
+      Norm   = 29 = 29 (primes: [29])
+      bridge = no
+    Class 4: deg=3 mult=1
+      f(x)   = x**3 - 8*x**2 + sqrt(5)*x**2 - sqrt(5)*x + 2*x + 21
+      f(-3)  = -84 + 12*sqrt(5)
+      Norm   = 6336 = 2^6·3^2·11 (primes: [2, 3, 11])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8, divisible by F(12)=144
+    Class 5: deg=3 mult=1
+      f(x)   = x**3 - 10*x**2 - sqrt(5)*x**2 + sqrt(5)*x + 4*x + 21
+      f(-3)  = -108 - 12*sqrt(5)
+      Norm   = 10944 = 2^6·3^2·19 (primes: [2, 3, 19])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8, divisible by F(12)=144

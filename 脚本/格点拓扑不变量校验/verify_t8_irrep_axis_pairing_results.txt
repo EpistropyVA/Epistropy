@@ -1,0 +1,149 @@
+==============================================================================
+Item 8: Irrep-axis pairing for BCC flat-band 6D eigenspace
+==============================================================================
+
+[Step 1] Build lattice and faces
+  Faces: 540 (OK)
+
+[Step 2] Build adjacency matrix and extract T(R) blocks
+  Non-zero T(R) at R: [(-1, 0, 0), (0, -1, 0), (0, 0, -1), (0, 0, 0), (0, 0, 1), (0, 1, 0), (1, 0, 0)]
+
+[Step 3] Build H(Gamma) = sum_R T(R) and extract 6D flat-band eigenvectors
+  H(Gamma) symmetric: True
+  H(Gamma) eigenvalues:
+    lambda =  -3.000000  (deg 6) <--- TARGET
+    lambda =  -1.828427  (deg 3)
+    lambda =  -1.000000  (deg 5)
+    lambda =   1.708497  (deg 1)
+    lambda =   3.000000  (deg 1)
+    lambda =   3.828427  (deg 3)
+    lambda =  12.291503  (deg 1)
+  V shape: (20, 6) (20 x 6, OK)
+  H(Gamma) V = -3 V: max err = 2.00e-15  OK=True
+  V^T V orthonormality error: 1.221e-15
+
+[Step 4] Build O_h projectors on 20D face space and project onto 6D flat band
+  Building 48 permutation matrices P(g) on 20D space...
+  Done.
+  Building irrep projectors for A2u, Eu, T1u...
+    P_A2u: idempotent error = 1.388e-17
+    P_Eu: idempotent error = 2.776e-17
+    P_T1u: idempotent error = 0.000e+00
+
+  Projecting 6D flat-band space into irrep sectors...
+    A2u: rank in flat-band space = 1 (expected 1)
+    Eu: rank in flat-band space = 2 (expected 2)
+    T1u: rank in flat-band space = 3 (expected 3)
+
+  Total irrep dimensions: 6 (expect 6, OK=True)
+  B_coords orthogonality error: 7.296e-16
+  B = V @ B_coords: shape (20, 6)
+  B orthogonality error: 1.445e-15
+  B spans same 6D space as V: max err = 1.166e-15  OK=True
+
+[Step 5] Per-axis C_a = B.T @ H_a @ B analysis
+  Cross-check: B.T H(Gamma) B = -3*I, max err = 4.330e-15  OK=True
+  B.T T(0) B trace = -4.000000 (expect -4)
+
+  --- Axis x ---
+  C_x in irrep-adapted basis (rounded to 4 decimals):
+   -2.0000    1.1487   -0.1179    0.0000    0.0000    0.0000
+    1.1487   -0.6597    0.0677   -0.0000   -0.0000   -0.0000
+   -0.1179    0.0677   -0.0069   -0.0000   -0.0000    0.0000
+    0.0000   -0.0000   -0.0000   -0.8174   -0.9832    0.0029
+    0.0000   -0.0000   -0.0000   -0.9832   -1.1826    0.0035
+    0.0000   -0.0000    0.0000    0.0029    0.0035   -0.0000
+  [rows/cols: 0=A2u, 1-2=Eu, 3-5=T1u]
+  C_x eigenvalues: [-2.666667e+00 -2.000000e+00 -8.932393e-16 -1.434212e-18  1.888731e-19
+  1.727473e-16]
+  Spectrum check (expect [-2.666667 -2.        0.        0.        0.        0.      ]): max err = 8.9324e-16  OK=True
+  Irrep weight decomposition for rank-2 eigenvectors:
+    Eigenvalue    A2u weight     Eu weight    T1u weight  dominant
+     -2.666667      0.750000      0.250000      0.000000  A2u (sum=1.000000)
+     -2.000000      0.000000      0.000000      1.000000  T1u (sum=1.000000)
+  Null space (eigenvalue ~0) eigenvectors:
+     -0.000000      0.249667      0.749912      0.000421
+     -0.000000      0.000025      0.561043      0.438933
+      0.000000      0.000002      0.037530      0.962468
+      0.000000      0.000306      0.401516      0.598179
+
+  --- Axis y ---
+  C_y in irrep-adapted basis (rounded to 4 decimals):
+   -2.0000   -0.6764   -0.9358   -0.0000    0.0000    0.0000
+   -0.6764   -0.2288   -0.3165    0.0000    0.0000    0.0000
+   -0.9358   -0.3165   -0.4379    0.0000   -0.0000    0.0000
+   -0.0000    0.0000    0.0000   -1.1730    0.9756    0.1353
+    0.0000    0.0000   -0.0000    0.9756   -0.8114   -0.1125
+    0.0000    0.0000    0.0000    0.1353   -0.1125   -0.0156
+  [rows/cols: 0=A2u, 1-2=Eu, 3-5=T1u]
+  C_y eigenvalues: [-2.666667e+00 -2.000000e+00 -1.471640e-16 -2.687559e-17  7.181925e-18
+  3.735742e-16]
+  Spectrum check (expect [-2.666667 -2.        0.        0.        0.        0.      ]): max err = 2.2204e-15  OK=True
+  Irrep weight decomposition for rank-2 eigenvectors:
+    Eigenvalue    A2u weight     Eu weight    T1u weight  dominant
+     -2.666667      0.750000      0.250000      0.000000  A2u (sum=1.000000)
+     -2.000000      0.000000      0.000000      1.000000  T1u (sum=1.000000)
+  Null space (eigenvalue ~0) eigenvectors:
+     -0.000000      0.212095      0.742070      0.045835
+     -0.000000      0.019687      0.103357      0.876956
+      0.000000      0.002614      0.021817      0.975569
+      0.000000      0.015605      0.882755      0.101640
+
+  --- Axis z ---
+  C_z in irrep-adapted basis (rounded to 4 decimals):
+   -2.0000   -0.4722    1.0537    0.0000    0.0000    0.0000
+   -0.4722   -0.1115    0.2488    0.0000    0.0000    0.0000
+    1.0537    0.2488   -0.5552   -0.0000   -0.0000   -0.0000
+    0.0000    0.0000   -0.0000   -0.0096    0.0076   -0.1382
+    0.0000    0.0000   -0.0000    0.0076   -0.0060    0.1090
+    0.0000    0.0000   -0.0000   -0.1382    0.1090   -1.9844
+  [rows/cols: 0=A2u, 1-2=Eu, 3-5=T1u]
+  C_z eigenvalues: [-2.666667e+00 -2.000000e+00 -3.755713e-17  2.769543e-19  2.781622e-18
+  3.764084e-16]
+  Spectrum check (expect [-2.666667 -2.        0.        0.        0.        0.      ]): max err = 2.6645e-15  OK=True
+  Irrep weight decomposition for rank-2 eigenvectors:
+    Eigenvalue    A2u weight     Eu weight    T1u weight  dominant
+     -2.666667      0.750000      0.250000      0.000000  A2u (sum=1.000000)
+     -2.000000      0.000000      0.000000      1.000000  T1u (sum=1.000000)
+  Null space (eigenvalue ~0) eigenvectors:
+     -0.000000      0.090064      0.882925      0.027011
+      0.000000      0.000347      0.001922      0.997731
+      0.000000      0.003151      0.022132      0.974717
+      0.000000      0.156439      0.843021      0.000541
+
+[Step 6] Cross-checks
+  sum_a Tr(C_a) = -14.000000
+  Tr(B.T T(0) B) = -4.000000  (expect -4)
+  Total = -18.000000  (expect -18.0 = -18)
+  Total = -18? True
+
+  Per-axis A2u/Eu/T1u weight sums (over active eigenvectors, summed across 3 axes):
+  Sum over 3 axes x 2 eigvecs of A2u weight: 2.250000
+  Sum over 3 axes x 2 eigvecs of Eu weight: 0.750000
+  Sum over 3 axes x 2 eigvecs of T1u weight: 3.000000
+  (If active dims tile 6D space: A2u->1, Eu->2, T1u->3)
+
+==============================================================================
+FINAL SUMMARY TABLE: Irrep-axis pairing
+==============================================================================
+
+  Axis      Eigenvalue      A2u wt       Eu wt      T1u wt  dominant
+  ------    ----------      ------      ------     -------  ---------
+  x          -2.666667    0.750000    0.250000    0.000000  A2u
+  x          -2.000000    0.000000    0.000000    1.000000  T1u
+  y          -2.666667    0.750000    0.250000    0.000000  A2u
+  y          -2.000000    0.000000    0.000000    1.000000  T1u
+  z          -2.666667    0.750000    0.250000    0.000000  A2u
+  z          -2.000000    0.000000    0.000000    1.000000  T1u
+
+  Interpretation:
+  Each axis's C_a has rank 2 (two non-zero eigenvalues: -8/3 and -2).
+  The irrep weights tell us which part of the 6D space each axis 'sees'.
+
+  Per-axis total irrep support (sum of weights over both active eigenvectors):
+  Axis       A2u total      Eu total     T1u total
+  x           0.750000      0.250000      1.000000
+  y           0.750000      0.250000      1.000000
+  z           0.750000      0.250000      1.000000
+
+=== DONE ===

@@ -1,0 +1,68 @@
+======================================================================
+A2u TRIO + CLUSTER-KORBIT VERIFICATION
+======================================================================
+Faces: 540 OK
+Overlap rank: 19 (OK)
+Clusters: 1+6+12 verified. Sizes: [1, 6, 12]
+  1-dim sv: 15.588457
+  6-dim sv mean: 7.675226
+  12-dim sv mean: 3.927922
+
+── TEST 1: A2u trio under Z3^3 translations ──
+  1-dim: A2u projector eigenvalues top-3: [np.float64(1.0000000000000069)]
+  1-dim: A2u vector extracted (norm=1.000000)
+  6-dim: A2u projector eigenvalues top-3: [np.float64(3.787307486006994e-17), np.float64(1.7590894033114362e-16), np.float64(1.0000000000000004)]
+  6-dim: A2u vector extracted (norm=1.000000)
+  12-dim: A2u projector eigenvalues top-3: [np.float64(2.0745177255914322e-16), np.float64(3.126749903993283e-16), np.float64(0.9999999999999988)]
+  12-dim: A2u vector extracted (norm=1.000000)
+  ||[T_(1, 0, 0), S]||_F = 9.1071e-15
+  ||[T_(1, 1, 0), S]||_F = 1.0711e-14
+  ||[T_(1, 1, 1), S]||_F = 1.1582e-14
+
+  3x3 |M_R| matrices (|<A2u_i | T_R | A2u_j>|), rows/cols = [1,6,12]:
+  T_(1, 0, 0):
+    [1.0000 0.0000 0.0000]
+    [0.0000 0.6626 0.0000]
+    [0.0000 0.0000 0.0319]
+  T_(1, 1, 0):
+    [1.0000 0.0000 0.0000]
+    [0.0000 0.2999 0.0000]
+    [0.0000 0.0000 0.4044]
+  T_(1, 1, 1):
+    [1.0000 0.0000 0.0000]
+    [0.0000 0.5185 0.0000]
+    [0.0000 0.0000 0.1990]
+
+  Max total off-diagonal: 0.0000
+  TEST 1 VERDICT: A2u vectors are ISOLATED (block-diagonal) under translations
+
+── TEST 2: cluster ↔ k-orbit correspondence ──
+
+  Weight table (cluster × orbit), summed weights (3 decimals):
+  Cluster     Gamma     axis      face-diag   body-diag   sum   
+  1-dim          1.000     0.000       0.000       0.000   1.000
+  6-dim          0.000     6.000       0.000       0.000   6.000
+  12-dim         0.000     0.000      12.000       0.000  12.000
+
+  Total weight on body-diagonal orbit across all 19 SVs: 0.000000
+  TEST 2 VERDICT: PASS — 1→Γ, 6→axis, 12→face-diag, body-diag absent (19=27-8)
+
+======================================================================
+SUMMARY (≤30 lines)
+======================================================================
+Rank-19 overlap, clusters 1+6+12 verified.
+||[T_R, S]||_F: R=(1, 0, 0):9.11e-15, R=(1, 1, 0):1.07e-14, R=(1, 1, 1):1.16e-14
+
+TEST 1 — 3x3 |M_R| matrices:
+  T_(1, 0, 0): diag=[1.000,0.663,0.032]  off=[0.000,0.000,0.000]
+  T_(1, 1, 0): diag=[1.000,0.300,0.404]  off=[0.000,0.000,0.000]
+  T_(1, 1, 1): diag=[1.000,0.518,0.199]  off=[0.000,0.000,0.000]
+VERDICT T1: A2u vectors ISOLATED (block-diagonal) under Z3^3 translations
+
+TEST 2 — cluster×orbit weight table:
+  Cluster     Gamma     axis      face-diag   body-diag 
+  1-dim          1.000     0.000       0.000       0.000
+  6-dim          0.000     6.000       0.000       0.000
+  12-dim         0.000     0.000      12.000       0.000
+  Body-diagonal total weight: 0.000000
+VERDICT T2: PASS — 1-cluster@Γ, 6-cluster@axis, 12-cluster@face-diag, body-diag absent

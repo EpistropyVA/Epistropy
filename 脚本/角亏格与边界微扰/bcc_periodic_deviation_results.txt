@@ -1,0 +1,1107 @@
+==============================================================================
+BCC 3x3x3 Periodic-BC: Corner Deviation Analysis via Bloch Decomposition
+==============================================================================
+
+[Step 1] Build lattice and face labeling
+  Total faces: 540 (expect 540)
+  Reference BC face classification:
+    Pure-corner faces (no BC vertex): 8 (indices: [6, 7, 8, 9, 16, 17, 18, 19])
+    BC-containing faces: 12 (indices: [0, 1, 2, 3, 4, 5]...)
+
+[Step 2] Build 540x540 adjacency matrix and verify spectrum
+  Shape: (540, 540), symmetric: True
+  Full spectrum:
+    lambda= -3.000000  deg= 162  cumul= 162
+    lambda= -1.828427  deg=  27  cumul= 189
+    lambda= -1.791288  deg=  28  cumul= 217
+    lambda= -1.776589  deg=   6  cumul= 223
+    lambda= -1.742109  deg=  12  cumul= 235
+    lambda= -1.618034  deg=  28  cumul= 263
+    lambda= -1.512976  deg=   8  cumul= 271
+    lambda= -1.279452  deg=   6  cumul= 277
+    lambda= -1.174309  deg=  12  cumul= 289
+    lambda= -1.125873  deg=   8  cumul= 297
+    lambda= -1.000000  deg=  35  cumul= 332
+    lambda=  0.618034  deg=  28  cumul= 360
+    lambda=  0.671493  deg=  12  cumul= 372
+    lambda=  1.426648  deg=   6  cumul= 378
+    lambda=  1.459363  deg=   6  cumul= 384
+    lambda=  1.708497  deg=   1  cumul= 385
+    lambda=  1.711652  deg=  12  cumul= 397
+    lambda=  1.807704  deg=   8  cumul= 405
+    lambda=  2.197906  deg=   8  cumul= 413
+    lambda=  2.314509  deg=  12  cumul= 425
+    lambda=  2.531628  deg=   6  cumul= 431
+    lambda=  2.791288  deg=  28  cumul= 459
+    lambda=  3.000000  deg=   1  cumul= 460
+    lambda=  3.828427  deg=  27  cumul= 487
+    lambda=  4.820089  deg=   6  cumul= 493
+    lambda=  6.315070  deg=   8  cumul= 501
+    lambda=  7.462657  deg=  12  cumul= 513
+    lambda=  7.756107  deg=  12  cumul= 525
+    lambda=  9.818313  deg=   6  cumul= 531
+    lambda= 10.318169  deg=   8  cumul= 539
+    lambda= 12.291503  deg=   1  cumul= 540
+  lambda=-3 count in full spectrum: 162
+
+[Step 3] Build hopping matrices T(R) via BC-block reordering
+  Max fractional part of T(R) entries: 0.000e+00 (expect ~0 for integer)
+  Nonzero T(R) matrices: 7
+
+[Step 4] Build H(k) = sum_R exp(i k.R) T(R) for all 27 k-points
+  Max |lambda_Bloch - lambda_direct| = 2.665e-14
+
+[Step 5] Find lambda=-3 eigenvectors at each k-point
+  Tolerance for eigenvalue = -3: 1e-4
+  k=2pi/3*(0, 0, 0)  (Gamma): 6 lambda=-3 state(s)
+  k=2pi/3*(0, 0, 1)  (BZ-edge(1d)): 6 lambda=-3 state(s)
+  k=2pi/3*(0, 0, 2)  (BZ-edge(1d)): 6 lambda=-3 state(s)
+  k=2pi/3*(0, 1, 0)  (BZ-edge(1d)): 6 lambda=-3 state(s)
+  k=2pi/3*(0, 1, 1)  (BZ-face(2d)): 6 lambda=-3 state(s)
+  k=2pi/3*(0, 1, 2)  (BZ-face(2d)): 6 lambda=-3 state(s)
+  k=2pi/3*(0, 2, 0)  (BZ-edge(1d)): 6 lambda=-3 state(s)
+  k=2pi/3*(0, 2, 1)  (BZ-face(2d)): 6 lambda=-3 state(s)
+  k=2pi/3*(0, 2, 2)  (BZ-face(2d)): 6 lambda=-3 state(s)
+  k=2pi/3*(1, 0, 0)  (BZ-edge(1d)): 6 lambda=-3 state(s)
+  k=2pi/3*(1, 0, 1)  (BZ-face(2d)): 6 lambda=-3 state(s)
+  k=2pi/3*(1, 0, 2)  (BZ-face(2d)): 6 lambda=-3 state(s)
+  k=2pi/3*(1, 1, 0)  (BZ-face(2d)): 6 lambda=-3 state(s)
+  k=2pi/3*(1, 1, 1)  (BZ-corner(3d)): 6 lambda=-3 state(s)
+  k=2pi/3*(1, 1, 2)  (BZ-corner(3d)): 6 lambda=-3 state(s)
+  k=2pi/3*(1, 2, 0)  (BZ-face(2d)): 6 lambda=-3 state(s)
+  k=2pi/3*(1, 2, 1)  (BZ-corner(3d)): 6 lambda=-3 state(s)
+  k=2pi/3*(1, 2, 2)  (BZ-corner(3d)): 6 lambda=-3 state(s)
+  k=2pi/3*(2, 0, 0)  (BZ-edge(1d)): 6 lambda=-3 state(s)
+  k=2pi/3*(2, 0, 1)  (BZ-face(2d)): 6 lambda=-3 state(s)
+  k=2pi/3*(2, 0, 2)  (BZ-face(2d)): 6 lambda=-3 state(s)
+  k=2pi/3*(2, 1, 0)  (BZ-face(2d)): 6 lambda=-3 state(s)
+  k=2pi/3*(2, 1, 1)  (BZ-corner(3d)): 6 lambda=-3 state(s)
+  k=2pi/3*(2, 1, 2)  (BZ-corner(3d)): 6 lambda=-3 state(s)
+  k=2pi/3*(2, 2, 0)  (BZ-face(2d)): 6 lambda=-3 state(s)
+  k=2pi/3*(2, 2, 1)  (BZ-corner(3d)): 6 lambda=-3 state(s)
+  k=2pi/3*(2, 2, 2)  (BZ-corner(3d)): 6 lambda=-3 state(s)
+  Total lambda=-3 eigenstates across Bloch: 162 (expect 162)
+
+[Step 6] Projection weights of lambda=-3 states onto face types
+  Face indices within each BC (local, 0-19):
+    Pure-corner (no BC vertex): [6, 7, 8, 9, 16, 17, 18, 19]  [8 faces]
+    BC-containing: [0, 1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 15]  [12 faces]
+
+  k=2pi/3*(0, 0, 0)  (Gamma)  m=6:
+    w_pure=4.00000000  w_bc=2.00000000  total=6.00000000
+    f_pure=0.66666667  f_bc=0.33333333  (sum=1.00000000)
+    per-face: [0]:0.1667  [1]:0.1667  [2]:0.1667  [3]:0.1667  [4]:0.1667  [5]:0.1667  [6]:0.5000  [7]:0.5000  [8]:...
+  k=2pi/3*(0, 0, 1)  (BZ-edge(1d))  m=6:
+    w_pure=3.45000000  w_bc=2.55000000  total=6.00000000
+    f_pure=0.57500000  f_bc=0.42500000  (sum=1.00000000)
+    per-face: [0]:0.1896  [1]:0.1896  [2]:0.2583  [3]:0.2583  [4]:0.1896  [5]:0.1896  [6]:0.4312  [7]:0.4312  [8]:...
+  k=2pi/3*(0, 0, 2)  (BZ-edge(1d))  m=6:
+    w_pure=3.45000000  w_bc=2.55000000  total=6.00000000
+    f_pure=0.57500000  f_bc=0.42500000  (sum=1.00000000)
+    per-face: [0]:0.1896  [1]:0.1896  [2]:0.2583  [3]:0.2583  [4]:0.1896  [5]:0.1896  [6]:0.4313  [7]:0.4312  [8]:...
+  k=2pi/3*(0, 1, 0)  (BZ-edge(1d))  m=6:
+    w_pure=3.45000000  w_bc=2.55000000  total=6.00000000
+    f_pure=0.57500000  f_bc=0.42500000  (sum=1.00000000)
+    per-face: [0]:0.1896  [1]:0.2583  [2]:0.1896  [3]:0.1896  [4]:0.2583  [5]:0.1896  [6]:0.4312  [7]:0.4313  [8]:...
+  k=2pi/3*(0, 1, 1)  (BZ-face(2d))  m=6:
+    w_pure=3.26406926  w_bc=2.73593074  total=6.00000000
+    f_pure=0.54401154  f_bc=0.45598846  (sum=1.00000000)
+    per-face: [0]:0.2465  [1]:0.2188  [2]:0.2188  [3]:0.2188  [4]:0.2188  [5]:0.2465  [6]:0.3584  [7]:0.3584  [8]:...
+  k=2pi/3*(0, 1, 2)  (BZ-face(2d))  m=6:
+    w_pure=3.26406926  w_bc=2.73593074  total=6.00000000
+    f_pure=0.54401154  f_bc=0.45598846  (sum=1.00000000)
+    per-face: [0]:0.2465  [1]:0.2188  [2]:0.2188  [3]:0.2188  [4]:0.2188  [5]:0.2465  [6]:0.4576  [7]:0.4576  [8]:...
+  k=2pi/3*(0, 2, 0)  (BZ-edge(1d))  m=6:
+    w_pure=3.45000000  w_bc=2.55000000  total=6.00000000
+    f_pure=0.57500000  f_bc=0.42500000  (sum=1.00000000)
+    per-face: [0]:0.1896  [1]:0.2583  [2]:0.1896  [3]:0.1896  [4]:0.2583  [5]:0.1896  [6]:0.4313  [7]:0.4313  [8]:...
+  k=2pi/3*(0, 2, 1)  (BZ-face(2d))  m=6:
+    w_pure=3.26406926  w_bc=2.73593074  total=6.00000000
+    f_pure=0.54401154  f_bc=0.45598846  (sum=1.00000000)
+    per-face: [0]:0.2465  [1]:0.2188  [2]:0.2188  [3]:0.2188  [4]:0.2188  [5]:0.2465  [6]:0.4576  [7]:0.4576  [8]:...
+  k=2pi/3*(0, 2, 2)  (BZ-face(2d))  m=6:
+    w_pure=3.26406926  w_bc=2.73593074  total=6.00000000
+    f_pure=0.54401154  f_bc=0.45598846  (sum=1.00000000)
+    per-face: [0]:0.2465  [1]:0.2188  [2]:0.2188  [3]:0.2188  [4]:0.2188  [5]:0.2465  [6]:0.3584  [7]:0.3584  [8]:...
+  k=2pi/3*(1, 0, 0)  (BZ-edge(1d))  m=6:
+    w_pure=3.45000000  w_bc=2.55000000  total=6.00000000
+    f_pure=0.57500000  f_bc=0.42500000  (sum=1.00000000)
+    per-face: [0]:0.2583  [1]:0.1896  [2]:0.1896  [3]:0.1896  [4]:0.1896  [5]:0.2583  [6]:0.4312  [7]:0.4312  [8]:...
+  k=2pi/3*(1, 0, 1)  (BZ-face(2d))  m=6:
+    w_pure=3.26406926  w_bc=2.73593074  total=6.00000000
+    f_pure=0.54401154  f_bc=0.45598846  (sum=1.00000000)
+    per-face: [0]:0.2188  [1]:0.2465  [2]:0.2188  [3]:0.2188  [4]:0.2465  [5]:0.2188  [6]:0.3584  [7]:0.4576  [8]:...
+  k=2pi/3*(1, 0, 2)  (BZ-face(2d))  m=6:
+    w_pure=3.26406926  w_bc=2.73593074  total=6.00000000
+    f_pure=0.54401154  f_bc=0.45598846  (sum=1.00000000)
+    per-face: [0]:0.2188  [1]:0.2465  [2]:0.2188  [3]:0.2188  [4]:0.2465  [5]:0.2188  [6]:0.4576  [7]:0.3584  [8]:...
+  k=2pi/3*(1, 1, 0)  (BZ-face(2d))  m=6:
+    w_pure=3.26406926  w_bc=2.73593074  total=6.00000000
+    f_pure=0.54401154  f_bc=0.45598846  (sum=1.00000000)
+    per-face: [0]:0.2188  [1]:0.2188  [2]:0.2465  [3]:0.2465  [4]:0.2188  [5]:0.2188  [6]:0.4576  [7]:0.3584  [8]:...
+  k=2pi/3*(1, 1, 1)  (BZ-corner(3d))  m=6:
+    w_pure=3.48571429  w_bc=2.51428571  total=6.00000000
+    f_pure=0.58095238  f_bc=0.41904762  (sum=1.00000000)
+    per-face: [0]:0.2095  [1]:0.2095  [2]:0.2095  [3]:0.2095  [4]:0.2095  [5]:0.2095  [6]:0.3810  [7]:0.3810  [8]:...
+  k=2pi/3*(1, 1, 2)  (BZ-corner(3d))  m=6:
+    w_pure=3.48571429  w_bc=2.51428571  total=6.00000000
+    f_pure=0.58095238  f_bc=0.41904762  (sum=1.00000000)
+    per-face: [0]:0.2095  [1]:0.2095  [2]:0.2095  [3]:0.2095  [4]:0.2095  [5]:0.2095  [6]:0.6000  [7]:0.3810  [8]:...
+  k=2pi/3*(1, 2, 0)  (BZ-face(2d))  m=6:
+    w_pure=3.26406926  w_bc=2.73593074  total=6.00000000
+    f_pure=0.54401154  f_bc=0.45598846  (sum=1.00000000)
+    per-face: [0]:0.2188  [1]:0.2188  [2]:0.2465  [3]:0.2465  [4]:0.2188  [5]:0.2188  [6]:0.3584  [7]:0.4576  [8]:...
+  k=2pi/3*(1, 2, 1)  (BZ-corner(3d))  m=6:
+    w_pure=3.48571429  w_bc=2.51428571  total=6.00000000
+    f_pure=0.58095238  f_bc=0.41904762  (sum=1.00000000)
+    per-face: [0]:0.2095  [1]:0.2095  [2]:0.2095  [3]:0.2095  [4]:0.2095  [5]:0.2095  [6]:0.3810  [7]:0.6000  [8]:...
+  k=2pi/3*(1, 2, 2)  (BZ-corner(3d))  m=6:
+    w_pure=3.48571429  w_bc=2.51428571  total=6.00000000
+    f_pure=0.58095238  f_bc=0.41904762  (sum=1.00000000)
+    per-face: [0]:0.2095  [1]:0.2095  [2]:0.2095  [3]:0.2095  [4]:0.2095  [5]:0.2095  [6]:0.3810  [7]:0.3810  [8]:...
+  k=2pi/3*(2, 0, 0)  (BZ-edge(1d))  m=6:
+    w_pure=3.45000000  w_bc=2.55000000  total=6.00000000
+    f_pure=0.57500000  f_bc=0.42500000  (sum=1.00000000)
+    per-face: [0]:0.2583  [1]:0.1896  [2]:0.1896  [3]:0.1896  [4]:0.1896  [5]:0.2583  [6]:0.4313  [7]:0.4312  [8]:...
+  k=2pi/3*(2, 0, 1)  (BZ-face(2d))  m=6:
+    w_pure=3.26406926  w_bc=2.73593074  total=6.00000000
+    f_pure=0.54401154  f_bc=0.45598846  (sum=1.00000000)
+    per-face: [0]:0.2188  [1]:0.2465  [2]:0.2188  [3]:0.2188  [4]:0.2465  [5]:0.2188  [6]:0.4576  [7]:0.3584  [8]:...
+  k=2pi/3*(2, 0, 2)  (BZ-face(2d))  m=6:
+    w_pure=3.26406926  w_bc=2.73593074  total=6.00000000
+    f_pure=0.54401154  f_bc=0.45598846  (sum=1.00000000)
+    per-face: [0]:0.2188  [1]:0.2465  [2]:0.2188  [3]:0.2188  [4]:0.2465  [5]:0.2188  [6]:0.3584  [7]:0.4576  [8]:...
+  k=2pi/3*(2, 1, 0)  (BZ-face(2d))  m=6:
+    w_pure=3.26406926  w_bc=2.73593074  total=6.00000000
+    f_pure=0.54401154  f_bc=0.45598846  (sum=1.00000000)
+    per-face: [0]:0.2188  [1]:0.2188  [2]:0.2465  [3]:0.2465  [4]:0.2188  [5]:0.2188  [6]:0.3584  [7]:0.4576  [8]:...
+  k=2pi/3*(2, 1, 1)  (BZ-corner(3d))  m=6:
+    w_pure=3.48571429  w_bc=2.51428571  total=6.00000000
+    f_pure=0.58095238  f_bc=0.41904762  (sum=1.00000000)
+    per-face: [0]:0.2095  [1]:0.2095  [2]:0.2095  [3]:0.2095  [4]:0.2095  [5]:0.2095  [6]:0.3810  [7]:0.3810  [8]:...
+  k=2pi/3*(2, 1, 2)  (BZ-corner(3d))  m=6:
+    w_pure=3.48571429  w_bc=2.51428571  total=6.00000000
+    f_pure=0.58095238  f_bc=0.41904762  (sum=1.00000000)
+    per-face: [0]:0.2095  [1]:0.2095  [2]:0.2095  [3]:0.2095  [4]:0.2095  [5]:0.2095  [6]:0.3810  [7]:0.6000  [8]:...
+  k=2pi/3*(2, 2, 0)  (BZ-face(2d))  m=6:
+    w_pure=3.26406926  w_bc=2.73593074  total=6.00000000
+    f_pure=0.54401154  f_bc=0.45598846  (sum=1.00000000)
+    per-face: [0]:0.2188  [1]:0.2188  [2]:0.2465  [3]:0.2465  [4]:0.2188  [5]:0.2188  [6]:0.4576  [7]:0.3584  [8]:...
+  k=2pi/3*(2, 2, 1)  (BZ-corner(3d))  m=6:
+    w_pure=3.48571429  w_bc=2.51428571  total=6.00000000
+    f_pure=0.58095238  f_bc=0.41904762  (sum=1.00000000)
+    per-face: [0]:0.2095  [1]:0.2095  [2]:0.2095  [3]:0.2095  [4]:0.2095  [5]:0.2095  [6]:0.6000  [7]:0.3810  [8]:...
+  k=2pi/3*(2, 2, 2)  (BZ-corner(3d))  m=6:
+    w_pure=3.48571429  w_bc=2.51428571  total=6.00000000
+    f_pure=0.58095238  f_bc=0.41904762  (sum=1.00000000)
+    per-face: [0]:0.2095  [1]:0.2095  [2]:0.2095  [3]:0.2095  [4]:0.2095  [5]:0.2095  [6]:0.3810  [7]:0.3810  [8]:...
+
+[Step 7] Average projection weights over all k-points with lambda=-3
+  Number of k-points with lambda=-3: 27
+  Total lambda=-3 states: 162
+
+  Unweighted averages across k-points:
+    <f_pure> = 0.5663860831
+    <f_bc>   = 0.4336139169
+    sum      = 1.0000000000
+
+  State-count-weighted averages:
+    <f_pure>_w = 0.5663860831
+    <f_bc>_w   = 0.4336139169
+    sum        = 1.0000000000
+
+[Step 8] Rationality and algebraic structure check
+
+  --- Per-k-point f_pure values ---
+  f_pure at k=(0, 0, 0) (Gamma) = 0.666666666667
+    rational approx: 2/3
+    algebraic check: rational: 2/3
+    3 * x = 2.0 (integer!)
+    6 * x = 4.0 (integer!)
+    9 * x = 6.0 (integer!)
+    12 * x = 8.0 (integer!)
+    18 * x = 12.0 (integer!)
+    24 * x = 16.0 (integer!)
+    27 * x = 18.0 (integer!)
+    36 * x = 24.0 (integer!)
+    48 * x = 32.0 (integer!)
+    54 * x = 36.0 (integer!)
+    72 * x = 48.0 (integer!)
+
+  f_pure at k=(0, 0, 1) (BZ-edge(1d)) = 0.575000000000
+    rational approx: 23/40
+    algebraic check: rational: 23/40
+
+  f_pure at k=(0, 0, 2) (BZ-edge(1d)) = 0.575000000000
+    rational approx: 23/40
+    algebraic check: rational: 23/40
+
+  f_pure at k=(0, 1, 0) (BZ-edge(1d)) = 0.575000000000
+    rational approx: 23/40
+    algebraic check: rational: 23/40
+
+  f_pure at k=(0, 1, 1) (BZ-face(2d)) = 0.544011544012
+    rational approx: 377/693
+    algebraic check: None
+
+  f_pure at k=(0, 1, 2) (BZ-face(2d)) = 0.544011544012
+    rational approx: 377/693
+    algebraic check: None
+
+  f_pure at k=(0, 2, 0) (BZ-edge(1d)) = 0.575000000000
+    rational approx: 23/40
+    algebraic check: rational: 23/40
+
+  f_pure at k=(0, 2, 1) (BZ-face(2d)) = 0.544011544012
+    rational approx: 377/693
+    algebraic check: None
+
+  f_pure at k=(0, 2, 2) (BZ-face(2d)) = 0.544011544012
+    rational approx: 377/693
+    algebraic check: None
+
+  f_pure at k=(1, 0, 0) (BZ-edge(1d)) = 0.575000000000
+    rational approx: 23/40
+    algebraic check: rational: 23/40
+
+  f_pure at k=(1, 0, 1) (BZ-face(2d)) = 0.544011544012
+    rational approx: 377/693
+    algebraic check: None
+
+  f_pure at k=(1, 0, 2) (BZ-face(2d)) = 0.544011544012
+    rational approx: 377/693
+    algebraic check: None
+
+  f_pure at k=(1, 1, 0) (BZ-face(2d)) = 0.544011544012
+    rational approx: 377/693
+    algebraic check: None
+
+  f_pure at k=(1, 1, 1) (BZ-corner(3d)) = 0.580952380952
+    rational approx: 61/105
+    algebraic check: rational: 61/105
+
+  f_pure at k=(1, 1, 2) (BZ-corner(3d)) = 0.580952380952
+    rational approx: 61/105
+    algebraic check: rational: 61/105
+
+  f_pure at k=(1, 2, 0) (BZ-face(2d)) = 0.544011544012
+    rational approx: 377/693
+    algebraic check: None
+
+  f_pure at k=(1, 2, 1) (BZ-corner(3d)) = 0.580952380952
+    rational approx: 61/105
+    algebraic check: rational: 61/105
+
+  f_pure at k=(1, 2, 2) (BZ-corner(3d)) = 0.580952380952
+    rational approx: 61/105
+    algebraic check: rational: 61/105
+
+  f_pure at k=(2, 0, 0) (BZ-edge(1d)) = 0.575000000000
+    rational approx: 23/40
+    algebraic check: rational: 23/40
+
+  f_pure at k=(2, 0, 1) (BZ-face(2d)) = 0.544011544012
+    rational approx: 377/693
+    algebraic check: None
+
+  f_pure at k=(2, 0, 2) (BZ-face(2d)) = 0.544011544012
+    rational approx: 377/693
+    algebraic check: None
+
+  f_pure at k=(2, 1, 0) (BZ-face(2d)) = 0.544011544012
+    rational approx: 377/693
+    algebraic check: None
+
+  f_pure at k=(2, 1, 1) (BZ-corner(3d)) = 0.580952380952
+    rational approx: 61/105
+    algebraic check: rational: 61/105
+
+  f_pure at k=(2, 1, 2) (BZ-corner(3d)) = 0.580952380952
+    rational approx: 61/105
+    algebraic check: rational: 61/105
+
+  f_pure at k=(2, 2, 0) (BZ-face(2d)) = 0.544011544012
+    rational approx: 377/693
+    algebraic check: None
+
+  f_pure at k=(2, 2, 1) (BZ-corner(3d)) = 0.580952380952
+    rational approx: 61/105
+    algebraic check: rational: 61/105
+
+  f_pure at k=(2, 2, 2) (BZ-corner(3d)) = 0.580952380952
+    rational approx: 61/105
+    algebraic check: rational: 61/105
+
+
+  --- Averages ---
+  avg f_pure (unweighted) = 0.566386083053
+    rational approx: None
+    algebraic check: None
+
+  avg f_bc (unweighted) = 0.433613916947
+    rational approx: None
+    algebraic check: None
+
+  wavg f_pure (weighted) = 0.566386083053
+    rational approx: None
+    algebraic check: None
+
+  wavg f_bc (weighted) = 0.433613916947
+    rational approx: None
+    algebraic check: None
+
+
+[Step 9] Per-face weight detail (all 20 faces) at each k with lambda=-3
+  Pure-corner face indices: [6, 7, 8, 9, 16, 17, 18, 19]
+  BC-containing face indices: [0, 1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 15]
+
+  k=2pi/3*(0, 0, 0) (Gamma), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.16666667 |   0.027778 |                 1/36
+        1 |     BC-contain |     0.16666667 |   0.027778 |                 1/36
+        2 |     BC-contain |     0.16666667 |   0.027778 |                 1/36
+        3 |     BC-contain |     0.16666667 |   0.027778 |                 1/36
+        4 |     BC-contain |     0.16666667 |   0.027778 |                 1/36
+        5 |     BC-contain |     0.16666667 |   0.027778 |                 1/36
+        6 |    pure-corner |     0.50000000 |   0.083333 |                 1/12
+        7 |    pure-corner |     0.50000000 |   0.083333 |                 1/12
+        8 |    pure-corner |     0.50000000 |   0.083333 |                 1/12
+        9 |    pure-corner |     0.50000000 |   0.083333 |                 1/12
+       10 |     BC-contain |     0.16666667 |   0.027778 |                 1/36
+       11 |     BC-contain |     0.16666667 |   0.027778 |                 1/36
+       12 |     BC-contain |     0.16666667 |   0.027778 |                 1/36
+       13 |     BC-contain |     0.16666667 |   0.027778 |                 1/36
+       14 |     BC-contain |     0.16666667 |   0.027778 |                 1/36
+       15 |     BC-contain |     0.16666667 |   0.027778 |                 1/36
+       16 |    pure-corner |     0.50000000 |   0.083333 |                 1/12
+       17 |    pure-corner |     0.50000000 |   0.083333 |                 1/12
+       18 |    pure-corner |     0.50000000 |   0.083333 |                 1/12
+       19 |    pure-corner |     0.50000000 |   0.083333 |                 1/12
+
+  k=2pi/3*(0, 0, 1) (BZ-edge(1d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        1 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        2 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+        3 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+        4 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        5 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        6 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        7 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        8 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        9 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       10 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       11 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       12 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+       13 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+       14 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       15 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       16 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       17 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       18 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       19 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+
+  k=2pi/3*(0, 0, 2) (BZ-edge(1d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        1 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        2 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+        3 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+        4 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        5 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        6 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        7 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        8 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        9 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       10 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       11 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       12 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+       13 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+       14 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       15 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       16 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       17 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       18 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       19 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+
+  k=2pi/3*(0, 1, 0) (BZ-edge(1d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        1 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+        2 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        3 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        4 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+        5 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        6 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        7 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        8 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        9 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       10 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       11 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+       12 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       13 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       14 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+       15 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       16 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       17 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       18 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       19 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+
+  k=2pi/3*(0, 1, 1) (BZ-face(2d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        1 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        2 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        3 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        4 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        5 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        6 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        7 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        8 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        9 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       10 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       11 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       12 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       13 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       14 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       15 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       16 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       17 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       18 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       19 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+
+  k=2pi/3*(0, 1, 2) (BZ-face(2d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        1 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        2 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        3 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        4 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        5 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        6 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        7 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        8 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        9 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       10 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       11 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       12 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       13 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       14 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       15 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       16 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       17 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       18 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       19 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+
+  k=2pi/3*(0, 2, 0) (BZ-edge(1d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        1 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+        2 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        3 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        4 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+        5 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        6 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        7 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        8 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        9 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       10 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       11 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+       12 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       13 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       14 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+       15 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       16 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       17 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       18 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       19 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+
+  k=2pi/3*(0, 2, 1) (BZ-face(2d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        1 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        2 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        3 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        4 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        5 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        6 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        7 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        8 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        9 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       10 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       11 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       12 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       13 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       14 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       15 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       16 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       17 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       18 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       19 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+
+  k=2pi/3*(0, 2, 2) (BZ-face(2d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        1 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        2 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        3 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        4 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        5 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        6 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        7 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        8 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        9 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       10 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       11 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       12 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       13 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       14 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       15 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       16 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       17 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       18 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       19 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+
+  k=2pi/3*(1, 0, 0) (BZ-edge(1d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+        1 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        2 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        3 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        4 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        5 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+        6 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        7 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        8 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        9 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       10 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+       11 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       12 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       13 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       14 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       15 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+       16 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       17 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       18 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       19 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+
+  k=2pi/3*(1, 0, 1) (BZ-face(2d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        1 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        2 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        3 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        4 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        5 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        6 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        7 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        8 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        9 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       10 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       11 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       12 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       13 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       14 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       15 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       16 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       17 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       18 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       19 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+
+  k=2pi/3*(1, 0, 2) (BZ-face(2d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        1 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        2 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        3 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        4 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        5 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        6 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        7 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        8 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        9 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       10 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       11 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       12 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       13 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       14 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       15 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       16 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       17 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       18 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       19 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+
+  k=2pi/3*(1, 1, 0) (BZ-face(2d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        1 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        2 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        3 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        4 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        5 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        6 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        7 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        8 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        9 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       10 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       11 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       12 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       13 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       14 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       15 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       16 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       17 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       18 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       19 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+
+  k=2pi/3*(1, 1, 1) (BZ-corner(3d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        1 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        2 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        3 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        4 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        5 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        6 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        7 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        8 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        9 |    pure-corner |     0.60000000 |   0.100000 |                 1/10
+       10 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       11 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       12 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       13 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       14 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       15 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       16 |    pure-corner |     0.60000000 |   0.100000 |                 1/10
+       17 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       18 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       19 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+
+  k=2pi/3*(1, 1, 2) (BZ-corner(3d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        1 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        2 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        3 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        4 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        5 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        6 |    pure-corner |     0.60000000 |   0.100000 |                 1/10
+        7 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        8 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        9 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       10 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       11 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       12 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       13 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       14 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       15 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       16 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       17 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       18 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       19 |    pure-corner |     0.60000000 |   0.100000 |                 1/10
+
+  k=2pi/3*(1, 2, 0) (BZ-face(2d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        1 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        2 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        3 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        4 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        5 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        6 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        7 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        8 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        9 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       10 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       11 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       12 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       13 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       14 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       15 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       16 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       17 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       18 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       19 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+
+  k=2pi/3*(1, 2, 1) (BZ-corner(3d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        1 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        2 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        3 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        4 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        5 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        6 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        7 |    pure-corner |     0.60000000 |   0.100000 |                 1/10
+        8 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        9 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       10 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       11 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       12 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       13 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       14 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       15 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       16 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       17 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       18 |    pure-corner |     0.60000000 |   0.100000 |                 1/10
+       19 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+
+  k=2pi/3*(1, 2, 2) (BZ-corner(3d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        1 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        2 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        3 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        4 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        5 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        6 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        7 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        8 |    pure-corner |     0.60000000 |   0.100000 |                 1/10
+        9 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       10 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       11 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       12 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       13 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       14 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       15 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       16 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       17 |    pure-corner |     0.60000000 |   0.100000 |                 1/10
+       18 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       19 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+
+  k=2pi/3*(2, 0, 0) (BZ-edge(1d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+        1 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        2 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        3 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        4 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+        5 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+        6 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        7 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        8 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+        9 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       10 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+       11 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       12 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       13 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       14 |     BC-contain |     0.18958333 |   0.031597 |                    ?
+       15 |     BC-contain |     0.25833333 |   0.043056 |                    ?
+       16 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       17 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       18 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+       19 |    pure-corner |     0.43125000 |   0.071875 |                    ?
+
+  k=2pi/3*(2, 0, 1) (BZ-face(2d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        1 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        2 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        3 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        4 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        5 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        6 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        7 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        8 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        9 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       10 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       11 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       12 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       13 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       14 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       15 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       16 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       17 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       18 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       19 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+
+  k=2pi/3*(2, 0, 2) (BZ-face(2d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        1 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        2 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        3 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        4 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        5 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        6 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        7 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        8 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        9 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       10 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       11 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       12 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       13 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       14 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       15 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       16 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       17 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       18 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       19 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+
+  k=2pi/3*(2, 1, 0) (BZ-face(2d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        1 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        2 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        3 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        4 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        5 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        6 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        7 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        8 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        9 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       10 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       11 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       12 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       13 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       14 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       15 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       16 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       17 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       18 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       19 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+
+  k=2pi/3*(2, 1, 1) (BZ-corner(3d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        1 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        2 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        3 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        4 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        5 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        6 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        7 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        8 |    pure-corner |     0.60000000 |   0.100000 |                 1/10
+        9 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       10 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       11 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       12 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       13 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       14 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       15 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       16 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       17 |    pure-corner |     0.60000000 |   0.100000 |                 1/10
+       18 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       19 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+
+  k=2pi/3*(2, 1, 2) (BZ-corner(3d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        1 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        2 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        3 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        4 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        5 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        6 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        7 |    pure-corner |     0.60000000 |   0.100000 |                 1/10
+        8 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        9 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       10 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       11 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       12 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       13 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       14 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       15 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       16 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       17 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       18 |    pure-corner |     0.60000000 |   0.100000 |                 1/10
+       19 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+
+  k=2pi/3*(2, 2, 0) (BZ-face(2d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        1 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        2 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        3 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+        4 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        5 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+        6 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+        7 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        8 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+        9 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       10 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       11 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       12 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       13 |     BC-contain |     0.24646465 |   0.041077 |                    ?
+       14 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       15 |     BC-contain |     0.21875902 |   0.036460 |                    ?
+       16 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+       17 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       18 |    pure-corner |     0.35844156 |   0.059740 |                    ?
+       19 |    pure-corner |     0.45757576 |   0.076263 |                    ?
+
+  k=2pi/3*(2, 2, 1) (BZ-corner(3d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        1 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        2 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        3 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        4 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        5 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        6 |    pure-corner |     0.60000000 |   0.100000 |                 1/10
+        7 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        8 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        9 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       10 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       11 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       12 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       13 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       14 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       15 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       16 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       17 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       18 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       19 |    pure-corner |     0.60000000 |   0.100000 |                 1/10
+
+  k=2pi/3*(2, 2, 2) (BZ-corner(3d)), 6 state(s), total_w=6.000000:
+   face_m |           type |         weight |       frac |            rational?
+  --------+----------------+----------------+------------+---------------------
+        0 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        1 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        2 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        3 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        4 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        5 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+        6 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        7 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        8 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+        9 |    pure-corner |     0.60000000 |   0.100000 |                 1/10
+       10 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       11 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       12 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       13 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       14 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       15 |     BC-contain |     0.20952381 |   0.034921 |                    ?
+       16 |    pure-corner |     0.60000000 |   0.100000 |                 1/10
+       17 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       18 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+       19 |    pure-corner |     0.38095238 |   0.063492 |                 4/63
+
+
+[Step 10] Gamma-point (0,0,0) H(0) detailed analysis
+  H(0) = sum_R T(R) is integer matrix: True
+  H(0) eigenvalues (sorted):
+    lambda=   -3.0000  deg=6
+    lambda=   -1.8284  deg=3
+    lambda=   -1.0000  deg=5
+    lambda=    1.7085  deg=1
+    lambda=    3.0000  deg=1
+    lambda=    3.8284  deg=3
+    lambda=   12.2915  deg=1
+  lambda=-3 at Gamma: 6 state(s)
+    Eigvec 0: w_pure=0.45775001 w_bc=0.54224999
+    Rational: w_pure ~ None, w_bc ~ None
+    Eigvec 1: w_pure=0.03059771 w_bc=0.96940229
+    Rational: w_pure ~ None, w_bc ~ None
+    Eigvec 2: w_pure=0.90833733 w_bc=0.09166267
+    Rational: w_pure ~ None, w_bc ~ None
+    Eigvec 3: w_pure=0.96550112 w_bc=0.03449888
+    Rational: w_pure ~ None, w_bc ~ None
+    Eigvec 4: w_pure=0.95332356 w_bc=0.04667644
+    Rational: w_pure ~ None, w_bc ~ None
+    Eigvec 5: w_pure=0.68449027 w_bc=0.31550973
+    Rational: w_pure ~ None, w_bc ~ None
+
+[Step 11] Deviation from uniform face distribution
+  Uniform expectation:
+    If lambda=-3 states were uniform over all 20 faces:
+    f_pure_uniform = 8/20 = 0.400000
+    f_bc_uniform   = 12/20 = 0.600000
+
+  k=2pi/3*(0, 0, 0) (Gamma): dev_pure=+0.26666667 dev_bc=-0.26666667
+  k=2pi/3*(0, 0, 1) (BZ-edge(1d)): dev_pure=+0.17500000 dev_bc=-0.17500000
+  k=2pi/3*(0, 0, 2) (BZ-edge(1d)): dev_pure=+0.17500000 dev_bc=-0.17500000
+  k=2pi/3*(0, 1, 0) (BZ-edge(1d)): dev_pure=+0.17500000 dev_bc=-0.17500000
+  k=2pi/3*(0, 1, 1) (BZ-face(2d)): dev_pure=+0.14401154 dev_bc=-0.14401154
+  k=2pi/3*(0, 1, 2) (BZ-face(2d)): dev_pure=+0.14401154 dev_bc=-0.14401154
+  k=2pi/3*(0, 2, 0) (BZ-edge(1d)): dev_pure=+0.17500000 dev_bc=-0.17500000
+  k=2pi/3*(0, 2, 1) (BZ-face(2d)): dev_pure=+0.14401154 dev_bc=-0.14401154
+  k=2pi/3*(0, 2, 2) (BZ-face(2d)): dev_pure=+0.14401154 dev_bc=-0.14401154
+  k=2pi/3*(1, 0, 0) (BZ-edge(1d)): dev_pure=+0.17500000 dev_bc=-0.17500000
+  k=2pi/3*(1, 0, 1) (BZ-face(2d)): dev_pure=+0.14401154 dev_bc=-0.14401154
+  k=2pi/3*(1, 0, 2) (BZ-face(2d)): dev_pure=+0.14401154 dev_bc=-0.14401154
+  k=2pi/3*(1, 1, 0) (BZ-face(2d)): dev_pure=+0.14401154 dev_bc=-0.14401154
+  k=2pi/3*(1, 1, 1) (BZ-corner(3d)): dev_pure=+0.18095238 dev_bc=-0.18095238
+  k=2pi/3*(1, 1, 2) (BZ-corner(3d)): dev_pure=+0.18095238 dev_bc=-0.18095238
+  k=2pi/3*(1, 2, 0) (BZ-face(2d)): dev_pure=+0.14401154 dev_bc=-0.14401154
+  k=2pi/3*(1, 2, 1) (BZ-corner(3d)): dev_pure=+0.18095238 dev_bc=-0.18095238
+  k=2pi/3*(1, 2, 2) (BZ-corner(3d)): dev_pure=+0.18095238 dev_bc=-0.18095238
+  k=2pi/3*(2, 0, 0) (BZ-edge(1d)): dev_pure=+0.17500000 dev_bc=-0.17500000
+  k=2pi/3*(2, 0, 1) (BZ-face(2d)): dev_pure=+0.14401154 dev_bc=-0.14401154
+  k=2pi/3*(2, 0, 2) (BZ-face(2d)): dev_pure=+0.14401154 dev_bc=-0.14401154
+  k=2pi/3*(2, 1, 0) (BZ-face(2d)): dev_pure=+0.14401154 dev_bc=-0.14401154
+  k=2pi/3*(2, 1, 1) (BZ-corner(3d)): dev_pure=+0.18095238 dev_bc=-0.18095238
+  k=2pi/3*(2, 1, 2) (BZ-corner(3d)): dev_pure=+0.18095238 dev_bc=-0.18095238
+  k=2pi/3*(2, 2, 0) (BZ-face(2d)): dev_pure=+0.14401154 dev_bc=-0.14401154
+  k=2pi/3*(2, 2, 1) (BZ-corner(3d)): dev_pure=+0.18095238 dev_bc=-0.18095238
+  k=2pi/3*(2, 2, 2) (BZ-corner(3d)): dev_pure=+0.18095238 dev_bc=-0.18095238
+
+  Average deviation from uniform:
+    <dev_pure> = 0.1663860831
+    <dev_bc>   = -0.1663860831
+  avg_dev_pure = 0.166386083053
+    rational approx: None
+    algebraic check: None
+
+  avg_dev_bc = -0.166386083053
+    rational approx: None
+    algebraic check: None
+
+
+[Step 12] Are per-face weights k-independent (flat band property)?
+  BZ-corner(3d): f_pure values: min=0.58095238 max=0.58095238 spread=3.331e-16 n=8
+  BZ-edge(1d): f_pure values: min=0.57500000 max=0.57500000 spread=3.331e-16 n=6
+  BZ-face(2d): f_pure values: min=0.54401154 max=0.54401154 spread=4.441e-16 n=12
+  Gamma: f_pure values: min=0.66666667 max=0.66666667 spread=0.000e+00 n=1
+
+  Overall f_pure spread across all k-points: 1.227e-01
+  -> f_pure varies across k-points (not k-independent)
+
+==============================================================================
+[SUMMARY: Corner Deviation Analysis for Periodic BCC 3x3x3]
+==============================================================================
+
+1. Flat band: lambda=-3 has 162 states total across 27 k-points
+   Degeneracy per k-point: {6}
+
+2. Face classification:
+   Pure-corner faces (both simplices, no BC vertex): 8 per BC
+   BC-containing faces: 12 per BC
+   Uniform expectation: f_pure=8/20=0.4, f_bc=12/20=0.6
+
+3. Projection weight on pure-corner faces:
+   Weighted average: 0.5663860831
+   Uniform would be: 0.4000000000
+   Deviation: +0.1663860831
+
+4. f_pure is not constant across k-points (spread=1.227e-01)
+   Average: 0.5663860831
+   Algebraic structure: None
+
+=== DONE ===

@@ -1,0 +1,82 @@
+======================================================================
+VERIFY: π-eigenspace common member (e7/A2u) + rotating axis (T1u_d)
+======================================================================
+
+Building BCC L=3 Bloch data...
+Building Oh group (48 elements)...
+Building Oh irrep projectors in 6D flat-band space...
+
+Flat-band 6D content (sanity check):
+  A2u: tr(P)=1.000  multiplicity=1.000
+  Eu: tr(P)=2.000  multiplicity=1.000
+  T1u: tr(P)=3.000  multiplicity=1.000
+
+======================================================================
+MAIN: Wilson-loop π-spaces for axes z, x, y at transverse k=(0,0)
+======================================================================
+
+Axis=z, transverse k=(0,0)
+  Wilson phases/π: [-5.30092447e-17 -1.54610297e-17 -1.10435926e-17  3.03698798e-17
+  1.00000000e+00  1.00000000e+00]
+  π-eigenspace dimension: 2
+
+Axis=x, transverse k=(0,0)
+  Wilson phases/π: [-1.00000000e+00 -3.09220594e-17 -4.41743706e-18  3.16467952e-17
+  3.53394965e-17  1.00000000e+00]
+  π-eigenspace dimension: 2
+
+Axis=y, transverse k=(0,0)
+  Wilson phases/π: [-1.00000000e+00 -1.00000000e+00 -1.54610297e-17 -7.17833522e-18
+  1.62202767e-17  2.40198140e-17]
+  π-eigenspace dimension: 2
+
+======================================================================
+WEIGHT TABLE: 3×4  (loop direction × A2u / T1u_x / T1u_y / T1u_z)
+  Weight = sum of squared projections of π-space onto irrep direction
+======================================================================
+
+  Loop  | A2u      | T1u_x    | T1u_y    | T1u_z   
+  ------+----------+----------+----------+---------
+  z     |   0.7500 |   0.0000 |   0.0000 |   1.0000
+  x     |   0.7500 |   1.0000 |  -0.0000 |  -0.0000
+  y     |   0.7500 |  -0.0000 |   1.0000 |  -0.0000
+
+======================================================================
+PAIRWISE PRINCIPAL COSINES between π-spaces (in 20D face space)
+  SVD of V1^dag V2 gives cos of canonical angles
+======================================================================
+
+  z-loop vs x-loop: principal cosines = 0.625000, 0.000000
+
+  z-loop vs y-loop: principal cosines = 0.625000, 0.000000
+
+  x-loop vs y-loop: principal cosines = 0.625000, 0.000000
+
+======================================================================
+COMMON VECTOR IDENTIFICATION
+======================================================================
+
+  z-x principal cosines: [6.25000000e-01 6.52563276e-16]
+  z-y principal cosines: [6.25000000e-01 1.81809213e-16]
+  Overlap of 'common direction' between z-x and z-y pairs: cos²=1.000000
+
+  Common direction → A2u weight: 0.750000
+
+  Axis-specific component A2u weights (1 - common direction):
+  z-loop axis-specific vec: T1u_x=-0.0000  T1u_y=-0.0000  T1u_z=1.0000
+  x-loop axis-specific vec: T1u_x=1.0000  T1u_y=-0.0000  T1u_z=-0.0000
+  y-loop axis-specific vec: T1u_x=-0.0000  T1u_y=1.0000  T1u_z=-0.0000
+
+======================================================================
+VERDICT
+======================================================================
+  P1 (A2u present in π-space, weight>0.6>>random 0.33 each direction): CONFIRMED
+     z=0.7500  x=0.7500  y=0.7500  (max possible=1.0 for 2D in 1D)
+  P2 (T1u axis-matching, weight>0.9): CONFIRMED
+     z-loop T1u_z=1.0000  x-loop T1u_x=1.0000  y-loop T1u_y=1.0000
+  P3 (exactly one common direction per pair: max_cos>0.3, min_cos~0): CONFIRMED
+     z-x=(max=0.6250, min=0.000000)
+     z-y=(max=0.6250, min=0.000000)
+     x-y=(max=0.6250, min=0.000000)
+  P4 (common vector is A2u-dominated, weight>0.6): CONFIRMED
+     A2u weight of common vector = 0.750000  (0.75 = significant A2u content)

@@ -1,0 +1,410 @@
+==============================================================================
+BCC 4-simplex corner deviation -- analytic perturbation theory
+==============================================================================
+
+[Step 1] Build periodic-BC lattice and A_periodic (540x540)
+  Total periodic faces: 540  (expect 540)
+  A_periodic shape: (540, 540), symmetric: True
+  A_periodic nonzero entries: 6156
+  Periodic spectrum (grouped):
+    lambda=   -3.0000  deg=  162  cumul=  162
+    lambda=   -1.8284  deg=   27  cumul=  189
+    lambda=   -1.7913  deg=   28  cumul=  217
+    lambda=   -1.7766  deg=    6  cumul=  223
+    lambda=   -1.7421  deg=   12  cumul=  235
+    lambda=   -1.6180  deg=   28  cumul=  263
+    lambda=   -1.5130  deg=    8  cumul=  271
+    lambda=   -1.2795  deg=    6  cumul=  277
+    lambda=   -1.1743  deg=   12  cumul=  289
+    lambda=   -1.1259  deg=    8  cumul=  297
+    lambda=   -1.0000  deg=   35  cumul=  332
+    lambda=    0.6180  deg=   28  cumul=  360
+    lambda=    0.6715  deg=   12  cumul=  372
+    lambda=    1.4266  deg=    6  cumul=  378
+    lambda=    1.4594  deg=    6  cumul=  384
+    lambda=    1.7085  deg=    1  cumul=  385
+    lambda=    1.7117  deg=   12  cumul=  397
+    lambda=    1.8077  deg=    8  cumul=  405
+    lambda=    2.1979  deg=    8  cumul=  413
+    lambda=    2.3145  deg=   12  cumul=  425
+    lambda=    2.5316  deg=    6  cumul=  431
+    lambda=    2.7913  deg=   28  cumul=  459
+    lambda=    3.0000  deg=    1  cumul=  460
+    lambda=    3.8284  deg=   27  cumul=  487
+    lambda=    4.8201  deg=    6  cumul=  493
+    lambda=    6.3151  deg=    8  cumul=  501
+    lambda=    7.4627  deg=   12  cumul=  513
+    lambda=    7.7561  deg=   12  cumul=  525
+    lambda=    9.8183  deg=    6  cumul=  531
+    lambda=   10.3182  deg=    8  cumul=  539
+    lambda=   12.2915  deg=    1  cumul=  540
+
+[Step 2] Bloch decomposition: 27 k-points, each giving 20x20 H(k)
+  Max |lambda_Bloch - lambda_direct| = 2.66e-14  (expect < 1e-8)
+  Max ||H(k) - H(k)^H||: 3.97e-15  (expect < 1e-10)
+
+  Band bandwidths (20 bands):
+    band  0: min= -3.0000 max= -3.0000 BW=4.00e-15  FLAT
+    band  1: min= -3.0000 max= -3.0000 BW=2.66e-15  FLAT
+    band  2: min= -3.0000 max= -3.0000 BW=1.33e-15  FLAT
+    band  3: min= -3.0000 max= -3.0000 BW=1.78e-15  FLAT
+    band  4: min= -3.0000 max= -3.0000 BW=2.66e-15  FLAT
+    band  5: min= -3.0000 max= -3.0000 BW=4.00e-15  FLAT
+    band  6: min= -1.8284 max= -1.7913 BW=3.71e-02  
+    band  7: min= -1.8284 max= -1.7913 BW=3.71e-02  
+    band  8: min= -1.8284 max= -1.6180 BW=2.10e-01  
+    band  9: min= -1.6180 max= -1.0000 BW=6.18e-01  
+    band 10: min= -1.5130 max= -1.0000 BW=5.13e-01  
+    band 11: min= -1.1259 max= -1.0000 BW=1.26e-01  
+    band 12: min= -1.0000 max=  0.6180 BW=1.62e+00  
+    band 13: min= -1.0000 max=  1.4266 BW=2.43e+00  
+    band 14: min=  1.4594 max=  1.8077 BW=3.48e-01  
+    band 15: min=  2.1979 max=  3.0000 BW=8.02e-01  
+    band 16: min=  2.7913 max=  3.8284 BW=1.04e+00  
+    band 17: min=  2.7913 max=  3.8284 BW=1.04e+00  
+    band 18: min=  3.8284 max=  7.4627 BW=3.63e+00  
+    band 19: min=  7.7561 max= 12.2915 BW=4.54e+00  
+
+  Flat bands: 6 (at lambda = [-3.0, -3.0, -3.0, -3.0, -3.0, -3.0])
+
+  lambda=-3 in Bloch decomp:
+    k=2pi/3*(0, 0, 0): multiplicity 6
+    k=2pi/3*(0, 0, 1): multiplicity 6
+    k=2pi/3*(0, 0, 2): multiplicity 6
+    k=2pi/3*(0, 1, 0): multiplicity 6
+    k=2pi/3*(0, 1, 1): multiplicity 6
+    k=2pi/3*(0, 1, 2): multiplicity 6
+    k=2pi/3*(0, 2, 0): multiplicity 6
+    k=2pi/3*(0, 2, 1): multiplicity 6
+    k=2pi/3*(0, 2, 2): multiplicity 6
+    k=2pi/3*(1, 0, 0): multiplicity 6
+    k=2pi/3*(1, 0, 1): multiplicity 6
+    k=2pi/3*(1, 0, 2): multiplicity 6
+    k=2pi/3*(1, 1, 0): multiplicity 6
+    k=2pi/3*(1, 1, 1): multiplicity 6
+    k=2pi/3*(1, 1, 2): multiplicity 6
+    k=2pi/3*(1, 2, 0): multiplicity 6
+    k=2pi/3*(1, 2, 1): multiplicity 6
+    k=2pi/3*(1, 2, 2): multiplicity 6
+    k=2pi/3*(2, 0, 0): multiplicity 6
+    k=2pi/3*(2, 0, 1): multiplicity 6
+    k=2pi/3*(2, 0, 2): multiplicity 6
+    k=2pi/3*(2, 1, 0): multiplicity 6
+    k=2pi/3*(2, 1, 1): multiplicity 6
+    k=2pi/3*(2, 1, 2): multiplicity 6
+    k=2pi/3*(2, 2, 0): multiplicity 6
+    k=2pi/3*(2, 2, 1): multiplicity 6
+    k=2pi/3*(2, 2, 2): multiplicity 6
+  Total: 162  (periodic has 162 at lambda=-3)
+
+[Step 3] Build open-BC matrix A_open (remove bonds crossing boundary)
+  Open-BC: 54 simplices, 540 faces (expect 54, 540)
+  A_open shape: (540, 540), symmetric: True
+  A_open nonzero entries: 5184
+
+[Step 4] Match periodic <-> open-BC faces; compute V = A_periodic - A_open
+  Matched faces (periodic <-> open-BC): 184 of 540
+  Unmatched in periodic: 356
+  (Unmatched periodic faces contain boundary-wrapped vertices)
+
+  V = A_periodic - A_open_reord:
+    nonzero entries: 4620
+    max abs entry: 1.0000
+    symmetric: True
+    (These are the removed bonds when going from periodic to open BC)
+
+  Open-BC spectrum (grouped, from A_open directly):
+    lambda=   -3.0000  deg=  108  cumul=  108
+    lambda=   -2.0000  deg=   56  cumul=  164
+    lambda=   -1.9488  deg=    6  cumul=  170
+    lambda=   -1.9444  deg=    6  cumul=  176
+    lambda=   -1.9153  deg=    6  cumul=  182
+    lambda=   -1.9044  deg=   12  cumul=  194
+    lambda=   -1.8919  deg=    2  cumul=  196
+    lambda=   -1.8829  deg=    6  cumul=  202
+    lambda=   -1.8778  deg=    6  cumul=  208
+    lambda=   -1.8526  deg=    6  cumul=  214
+    lambda=   -1.7616  deg=   16  cumul=  230
+    lambda=   -1.7276  deg=    6  cumul=  236
+    lambda=   -1.6976  deg=   12  cumul=  248
+    lambda=   -1.6559  deg=    6  cumul=  254
+    lambda=   -1.6031  deg=    2  cumul=  256
+    lambda=   -1.4142  deg=   16  cumul=  272
+    lambda=   -1.3149  deg=    6  cumul=  278
+    lambda=   -1.2035  deg=    6  cumul=  284
+    lambda=   -1.1476  deg=    2  cumul=  286
+    lambda=   -0.7235  deg=    6  cumul=  292
+    lambda=   -0.6438  deg=   12  cumul=  304
+    lambda=   -0.5105  deg=    6  cumul=  310
+    lambda=   -0.3633  deg=   16  cumul=  326
+    lambda=   -0.2138  deg=    6  cumul=  332
+    lambda=    0.0179  deg=    6  cumul=  338
+    lambda=    0.4052  deg=    6  cumul=  344
+    lambda=    0.4243  deg=   12  cumul=  356
+    lambda=    0.4397  deg=    6  cumul=  362
+    lambda=    1.0000  deg=   16  cumul=  378
+    lambda=    1.4142  deg=   16  cumul=  394
+    lambda=    1.7224  deg=    6  cumul=  400
+    lambda=    1.7241  deg=   12  cumul=  412
+    lambda=    1.7259  deg=    6  cumul=  418
+    lambda=    1.8187  deg=    6  cumul=  424
+    lambda=    1.8201  deg=    6  cumul=  430
+    lambda=    1.8665  deg=    2  cumul=  432
+    lambda=    2.6003  deg=    2  cumul=  434
+    lambda=    2.6804  deg=    6  cumul=  440
+    lambda=    2.8077  deg=    6  cumul=  446
+    lambda=    2.8168  deg=    6  cumul=  452
+    lambda=    2.9338  deg=   12  cumul=  464
+    lambda=    2.9921  deg=    6  cumul=  470
+    lambda=    3.1249  deg=   16  cumul=  486
+    lambda=    3.8780  deg=    2  cumul=  488
+    lambda=    5.0850  deg=    6  cumul=  494
+    lambda=    5.8388  deg=    6  cumul=  500
+    lambda=    6.2356  deg=    6  cumul=  506
+    lambda=    7.1636  deg=   12  cumul=  518
+    lambda=    7.4392  deg=    2  cumul=  520
+    lambda=    8.2511  deg=    6  cumul=  526
+    lambda=    8.4812  deg=    6  cumul=  532
+    lambda=    9.6330  deg=    6  cumul=  538
+    lambda=   10.8585  deg=    2  cumul=  540
+
+[Step 5] Identify 108-eigenspace of A_open at lambda ~ -3
+  Number of eigenvalues at lambda=-3 (tol 1e-4): 108  (expect 108)
+  V_108 shape: (540, 108)
+  Max |A_open * V_108 - (-3) * V_108|: 1.78e-15
+
+[Step 6] Project lambda=-3 eigenvectors onto body-center shells
+  Sum of squared weights: 108.0000  (expect ~108)
+
+  Per-shell average projection vs expected (= graph degree):
+  Shell    | count | avg_proj     | expected | deviation 
+  ---------+-------+--------------+----------+-----------
+  Corner   |     8 |     3.013782 |        3 |  +0.013782
+  Edge     |    12 |     3.997567 |        4 |  -0.002433
+  Face     |     6 |     4.989110 |        5 |  -0.010890
+  Center   |     1 |     5.984276 |        6 |  -0.015724
+
+  Corner deviation delta_corner = avg_proj - 3 = 0.01378245
+  Rational approximation: 9/653
+  72 * delta_corner = 0.99233631  (1/72 = 0.01388889)
+  24 * delta_corner = 0.33077877
+  360 * delta_corner = 4.96168155
+
+  Per-BC projection details:
+  bc_idx | ijk          | shell   | deg | projection   | dev       
+  -------+--------------+---------+-----+--------------+-----------
+       0 | (0, 0, 0)    | Corner  |   3 |     3.013782 |  +0.013782
+       1 | (0, 0, 1)    | Edge    |   4 |     3.997567 |  -0.002433
+       2 | (0, 0, 2)    | Corner  |   3 |     3.013782 |  +0.013782
+       3 | (0, 1, 0)    | Edge    |   4 |     3.997567 |  -0.002433
+       4 | (0, 1, 1)    | Face    |   5 |     4.989110 |  -0.010890
+       5 | (0, 1, 2)    | Edge    |   4 |     3.997567 |  -0.002433
+       6 | (0, 2, 0)    | Corner  |   3 |     3.013782 |  +0.013782
+       7 | (0, 2, 1)    | Edge    |   4 |     3.997567 |  -0.002433
+       8 | (0, 2, 2)    | Corner  |   3 |     3.013782 |  +0.013782
+       9 | (1, 0, 0)    | Edge    |   4 |     3.997567 |  -0.002433
+      10 | (1, 0, 1)    | Face    |   5 |     4.989110 |  -0.010890
+      11 | (1, 0, 2)    | Edge    |   4 |     3.997567 |  -0.002433
+      12 | (1, 1, 0)    | Face    |   5 |     4.989110 |  -0.010890
+      13 | (1, 1, 1)    | Center  |   6 |     5.984276 |  -0.015724
+      14 | (1, 1, 2)    | Face    |   5 |     4.989110 |  -0.010890
+      15 | (1, 2, 0)    | Edge    |   4 |     3.997567 |  -0.002433
+      16 | (1, 2, 1)    | Face    |   5 |     4.989110 |  -0.010890
+      17 | (1, 2, 2)    | Edge    |   4 |     3.997567 |  -0.002433
+      18 | (2, 0, 0)    | Corner  |   3 |     3.013782 |  +0.013782
+      19 | (2, 0, 1)    | Edge    |   4 |     3.997567 |  -0.002433
+      20 | (2, 0, 2)    | Corner  |   3 |     3.013782 |  +0.013782
+      21 | (2, 1, 0)    | Edge    |   4 |     3.997567 |  -0.002433
+      22 | (2, 1, 1)    | Face    |   5 |     4.989110 |  -0.010890
+      23 | (2, 1, 2)    | Edge    |   4 |     3.997567 |  -0.002433
+      24 | (2, 2, 0)    | Corner  |   3 |     3.013782 |  +0.013782
+      25 | (2, 2, 1)    | Edge    |   4 |     3.997567 |  -0.002433
+      26 | (2, 2, 2)    | Corner  |   3 |     3.013782 |  +0.013782
+
+[Step 7] Bloch Green's function G(omega) = sum_k (omega*I - H(k))^{-1} / N_k
+  Evaluated at omega = -3 with regularization eps
+
+  Projecting out flat-band subspace at each k-point...
+  G_PV(omega) = sum_k P_nonflat(k) * (omega - H(k))^{-1} * P_nonflat(k) / N_k
+  where P_nonflat(k) = I - P_flat(k) is the projector onto non-flat modes
+  Flat-band modes removed per k-point: [np.int64(6), np.int64(6), np.int64(6), np.int64(6), np.int64(6)]... (total 162)
+  G_PV shape: (20, 20)
+  G_PV Hermitian: True
+  G_PV imaginary part max: 6.798e-17
+  G_PV diagonal (self-energies, 20 internal faces):
+    face  0: G_PV[m,m] =  -0.33264259
+    face  1: G_PV[m,m] =  -0.33264259
+    face  2: G_PV[m,m] =  -0.33264259
+    face  3: G_PV[m,m] =  -0.33264259
+    face  4: G_PV[m,m] =  -0.33264259
+    face  5: G_PV[m,m] =  -0.33264259
+    face  6: G_PV[m,m] =  -0.21916825
+    face  7: G_PV[m,m] =  -0.21916825
+    face  8: G_PV[m,m] =  -0.21916825
+    face  9: G_PV[m,m] =  -0.21916825
+    face 10: G_PV[m,m] =  -0.33264259
+    face 11: G_PV[m,m] =  -0.33264259
+    face 12: G_PV[m,m] =  -0.33264259
+    face 13: G_PV[m,m] =  -0.33264259
+    face 14: G_PV[m,m] =  -0.33264259
+    face 15: G_PV[m,m] =  -0.33264259
+    face 16: G_PV[m,m] =  -0.21916825
+    face 17: G_PV[m,m] =  -0.21916825
+    face 18: G_PV[m,m] =  -0.21916825
+    face 19: G_PV[m,m] =  -0.21916825
+
+[Step 8] Second-order perturbation theory for corner eigenvalue shift
+  delta_lambda = <psi | V | G_PV(omega) | V | psi>
+  where |psi> ranges over flat-band eigenvectors at k=0 (corner BCs),
+  and V is the perturbation in BC-internal face space.
+
+  Flat-band eigenvectors at Gamma (k=0): 6
+  Nonzero V_hop(R) blocks: 3
+    R=(0, 0, 2): ||V_hop(R)||_F = 4.242641, nonzero entries = 18
+    R=(0, 2, 0): ||V_hop(R)||_F = 4.242641, nonzero entries = 18
+    R=(2, 0, 0): ||V_hop(R)||_F = 4.242641, nonzero entries = 18
+
+  V(k=0) imaginary part max: 0.000e+00
+  V(k=0) shape: (20, 20)
+  V(k=0) nonzero entries: 49
+
+  Second-order eigenvalue shifts for 6 flat-band modes at Gamma:
+  delta_lambda_2nd = <psi | V(k=0) G_PV(omega) V(k=0) | psi>
+  where omega = -3.0, G_PV = principal-value Green's function (k-averaged)
+
+    mode 0: delta_lambda = -0.15454217
+    mode 1: delta_lambda = +0.03090778
+    mode 2: delta_lambda = -0.07564121
+    mode 3: delta_lambda = -0.04072788
+    mode 4: delta_lambda = -0.12048452
+    mode 5: delta_lambda = -0.08898408
+
+  Average 2nd-order shift (over 6 Gamma flat-band modes): -0.07491202
+
+  Per-k-point second-order shifts:
+    k=(0, 0, 0): 6 flat modes, avg shift = +0.12500000
+    k=(0, 0, 1): 6 flat modes, avg shift = +0.02091018
+    k=(0, 0, 2): 6 flat modes, avg shift = +0.01102346
+    k=(0, 1, 0): 6 flat modes, avg shift = -0.00578157
+    k=(0, 1, 1): 6 flat modes, avg shift = +0.00019745
+    k=(0, 1, 2): 6 flat modes, avg shift = +0.00074133
+    k=(0, 2, 0): 6 flat modes, avg shift = +0.02235190
+    k=(0, 2, 1): 6 flat modes, avg shift = +0.00125428
+    k=(0, 2, 2): 6 flat modes, avg shift = +0.00002848
+    k=(1, 0, 0): 6 flat modes, avg shift = +0.03181056
+    k=(1, 0, 1): 6 flat modes, avg shift = -0.01997543
+    k=(1, 0, 2): 6 flat modes, avg shift = +0.00921682
+    k=(1, 1, 0): 6 flat modes, avg shift = -0.00463455
+    k=(1, 1, 1): 6 flat modes, avg shift = -0.00100873
+    k=(1, 1, 2): 6 flat modes, avg shift = +0.00760029
+    k=(1, 2, 0): 6 flat modes, avg shift = +0.02747797
+    k=(1, 2, 1): 6 flat modes, avg shift = -0.00134170
+    k=(1, 2, 2): 6 flat modes, avg shift = -0.00290469
+    k=(2, 0, 0): 6 flat modes, avg shift = +0.02047068
+    k=(2, 0, 1): 6 flat modes, avg shift = +0.00636036
+    k=(2, 0, 2): 6 flat modes, avg shift = -0.01079043
+    k=(2, 1, 0): 6 flat modes, avg shift = +0.00340160
+    k=(2, 1, 1): 6 flat modes, avg shift = -0.00861100
+    k=(2, 1, 2): 6 flat modes, avg shift = +0.00393828
+    k=(2, 2, 0): 6 flat modes, avg shift = +0.00450775
+    k=(2, 2, 1): 6 flat modes, avg shift = -0.00553341
+    k=(2, 2, 2): 6 flat modes, avg shift = +0.00768438
+
+  Overall avg shift (all k, all modes): +0.00901460
+  Min shift: -0.11037775
+  Max shift: +0.22856751
+
+[Step 9] O_h irrep decomposition of the flat-band eigenspace shift
+  Generating Oh group (48 elements)...
+  Class sizes: E:1 C3:8 C2:6 C4:6 C2':3 i:1 S6:8 sigma_h:6 S4:6 sigma_d:3
+  Building 20x20 permutation matrices for all 48 Oh elements...
+  Permutation matrices built: 48 of 48 OK
+  Projecting VGV into flat-band subspace (6D)...
+
+  6D flat-band representation characters by O_h class:
+  Class      | size | chi       
+  -----------+------+-----------
+  E          |    1 |     6.0000
+  C3         |    8 |    -0.0000
+  C2         |    6 |    -2.0000
+  C4         |    6 |    -0.0000
+  C2'        |    3 |     2.0000
+  i          |    1 |    -6.0000
+  S6         |    8 |     0.0000
+  sigma_h    |    6 |     2.0000
+  S4         |    6 |     0.0000
+  sigma_d    |    3 |    -2.0000
+
+  Irrep decomposition of 6D flat-band space:
+  Irrep  | dim | n_mu (raw)   | n_mu (round) | dim x n_mu
+  -------+-----+--------------+--------------+-----------
+  A1g    |   1 |     0.000000 |            0 |    0
+  A2g    |   1 |     0.000000 |            0 |    0
+  Eg     |   2 |     0.000000 |            0 |    0
+  T1g    |   3 |    -0.000000 |            0 |    0
+  T2g    |   3 |    -0.000000 |            0 |    0
+  A1u    |   1 |     0.000000 |            0 |    0
+  A2u    |   1 |     1.000000 |            1 |    1 <--
+  Eu     |   2 |     1.000000 |            1 |    2 <--
+  T1u    |   3 |     1.000000 |            1 |    3 <--
+  T2u    |   3 |     0.000000 |            0 |    0
+
+  Total dimension: 6 (expect 6)
+  6D flat-band = A2u + Eu + T1u
+
+  Per-irrep contribution to second-order corner shift:
+  (Project VGV_6d onto each irrep subspace)
+  Irrep  | trace(P)   | tr(P VGV P)    | avg_shift_per_mode   | n_modes
+  -------+------------+----------------+----------------------+--------
+  A2u    |     1.0000 |    -0.44584362 |          -0.44584362 |       1
+  Eu     |     2.0000 |     0.15480110 |           0.07740055 |       2
+  T1u    |     3.0000 |    -0.15842957 |          -0.05280986 |       3
+
+  Total shift from irrep decomposition: -0.44947210
+  Total shift from direct trace:         -0.44947210
+
+  Irrep channels with nonzero shift contribution:
+    A2u: tr(P * VGV * P) = -0.44584362
+    Eu: tr(P * VGV * P) = +0.15480110
+    T1u: tr(P * VGV * P) = -0.15842957
+
+==============================================================================
+[SUMMARY] Corner deviation analytic structure
+==============================================================================
+
+1. Flat bands:
+   Periodic BC: 6 flat bands at lambda=-3 (each k-point has 6 such bands)
+   Open BC:     108 eigenvalues at lambda=-3 (= 108 = 27 BCs x 6 per BC / ... )
+
+2. Corner deviation (from open-BC direct diagonalization):
+   avg_proj(Corner) = 3.01378245
+   expected         = 3 (graph degree of corner BC)
+   delta_corner     = 0.01378245
+   Rational approx: 9/653
+   1/72 = 0.01388889  --> delta_corner * 72 = 0.992336
+   7/504 = 0.01388889 --> delta_corner * 504 = 6.946354
+   1/70 = 0.01428571  --> delta_corner * 70  = 0.964771
+   1/75 = 0.01333333  --> delta_corner * 75  = 1.033684
+
+3. Second-order perturbation shift (Bloch G.F. method, Gamma point):
+   avg_shift_2nd   = -0.07491202
+   delta_corner    = +0.01378245
+   ratio           = -5.435320 (should be 1 if perturbation is exact)
+
+4. Irrep decomposition of 6D flat-band space:
+   6D = A2u + Eu + T1u
+   (Label: A2u x Eu x T1u are ungerade, matching A2u+Eu+T1u per spec)
+
+5. Per-shell deviations:
+   Corner : deviation = +0.013782  (expected ~0)
+   Edge   : deviation = -0.002433  (expected ~0)
+   Face   : deviation = -0.010890  (expected ~0)
+   Center : deviation = -0.015724  (expected ~0)
+
+6. Consistency check: shell_avg = deg + deviation
+   Corner : 3.0138 = 3 + +0.0138
+   Edge   : 3.9976 = 4 + -0.0024
+   Face   : 4.9891 = 5 + -0.0109
+   Center : 5.9843 = 6 + -0.0157
+
+=== DONE ===

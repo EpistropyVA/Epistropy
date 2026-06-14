@@ -1,0 +1,137 @@
+================================================================================
+  NUMERICAL GALOIS NORM RECONSTRUCTION: L=3, 5, 11 CLOSURE ANALYSIS
+================================================================================
+
+[BENCHMARK] Verifying L=3 (Fano Orbit Bridge)...
+  Orbit 2: rep=(0, 0, 1) | size=6 | p=5 | Norm=11796480 | bridge=YES
+  Orbit 3: rep=(0, 1, 1) | size=12 | p=11 | Norm=13305600 | bridge=YES
+  Orbit 4: rep=(1, 1, 1) | size=8 | p=7 | Norm=10584000 | bridge=YES
+
+[BENCHMARK] Verifying L=5 (phi-residual Bridge)...
+  Orbit 2: rep=(0, 0, 1) | size=6 | p=5 | Norm=117591909597184 | bridge=no
+  Orbit 3: rep=(0, 0, 2) | size=6 | p=5 | Norm=117591909597184 | bridge=no
+  Orbit 4: rep=(0, 1, 1) | size=12 | p=11 | Norm=145089849524224 | bridge=YES
+  Orbit 5: rep=(0, 1, 2) | size=24 | p=23 | Norm=176548833460224 | bridge=no
+  Orbit 6: rep=(0, 2, 2) | size=12 | p=11 | Norm=145089849524224 | bridge=YES
+  Orbit 7: rep=(1, 1, 1) | size=8 | p=7 | Norm=98029087985664 | bridge=no
+  Orbit 8: rep=(1, 1, 2) | size=24 | p=23 | Norm=146818190577664 | bridge=no
+  Orbit 9: rep=(1, 2, 2) | size=24 | p=23 | Norm=146818190577664 | bridge=no
+  Orbit 10: rep=(2, 2, 2) | size=8 | p=7 | Norm=98029087985664 | bridge=no
+
+[TEST] Verifying L=11 (Riemann-Fano Boundary test)...
+  L=11 Lattice built in 3.83s. Total orbits: 56
+  Orbit  2: rep=(0, 0, 1) | size= 6 | p= 5 | bridge=no (time: 0.0202s)
+    Norm (log10) = 35.06
+  Orbit  3: rep=(0, 0, 2) | size= 6 | p= 5 | bridge=YES (time: 0.0194s)
+    Norm (log10) = 35.06
+  Orbit  4: rep=(0, 0, 3) | size= 6 | p= 5 | bridge=no (time: 0.0199s)
+    Norm (log10) = 35.06
+  Orbit  5: rep=(0, 0, 4) | size= 6 | p= 5 | bridge=YES (time: 0.0204s)
+    Norm (log10) = 35.06
+  Orbit  6: rep=(0, 0, 5) | size= 6 | p= 5 | bridge=YES (time: 0.0194s)
+    Norm (log10) = 35.06
+  Orbit  7: rep=(0, 1, 1) | size=12 | p=11 | bridge=no (time: 0.0188s)
+    Norm (log10) = 35.27
+  Orbit  8: rep=(0, 1, 2) | size=24 | p=23 | bridge=no (time: 0.0183s)
+    Norm (log10) = 35.46
+  Orbit  9: rep=(0, 1, 3) | size=24 | p=23 | bridge=no (time: 0.0188s)
+    Norm (log10) = 35.46
+  Orbit 10: rep=(0, 1, 4) | size=24 | p=23 | bridge=no (time: 0.0190s)
+    Norm (log10) = 35.46
+  Orbit 11: rep=(0, 1, 5) | size=24 | p=23 | bridge=no (time: 0.0203s)
+    Norm (log10) = 35.46
+  Orbit 12: rep=(0, 2, 2) | size=12 | p=11 | bridge=no (time: 0.0189s)
+    Norm (log10) = 35.27
+  Orbit 13: rep=(0, 2, 3) | size=24 | p=23 | bridge=no (time: 0.0204s)
+    Norm (log10) = 35.46
+  Orbit 14: rep=(0, 2, 4) | size=24 | p=23 | bridge=no (time: 0.0182s)
+    Norm (log10) = 35.46
+  Orbit 15: rep=(0, 2, 5) | size=24 | p=23 | bridge=no (time: 0.0201s)
+    Norm (log10) = 35.46
+  Orbit 16: rep=(0, 3, 3) | size=12 | p=11 | bridge=no (time: 0.0195s)
+    Norm (log10) = 35.27
+  Orbit 17: rep=(0, 3, 4) | size=24 | p=23 | bridge=no (time: 0.0194s)
+    Norm (log10) = 35.46
+  Orbit 18: rep=(0, 3, 5) | size=24 | p=23 | bridge=YES (time: 0.0186s)
+    Norm (log10) = 35.46
+  Orbit 19: rep=(0, 4, 4) | size=12 | p=11 | bridge=no (time: 0.0183s)
+    Norm (log10) = 35.27
+  Orbit 20: rep=(0, 4, 5) | size=24 | p=23 | bridge=no (time: 0.0193s)
+    Norm (log10) = 35.46
+  Orbit 21: rep=(0, 5, 5) | size=12 | p=11 | bridge=no (time: 0.0189s)
+    Norm (log10) = 35.27
+  Orbit 22: rep=(1, 1, 1) | size= 8 | p= 7 | bridge=no (time: 0.0197s)
+    Norm (log10) = 34.89
+  Orbit 23: rep=(1, 1, 2) | size=24 | p=23 | bridge=no (time: 0.0212s)
+    Norm (log10) = 35.28
+  Orbit 24: rep=(1, 1, 3) | size=24 | p=23 | bridge=no (time: 0.0288s)
+    Norm (log10) = 35.28
+  Orbit 25: rep=(1, 1, 4) | size=24 | p=23 | bridge=no (time: 0.0234s)
+    Norm (log10) = 35.28
+  Orbit 26: rep=(1, 1, 5) | size=24 | p=23 | bridge=no (time: 0.0211s)
+    Norm (log10) = 35.28
+  Orbit 27: rep=(1, 2, 2) | size=24 | p=23 | bridge=no (time: 0.0226s)
+    Norm (log10) = 35.28
+  Orbit 28: rep=(1, 2, 3) | size=48 | p=47 | bridge=no (time: 0.0253s)
+    Norm (log10) = 35.47
+  Orbit 29: rep=(1, 2, 4) | size=48 | p=47 | bridge=no (time: 0.0297s)
+    Norm (log10) = 35.47
+  Orbit 30: rep=(1, 2, 5) | size=48 | p=47 | bridge=no (time: 0.0233s)
+    Norm (log10) = 35.47
+  Orbit 31: rep=(1, 3, 3) | size=24 | p=23 | bridge=no (time: 0.0236s)
+    Norm (log10) = 35.28
+  Orbit 32: rep=(1, 3, 4) | size=48 | p=47 | bridge=no (time: 0.0189s)
+    Norm (log10) = 35.47
+  Orbit 33: rep=(1, 3, 5) | size=48 | p=47 | bridge=no (time: 0.0202s)
+    Norm (log10) = 35.47
+  Orbit 34: rep=(1, 4, 4) | size=24 | p=23 | bridge=no (time: 0.0250s)
+    Norm (log10) = 35.28
+  Orbit 35: rep=(1, 4, 5) | size=48 | p=47 | bridge=no (time: 0.0236s)
+    Norm (log10) = 35.47
+  Orbit 36: rep=(1, 5, 5) | size=24 | p=23 | bridge=no (time: 0.0200s)
+    Norm (log10) = 35.28
+  Orbit 37: rep=(2, 2, 2) | size= 8 | p= 7 | bridge=no (time: 0.0200s)
+    Norm (log10) = 34.89
+  Orbit 38: rep=(2, 2, 3) | size=24 | p=23 | bridge=no (time: 0.0196s)
+    Norm (log10) = 35.28
+  Orbit 39: rep=(2, 2, 4) | size=24 | p=23 | bridge=no (time: 0.0192s)
+    Norm (log10) = 35.28
+  Orbit 40: rep=(2, 2, 5) | size=24 | p=23 | bridge=no (time: 0.0188s)
+    Norm (log10) = 35.28
+  Orbit 41: rep=(2, 3, 3) | size=24 | p=23 | bridge=no (time: 0.0185s)
+    Norm (log10) = 35.28
+  Orbit 42: rep=(2, 3, 4) | size=48 | p=47 | bridge=no (time: 0.0182s)
+    Norm (log10) = 35.47
+  Orbit 43: rep=(2, 3, 5) | size=48 | p=47 | bridge=no (time: 0.0188s)
+    Norm (log10) = 35.47
+  Orbit 44: rep=(2, 4, 4) | size=24 | p=23 | bridge=no (time: 0.0186s)
+    Norm (log10) = 35.28
+  Orbit 45: rep=(2, 4, 5) | size=48 | p=47 | bridge=no (time: 0.0190s)
+    Norm (log10) = 35.47
+  Orbit 46: rep=(2, 5, 5) | size=24 | p=23 | bridge=no (time: 0.0200s)
+    Norm (log10) = 35.28
+  Orbit 47: rep=(3, 3, 3) | size= 8 | p= 7 | bridge=no (time: 0.0181s)
+    Norm (log10) = 34.89
+  Orbit 48: rep=(3, 3, 4) | size=24 | p=23 | bridge=no (time: 0.0183s)
+    Norm (log10) = 35.28
+  Orbit 49: rep=(3, 3, 5) | size=24 | p=23 | bridge=no (time: 0.0178s)
+    Norm (log10) = 35.28
+  Orbit 50: rep=(3, 4, 4) | size=24 | p=23 | bridge=no (time: 0.0176s)
+    Norm (log10) = 35.28
+  Orbit 51: rep=(3, 4, 5) | size=48 | p=47 | bridge=no (time: 0.0181s)
+    Norm (log10) = 35.47
+  Orbit 52: rep=(3, 5, 5) | size=24 | p=23 | bridge=no (time: 0.0177s)
+    Norm (log10) = 35.28
+  Orbit 53: rep=(4, 4, 4) | size= 8 | p= 7 | bridge=no (time: 0.0181s)
+    Norm (log10) = 34.89
+  Orbit 54: rep=(4, 4, 5) | size=24 | p=23 | bridge=no (time: 0.0181s)
+    Norm (log10) = 35.28
+  Orbit 55: rep=(4, 5, 5) | size=24 | p=23 | bridge=no (time: 0.0179s)
+    Norm (log10) = 35.28
+  Orbit 56: rep=(5, 5, 5) | size= 8 | p= 7 | bridge=YES (time: 0.0179s)
+    Norm (log10) = 34.89
+
+================================================================================
+  L=11 Closure Test complete. Total native bridges found: 5
+  Is L=11 a closed outer boundary? False
+================================================================================

@@ -1,0 +1,624 @@
+﻿==============================================================================
+  FIBONACCI COMPILER ANALYSIS: L=2, 3, 4, 5 BRIDGE SPECTRUM
+==============================================================================
+
+==============================================================
+  L = 2 Analysis
+==============================================================
+  k-points: 8 | O_h orbits: 4
+
+  Orbit 1: rep=(0, 0, 0) | size=1 | p=0 | flat_count=2
+    Class 1: deg=1 mult=6
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=1 mult=7
+      f(x)  = [Fraction(1, 1), Fraction(0, 1)]
+      f(-3) = -3 = -3 (primes: [3])
+      bridge = no
+      Fibonacci relation: F(4)
+    Class 3: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-3, 1)]
+      f(-3) = -6 = -2路3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 4: deg=1 mult=2
+      f(x)  = [Fraction(1, 1), Fraction(-5, 1)]
+      f(-3) = -8 = -2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 5: deg=2 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-35, 1), Fraction(-120, 1)]
+      f(-3) = -6 = -2路3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+
+  Orbit 2: rep=(0, 0, 1) | size=3 | p=2 | flat_count=4
+    Class 1: deg=1 mult=5
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = YES
+      Fibonacci relation: F(3)
+    Class 2: deg=1 mult=7
+      f(x)  = [Fraction(1, 1), Fraction(0, 1)]
+      f(-3) = -3 = -3 (primes: [3])
+      bridge = no
+      Fibonacci relation: F(4)
+    Class 3: deg=1 mult=2
+      f(x)  = [Fraction(1, 1), Fraction(-3, 1)]
+      f(-3) = -6 = -2路3 (primes: [2, 3])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 4: deg=2 mult=1 [FIBONACCI QUADRATIC x^2+x+-184]
+      f(x)  = [Fraction(1, 1), Fraction(1, 1), Fraction(-184, 1)]
+      f(-3) = -178 = -2路89 (primes: [2, 89])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, divisible by F(11)=89
+
+  Orbit 3: rep=(0, 1, 1) | size=3 | p=2 | flat_count=4
+    Class 1: deg=1 mult=5
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = YES
+      Fibonacci relation: F(3)
+    Class 2: deg=1 mult=7
+      f(x)  = [Fraction(1, 1), Fraction(0, 1)]
+      f(-3) = -3 = -3 (primes: [3])
+      bridge = no
+      Fibonacci relation: F(4)
+    Class 3: deg=1 mult=2
+      f(x)  = [Fraction(1, 1), Fraction(-3, 1)]
+      f(-3) = -6 = -2路3 (primes: [2, 3])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 4: deg=2 mult=1 [FIBONACCI QUADRATIC x^2+x+-184]
+      f(x)  = [Fraction(1, 1), Fraction(1, 1), Fraction(-184, 1)]
+      f(-3) = -178 = -2路89 (primes: [2, 89])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, divisible by F(11)=89
+
+  Orbit 4: rep=(1, 1, 1) | size=1 | p=0 | flat_count=2
+    Class 1: deg=1 mult=6
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=1 mult=7
+      f(x)  = [Fraction(1, 1), Fraction(0, 1)]
+      f(-3) = -3 = -3 (primes: [3])
+      bridge = no
+      Fibonacci relation: F(4)
+    Class 3: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-3, 1)]
+      f(-3) = -6 = -2路3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 4: deg=1 mult=2
+      f(x)  = [Fraction(1, 1), Fraction(-5, 1)]
+      f(-3) = -8 = -2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 5: deg=2 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-35, 1), Fraction(-120, 1)]
+      f(-3) = -6 = -2路3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+
+==============================================================
+  L = 3 Analysis
+==============================================================
+  k-points: 27 | O_h orbits: 4
+
+  Orbit 1: rep=(0, 0, 0) | size=1 | p=0 | flat_count=6
+    Class 1: deg=1 mult=5
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-3, 1)]
+      f(-3) = -6 = -2路3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 3: deg=2 mult=3
+      f(x)  = [Fraction(1, 1), Fraction(-2, 1), Fraction(-7, 1)]
+      f(-3) = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=2 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-14, 1), Fraction(21, 1)]
+      f(-3) = 72 = 2^3路3^2 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+
+  Orbit 2: rep=(0, 0, 1) | size=6 | p=5 | flat_count=6
+    Class 1: deg=1 mult=3
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=2 mult=2
+      f(x)  = [Fraction(1, 1), Fraction(-2, 1), Fraction(-7, 1)]
+      f(-3) = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 3: deg=4 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-12, 1), Fraction(18, 1), Fraction(40, 1), Fraction(-63, 1)]
+      f(-3) = 384 = 2^7路3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+    Class 4: deg=3 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-5, 1), Fraction(-1, 1), Fraction(9, 1)]
+      f(-3) = -60 = -2^2路3路5 (primes: [2, 3, 5])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(5)=5
+
+  Orbit 3: rep=(0, 1, 1) | size=12 | p=11 | flat_count=6
+    Class 1: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=2 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-2, 1), Fraction(-7, 1)]
+      f(-3) = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 3: deg=2 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-1, 1), Fraction(-5, 1)]
+      f(-3) = 7 = 7 (primes: [7])
+      bridge = no
+    Class 4: deg=4 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-9, 1), Fraction(6, 1), Fraction(31, 1), Fraction(-21, 1)]
+      f(-3) = 264 = 2^3路3路11 (primes: [2, 3, 11])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+    Class 5: deg=2 mult=1 [FIBONACCI QUADRATIC x^2+x+-1]
+      f(x)  = [Fraction(1, 1), Fraction(1, 1), Fraction(-1, 1)]
+      f(-3) = 5 = 5 (primes: [5])
+      bridge = no
+      Fibonacci relation: F(5)
+    Class 6: deg=3 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-8, 1), Fraction(2, 1), Fraction(15, 1)]
+      f(-3) = -90 = -2路3^2路5 (primes: [2, 3, 5])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(5)=5
+
+  Orbit 4: rep=(1, 1, 1) | size=8 | p=7 | flat_count=6
+    Class 1: deg=2 mult=2
+      f(x)  = [Fraction(1, 1), Fraction(-1, 1), Fraction(-5, 1)]
+      f(-3) = 7 = 7 (primes: [7])
+      bridge = YES
+    Class 2: deg=2 mult=2 [FIBONACCI QUADRATIC x^2+x+-1]
+      f(x)  = [Fraction(1, 1), Fraction(1, 1), Fraction(-1, 1)]
+      f(-3) = 5 = 5 (primes: [5])
+      bridge = no
+      Fibonacci relation: F(5)
+    Class 3: deg=3 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-7, 1), Fraction(1, 1), Fraction(21, 1)]
+      f(-3) = -72 = -2^3路3^2 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+    Class 4: deg=3 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-11, 1), Fraction(5, 1), Fraction(21, 1)]
+      f(-3) = -120 = -2^3路3路5 (primes: [2, 3, 5])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(5)=5, divisible by F(6)=8
+
+==============================================================
+  L = 4 Analysis
+==============================================================
+  k-points: 64 | O_h orbits: 10
+
+  Orbit 1: rep=(0, 0, 0) | size=1 | p=0 | flat_count=6
+    Class 1: deg=1 mult=5
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-3, 1)]
+      f(-3) = -6 = -2路3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 3: deg=2 mult=3
+      f(x)  = [Fraction(1, 1), Fraction(-2, 1), Fraction(-7, 1)]
+      f(-3) = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=2 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-14, 1), Fraction(21, 1)]
+      f(-3) = 72 = 2^3路3^2 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+
+  Orbit 2: rep=(0, 0, 1) | size=6 | p=5 | flat_count=6
+    Class 1: deg=1 mult=3
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-1, 1)]
+      f(-3) = -4 = -2^2 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2
+    Class 3: deg=2 mult=2
+      f(x)  = [Fraction(1, 1), Fraction(-2, 1), Fraction(-7, 1)]
+      f(-3) = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=3 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-11, 1), Fraction(-1, 1), Fraction(35, 1)]
+      f(-3) = -88 = -2^3路11 (primes: [2, 11])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+    Class 5: deg=3 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-5, 1), Fraction(-1, 1), Fraction(13, 1)]
+      f(-3) = -56 = -2^3路7 (primes: [2, 7])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+
+  Orbit 3: rep=(0, 0, 2) | size=3 | p=2 | flat_count=6
+    Class 1: deg=1 mult=4
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = YES
+      Fibonacci relation: F(3)
+    Class 2: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-1, 1)]
+      f(-3) = -4 = -2^2 (primes: [2])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2
+    Class 3: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-5, 1)]
+      f(-3) = -8 = -2^3 (primes: [2])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=2 mult=3
+      f(x)  = [Fraction(1, 1), Fraction(-2, 1), Fraction(-7, 1)]
+      f(-3) = 8 = 2^3 (primes: [2])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 5: deg=2 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-10, 1), Fraction(13, 1)]
+      f(-3) = 52 = 2^2路13 (primes: [2, 13])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, divisible by F(7)=13
+
+  Orbit 4: rep=(0, 1, 1) | size=12 | p=11 | flat_count=6
+    Class 1: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=2 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-2, 1), Fraction(-7, 1)]
+      f(-3) = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 3: deg=2 mult=2
+      f(x)  = [Fraction(1, 1), Fraction(0, 1), Fraction(-3, 1)]
+      f(-3) = 6 = 2路3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 4: deg=4 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-10, 1), Fraction(2, 1), Fraction(30, 1), Fraction(-7, 1)]
+      f(-3) = 272 = 2^4路17 (primes: [2, 17])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8, divisible by F(9)=34
+    Class 5: deg=3 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-7, 1), Fraction(1, 1), Fraction(17, 1)]
+      f(-3) = -76 = -2^2路19 (primes: [2, 19])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2
+
+  Orbit 5: rep=(0, 1, 2) | size=12 | p=11 | flat_count=6
+    Class 1: deg=1 mult=2
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=2 mult=2
+      f(x)  = [Fraction(1, 1), Fraction(-2, 1), Fraction(-7, 1)]
+      f(-3) = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 3: deg=4 mult=2
+      f(x)  = [Fraction(1, 1), Fraction(-8, 1), Fraction(2, 1), Fraction(24, 1), Fraction(-11, 1)]
+      f(-3) = 232 = 2^3路29 (primes: [2, 29])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+
+  Orbit 6: rep=(0, 2, 2) | size=3 | p=2 | flat_count=6
+    Class 1: deg=1 mult=4
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = YES
+      Fibonacci relation: F(3)
+    Class 2: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-1, 1)]
+      f(-3) = -4 = -2^2 (primes: [2])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2
+    Class 3: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-5, 1)]
+      f(-3) = -8 = -2^3 (primes: [2])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=2 mult=3
+      f(x)  = [Fraction(1, 1), Fraction(-2, 1), Fraction(-7, 1)]
+      f(-3) = 8 = 2^3 (primes: [2])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 5: deg=2 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-10, 1), Fraction(13, 1)]
+      f(-3) = 52 = 2^2路13 (primes: [2, 13])
+      bridge = YES
+      Fibonacci relation: divisible by F(3)=2, divisible by F(7)=13
+
+  Orbit 7: rep=(1, 1, 1) | size=8 | p=7 | flat_count=6
+    Class 1: deg=2 mult=4
+      f(x)  = [Fraction(1, 1), Fraction(0, 1), Fraction(-3, 1)]
+      f(-3) = 6 = 2路3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 2: deg=3 mult=2
+      f(x)  = [Fraction(1, 1), Fraction(-9, 1), Fraction(3, 1), Fraction(21, 1)]
+      f(-3) = -96 = -2^5路3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+
+  Orbit 8: rep=(1, 1, 2) | size=12 | p=11 | flat_count=6
+    Class 1: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=2 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-2, 1), Fraction(-7, 1)]
+      f(-3) = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 3: deg=2 mult=2
+      f(x)  = [Fraction(1, 1), Fraction(0, 1), Fraction(-3, 1)]
+      f(-3) = 6 = 2路3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 4: deg=4 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-10, 1), Fraction(2, 1), Fraction(30, 1), Fraction(-7, 1)]
+      f(-3) = 272 = 2^4路17 (primes: [2, 17])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8, divisible by F(9)=34
+    Class 5: deg=3 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-7, 1), Fraction(1, 1), Fraction(17, 1)]
+      f(-3) = -76 = -2^2路19 (primes: [2, 19])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2
+
+  Orbit 9: rep=(1, 2, 2) | size=6 | p=5 | flat_count=6
+    Class 1: deg=1 mult=3
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-1, 1)]
+      f(-3) = -4 = -2^2 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2
+    Class 3: deg=2 mult=2
+      f(x)  = [Fraction(1, 1), Fraction(-2, 1), Fraction(-7, 1)]
+      f(-3) = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=3 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-11, 1), Fraction(-1, 1), Fraction(35, 1)]
+      f(-3) = -88 = -2^3路11 (primes: [2, 11])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+    Class 5: deg=3 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-5, 1), Fraction(-1, 1), Fraction(13, 1)]
+      f(-3) = -56 = -2^3路7 (primes: [2, 7])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
+
+  Orbit 10: rep=(2, 2, 2) | size=1 | p=0 | flat_count=6
+    Class 1: deg=1 mult=5
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-3, 1)]
+      f(-3) = -6 = -2路3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 3: deg=2 mult=3
+      f(x)  = [Fraction(1, 1), Fraction(-2, 1), Fraction(-7, 1)]
+      f(-3) = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=2 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-14, 1), Fraction(21, 1)]
+      f(-3) = 72 = 2^3路3^2 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+
+==============================================================
+  L = 5 Analysis
+==============================================================
+  k-points: 125 | O_h orbits: 10
+
+  Orbit 1: rep=(0, 0, 0) | size=1 | p=0 | flat_count=6
+    Class 1: deg=1 mult=5
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-3, 1)]
+      f(-3) = -6 = -2路3 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+    Class 3: deg=2 mult=3
+      f(x)  = [Fraction(1, 1), Fraction(-2, 1), Fraction(-7, 1)]
+      f(-3) = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 4: deg=2 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-14, 1), Fraction(21, 1)]
+      f(-3) = 72 = 2^3路3^2 (primes: [2, 3])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+
+  Orbit 2: rep=(0, 0, 1) | size=6 | p=5 | flat_count=6
+    Class 1: deg=1 mult=3
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=1 mult=2 (UNCLASSIFIED)
+    Class 3: deg=1 mult=1 (UNCLASSIFIED)
+    Class 4: deg=1 mult=1 (UNCLASSIFIED)
+    Class 5: deg=1 mult=1 (UNCLASSIFIED)
+    Class 6: deg=1 mult=1 (UNCLASSIFIED)
+    Class 7: deg=1 mult=1 (UNCLASSIFIED)
+    Class 8: deg=1 mult=2 (UNCLASSIFIED)
+    Class 9: deg=1 mult=1 (UNCLASSIFIED)
+    Class 10: deg=1 mult=1 (UNCLASSIFIED)
+
+  Orbit 3: rep=(0, 0, 2) | size=6 | p=5 | flat_count=6
+    Class 1: deg=1 mult=3
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=1 mult=2 (UNCLASSIFIED)
+    Class 3: deg=1 mult=1 (UNCLASSIFIED)
+    Class 4: deg=1 mult=1 (UNCLASSIFIED)
+    Class 5: deg=1 mult=1 (UNCLASSIFIED)
+    Class 6: deg=1 mult=1 (UNCLASSIFIED)
+    Class 7: deg=1 mult=1 (UNCLASSIFIED)
+    Class 8: deg=1 mult=2 (UNCLASSIFIED)
+    Class 9: deg=1 mult=1 (UNCLASSIFIED)
+    Class 10: deg=1 mult=1 (UNCLASSIFIED)
+
+  Orbit 4: rep=(0, 1, 1) | size=12 | p=11 | flat_count=6
+    Class 1: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=1 mult=1 (UNCLASSIFIED)
+    Class 3: deg=1 mult=1 (UNCLASSIFIED)
+    Class 4: deg=1 mult=1 (UNCLASSIFIED)
+    Class 5: deg=1 mult=1 (UNCLASSIFIED)
+    Class 6: deg=1 mult=1 (UNCLASSIFIED)
+    Class 7: deg=1 mult=1 (UNCLASSIFIED)
+    Class 8: deg=1 mult=1 (UNCLASSIFIED)
+    Class 9: deg=1 mult=1 (UNCLASSIFIED)
+    Class 10: deg=1 mult=1 (UNCLASSIFIED)
+    Class 11: deg=1 mult=1 (UNCLASSIFIED)
+    Class 12: deg=1 mult=1 (UNCLASSIFIED)
+    Class 13: deg=1 mult=1 (UNCLASSIFIED)
+    Class 14: deg=1 mult=1 (UNCLASSIFIED)
+
+  Orbit 5: rep=(0, 1, 2) | size=24 | p=23 | flat_count=6
+    Class 1: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=2 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-2, 1), Fraction(-7, 1)]
+      f(-3) = 8 = 2^3 (primes: [2])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, F(6)
+    Class 3: deg=6 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-10, 1), Fraction(6, 1), Fraction(74, 1), Fraction(-34, 1), Fraction(-130, 1), Fraction(21, 1)]
+      f(-3) = 1752 = 2^3路3路73 (primes: [2, 3, 73])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
+    Class 4: deg=5 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(-7, 1), Fraction(-3, 1), Fraction(33, 1), Fraction(5, 1), Fraction(-27, 1)]
+      f(-3) = -474 = -2路3路79 (primes: [2, 3, 79])
+      bridge = no
+      Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3
+
+  Orbit 6: rep=(0, 2, 2) | size=12 | p=11 | flat_count=6
+    Class 1: deg=1 mult=1
+      f(x)  = [Fraction(1, 1), Fraction(1, 1)]
+      f(-3) = -2 = -2 (primes: [2])
+      bridge = no
+      Fibonacci relation: F(3)
+    Class 2: deg=1 mult=1 (UNCLASSIFIED)
+    Class 3: deg=1 mult=1 (UNCLASSIFIED)
+    Class 4: deg=1 mult=1 (UNCLASSIFIED)
+    Class 5: deg=1 mult=1 (UNCLASSIFIED)
+    Class 6: deg=1 mult=1 (UNCLASSIFIED)
+    Class 7: deg=1 mult=1 (UNCLASSIFIED)
+    Class 8: deg=1 mult=1 (UNCLASSIFIED)
+    Class 9: deg=1 mult=1 (UNCLASSIFIED)
+    Class 10: deg=1 mult=1 (UNCLASSIFIED)
+    Class 11: deg=1 mult=1 (UNCLASSIFIED)
+    Class 12: deg=1 mult=1 (UNCLASSIFIED)
+    Class 13: deg=1 mult=1 (UNCLASSIFIED)
+    Class 14: deg=1 mult=1 (UNCLASSIFIED)
+
+  Orbit 7: rep=(1, 1, 1) | size=8 | p=7 | flat_count=6
+    Class 1: deg=1 mult=2 (UNCLASSIFIED)
+    Class 2: deg=1 mult=2 (UNCLASSIFIED)
+    Class 3: deg=1 mult=1 (UNCLASSIFIED)
+    Class 4: deg=1 mult=1 (UNCLASSIFIED)
+    Class 5: deg=1 mult=2 (UNCLASSIFIED)
+    Class 6: deg=1 mult=1 (UNCLASSIFIED)
+    Class 7: deg=1 mult=1 (UNCLASSIFIED)
+    Class 8: deg=1 mult=2 (UNCLASSIFIED)
+    Class 9: deg=1 mult=1 (UNCLASSIFIED)
+    Class 10: deg=1 mult=1 (UNCLASSIFIED)
+
+  Orbit 8: rep=(1, 1, 2) | size=24 | p=23 | flat_count=6
+    Class 1: deg=1 mult=1 (UNCLASSIFIED)
+    Class 2: deg=1 mult=1 (UNCLASSIFIED)
+    Class 3: deg=1 mult=1 (UNCLASSIFIED)
+    Class 4: deg=1 mult=1 (UNCLASSIFIED)
+    Class 5: deg=1 mult=1 (UNCLASSIFIED)
+    Class 6: deg=1 mult=1 (UNCLASSIFIED)
+    Class 7: deg=1 mult=1 (UNCLASSIFIED)
+    Class 8: deg=1 mult=1 (UNCLASSIFIED)
+    Class 9: deg=1 mult=1 (UNCLASSIFIED)
+    Class 10: deg=1 mult=1 (UNCLASSIFIED)
+    Class 11: deg=1 mult=1 (UNCLASSIFIED)
+    Class 12: deg=1 mult=1 (UNCLASSIFIED)
+    Class 13: deg=1 mult=1 (UNCLASSIFIED)
+    Class 14: deg=1 mult=1 (UNCLASSIFIED)
+
+  Orbit 9: rep=(1, 2, 2) | size=24 | p=23 | flat_count=6
+    Class 1: deg=1 mult=1 (UNCLASSIFIED)
+    Class 2: deg=1 mult=1 (UNCLASSIFIED)
+    Class 3: deg=1 mult=1 (UNCLASSIFIED)
+    Class 4: deg=1 mult=1 (UNCLASSIFIED)
+    Class 5: deg=1 mult=1 (UNCLASSIFIED)
+    Class 6: deg=1 mult=1 (UNCLASSIFIED)
+    Class 7: deg=1 mult=1 (UNCLASSIFIED)
+    Class 8: deg=1 mult=1 (UNCLASSIFIED)
+    Class 9: deg=1 mult=1 (UNCLASSIFIED)
+    Class 10: deg=1 mult=1 (UNCLASSIFIED)
+    Class 11: deg=1 mult=1 (UNCLASSIFIED)
+    Class 12: deg=1 mult=1 (UNCLASSIFIED)
+    Class 13: deg=1 mult=1 (UNCLASSIFIED)
+    Class 14: deg=1 mult=1 (UNCLASSIFIED)
+
+  Orbit 10: rep=(2, 2, 2) | size=8 | p=7 | flat_count=6
+    Class 1: deg=1 mult=2 (UNCLASSIFIED)
+    Class 2: deg=1 mult=1 (UNCLASSIFIED)
+    Class 3: deg=1 mult=2 (UNCLASSIFIED)
+    Class 4: deg=1 mult=1 (UNCLASSIFIED)
+    Class 5: deg=1 mult=2 (UNCLASSIFIED)
+    Class 6: deg=1 mult=1 (UNCLASSIFIED)
+    Class 7: deg=1 mult=1 (UNCLASSIFIED)
+    Class 8: deg=1 mult=2 (UNCLASSIFIED)
+    Class 9: deg=1 mult=1 (UNCLASSIFIED)
+    Class 10: deg=1 mult=1 (UNCLASSIFIED)

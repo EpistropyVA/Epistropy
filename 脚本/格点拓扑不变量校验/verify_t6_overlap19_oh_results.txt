@@ -1,0 +1,219 @@
+==============================================================================
+T6 OVERLAP RANK-19 OH IRREP DECOMPOSITION
+BCC 3×3×3 periodic lattice (3-torus), 540 faces
+==============================================================================
+
+[Step 1] Build lattice and 54D subspaces
+  Total faces: 540 (OK)
+  Computing Wilson π-modes and simplex indicator vectors...
+  π-mode subspace rank:    54 (expect 54)
+  Simplex subspace rank:   54 (expect 54)
+
+[Step 2] Overlap matrix SVD — verify rank 19 and clusters 1+6+12
+  Overlap matrix rank: 19 (expect 19)
+  All 54 singular values (rounded):
+    15.588457 7.675226 7.675226 7.675226 7.675226 7.675226 7.675226 3.927922 3.927922 3.927922 3.927922 3.927922 3.927922 3.927922 3.927922 3.927922 3.927922 3.927922 3.927922 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+
+  Identifying clusters in s[:19]:
+  s19 = [15.58845727  7.67522579  7.67522579  7.67522579  7.67522579  7.67522579
+  7.67522579  3.92792202  3.92792202  3.92792202  3.92792202  3.92792202
+  3.92792202  3.92792202  3.92792202  3.92792202  3.92792202  3.92792202
+  3.92792202]
+  consecutive diffs = [-7.91323148e+00 -8.88178420e-16 -1.77635684e-15 -8.88178420e-16
+  0.00000000e+00 -3.55271368e-15 -3.74730376e+00  0.00000000e+00
+ -2.22044605e-15 -8.88178420e-16  0.00000000e+00 -8.88178420e-16
+  0.00000000e+00 -8.88178420e-16 -8.88178420e-16  0.00000000e+00
+  0.00000000e+00 -1.77635684e-15]
+  Sorted s19 (desc): [15.58845727  7.67522579  7.67522579  7.67522579  7.67522579  7.67522579
+  7.67522579  3.92792202  3.92792202  3.92792202  3.92792202  3.92792202
+  3.92792202  3.92792202  3.92792202  3.92792202  3.92792202  3.92792202
+  3.92792202]
+  Gaps: [7.91323148e+00 8.88178420e-16 1.77635684e-15 8.88178420e-16
+ 0.00000000e+00 3.55271368e-15 3.74730376e+00 0.00000000e+00
+ 2.22044605e-15 8.88178420e-16 0.00000000e+00 8.88178420e-16
+ 0.00000000e+00 8.88178420e-16 8.88178420e-16 0.00000000e+00
+ 0.00000000e+00 1.77635684e-15]
+  Significant gaps at positions: [0, 6]
+  Cluster sizes: [1, 6, 12]
+  Cluster mean values: [15.588457268119893, 7.675225788801978, 3.9279220242478643]
+  Cluster sizes verified: 1+6+12 = 19  OK
+  Cluster '1-dim': sv indices [0], values [np.float64(15.588457268119893)]
+  Cluster '6-dim': sv indices [1, 2, 3, 4, 5, 6], values [np.float64(7.675225788801981), np.float64(7.67522578880198), np.float64(7.675225788801979), np.float64(7.675225788801978), np.float64(7.675225788801978), np.float64(7.675225788801974)]
+  Cluster '12-dim': sv indices [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], values [np.float64(3.9279220242478674), np.float64(3.9279220242478674), np.float64(3.927922024247865), np.float64(3.9279220242478643), np.float64(3.9279220242478643), np.float64(3.9279220242478634), np.float64(3.9279220242478634), np.float64(3.9279220242478625), np.float64(3.9279220242478616), np.float64(3.9279220242478616), np.float64(3.9279220242478616), np.float64(3.92792202424786)]
+
+[Step 3] Generate O_h elements and build 540×540 permutation matrices
+  Generated 48 O_h elements
+  Class counts correct: True
+  Building 540×540 permutation row-index arrays...
+  All 48 permutation maps built and verified closed
+
+[Step 4] Verify O_h-invariance of the simplex subspace
+  Total faces across all simplices: 540 (= 540 = all faces, trivially closed)
+  Checking Q(g) maps simplex subspace to itself (sample of 5 elements)...
+    g[0] (E): OK — residual 5.551e-17
+    g[1] (i): OK — residual 1.110e-16
+    g[7] (S4): OK — residual 1.110e-16
+    g[15] (S4): OK — residual 1.110e-16
+    g[23] (S4): OK — residual 1.110e-16
+  Simplex subspace O_h-invariant: True
+
+  Checking Q(g) maps π-mode subspace to itself (sample of 5 elements)...
+    g[0] (E): OK — residual 2.680e-16
+    g[1] (i): OK — residual 2.769e-15
+    g[7] (S4): OK — residual 2.792e-15
+    g[15] (S4): OK — residual 2.722e-15
+    g[23] (S4): OK — residual 2.949e-15
+  π-mode subspace O_h-invariant: True
+
+[Step 5] Per-cluster irrep decomposition (left singular vectors in R^540)
+  (Left singular vectors U_c ∈ R^540 via full overlap SVD on R^540 side)
+  Lifting left singular vectors to R^540 via simplex_vectors rows...
+  Norms of lifted vectors (should be close to s_full[:19]): min=3.162278, max=3.162278
+  s_full[:19]: min=3.927922, max=15.588457
+
+  Computing O_h representation matrices for each cluster...
+
+  --- Cluster 1-dim (sv indices [0]) ---
+    Gram matrix error (U_c rows ONB?): 1.332e-15
+    Max |R(g)^H R(g) - I|: 2.665e-15
+    Max homomorphism error: 1.448e-15
+    Characters by class:
+      E         :   1.0000
+      C3        :   1.0000
+      C2        :  -1.0000
+      C4        :  -1.0000
+      C2'       :   1.0000
+      i         :  -1.0000
+      S6        :  -1.0000
+      sigma_h   :   1.0000
+      S4        :   1.0000
+      sigma_d   :  -1.0000
+    Irrep decomposition:
+      A2u: 1  (dim contribution: 1)
+    Total dim from irreps: 1 (expect 1)
+    Cluster 1-dim: A2u
+    Right SV side:   A2u
+
+  --- Cluster 6-dim (sv indices [1, 2, 3, 4, 5, 6]) ---
+    Gram matrix error (U_c rows ONB?): 8.882e-16
+    Max |R(g)^H R(g) - I|: 2.665e-15
+    Max homomorphism error: 1.341e-15
+    Characters by class:
+      E         :   6.0000
+      C3        :  -0.0000
+      C2        :   0.0000
+      C4        :  -2.0000
+      C2'       :   2.0000
+      i         :   0.0000
+      S6        :   0.0000
+      sigma_h   :   2.0000
+      S4        :  -0.0000
+      sigma_d   :  -4.0000
+    Irrep decomposition:
+      T2g: 1  (dim contribution: 3)
+      A2u: 1  (dim contribution: 1)
+      Eu: 1  (dim contribution: 2)
+    Total dim from irreps: 6 (expect 6)
+    Cluster 6-dim: T2g ⊕ A2u ⊕ Eu
+    Right SV side:   T2g ⊕ A2u ⊕ Eu
+
+  --- Cluster 12-dim (sv indices [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]) ---
+    Gram matrix error (U_c rows ONB?): 1.110e-15
+    Max |R(g)^H R(g) - I|: 2.220e-15
+    Max homomorphism error: 1.050e-15
+    Characters by class:
+      E         :  12.0000
+      C3        :   0.0000
+      C2        :  -2.0000
+      C4        :  -0.0000
+      C2'       :   0.0000
+      i         :   0.0000
+      S6        :  -0.0000
+      sigma_h   :   2.0000
+      S4        :  -0.0000
+      sigma_d   :  -4.0000
+    Irrep decomposition:
+      T1g: 1  (dim contribution: 3)
+      T2g: 1  (dim contribution: 3)
+      A2u: 1  (dim contribution: 1)
+      Eu: 1  (dim contribution: 2)
+      T1u: 1  (dim contribution: 3)
+    Total dim from irreps: 12 (expect 12)
+    Cluster 12-dim: T1g ⊕ T2g ⊕ A2u ⊕ Eu ⊕ T1u
+    Right SV side:   T1g ⊕ T2g ⊕ A2u ⊕ Eu ⊕ T1u
+
+[Step 6] Total 19D irrep content
+  Total 19D = T1g ⊕ 2×T2g ⊕ 3×A2u ⊕ 2×Eu ⊕ T1u
+  Total dimension check: 19 (expect 19)
+
+[Step 7] 2×2×2 corner block dependency vector
+  From verify_pending_4b: the corner shell (8 BCs, 16 simplex rows) has
+  rank 7 in the overlap matrix — one linear dependency among its 16 rows.
+  We also check the 8-row version (per-BC sum) and the simplex-vector space.
+  Corner BCs: [(0, 0, 0), (0, 0, 2), (0, 2, 0), (0, 2, 2), (2, 0, 0), (2, 0, 2), (2, 2, 0), (2, 2, 2)]
+  Approach A — 16 simplex rows in overlap matrix: rank=7 (expect 7)
+    Singular values (all 16): [1.00801979e+01 5.74795277e+00 5.74795277e+00 5.74795277e+00
+ 3.20713490e+00 3.20713490e+00 3.20713490e+00 3.61912099e-15
+ 3.40405034e-15 2.67524696e-15 2.34212259e-15 2.03374342e-15
+ 1.87761572e-15 1.67799654e-15 7.22742130e-16 5.82826589e-16]
+  Approach B — 8 per-BC rows (sum of 2 simplices) in overlap matrix: rank=0
+    Singular values (all 8): [5.58064374e-15 4.50069538e-15 3.78760751e-15 3.43120345e-15
+ 2.98692237e-15 2.88499328e-15 2.47283650e-15 9.76210492e-17]
+  Approach C — 16 rows in simplex_vectors R^540: rank=16
+    Singular values: [3.16227766 3.16227766 3.16227766 3.16227766 3.16227766 3.16227766
+ 3.16227766 3.16227766 3.16227766 3.16227766 3.16227766 3.16227766
+ 3.16227766 3.16227766 3.16227766 3.16227766]
+
+  Using Approach A (16 overlap rows, rank 7):
+  Null vector in R^16 (normalized to max|coeff|=1):
+  BC (i,j,k)     even_tet   odd_tet    sum        diff(e-o) 
+  (0, 0, 0)      +0.873733  +1.000000  +1.873733  -0.126267
+  (0, 0, 2)      -0.293153  -0.419420  -0.712573  +0.126267
+  (0, 2, 0)      +0.431097  +0.304830  +0.735927  +0.126267
+  (0, 2, 2)      -0.563485  -0.437218  -1.000702  -0.126267
+  (2, 0, 0)      +0.040628  -0.085639  -0.045011  +0.126267
+  (2, 0, 2)      +0.040841  +0.167108  +0.207949  -0.126267
+  (2, 2, 0)      -0.439238  -0.312971  -0.752208  -0.126267
+  (2, 2, 2)      +0.083952  -0.042315  +0.041636  +0.126267
+
+  Test: is null vector in (even - odd) direction per BC?
+  (Check: even_coeff + odd_coeff ~ 0 for each BC)
+  Per-BC sums: ['+1.8737', '-0.7126', '+0.7359', '-1.0007', '-0.0450', '+0.2079', '-0.7522', '+0.0416']
+  Max |per-BC sum|: 1.874e+00  NO
+  Per-BC diffs (even-odd): ['-0.1263', '+0.1263', '+0.1263', '-0.1263', '+0.1263', '-0.1263', '-0.1263', '+0.1263']
+  All equal in magnitude? max deviation: 4.885e-15  YES
+  Sign matches (-1)^(i/2+j/2+k/2)? deviation: 4.885e-15  YES — F2^3 parity-alternating!
+
+  NOTE: All 8 corner BCs have (i+j+k) even — parity-alternating test N/A.
+  The null vector lives in R^16 (even/odd tet per BC).
+  See 'even-minus-odd' test above for the actual structure.
+
+==============================================================================
+SUMMARY
+==============================================================================
+
+Lattice: BCC 3×3×3 periodic (3-torus), 540 faces, 27 BCs × 20 faces
+Overlap rank: 19 / 54  (verified 19)
+Singular value clusters: 1 + 6 + 12 = 19  (O_h-protected degeneracy)
+
+O_h Irrep Decomposition by Cluster:
+Cluster      Dim   Decomposition
+------------ ----- ----------------------------------------
+1-dim            1  A2u
+6-dim            6  T2g ⊕ A2u ⊕ Eu
+12-dim          12  T1g ⊕ T2g ⊕ A2u ⊕ Eu ⊕ T1u
+
+Total 19D = T1g ⊕ 2×T2g ⊕ 3×A2u ⊕ 2×Eu ⊕ T1u
+Total dimension check: 19 (expect 19)
+
+Numerical quality:
+  1-dim: orth_err=2.66e-15, hom_err=1.45e-15
+  6-dim: orth_err=2.66e-15, hom_err=1.34e-15
+  12-dim: orth_err=2.22e-15, hom_err=1.05e-15
+
+2×2×2 corner block:
+  Rank: 7 (expect 7) → 1 dependency vector
+  Null vector: lives in R^16 (even/odd tet per BC)
+  Pattern: see Step 7 even-minus-odd test above
+
+=== DONE ===

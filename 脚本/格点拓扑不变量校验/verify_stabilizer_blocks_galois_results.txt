@@ -1,0 +1,248 @@
+=== STABILIZER BLOCKS & GALOIS GLUING VERIFICATION ===
+
+Lattice: 27 cells, 540 faces; Oh: 48 elements
+
+=================================================================
+ORBIT: Gamma  k=[0. 0. 0.]·(pi/3)
+  Little group: Oh order=48 (expected 48) OK
+  max ||[U(g),H(k)]||: 0.00e+00  (PASS)
+  20-dim rep decomposition (Oh):
+    2xA1g(dim 1)
+    2xA2u(dim 1)
+    1xEg(dim 2)
+    1xEu(dim 2)
+    2xT1u(dim 3)
+    2xT2g(dim 3)
+  Total dim check: 20 (expect 20) OK
+
+  Eigenvalue groups (non-flat):
+    λ=-1.82842712          mult=3
+    λ=-1                   mult=5
+    λ=1.70849738           mult=1
+    λ=3                    mult=1
+    λ=3.82842712           mult=3
+    λ=12.29150262          mult=1
+
+  Conjugate suites among irrational eigenvalues:
+    degree-2 suite: {-1.82842712, 3.82842712}
+      sym-polys: [Fraction(2, 1), Fraction(-7, 1)]
+      mults: [3, 3]
+    degree-2 suite: {-1.00000000, 3.00000000}
+      sym-polys: [Fraction(2, 1), Fraction(-3, 1)]
+      mults: [5, 1]
+    degree-2 suite: {1.70849738, 12.29150262}
+      sym-polys: [Fraction(14, 1), Fraction(21, 1)]
+      mults: [1, 1]
+
+  Irrep sector → eigenvalue mapping:
+  Eigenvalue             mult         carrying irreps (dim,weight)  Schur?
+    λ=-1.82842712           3  T2g(d=3,w=1.00)                      OK
+    λ=-1.00000000           5  Eg(d=2,w=0.40); T1u(d=3,w=0.60)      OK
+    λ=1.70849738            1  A1g(d=1,w=1.00)                      OK
+    λ=3.00000000            1  A2u(d=1,w=1.00)                      OK
+    λ=3.82842712            3  T2g(d=3,w=1.00)                      OK
+    λ=12.29150262           1  A1g(d=1,w=1.00)                      OK
+  Schur (mult=irrep-dim sum) overall: PASS
+
+  Galois gluing (suite members → same irrep?):
+    suite {-1.828427, 3.828427}: irreps=[{'T2g'}, {'T2g'}] same=True
+    suite {-1.000000, 3.000000}: irreps=[{'T1u', 'Eg'}, {'A2u'}] same=False
+    suite {1.708497, 12.291503}: irreps=[{'A1g'}, {'A1g'}] same=True
+
+  *** VERDICT: Schur=PASS, Galois-gluing=FAIL, Overall=NOT CONFIRMED ***
+=================================================================
+ORBIT: axis  k=[2. 0. 0.]·(pi/3)
+  Little group: C4v order=8 (expected 8) OK
+  max ||[U(g),H(k)]||: 0.00e+00  (PASS)
+  20-dim rep decomposition (C4v):
+    4xA1(dim 1)
+    2xA2(dim 1)
+    4xB1(dim 1)
+    2xB2(dim 1)
+    4xE(dim 2)
+  Total dim check: 20 (expect 20) OK
+
+  Eigenvalue groups (non-flat):
+    λ=-1.82842712          mult=2
+    λ=-1.77658897          mult=1
+    λ=-1.27945232          mult=1
+    λ=-1                   mult=3
+    λ=1.42664775           mult=1
+    λ=1.45936294           mult=1
+    λ=2.53162847           mult=1
+    λ=3.82842712           mult=2
+    λ=4.82008937           mult=1
+    λ=9.81831274           mult=1
+
+  Conjugate suites among irrational eigenvalues:
+    degree-2 suite: {-1.82842712, 3.82842712}
+      sym-polys: [Fraction(2, 1), Fraction(-7, 1)]
+      mults: [2, 2]
+    degree-3 suite: {-1.27945232, 1.45936294, 4.82008937}
+      sym-polys: [Fraction(5, 1), Fraction(-1, 1), Fraction(-9, 1)]
+      mults: [1, 1, 1]
+    degree-4 suite: {-1.77658897, 1.42664775, 2.53162847, 9.81831274}
+      sym-polys: [Fraction(12, 1), Fraction(18, 1), Fraction(-40, 1)]
+      mults: [1, 1, 1, 1]
+    lone irrationals: ['-1.00000000']
+
+  Irrep sector → eigenvalue mapping:
+  Eigenvalue             mult         carrying irreps (dim,weight)  Schur?
+    λ=-1.82842712           2  E(d=2,w=1.00)                        OK
+    λ=-1.77658897           1  A1(d=1,w=1.00); B1(d=1,w=0.25); B2(d=1,w=0.25)  OK
+    λ=-1.27945232           1  B1(d=1,w=0.25); B2(d=1,w=0.25)       FAIL
+    λ=-1.00000000           3  E(d=2,w=0.67)                        FAIL
+    λ=1.42664775            1  A1(d=1,w=1.00); B1(d=1,w=0.25); B2(d=1,w=0.25)  OK
+    λ=1.45936294            1  B1(d=1,w=0.25); B2(d=1,w=0.25)       FAIL
+    λ=2.53162847            1  A1(d=1,w=1.00); B1(d=1,w=0.25); B2(d=1,w=0.25)  OK
+    λ=3.82842712            2  E(d=2,w=1.00)                        OK
+    λ=4.82008937            1  B1(d=1,w=0.25); B2(d=1,w=0.25)       FAIL
+    λ=9.81831274            1  A1(d=1,w=1.00); B1(d=1,w=0.25); B2(d=1,w=0.25)  OK
+  Schur (mult=irrep-dim sum) overall: FAIL
+
+  Galois gluing (suite members → same irrep?):
+    suite {-1.828427, 3.828427}: irreps=[{'E'}, {'E'}] same=True
+    suite {-1.279452, 1.459363, 4.820089}: irreps=[set(), set(), set()] same=True
+    suite {-1.776589, 1.426648, 2.531628, 9.818313}: irreps=[{'A1'}, {'A1'}, {'A1'}, {'A1'}] same=True
+
+  *** VERDICT: Schur=FAIL, Galois-gluing=PASS, Overall=NOT CONFIRMED ***
+=================================================================
+ORBIT: face  k=[2. 2. 0.]·(pi/3)
+  Little group: C2v order=4 (expected 4) OK
+  max ||[U(g),H(k)]||: 0.00e+00  (PASS)
+  20-dim rep decomposition (C2v):
+    6xA1(dim 1)
+    4xA2(dim 1)
+    6xB1(dim 1)
+    4xB2(dim 1)
+  Total dim check: 20 (expect 20) OK
+
+  Eigenvalue groups (non-flat):
+    λ=-1.82842712          mult=1
+    λ=-1.79128785          mult=1
+    λ=-1.74210908          mult=1
+    λ=-1.61803399          mult=1
+    λ=-1.17430880          mult=1
+    λ=-1                   mult=1
+    λ=0.61803399           mult=1
+    λ=0.67149263           mult=1
+    λ=1.71165202           mult=1
+    λ=2.31450910           mult=1
+    λ=2.79128785           mult=1
+    λ=3.82842712           mult=1
+    λ=7.46265678           mult=1
+    λ=7.75610735           mult=1
+
+  Conjugate suites among irrational eigenvalues:
+    degree-2 suite: {-1.82842712, 3.82842712}
+      sym-polys: [Fraction(2, 1), Fraction(-7, 1)]
+      mults: [1, 1]
+    degree-2 suite: {-1.79128785, 2.79128785}
+      sym-polys: [Fraction(1, 1), Fraction(-5, 1)]
+      mults: [1, 1]
+    degree-2 suite: {-1.61803399, 0.61803399}
+      sym-polys: [Fraction(-1, 1), Fraction(-1, 1)]
+      mults: [1, 1]
+    degree-3 suite: {-1.17430880, 1.71165202, 7.46265678}
+      sym-polys: [Fraction(8, 1), Fraction(2, 1), Fraction(-15, 1)]
+      mults: [1, 1, 1]
+    degree-4 suite: {-1.74210908, 0.67149263, 2.31450910, 7.75610735}
+      sym-polys: [Fraction(9, 1), Fraction(6, 1), Fraction(-31, 1)]
+      mults: [1, 1, 1, 1]
+    lone irrationals: ['-1.00000000']
+
+  Irrep sector → eigenvalue mapping:
+  Eigenvalue             mult         carrying irreps (dim,weight)  Schur?
+    λ=-1.82842712           1  A1(d=1,w=1.00); B1(d=1,w=0.25); B2(d=1,w=0.25)  OK
+    λ=-1.79128785           1  B1(d=1,w=0.25); B2(d=1,w=0.25)       FAIL
+    λ=-1.74210908           1  A1(d=1,w=1.00); B1(d=1,w=0.25); B2(d=1,w=0.25)  OK
+    λ=-1.61803399           1  A2(d=1,w=1.00); B1(d=1,w=0.25); B2(d=1,w=0.25)  OK
+    λ=-1.17430880           1  B1(d=1,w=0.25); B2(d=1,w=0.25)       FAIL
+    λ=-1.00000000           1  B1(d=1,w=0.25); B2(d=1,w=0.25)       FAIL
+    λ=0.61803399            1  A2(d=1,w=1.00); B1(d=1,w=0.25); B2(d=1,w=0.25)  OK
+    λ=0.67149263            1  A1(d=1,w=1.00); B1(d=1,w=0.25); B2(d=1,w=0.25)  OK
+    λ=1.71165202            1  B1(d=1,w=0.25); B2(d=1,w=0.25)       FAIL
+    λ=2.31450910            1  A1(d=1,w=1.00); B1(d=1,w=0.25); B2(d=1,w=0.25)  OK
+    λ=2.79128785            1  B1(d=1,w=0.25); B2(d=1,w=0.25)       FAIL
+    λ=3.82842712            1  A1(d=1,w=1.00); B1(d=1,w=0.25); B2(d=1,w=0.25)  OK
+    λ=7.46265678            1  B1(d=1,w=0.25); B2(d=1,w=0.25)       FAIL
+    λ=7.75610735            1  A1(d=1,w=1.00); B1(d=1,w=0.25); B2(d=1,w=0.25)  OK
+  Schur (mult=irrep-dim sum) overall: FAIL
+
+  Galois gluing (suite members → same irrep?):
+    suite {-1.828427, 3.828427}: irreps=[{'A1'}, {'A1'}] same=True
+    suite {-1.791288, 2.791288}: irreps=[set(), set()] same=True
+    suite {-1.618034, 0.618034}: irreps=[{'A2'}, {'A2'}] same=True
+    suite {-1.174309, 1.711652, 7.462657}: irreps=[set(), set(), set()] same=True
+    suite {-1.742109, 0.671493, 2.314509, 7.756107}: irreps=[{'A1'}, {'A1'}, {'A1'}, {'A1'}] same=True
+
+  *** VERDICT: Schur=FAIL, Galois-gluing=PASS, Overall=NOT CONFIRMED ***
+=================================================================
+ORBIT: body  k=[2. 2. 2.]·(pi/3)
+  Little group: C3v order=6 (expected 6) OK
+  max ||[U(g),H(k)]||: 0.00e+00  (PASS)
+  20-dim rep decomposition (C3v):
+    8xA1(dim 1)
+    6xE(dim 2)
+  Total dim check: 20 (expect 20) OK
+
+  Eigenvalue groups (non-flat):
+    λ=-1.79128785          mult=2
+    λ=-1.61803399          mult=2
+    λ=-1.51297605          mult=1
+    λ=-1.12587299          mult=1
+    λ=0.61803399           mult=2
+    λ=1.80770370           mult=1
+    λ=2.19790564           mult=1
+    λ=2.79128785           mult=2
+    λ=6.31507041           mult=1
+    λ=10.31816928          mult=1
+
+  Conjugate suites among irrational eigenvalues:
+    degree-2 suite: {-1.79128785, 2.79128785}
+      sym-polys: [Fraction(1, 1), Fraction(-5, 1)]
+      mults: [2, 2]
+    degree-2 suite: {-1.61803399, 0.61803399}
+      sym-polys: [Fraction(-1, 1), Fraction(-1, 1)]
+      mults: [2, 2]
+    degree-3 suite: {-1.51297605, 2.19790564, 6.31507041}
+      sym-polys: [Fraction(7, 1), Fraction(1, 1), Fraction(-21, 1)]
+      mults: [1, 1, 1]
+    degree-3 suite: {-1.12587299, 1.80770370, 10.31816928}
+      sym-polys: [Fraction(11, 1), Fraction(5, 1), Fraction(-21, 1)]
+      mults: [1, 1, 1]
+
+  Irrep sector → eigenvalue mapping:
+  Eigenvalue             mult         carrying irreps (dim,weight)  Schur?
+    λ=-1.79128785           2  E(d=2,w=1.00)                        OK
+    λ=-1.61803399           2  E(d=2,w=1.00)                        OK
+    λ=-1.51297605           1  A1(d=1,w=1.00)                       OK
+    λ=-1.12587299           1  A1(d=1,w=1.00)                       OK
+    λ=0.61803399            2  E(d=2,w=1.00)                        OK
+    λ=1.80770370            1  A1(d=1,w=1.00)                       OK
+    λ=2.19790564            1  A1(d=1,w=1.00)                       OK
+    λ=2.79128785            2  E(d=2,w=1.00)                        OK
+    λ=6.31507041            1  A1(d=1,w=1.00)                       OK
+    λ=10.31816928           1  A1(d=1,w=1.00)                       OK
+  Schur (mult=irrep-dim sum) overall: PASS
+
+  Galois gluing (suite members → same irrep?):
+    suite {-1.791288, 2.791288}: irreps=[{'E'}, {'E'}] same=True
+    suite {-1.618034, 0.618034}: irreps=[{'E'}, {'E'}] same=True
+    suite {-1.512976, 2.197906, 6.315070}: irreps=[{'A1'}, {'A1'}, {'A1'}] same=True
+    suite {-1.125873, 1.807704, 10.318169}: irreps=[{'A1'}, {'A1'}, {'A1'}] same=True
+
+  *** VERDICT: Schur=PASS, Galois-gluing=PASS, Overall=CONFIRMED ***
+
+=================================================================
+SUMMARY (≤35 lines)
+Orbit    LittleGrp Order 20D-decomp                      Schur  Galois   OK
+------------------------------------------------------------------------
+Gamma    Oh          48 2xA1g+2xA2u+1xEg+1xEu+2xT1u+2xT2g   PASS    FAIL    N
+axis     C4v          8 4xA1+2xA2+4xB1+2xB2+4xE          FAIL    PASS    N
+face     C2v          4 6xA1+4xA2+6xB1+4xB2              FAIL    PASS    N
+body     C3v          6 8xA1+6xE                         PASS    PASS    Y
+
+Overall verdict: PARTIAL CONFIRMATION — see details
+Mechanism: stabilizer fixes block structure (Schur: mult=irrep-dim).
+           Galois conjugates glue within same irrep sector across eigenvalues.
