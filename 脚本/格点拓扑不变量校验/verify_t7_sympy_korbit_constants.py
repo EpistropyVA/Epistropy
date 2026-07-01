@@ -301,7 +301,7 @@ def main():
         tr = (G_inv * VTV).trace()
         return sympy.simplify(tr), 6
 
-    result, ok = run_with_timeout(compute_gamma_exact, timeout_sec=300)
+    result, ok = run_with_timeout(compute_gamma_exact, timeout_sec=10)
     if ok and result is not None:
         tr_exact, dim = result
         if dim == 6:
@@ -373,7 +373,7 @@ def main():
             tr_s = sympy.simplify(sympy.expand(tr))
             return ('ok', tr_s)
 
-        result, ok = run_with_timeout(compute_exact_orbit, timeout_sec=300)
+        result, ok = run_with_timeout(compute_exact_orbit, timeout_sec=5)
 
         if ok and result is not None:
             status, val = result

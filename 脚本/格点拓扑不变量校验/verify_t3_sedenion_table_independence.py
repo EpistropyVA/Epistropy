@@ -19,7 +19,9 @@ import numpy as np
 # Import Table A from sedenion_check.py
 # ---------------------------------------------------------------------------
 script_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(script_dir)
 sys.path.insert(0, script_dir)
+sys.path.insert(0, os.path.join(parent_dir, "十六元数零因子几何"))
 
 # sedenion_check has no top-level prints — safe to import directly
 import sedenion_check as sc

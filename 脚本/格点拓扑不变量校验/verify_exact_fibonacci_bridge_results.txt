@@ -193,7 +193,7 @@
       Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
 
   Orbit 3: rep=(0, 1, 1) | size=12 | p=11
-    Charpoly in 0.16s, factored in 0.01s
+    Charpoly in 0.17s, factored in 0.01s
     Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
     Class 2: deg=1 mult=1
       f(x)   = x + 1
@@ -232,7 +232,7 @@
       Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
 
   Orbit 4: rep=(1, 1, 1) | size=8 | p=7
-    Charpoly in 0.18s, factored in 0.00s
+    Charpoly in 0.19s, factored in 0.00s
     Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
     Class 2: deg=2 mult=2 [FIBONACCI QUADRATIC x^2+x+-1]
       f(x)   = x**2 + x - 1
@@ -595,7 +595,7 @@
       Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8
 
   Orbit 2: rep=(0, 0, 1) | size=6 | p=5
-    Charpoly in 0.23s, factored in 0.28s
+    Charpoly in 0.24s, factored in 0.29s
     Class 1: deg=1 mult=3
       f(x)   = x + 1
       f(-3)  = -2
@@ -623,7 +623,7 @@
       Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
 
   Orbit 3: rep=(0, 0, 2) | size=6 | p=5
-    Charpoly in 0.22s, factored in 0.29s
+    Charpoly in 0.23s, factored in 0.29s
     Class 1: deg=1 mult=3
       f(x)   = x + 1
       f(-3)  = -2
@@ -651,7 +651,7 @@
       Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
 
   Orbit 4: rep=(0, 1, 1) | size=12 | p=11
-    Charpoly in 0.35s, factored in 0.30s
+    Charpoly in 0.35s, factored in 0.31s
     Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
     Class 2: deg=1 mult=1
       f(x)   = x + 1
@@ -689,7 +689,7 @@
       Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
 
   Orbit 5: rep=(0, 1, 2) | size=24 | p=23
-    Charpoly in 0.33s, factored in 0.12s
+    Charpoly in 0.34s, factored in 0.12s
     Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
     Class 2: deg=1 mult=1
       f(x)   = x + 1
@@ -755,7 +755,7 @@
       Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
 
   Orbit 7: rep=(1, 1, 1) | size=8 | p=7
-    Charpoly in 0.42s, factored in 0.30s
+    Charpoly in 0.42s, factored in 0.31s
     Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
     Class 2: deg=2 mult=2
       f(x)   = x**2 - x/2 + sqrt(5)*x/2 - 4 + sqrt(5)
@@ -781,7 +781,7 @@
       Fibonacci relation: divisible by F(3)=2, divisible by F(4)=3, divisible by F(6)=8, divisible by F(12)=144
 
   Orbit 8: rep=(1, 1, 2) | size=24 | p=23
-    Charpoly in 0.40s, factored in 0.31s
+    Charpoly in 0.41s, factored in 0.31s
     Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
     Class 2: deg=2 mult=1
       f(x)   = x**2 - x/2 + sqrt(5)*x/2 - 4 + sqrt(5)
@@ -807,7 +807,7 @@
       Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
 
   Orbit 9: rep=(1, 2, 2) | size=24 | p=23
-    Charpoly in 0.40s, factored in 0.32s
+    Charpoly in 0.41s, factored in 0.32s
     Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
     Class 2: deg=2 mult=1
       f(x)   = x**2 - sqrt(5)*x/2 - x/2 - 4 - sqrt(5)
@@ -833,7 +833,7 @@
       Fibonacci relation: divisible by F(3)=2, divisible by F(6)=8
 
   Orbit 10: rep=(2, 2, 2) | size=8 | p=7
-    Charpoly in 0.36s, factored in 0.35s
+    Charpoly in 0.32s, factored in 0.30s
     Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
     Class 2: deg=2 mult=2
       f(x)   = x**2 - sqrt(5)*x/2 - x/2 - 4 - sqrt(5)

@@ -19,116 +19,116 @@
   Orbit 10: rep=(2, 2, 2) | size=8 | p=7 | Norm=2^12·3^4·11·19·29^2·41^2 | bridge=no
 
 [TEST] Verifying L=11 (Riemann-Fano Boundary test)...
-  L=11 Lattice built in 3.37s. Total orbits: 56
-  Orbit  2: rep=(0, 0, 1) | size= 6 | p= 5 | bridge=no (time: 0.4919s)
+  L=11 Lattice built in 4.29s. Total orbits: 56
+  Orbit  2: rep=(0, 0, 1) | size= 6 | p= 5 | bridge=no (time: 0.6264s)
     Norm = 2^80·23^2·43·571·7393
-  Orbit  3: rep=(0, 0, 2) | size= 6 | p= 5 | bridge=no (time: 0.5045s)
+  Orbit  3: rep=(0, 0, 2) | size= 6 | p= 5 | bridge=no (time: 0.6855s)
     Norm = 2^80·23^2·43·571·7393
-  Orbit  4: rep=(0, 0, 3) | size= 6 | p= 5 | bridge=no (time: 0.4847s)
+  Orbit  4: rep=(0, 0, 3) | size= 6 | p= 5 | bridge=no (time: 0.6581s)
     Norm = 2^80·23^2·43·571·7393
-  Orbit  5: rep=(0, 0, 4) | size= 6 | p= 5 | bridge=no (time: 0.4887s)
+  Orbit  5: rep=(0, 0, 4) | size= 6 | p= 5 | bridge=no (time: 0.6551s)
     Norm = 2^80·23^2·43·571·7393
-  Orbit  6: rep=(0, 0, 5) | size= 6 | p= 5 | bridge=no (time: 0.4842s)
+  Orbit  6: rep=(0, 0, 5) | size= 6 | p= 5 | bridge=no (time: 0.7062s)
     Norm = 2^80·23^2·43·571·7393
-  Orbit  7: rep=(0, 1, 1) | size=12 | p=11 | bridge=no (time: 0.5200s)
+  Orbit  7: rep=(0, 1, 1) | size=12 | p=11 | bridge=no (time: 0.7600s)
     Norm = 2^40·23·43·89·353·397·5741·11483·206249
-  Orbit  8: rep=(0, 1, 2) | size=24 | p=23 | bridge=no (time: 0.5231s)
+  Orbit  8: rep=(0, 1, 2) | size=24 | p=23 | bridge=no (time: 0.7350s)
     Norm = 2^40·43·4159·[unfactored>1000000]
-  Orbit  9: rep=(0, 1, 3) | size=24 | p=23 | bridge=no (time: 0.5232s)
+  Orbit  9: rep=(0, 1, 3) | size=24 | p=23 | bridge=no (time: 0.7782s)
     Norm = 2^40·307·[unfactored>1000000]
-  Orbit 10: rep=(0, 1, 4) | size=24 | p=23 | bridge=no (time: 0.5273s)
+  Orbit 10: rep=(0, 1, 4) | size=24 | p=23 | bridge=no (time: 0.7698s)
     Norm = 2^40·307·[unfactored>1000000]
-  Orbit 11: rep=(0, 1, 5) | size=24 | p=23 | bridge=no (time: 0.5178s)
+  Orbit 11: rep=(0, 1, 5) | size=24 | p=23 | bridge=no (time: 0.7657s)
     Norm = 2^40·43·4159·[unfactored>1000000]
-  Orbit 12: rep=(0, 2, 2) | size=12 | p=11 | bridge=no (time: 0.5210s)
+  Orbit 12: rep=(0, 2, 2) | size=12 | p=11 | bridge=no (time: 0.7562s)
     Norm = 2^40·23·43·89·353·397·5741·11483·206249
-  Orbit 13: rep=(0, 2, 3) | size=24 | p=23 | bridge=no (time: 0.5237s)
+  Orbit 13: rep=(0, 2, 3) | size=24 | p=23 | bridge=no (time: 0.6986s)
     Norm = 2^40·307·[unfactored>1000000]
-  Orbit 14: rep=(0, 2, 4) | size=24 | p=23 | bridge=no (time: 0.5194s)
+  Orbit 14: rep=(0, 2, 4) | size=24 | p=23 | bridge=no (time: 0.7292s)
     Norm = 2^40·43·4159·[unfactored>1000000]
-  Orbit 15: rep=(0, 2, 5) | size=24 | p=23 | bridge=no (time: 0.5319s)
+  Orbit 15: rep=(0, 2, 5) | size=24 | p=23 | bridge=no (time: 0.7389s)
     Norm = 2^40·307·[unfactored>1000000]
-  Orbit 16: rep=(0, 3, 3) | size=12 | p=11 | bridge=no (time: 0.5243s)
+  Orbit 16: rep=(0, 3, 3) | size=12 | p=11 | bridge=no (time: 0.7474s)
     Norm = 2^40·23·43·89·353·397·5741·11483·206249
-  Orbit 17: rep=(0, 3, 4) | size=24 | p=23 | bridge=no (time: 0.5249s)
+  Orbit 17: rep=(0, 3, 4) | size=24 | p=23 | bridge=no (time: 0.6934s)
     Norm = 2^40·43·4159·[unfactored>1000000]
-  Orbit 18: rep=(0, 3, 5) | size=24 | p=23 | bridge=no (time: 0.5196s)
+  Orbit 18: rep=(0, 3, 5) | size=24 | p=23 | bridge=no (time: 0.7310s)
     Norm = 2^40·43·4159·[unfactored>1000000]
-  Orbit 19: rep=(0, 4, 4) | size=12 | p=11 | bridge=no (time: 0.5210s)
+  Orbit 19: rep=(0, 4, 4) | size=12 | p=11 | bridge=no (time: 0.7743s)
     Norm = 2^40·23·43·89·353·397·5741·11483·206249
-  Orbit 20: rep=(0, 4, 5) | size=24 | p=23 | bridge=no (time: 0.5207s)
+  Orbit 20: rep=(0, 4, 5) | size=24 | p=23 | bridge=no (time: 0.6907s)
     Norm = 2^40·307·[unfactored>1000000]
-  Orbit 21: rep=(0, 5, 5) | size=12 | p=11 | bridge=no (time: 0.5226s)
+  Orbit 21: rep=(0, 5, 5) | size=12 | p=11 | bridge=no (time: 0.7630s)
     Norm = 2^40·23·43·89·353·397·5741·11483·206249
-  Orbit 22: rep=(1, 1, 1) | size= 8 | p= 7 | bridge=no (time: 0.5239s)
+  Orbit 22: rep=(1, 1, 1) | size= 8 | p= 7 | bridge=no (time: 0.7161s)
     Norm = 2^30·3^10·23^3·43·353^2·571·5741^2
-  Orbit 23: rep=(1, 1, 2) | size=24 | p=23 | bridge=YES (time: 0.5220s)
+  Orbit 23: rep=(1, 1, 2) | size=24 | p=23 | bridge=YES (time: 0.6734s)
     Norm = 2^30·23^2·353·439·1607·5741·184031·1283701
-  Orbit 24: rep=(1, 1, 3) | size=24 | p=23 | bridge=YES (time: 0.5166s)
+  Orbit 24: rep=(1, 1, 3) | size=24 | p=23 | bridge=YES (time: 0.7333s)
     Norm = 2^30·23·67·131·353·1297·5741·24793·13424797
-  Orbit 25: rep=(1, 1, 4) | size=24 | p=23 | bridge=YES (time: 0.5200s)
+  Orbit 25: rep=(1, 1, 4) | size=24 | p=23 | bridge=YES (time: 0.7155s)
     Norm = 2^30·23·43·353·419·5741·[unfactored>1000000]
-  Orbit 26: rep=(1, 1, 5) | size=24 | p=23 | bridge=YES (time: 0.5140s)
+  Orbit 26: rep=(1, 1, 5) | size=24 | p=23 | bridge=YES (time: 0.7601s)
     Norm = 2^30·23·89·353·4621·5303·5741·40063·43889
-  Orbit 27: rep=(1, 2, 2) | size=24 | p=23 | bridge=YES (time: 0.5228s)
+  Orbit 27: rep=(1, 2, 2) | size=24 | p=23 | bridge=YES (time: 0.7371s)
     Norm = 2^30·23·89·353·4621·5303·5741·40063·43889
-  Orbit 28: rep=(1, 2, 3) | size=48 | p=47 | bridge=no (time: 0.5228s)
+  Orbit 28: rep=(1, 2, 3) | size=48 | p=47 | bridge=no (time: 0.7520s)
     Norm = 2^30·131·967·2179·41777·[unfactored>1000000]
-  Orbit 29: rep=(1, 2, 4) | size=48 | p=47 | bridge=no (time: 0.5293s)
+  Orbit 29: rep=(1, 2, 4) | size=48 | p=47 | bridge=no (time: 0.7188s)
     Norm = 2^30·197·397·2969·[unfactored>1000000]
-  Orbit 30: rep=(1, 2, 5) | size=48 | p=47 | bridge=no (time: 0.5274s)
+  Orbit 30: rep=(1, 2, 5) | size=48 | p=47 | bridge=no (time: 0.6307s)
     Norm = 2^30·197·397·2969·[unfactored>1000000]
-  Orbit 31: rep=(1, 3, 3) | size=24 | p=23 | bridge=YES (time: 0.5203s)
+  Orbit 31: rep=(1, 3, 3) | size=24 | p=23 | bridge=YES (time: 0.7029s)
     Norm = 2^30·23·43·353·419·5741·[unfactored>1000000]
-  Orbit 32: rep=(1, 3, 4) | size=48 | p=47 | bridge=no (time: 0.5240s)
+  Orbit 32: rep=(1, 3, 4) | size=48 | p=47 | bridge=no (time: 0.6393s)
     Norm = 2^30·131·967·2179·41777·[unfactored>1000000]
-  Orbit 33: rep=(1, 3, 5) | size=48 | p=47 | bridge=no (time: 0.5257s)
+  Orbit 33: rep=(1, 3, 5) | size=48 | p=47 | bridge=no (time: 0.6105s)
     Norm = 2^30·197·397·2969·[unfactored>1000000]
-  Orbit 34: rep=(1, 4, 4) | size=24 | p=23 | bridge=YES (time: 0.5239s)
+  Orbit 34: rep=(1, 4, 4) | size=24 | p=23 | bridge=YES (time: 0.6784s)
     Norm = 2^30·23·67·131·353·1297·5741·24793·13424797
-  Orbit 35: rep=(1, 4, 5) | size=48 | p=47 | bridge=no (time: 0.5263s)
+  Orbit 35: rep=(1, 4, 5) | size=48 | p=47 | bridge=no (time: 0.6577s)
     Norm = 2^30·131·967·2179·41777·[unfactored>1000000]
-  Orbit 36: rep=(1, 5, 5) | size=24 | p=23 | bridge=YES (time: 0.5287s)
+  Orbit 36: rep=(1, 5, 5) | size=24 | p=23 | bridge=YES (time: 0.6286s)
     Norm = 2^30·23^2·353·439·1607·5741·184031·1283701
-  Orbit 37: rep=(2, 2, 2) | size= 8 | p= 7 | bridge=no (time: 0.5060s)
+  Orbit 37: rep=(2, 2, 2) | size= 8 | p= 7 | bridge=no (time: 0.6286s)
     Norm = 2^30·3^10·23^3·43·353^2·571·5741^2
-  Orbit 38: rep=(2, 2, 3) | size=24 | p=23 | bridge=YES (time: 0.5190s)
+  Orbit 38: rep=(2, 2, 3) | size=24 | p=23 | bridge=YES (time: 0.6009s)
     Norm = 2^30·23·43·353·419·5741·[unfactored>1000000]
-  Orbit 39: rep=(2, 2, 4) | size=24 | p=23 | bridge=YES (time: 0.5275s)
+  Orbit 39: rep=(2, 2, 4) | size=24 | p=23 | bridge=YES (time: 0.6047s)
     Norm = 2^30·23^2·353·439·1607·5741·184031·1283701
-  Orbit 40: rep=(2, 2, 5) | size=24 | p=23 | bridge=YES (time: 0.5194s)
+  Orbit 40: rep=(2, 2, 5) | size=24 | p=23 | bridge=YES (time: 0.6067s)
     Norm = 2^30·23·67·131·353·1297·5741·24793·13424797
-  Orbit 41: rep=(2, 3, 3) | size=24 | p=23 | bridge=YES (time: 0.5218s)
+  Orbit 41: rep=(2, 3, 3) | size=24 | p=23 | bridge=YES (time: 0.6228s)
     Norm = 2^30·23·67·131·353·1297·5741·24793·13424797
-  Orbit 42: rep=(2, 3, 4) | size=48 | p=47 | bridge=no (time: 0.5252s)
+  Orbit 42: rep=(2, 3, 4) | size=48 | p=47 | bridge=no (time: 0.6283s)
     Norm = 2^30·197·397·2969·[unfactored>1000000]
-  Orbit 43: rep=(2, 3, 5) | size=48 | p=47 | bridge=no (time: 0.5265s)
+  Orbit 43: rep=(2, 3, 5) | size=48 | p=47 | bridge=no (time: 0.6616s)
     Norm = 2^30·131·967·2179·41777·[unfactored>1000000]
-  Orbit 44: rep=(2, 4, 4) | size=24 | p=23 | bridge=YES (time: 0.5338s)
+  Orbit 44: rep=(2, 4, 4) | size=24 | p=23 | bridge=YES (time: 0.5949s)
     Norm = 2^30·23·89·353·4621·5303·5741·40063·43889
-  Orbit 45: rep=(2, 4, 5) | size=48 | p=47 | bridge=no (time: 0.5294s)
+  Orbit 45: rep=(2, 4, 5) | size=48 | p=47 | bridge=no (time: 0.6314s)
     Norm = 2^30·131·967·2179·41777·[unfactored>1000000]
-  Orbit 46: rep=(2, 5, 5) | size=24 | p=23 | bridge=YES (time: 0.5271s)
+  Orbit 46: rep=(2, 5, 5) | size=24 | p=23 | bridge=YES (time: 0.6250s)
     Norm = 2^30·23·43·353·419·5741·[unfactored>1000000]
-  Orbit 47: rep=(3, 3, 3) | size= 8 | p= 7 | bridge=no (time: 0.5095s)
+  Orbit 47: rep=(3, 3, 3) | size= 8 | p= 7 | bridge=no (time: 0.5808s)
     Norm = 2^30·3^10·23^3·43·353^2·571·5741^2
-  Orbit 48: rep=(3, 3, 4) | size=24 | p=23 | bridge=YES (time: 0.5165s)
+  Orbit 48: rep=(3, 3, 4) | size=24 | p=23 | bridge=YES (time: 0.6682s)
     Norm = 2^30·23·89·353·4621·5303·5741·40063·43889
-  Orbit 49: rep=(3, 3, 5) | size=24 | p=23 | bridge=YES (time: 0.5193s)
+  Orbit 49: rep=(3, 3, 5) | size=24 | p=23 | bridge=YES (time: 0.6663s)
     Norm = 2^30·23^2·353·439·1607·5741·184031·1283701
-  Orbit 50: rep=(3, 4, 4) | size=24 | p=23 | bridge=YES (time: 0.5286s)
+  Orbit 50: rep=(3, 4, 4) | size=24 | p=23 | bridge=YES (time: 0.6432s)
     Norm = 2^30·23^2·353·439·1607·5741·184031·1283701
-  Orbit 51: rep=(3, 4, 5) | size=48 | p=47 | bridge=no (time: 0.5332s)
+  Orbit 51: rep=(3, 4, 5) | size=48 | p=47 | bridge=no (time: 0.6322s)
     Norm = 2^30·197·397·2969·[unfactored>1000000]
-  Orbit 52: rep=(3, 5, 5) | size=24 | p=23 | bridge=YES (time: 0.5225s)
+  Orbit 52: rep=(3, 5, 5) | size=24 | p=23 | bridge=YES (time: 0.6560s)
     Norm = 2^30·23·89·353·4621·5303·5741·40063·43889
-  Orbit 53: rep=(4, 4, 4) | size= 8 | p= 7 | bridge=no (time: 0.5139s)
+  Orbit 53: rep=(4, 4, 4) | size= 8 | p= 7 | bridge=no (time: 0.5949s)
     Norm = 2^30·3^10·23^3·43·353^2·571·5741^2
-  Orbit 54: rep=(4, 4, 5) | size=24 | p=23 | bridge=YES (time: 0.5160s)
+  Orbit 54: rep=(4, 4, 5) | size=24 | p=23 | bridge=YES (time: 0.6098s)
     Norm = 2^30·23·43·353·419·5741·[unfactored>1000000]
-  Orbit 55: rep=(4, 5, 5) | size=24 | p=23 | bridge=YES (time: 0.5251s)
+  Orbit 55: rep=(4, 5, 5) | size=24 | p=23 | bridge=YES (time: 0.5999s)
     Norm = 2^30·23·67·131·353·1297·5741·24793·13424797
-  Orbit 56: rep=(5, 5, 5) | size= 8 | p= 7 | bridge=no (time: 0.5083s)
+  Orbit 56: rep=(5, 5, 5) | size= 8 | p= 7 | bridge=no (time: 0.6393s)
     Norm = 2^30·3^10·23^3·43·353^2·571·5741^2
 
 ================================================================================

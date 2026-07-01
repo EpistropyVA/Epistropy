@@ -4,7 +4,7 @@
   k-points: 64 | O_h orbits: 10
 
   Orbit 1: rep=(0, 0, 0) | size=1 | p=0
-    Charpoly in 0.02s, factored in 0.09s
+    Charpoly in 0.03s, factored in 0.13s
     Class 1: deg=1 mult=5
       f(x)   = x + 1
       f(-3)  = -2
@@ -28,7 +28,7 @@
       bridge = N/A (Gamma)
 
   Orbit 2: rep=(0, 0, 1) | size=6 | p=5
-    Charpoly in 0.03s, factored in 0.10s
+    Charpoly in 0.04s, factored in 0.12s
     Class 1: deg=1 mult=3
       f(x)   = x + 1
       f(-3)  = -2
@@ -57,7 +57,7 @@
       bridge = no
 
   Orbit 3: rep=(0, 0, 2) | size=3 | p=2
-    Charpoly in 0.01s, factored in 0.09s
+    Charpoly in 0.01s, factored in 0.12s
     Class 1: deg=1 mult=4
       f(x)   = x + 1
       f(-3)  = -2
@@ -86,7 +86,7 @@
       bridge = YES
 
   Orbit 4: rep=(0, 1, 1) | size=12 | p=11
-    Charpoly in 0.03s, factored in 0.11s
+    Charpoly in 0.03s, factored in 0.12s
     Class 1: deg=2 mult=2
       f(x)   = x**2 - 3
       f(-3)  = 6
@@ -115,7 +115,7 @@
       bridge = no
 
   Orbit 5: rep=(0, 1, 2) | size=12 | p=11
-    Charpoly in 0.03s, factored in 0.09s
+    Charpoly in 0.05s, factored in 0.11s
     Class 1: deg=1 mult=2
       f(x)   = x + 1
       f(-3)  = -2
@@ -134,7 +134,7 @@
       bridge = no
 
   Orbit 6: rep=(0, 2, 2) | size=3 | p=2
-    Charpoly in 0.00s, factored in 0.09s
+    Charpoly in 0.01s, factored in 0.13s
     Class 1: deg=1 mult=4
       f(x)   = x + 1
       f(-3)  = -2
@@ -163,7 +163,7 @@
       bridge = YES
 
   Orbit 7: rep=(1, 1, 1) | size=8 | p=7
-    Charpoly in 0.03s, factored in 0.08s
+    Charpoly in 0.04s, factored in 0.12s
     Class 1: deg=2 mult=4
       f(x)   = x**2 - 3
       f(-3)  = 6
@@ -177,7 +177,7 @@
       bridge = no
 
   Orbit 8: rep=(1, 1, 2) | size=12 | p=11
-    Charpoly in 0.03s, factored in 0.11s
+    Charpoly in 0.03s, factored in 0.14s
     Class 1: deg=2 mult=2
       f(x)   = x**2 - 3
       f(-3)  = 6
@@ -206,7 +206,7 @@
       bridge = no
 
   Orbit 9: rep=(1, 2, 2) | size=6 | p=5
-    Charpoly in 0.03s, factored in 0.10s
+    Charpoly in 0.04s, factored in 0.12s
     Class 1: deg=1 mult=3
       f(x)   = x + 1
       f(-3)  = -2
@@ -235,7 +235,7 @@
       bridge = no
 
   Orbit 10: rep=(2, 2, 2) | size=1 | p=0
-    Charpoly in 0.00s, factored in 0.09s
+    Charpoly in 0.01s, factored in 0.11s
     Class 1: deg=1 mult=5
       f(x)   = x + 1
       f(-3)  = -2

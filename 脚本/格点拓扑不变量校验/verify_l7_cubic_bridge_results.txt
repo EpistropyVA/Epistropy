@@ -4,7 +4,7 @@
   k-points: 343 | O_h orbits: 20
 
   Orbit 1: rep=(0, 0, 0) | size=1 | p=0
-    Charpoly in 0.02s, factored in 0.10s (total: 0.17s)
+    Charpoly in 0.02s, factored in 0.11s (total: 0.19s)
     Class 1: deg=1 mult=5
       f(x)   = x + 1
       f(-3)  = -2
@@ -28,7 +28,7 @@
       bridge = N/A (Gamma)
 
   Orbit 2: rep=(0, 0, 1) | size=6 | p=5
-    Charpoly in 0.38s, factored in 4.68s (total: 5.12s)
+    Charpoly in 0.40s, factored in 4.60s (total: 5.06s)
     Class 1: deg=1 mult=3
       f(x)   = x + 1
       f(-3)  = -2
@@ -52,7 +52,7 @@
       bridge = no
 
   Orbit 3: rep=(0, 0, 2) | size=6 | p=5
-    Charpoly in 0.33s, factored in 6.34s (total: 6.73s)
+    Charpoly in 0.32s, factored in 5.94s (total: 6.33s)
     Class 1: deg=1 mult=3
       f(x)   = x + 1
       f(-3)  = -2
@@ -71,7 +71,7 @@
       bridge = no
 
   Orbit 4: rep=(0, 0, 3) | size=6 | p=5
-    Charpoly in 0.33s, factored in 5.84s (total: 6.23s)
+    Charpoly in 0.31s, factored in 5.79s (total: 6.15s)
     Class 1: deg=1 mult=3
       f(x)   = x + 1
       f(-3)  = -2
@@ -90,7 +90,7 @@
       bridge = no
 
   Orbit 5: rep=(0, 1, 1) | size=12 | p=11
-    Charpoly in 0.65s, factored in 14.90s (total: 15.61s)
+    Charpoly in 0.63s, factored in 14.59s (total: 15.28s)
     Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
     Class 2: deg=1 mult=1
       f(x)   = x + 1
@@ -124,7 +124,7 @@
     [Skipped calculation to save time]
 
   Orbit 11: rep=(1, 1, 1) | size=8 | p=7
-    Charpoly in 0.87s, factored in 7.98s (total: 8.92s)
+    Charpoly in 0.81s, factored in 7.94s (total: 8.81s)
     Class 1 [FLAT BAND]: deg=1 mult=6 f(x)=x + 3
     Class 2: deg=14 mult=1
       f(x)   = -6*t**2*x**12 + 36*t**2*x**11 + 45*t**2*x**10 - 774*t**2*x**9 - 171*t**2*x**8 + 6900*t**2*x**7 + 3717*t**2*x**6 - 27486*t**2*x**5 - 28107*t**2*x**4 + 35820*t**2*x**3 + 56826*t**2*x**2 + 7560*t**2*x - 10584*t**2 - 9*t*x**10 - 6*t*x**9 + 125*t*x**8 - 36*t*x**7 - 1131*t*x**6 + 122*t*x**5 + 6327*t*x**4 + 5736*t*x**3 - 8680*t*x**2 - 16128*t*x - 7056*t + x**14 - 18*x**13 + 75*x**12 + 204*x**11 - 1368*x**10 - 708*x**9 + 9580*x**8 - 276*x**7 - 35700*x**6 + 6796*x**5 + 77136*x**4 - 8844*x**3 - 86261*x**2 - 5922*x + 28665
