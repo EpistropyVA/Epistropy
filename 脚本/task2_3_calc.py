@@ -44,6 +44,14 @@ class SimplicialComplex:
             if frozenset({a, b, c}) in self.tri_idx:
                 self.add_tetrahedron(v, a, b, c)
 
+    def copy(self):
+        c = SimplicialComplex()
+        c.vertices = list(self.vertices)
+        c.edge_idx = dict(self.edge_idx)
+        c.tri_idx = dict(self.tri_idx)
+        c.tet_idx = dict(self.tet_idx)
+        return c
+
 
 def g_map(v):
     if v < 8:
