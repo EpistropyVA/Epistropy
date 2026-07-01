@@ -118,7 +118,9 @@ DIM_DATA = OrderedDict([
             "UNKNOWN -- target of investigation. "
             "22 orbits live here as second-order structure. "
             "j-axis = relations BETWEEN relations (orbit coupling). "
-            "Spectral signature 13+/9- from coupling matrix. "
+            "Spectral signature convention-dependent (NOT a fixed invariant): "
+            "(10+,1,11-) under Frobenius/geomean norm (orbit22_coupling_pinned.py), "
+            "(13+,0,9-) under edge-count norm (j_axis_sign_flip.py). "
             "54 = 27x2 = oriented BCs? Or 54 = 540/10? "
             "Or 54 = 6x9 = coordination x orbit-size-class?"
         ),
@@ -408,7 +410,7 @@ def analyze_5d_gap():
                Its spectral signature (13+, 9-) is a new invariant
 
   What 5D has that no other dimension has:
-    -> The 22x22 coupling matrix with signature (13+, 9-)
+    -> The 22x22 coupling matrix (spectral signature convention-dependent, see notes)
     -> j-axis = second-order relational content
     -> The Fiedler value of the orbit graph Laplacian
     -> Cross-orbit coupling (inter-class vs intra-class ratio)
@@ -423,10 +425,12 @@ def analyze_5d_gap():
   Combinatorial quantity that MUST appear at 5D:
     The 22 orbits have size partition: {48:4, 24:12, 12:3, 8:3}
     -> 4 size classes. This is 2^2 = 4 -- quaternion basis dimension?
-    -> 22 orbits span a 22-dim space with spectral signature (13, 9):
-         13 + 9 = 22  (check)
-         13 - 9 = 4   <- this is 2^2 = |quaternion basis|?
-         13 / 9 ~= 1.44 <- near sqrt(2)?
+    -> 22 orbits span a 22-dim space; spectral signature is NOT convention-invariant
+       (see orbit22_coupling_pinned.py / j_axis_sign_flip.py) -- the (13,9) reading
+       below held only for one normalization choice and should not be treated as fixed:
+         13 + 9 = 22  (check, under edge-count norm only)
+         13 - 9 = 4   <- this is 2^2 = |quaternion basis|? (convention-dependent)
+         13 / 9 ~= 1.44 <- near sqrt(2)? (convention-dependent)
 
   Key 54 readings:
     54 = 27 x 2: 27 BCs, oriented (+/-) = 54 oriented body-centers
@@ -495,7 +499,8 @@ def main():
 
   2. WHAT 5D UNIQUELY CONTRIBUTES:
      - Second-order relational structure: coupling matrix over orbit space.
-     - The spectral signature (13+, 9-) = a new conserved quantity.
+     - A spectral signature exists but is convention-dependent (not yet a fixed
+       conserved quantity -- (10+,1,11-) vs (13+,0,9-) depending on normalization).
      - j-axis content: eigenvectors that mix orbit size classes.
      - 5D is the only dimension without a named "famous" geometric object --
        it is purely emergent from the 4D->5D quotient operation.
@@ -504,7 +509,8 @@ def main():
      - The 22x22 coupling matrix with non-trivial spectral structure.
      - A Fiedler value > 0 (algebraic connectivity: 5D is connected).
      - Cross-size-class eigenvectors encoding j-axis content.
-     - The 13+/9- signature matching (n_pos - n_neg = 4 = |quaternion basis|).
+     - A convention-independent spectral signature -- not yet established; current
+       readings (n_pos - n_neg = 4) hold only under specific normalizations.
 
   4. 54 READING:
      54 = 27 x 2 = oriented BCs (most natural reading).
